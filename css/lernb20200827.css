@@ -1719,17 +1719,11 @@ html {
 
 .post-wrap .post-text h2 {
   position: relative;
-  display: inline;
+  display: inline-block;
   /* padding: 5px 5px 0; */
   margin: 0;
   font-size: 23px;
   border-bottom: 1px solid #eaeaea;;
-}
-
-.post-wrap .post-text h2::after {
-  content: '';
-  display: block;
-  height: 23px;
 }
 
 /* 正文h2标题蓝色下划线 */
