@@ -355,9 +355,8 @@ listen    [::]:443 ssl http2;
         index index.html;
     }
 }
-复制代码</code></pre><h3 id="配置文件优化"><a href="#配置文件优化" class="headerlink" title="配置文件优化"></a>配置文件优化</h3><p>为了让更多的二级域名支持上面的功能，每个 server 都这么写太过于繁琐。</p>
-<p>可以将 listen 443 、ssl、add_header 相关的单独写在一个文件上，然后使用 <code>inculde</code> 指令。</p>
-<p>如下：其他的配置都放在了<code>conf.d/https-base.conf</code>中</p>
+复制代码</code></pre><h3 id="配置文件优化"><a href="#配置文件优化" class="headerlink" title="配置文件优化"></a>配置文件优化</h3><p>为了让更多的二级域名支持上面的功能，每个 server 都这么写太过于繁琐，可以将 listen 443 、ssl、add_header 相关的单独写在一个文件上，然后使用 <code>inculde</code> 指令，其他的配置都放在了<code>conf.d/https-base.conf</code>中。</p>
+<p>如下：</p>
 <pre><code>server {
     listen                  8099;
     listen                  [::]:8099;
@@ -460,7 +459,7 @@ listen    [::]:443 ssl http2;
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200909.js');
+    postJs.setAttribute('src', '/js/post-m20200910.js');
   } else {
     postJs.setAttribute('src', '/js/post20200909.js');
   }
