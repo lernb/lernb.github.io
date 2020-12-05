@@ -4,7 +4,7 @@
 .entry-content pre {
   background-color: #f8f8f8;
   border: 1px solid #eee;
-  overflow: hidden;
+  overflow: auto;
   padding: 8px;
   font-size: 12px;
   white-space: pre-wrap;
@@ -28,14 +28,26 @@
 
 .prettyprint .linenums, pre .prettyprint .linenums {
   overflow: auto;
-  -webkit-box-shadow: inset 40px 0 0 #f6f8fa, inset 42px 0 0 #eee;
+  /* -webkit-box-shadow: inset 40px 0 0 #f6f8fa, inset 42px 0 0 #eee;
   -moz-box-shadow: inset 40px 0 0 #f6f8fa, inset 42px 0 0 #eee;
-  box-shadow: inset 40px 0 0 #f6f8fa, inset 42px 0 0 #eee;
+  box-shadow: inset 40px 0 0 #f6f8fa, inset 42px 0 0 #eee; */
+}
+
+.prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
+  background-color: #f6f8fa;
+  width: 0;
+  height: 2px;
+  background-clip: padding-box;
+}
+
+.prettyprint .linenums::-webkit-scrollbar-thumb, pre .prettyprint .linenums::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 3px;
 }
 
 .prettyprint.linenums ol, pre.prettyprint.linenums ol {
   margin: 0 0 0 0;
-  padding-left: 35px;
+  padding: 2px 2px 2px 35px;
 }
 
 .prettyprint.linenums ol li, pre.prettyprint.linenums ol li {
