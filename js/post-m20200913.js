@@ -46,11 +46,9 @@ function scrollFunc() {
   } else if (diffY < 0) {
     // Scroll down
     scrollDirection = 'down';
-    console.log(diffY);
   } else if (diffY > 0) {
     // Scroll up
     scrollDirection = 'up';
-    console.log(diffY);
   } else {
     // First scroll event
   }
