@@ -42,7 +42,7 @@
 
 .prettyprint .linenums::-webkit-scrollbar-thumb, pre .prettyprint .linenums::-webkit-scrollbar-thumb {
   background-color: lightgray;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .prettyprint.linenums ol, pre.prettyprint.linenums ol {

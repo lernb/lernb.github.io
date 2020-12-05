@@ -2161,6 +2161,9 @@ html {
   .post-wrap .post-text {
     font-size: 1.6rem;
   }
+  .prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
+    height: 2px;
+  }
   .m-tit {
     box-sizing: content-box;
     border-left: 6px solid #18a0db;
