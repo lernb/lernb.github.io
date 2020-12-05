@@ -71,13 +71,13 @@ window.addEventListener('scroll', function () {
     var far = pageScroll - topFlag;
     console.log("far：" + far);
     if (far >= 220) {
-      headhead.setAttribute('style', 'position: fixed; top: -74px;');
+      headhead.sestAttribute('style', 'position: fixed; top: -74px; transition: top .4s ease;');
     }
   }
   else if (scrollDirection == 'up') {
     //页面向上滚动
     // console.log("页面向上滚动");
     topFlag = null;
-    headhead.setAttribute('style', 'position: fixed; top: 0;');
+    headhead.setAttribute('style', 'position: fixed; top: 0; transition: top .4s ease;');
   }
 });
