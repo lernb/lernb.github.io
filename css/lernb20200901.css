@@ -2158,6 +2158,9 @@ html {
     max-width: 414px;
     margin: 0 auto;
   }
+  .post-wrap .post .widget {
+    font-size: 1.6rem;
+  }
   .post-wrap .post-text {
     font-size: 1.6rem;
   }
