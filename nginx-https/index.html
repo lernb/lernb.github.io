@@ -240,8 +240,7 @@
         root /var/www/main;
         index index.html;
     }
-}
-复制代码</code></pre><p>使用 <code>http://</code>访问，就会如下显示</p>
+}</code></pre><p>使用 <code>http://</code>访问，就会如下显示</p>
 <p><img src="/img/41651.png" alt="img"></p>
 <h2 id="配置-https"><a href="#配置-https" class="headerlink" title="配置 https"></a>配置 https</h2><h3 id="Https-基础配置"><a href="#Https-基础配置" class="headerlink" title="Https 基础配置"></a>Https 基础配置</h3><pre><code>server {
     listen                  443 ssl;
@@ -255,8 +254,7 @@
         root /var/www/main;
         index index.html;
     }
-}
-复制代码</code></pre><p>重启后，以 <code>https://</code> 开头访问你的网站，就会发现</p>
+}</code></pre><p>重启后，以 <code>https://</code> 开头访问你的网站，就会发现</p>
 <p><img src="/img/141613.png" alt=""></p>
 <h3 id="修改-http-配置"><a href="#修改-http-配置" class="headerlink" title="修改 http 配置"></a>修改 http 配置</h3><p>但是用 <code>http://</code> 访问，仍旧显示连接不安全，我们需要修改配置，当访问 http 时会重定向到 https 如下</p>
 <pre><code>server {
@@ -264,8 +262,7 @@
     server_name     wangsijie.top www.wangsijie.top;
 
     return  301 https://$server_name$request_uri;
-}
-复制代码</code></pre><p>这时再用 <code>http://</code> 访问，就会重定向到 <code>https://</code></p>
+}</code></pre><p>这时再用 <code>http://</code> 访问，就会重定向到 <code>https://</code></p>
 <p>PS:</p>
 <p>网上也有许多使用 <code>rewrite</code> 来重定向，但是 <code>return</code> 指令简单高效，建议尽量使用 <code>return</code></p>
 <h3 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h3><pre><code>server {
@@ -284,8 +281,7 @@ server {
         root /var/www/main;
         index index.html;
     }
-}
-复制代码</code></pre><h3 id="混合配置"><a href="#混合配置" class="headerlink" title="混合配置"></a>混合配置</h3><pre><code>server {
+}</code></pre><h3 id="混合配置"><a href="#混合配置" class="headerlink" title="混合配置"></a>混合配置</h3><pre><code>server {
     listen                  80;
     listen                  443 ssl;
     server_name             wangsijie.top www.wangsijie.top;
@@ -296,11 +292,9 @@ server {
         root /var/www/main;
         index index.html;
     }
-}
-复制代码</code></pre><h2 id="https-安全"><a href="#https-安全" class="headerlink" title="https 安全"></a>https 安全</h2><h3 id="加密套件"><a href="#加密套件" class="headerlink" title="加密套件"></a>加密套件</h3><p>https 默认采用 SHA-1 算法，非常脆弱。我们可以使用<a href="https://zh.wikipedia.org/wiki/迪菲-赫爾曼密鑰交換" target="_blank" rel="noopener">迪菲-赫尔曼密钥交换</a>。</p>
+}</code></pre><h2 id="https-安全"><a href="#https-安全" class="headerlink" title="https 安全"></a>https 安全</h2><h3 id="加密套件"><a href="#加密套件" class="headerlink" title="加密套件"></a>加密套件</h3><p>https 默认采用 SHA-1 算法，非常脆弱。我们可以使用<a href="https://zh.wikipedia.org/wiki/迪菲-赫爾曼密鑰交換" target="_blank" rel="noopener">迪菲-赫尔曼密钥交换</a>。</p>
 <p>我们在 <code>/conf/ssl</code> 目录下生成 <code>dhparam.pem</code> 文件</p>
-<pre><code>openssl dhparam -out dhparam.pem 2048
-复制代码</code></pre><p>下面的指令 <code>ssl_protocols</code> 和 <code>ssl_ciphers</code> 是用来限制连接只包含 SSL/TLS 的加強版本和算法。</p>
+<pre><code>openssl dhparam -out dhparam.pem 2048</code></pre><p>下面的指令 <code>ssl_protocols</code> 和 <code>ssl_ciphers</code> 是用来限制连接只包含 SSL/TLS 的加強版本和算法。</p>
 <pre><code># 优先采取服务器算法
 ssl_prefer_server_ciphers on;
 # 使用 DH 文件
@@ -308,26 +302,22 @@ ssl_dhparam             ssl/dhparam.pem;
 # 协议版本
 ssl_protocols           TLSv1 TLSv1.1 TLSv1.2;
 # 定义算法
-ssl_ciphers            EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
-复制代码</code></pre><h3 id="安全的响应头"><a href="#安全的响应头" class="headerlink" title="安全的响应头"></a>安全的响应头</h3><pre><code># 启用 HSTS 。允许 https 网站要求浏览器总是通过 https 来访问
+ssl_ciphers            EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;</code></pre><h3 id="安全的响应头"><a href="#安全的响应头" class="headerlink" title="安全的响应头"></a>安全的响应头</h3><pre><code># 启用 HSTS 。允许 https 网站要求浏览器总是通过 https 来访问
 add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains;preload&quot; always;
 # 减少点击劫持
 add_header X-Frame-Options DENY;
 # 禁止服务器自动解析资源类型
 add_header X-Content-Type-Options nosniff;
 # 防XSS攻擊
-add_header X-Xss-Protection 1;
-复制代码</code></pre><h2 id="服务器优化"><a href="#服务器优化" class="headerlink" title="服务器优化"></a>服务器优化</h2><pre><code># 配置共享会话缓存大小
+add_header X-Xss-Protection 1;</code></pre><h2 id="服务器优化"><a href="#服务器优化" class="headerlink" title="服务器优化"></a>服务器优化</h2><pre><code># 配置共享会话缓存大小
 ssl_session_cache   shared:SSL:10m;
 # 配置会话超时时间
-ssl_session_timeout 10m;
-复制代码</code></pre><h2 id="http2-配置"><a href="#http2-配置" class="headerlink" title="http2 配置"></a>http2 配置</h2><p>http2 配置很简单，只要后面增加 http2。</p>
+ssl_session_timeout 10m;</code></pre><h2 id="http2-配置"><a href="#http2-配置" class="headerlink" title="http2 配置"></a>http2 配置</h2><p>http2 配置很简单，只要后面增加 http2。</p>
 <p>下面 <code>[::]:</code> 表示 ipv6 的配置，不需要可以不加那一行</p>
 <pre><code>listen  80;
 listen  [::]:80;
 listen    443 ssl http2;
-listen    [::]:443 ssl http2;
-复制代码</code></pre><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><h3 id="完整配置-1"><a href="#完整配置-1" class="headerlink" title="完整配置"></a>完整配置</h3><pre><code>server {
+listen    [::]:443 ssl http2;</code></pre><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><h3 id="完整配置-1"><a href="#完整配置-1" class="headerlink" title="完整配置"></a>完整配置</h3><pre><code>server {
     listen                  80;
     listen                  [::]:80;
     listen                  443 ssl http2;
@@ -354,8 +344,7 @@ listen    [::]:443 ssl http2;
         root /var/www/main;
         index index.html;
     }
-}
-复制代码</code></pre><h3 id="配置文件优化"><a href="#配置文件优化" class="headerlink" title="配置文件优化"></a>配置文件优化</h3><p>为了让更多的二级域名支持上面的功能，每个 server 都这么写太过于繁琐，可以将 listen 443 、ssl、add_header 相关的单独写在一个文件上，然后使用 <code>inculde</code> 指令，其他的配置都放在了<code>conf.d/https-base.conf</code>中。</p>
+}</code></pre><h3 id="配置文件优化"><a href="#配置文件优化" class="headerlink" title="配置文件优化"></a>配置文件优化</h3><p>为了让更多的二级域名支持上面的功能，每个 server 都这么写太过于繁琐，可以将 listen 443 、ssl、add_header 相关的单独写在一个文件上，然后使用 <code>inculde</code> 指令，其他的配置都放在了<code>conf.d/https-base.conf</code>中。</p>
 <p>如下：</p>
 <pre><code>server {
     listen                  8099;
@@ -368,8 +357,7 @@ listen    [::]:443 ssl http2;
         root /var/www/test;
         index index.html;
     }
-}
-复制代码</code></pre><p>以上就完成了Nginx的https配置。</p>
+}</code></pre><p>以上就完成了Nginx的https配置。</p>
 
       </div>
     </div>
