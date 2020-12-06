@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+    Nginx配置https - LERNB
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 技术日志、资源分享,日常生活 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/pretty20200911.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200902.css">
+
+</head>
+
+<body onload="prettyPrint();">
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 63px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/tags" class="hoverLine">标签</a>
+          
+        </li>
+        <li>
+          
+          <a href="/categories" class="hoverLine">分类</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div id="hcata">
+      <ul class="headerMenu">
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/">首页</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/tags">标签</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/categories">分类</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        
+          <div class="bar-item">
+    <div class="t-h">
+      <h3>近期文章</h3>
+    </div>
+    <ul>
+      
+      <!-- <span class="post-date">2020-09-07</span> -->
+      <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+      
+      <!-- <span class="post-date">2020-08-23</span> -->
+      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+      
+      <!-- <span class="post-date">2020-08-22</span> -->
+      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-form/">HTML表单</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-table/">HTML表格标签</a></li>
+      
+    </ul>
+  </div>
+        
+
+        <!-- 分类 -->
+        
+        
+<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3>分类</h3>
+      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget category">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/css3/">css3</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/%E9%97%AE%E9%A2%98/">问题</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+    <!-- <div class="overhi"></div> -->
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+
+        
+
+        <!-- 归档 -->
+        
+
+        <!-- 标签 -->
+        
+        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3 class="widget-title">标签</h3>
+      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 16px; color: #65bbf3">VPS</a> <a href="/tags/Web/" style="font-size: 14px; color: #85caf6">Web</a> <a href="/tags/css/" style="font-size: 18px; color: #46adef">css</a> <a href="/tags/css3/" style="font-size: 16px; color: #65bbf3">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/html/" style="font-size: 22px; color: #0790e8">html</a> <a href="/tags/html5/" style="font-size: 12px; color: #a4d8fa">html5</a> <a href="/tags/inline-block/" style="font-size: 12px; color: #a4d8fa">inline-block</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/position/" style="font-size: 12px; color: #a4d8fa">position</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px; color: #269eec">前端</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 18px; color: #46adef">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 12px; color: #a4d8fa">浮动</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12px; color: #a4d8fa">系统</a> <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">选择器</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E7%9B%BE/" style="font-size: 12px; color: #a4d8fa">阿里云云盾</a>
+    </div>
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+        <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>文章目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+      </div>
+      <!--  -->
+      <div class="post-wrap">
+  <div class="post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>Nginx配置https</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title clearfix">
+        <div class="u-img">
+          <img src="/img/u.jpg" alt="">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-09-07</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://juejin.im/post/6844904063688179720#heading-0" target="_blank" title="来源：掘金">
+
+              <span class="res">源</span><span class="res-link">掘金</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <p>我们首先配置一下http，让我们的网站可以访问起来<a id="more"></a>。</p>
+<h2 id="配置-http"><a href="#配置-http" class="headerlink" title="配置 http"></a>配置 http</h2><h3 id="http-基础配置"><a href="#http-基础配置" class="headerlink" title="http 基础配置"></a>http 基础配置</h3><p>http 的配置很简单，配置如下：</p>
+<pre><code>server {
+    listen  80;
+    server_name     wangsijie.top www.wangsijie.top;
+
+    location / {
+        root /var/www/main;
+        index index.html;
+    }
+}
+复制代码</code></pre><p>使用 <code>http://</code>访问，就会如下显示</p>
+<p><img src="/img/41651.png" alt="img"></p>
+<h2 id="配置-https"><a href="#配置-https" class="headerlink" title="配置 https"></a>配置 https</h2><h3 id="Https-基础配置"><a href="#Https-基础配置" class="headerlink" title="Https 基础配置"></a>Https 基础配置</h3><pre><code>server {
+    listen                  443 ssl;
+    server_name             wangsijie.top www.wangsijie.top;
+    # 证书文件，这里使用了 fullchain.cer 通过 acme.sh 生成的泛域名证书
+    ssl_certificate         ssl/fullchain.cer;
+    # 私钥文件
+    ssl_certificate_key     ssl/wangsijie.top.key;
+
+    location / {
+        root /var/www/main;
+        index index.html;
+    }
+}
+复制代码</code></pre><p>重启后，以 <code>https://</code> 开头访问你的网站，就会发现</p>
+<p><img src="/img/141613.png" alt=""></p>
+<h3 id="修改-http-配置"><a href="#修改-http-配置" class="headerlink" title="修改 http 配置"></a>修改 http 配置</h3><p>但是用 <code>http://</code> 访问，仍旧显示连接不安全，我们需要修改配置，当访问 http 时会重定向到 https 如下</p>
+<pre><code>server {
+    listen  80;
+    server_name     wangsijie.top www.wangsijie.top;
+
+    return  301 https://$server_name$request_uri;
+}
+复制代码</code></pre><p>这时再用 <code>http://</code> 访问，就会重定向到 <code>https://</code></p>
+<p>PS:</p>
+<p>网上也有许多使用 <code>rewrite</code> 来重定向，但是 <code>return</code> 指令简单高效，建议尽量使用 <code>return</code></p>
+<h3 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h3><pre><code>server {
+    listen  80;
+    server_name     wangsijie.top www.wangsijie.top;
+
+    return  301 https://$server_name$request_uri;
+}
+server {
+    listen                  443 ssl;
+    server_name             wangsijie.top www.wangsijie.top;
+    ssl_certificate         ssl/fullchain.cer;
+    ssl_certificate_key     ssl/wangsijie.top.key;
+
+    location / {
+        root /var/www/main;
+        index index.html;
+    }
+}
+复制代码</code></pre><h3 id="混合配置"><a href="#混合配置" class="headerlink" title="混合配置"></a>混合配置</h3><pre><code>server {
+    listen                  80;
+    listen                  443 ssl;
+    server_name             wangsijie.top www.wangsijie.top;
+    ssl_certificate         ssl/fullchain.cer;
+    ssl_certificate_key     ssl/wangsijie.top.key;
+
+    location / {
+        root /var/www/main;
+        index index.html;
+    }
+}
+复制代码</code></pre><h2 id="https-安全"><a href="#https-安全" class="headerlink" title="https 安全"></a>https 安全</h2><h3 id="加密套件"><a href="#加密套件" class="headerlink" title="加密套件"></a>加密套件</h3><p>https 默认采用 SHA-1 算法，非常脆弱。我们可以使用<a href="https://zh.wikipedia.org/wiki/迪菲-赫爾曼密鑰交換" target="_blank" rel="noopener">迪菲-赫尔曼密钥交换</a>。</p>
+<p>我们在 <code>/conf/ssl</code> 目录下生成 <code>dhparam.pem</code> 文件</p>
+<pre><code>openssl dhparam -out dhparam.pem 2048
+复制代码</code></pre><p>下面的指令 <code>ssl_protocols</code> 和 <code>ssl_ciphers</code> 是用来限制连接只包含 SSL/TLS 的加強版本和算法。</p>
+<pre><code># 优先采取服务器算法
+ssl_prefer_server_ciphers on;
+# 使用 DH 文件
+ssl_dhparam             ssl/dhparam.pem;
+# 协议版本
+ssl_protocols           TLSv1 TLSv1.1 TLSv1.2;
+# 定义算法
+ssl_ciphers            EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+复制代码</code></pre><h3 id="安全的响应头"><a href="#安全的响应头" class="headerlink" title="安全的响应头"></a>安全的响应头</h3><pre><code># 启用 HSTS 。允许 https 网站要求浏览器总是通过 https 来访问
+add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains;preload&quot; always;
+# 减少点击劫持
+add_header X-Frame-Options DENY;
+# 禁止服务器自动解析资源类型
+add_header X-Content-Type-Options nosniff;
+# 防XSS攻擊
+add_header X-Xss-Protection 1;
+复制代码</code></pre><h2 id="服务器优化"><a href="#服务器优化" class="headerlink" title="服务器优化"></a>服务器优化</h2><pre><code># 配置共享会话缓存大小
+ssl_session_cache   shared:SSL:10m;
+# 配置会话超时时间
+ssl_session_timeout 10m;
+复制代码</code></pre><h2 id="http2-配置"><a href="#http2-配置" class="headerlink" title="http2 配置"></a>http2 配置</h2><p>http2 配置很简单，只要后面增加 http2。</p>
+<p>下面 <code>[::]:</code> 表示 ipv6 的配置，不需要可以不加那一行</p>
+<pre><code>listen  80;
+listen  [::]:80;
+listen    443 ssl http2;
+listen    [::]:443 ssl http2;
+复制代码</code></pre><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><h3 id="完整配置-1"><a href="#完整配置-1" class="headerlink" title="完整配置"></a>完整配置</h3><pre><code>server {
+    listen                  80;
+    listen                  [::]:80;
+    listen                  443 ssl http2;
+    listen                  [::]:443 ssl http2;
+    server_name             wangsijie.top www.wangsijie.top;
+
+    ssl_certificate         ssl/fullchain.cer;
+    ssl_certificate_key     ssl/wangsijie.top.key;
+
+    ssl_session_cache       shared:SSL:10m;
+    ssl_session_timeout     10m;
+
+    ssl_prefer_server_ciphers on;
+    ssl_dhparam             ssl/dhparam.pem;
+    ssl_protocols           TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers     EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+
+    add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; always;
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Xss-Protection 1;
+
+    location / {
+        root /var/www/main;
+        index index.html;
+    }
+}
+复制代码</code></pre><h3 id="配置文件优化"><a href="#配置文件优化" class="headerlink" title="配置文件优化"></a>配置文件优化</h3><p>为了让更多的二级域名支持上面的功能，每个 server 都这么写太过于繁琐，可以将 listen 443 、ssl、add_header 相关的单独写在一个文件上，然后使用 <code>inculde</code> 指令，其他的配置都放在了<code>conf.d/https-base.conf</code>中。</p>
+<p>如下：</p>
+<pre><code>server {
+    listen                  8099;
+    listen                  [::]:8099;
+    server_name             test.wangsijie.top;
+
+    include                 conf.d/https-base.conf;
+
+    location / {
+        root /var/www/test;
+        index index.html;
+    }
+}
+复制代码</code></pre><p>以上就完成了Nginx的https配置。</p>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+    </div>
+    
+    
+<script src="/js/pretty20200908.js"></script>
+
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    
+    <a href="/flex-examples/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <span class="hoverLine hoverLine-thin">Flex布局实例</span>
+        <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <!-- <span class="post-date">2020-09-07</span> -->
+        <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+        
+        <!-- <span class="post-date">2020-08-23</span> -->
+        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+        
+        <!-- <span class="post-date">2020-08-22</span> -->
+        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- 是否开启文章评论 -->
+  
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  console.log(postJs);
+  if (screen.width < 1236) {
+    console.log('<1236');
+    postJs.setAttribute('src', '/js/post-m20200917.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200909.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2020&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
