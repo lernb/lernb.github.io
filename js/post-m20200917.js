@@ -68,7 +68,7 @@ window.addEventListener('scroll', function () {
     }
     var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
     var far = pageScroll - downFlag;
-    if (far >= 200 && pageScroll >= 200) {
+    if (far >= 100 && pageScroll >= 100) {
       headhead.setAttribute('style', 'position: fixed; top: -74px;');
     }
   }
@@ -81,7 +81,7 @@ window.addEventListener('scroll', function () {
     }
     var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
     var far = pageScroll - upFlag;
-    if (far <= -200) {
+    if (far <= -100) {
       headhead.setAttribute('style', 'position: fixed; top: 0;');
     }
   }
