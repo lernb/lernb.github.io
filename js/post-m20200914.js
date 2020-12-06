@@ -1,7 +1,7 @@
 var pre = document.getElementsByTagName('pre');
 var h2 = document.getElementsByTagName('h2');
 var headhead = document.getElementsByClassName('headhead')[0];
-var topFlag = null;
+var downFlag = null, upFlag = null;
 for (let i = 0; i < pre.length; i++) {
   pre[i].className = 'prettyprint linenums';
 }
@@ -62,19 +62,27 @@ window.addEventListener('scroll', function () {
     //页面向下滚动
     // console.log("页面向下滚动");
     // console.log(headhead);
-    if (topFlag == null) {
-      topFlag = document.body.scrollTop + document.documentElement.scrollTop;
+    upFlag = null;
+    if (downFlag == null) {
+      downFlag = document.body.scrollTop + document.documentElement.scrollTop;
     }
     var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
-    var far = pageScroll - topFlag;
-    if (far >= 220) {
+    var far = pageScroll - downFlag;
+    if (far >= 200) {
       headhead.setAttribute('style', 'position: fixed; top: -74px;');
     }
   }
   else if (scrollDirection == 'up') {
     //页面向上滚动
     // console.log("页面向上滚动");
-    topFlag = null;
-    headhead.setAttribute('style', 'position: fixed; top: 0;');
+    downFlag = null;
+    if (upFlag == null) {
+      upFlag = document.body.scrollTop + document.documentElement.scrollTop;
+    }
+    var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
+    var far = pageScroll - upFlag;
+    if (far <= -200) {
+      headhead.setAttribute('style', 'position: fixed; top: 0;');
+    }
   }
 });
