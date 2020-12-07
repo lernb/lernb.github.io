@@ -1411,6 +1411,10 @@ html {
   overflow: auto;
 }
 
+.bar .post-title-content a:hover::before {
+  width: 0;
+}
+
 .bar .post-title-content::-webkit-scrollbar {
   background-color: white;
   width: 3px;
@@ -1424,7 +1428,7 @@ html {
 }
 
 .bar .post-title-menu {
-  padding-left: 15px;
+  padding-left: 0;
 }
 
 .bar .post-title-menu ul {
@@ -1432,20 +1436,51 @@ html {
 }
 
 .bar .post-title-menu a {
-  display: inline-block;
-  max-width: 260px;
+  display: block;
+  max-width: 100%;
+  padding-left: 4px;
+  margin-bottom: 3px;
+  border-radius: 3px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  vertical-align: bottom;
+  /* vertical-align: bottom; */
   cursor: pointer;
+}
+
+.bar .post-title-menu a:hover {
+  background-color: #ebedef;
+}
+
+.bar .post-title-menu a::before {
+  /* float: left; */
+  content: "\2022";
+  /* margin-left: -15px; */
+  color: #062743bd;
+  margin-right: 8px;
+  position: initial;
+  left: initial;
+  bottom: initial;
+  width: initial;
+  height: initial;
+  background-color: initial;
+  transition: initial;
+  transform: initial;
 }
 
 .bar .post-title-menu>li>a {
   font-weight: bold;
 }
 
+.bar .post-title-menu .aHover {
+  background-color: #ebedef;
+}
+
 .bar .post-title-menu .aHover::before {
+  color: #18a0db;
+}
+
+/* .bar .post-title-menu .aHover::before {
   content: '';
   position: absolute;
   left: 0;
@@ -1455,7 +1490,7 @@ html {
   background-color: #18a0db;
   transition: all .3s ease;
   transform: translateZ(0);
-}
+} */
 
 /* .bar .post-title-menu a:hover {
   color: #18a0db;
@@ -1465,18 +1500,25 @@ html {
   font-size: 13px;
 } */
 
-.bar .post-title-menu li::before {
+/* .bar .post-title-menu li::before {
   float: left;
   margin-left: -15px;
   content: "\2022";
-  color: #18a0db;
-}
+  color: #062743bd;
+} */
 
 .bar .post-title-menu li {
   position: relative;
+  /* background-color: #ebedef;
+  border-radius: 4px;
+  padding-left: 20px; */
 }
 
-.bar .post-title-menu li li:before {
+.bar .post-title-menu .aHoverLi {
+  background-color: #b6b6b6;
+}
+
+/* .bar .post-title-menu li li:before {
   position: absolute;
   top: 50%;
   margin-top: -1px;
@@ -1486,7 +1528,7 @@ html {
   height: 3px;
   border-radius: 50%;
   border: 1px solid #18a0db;
-}
+} */
 
 /* E bar */
 

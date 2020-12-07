@@ -32,7 +32,7 @@ for (let i = 0; i < post.length; i++) {
     // h2目录标题随航文章标题
     let postScroll = document.body.scrollTop + document.documentElement.scrollTop;
     let offsetTop = document.getElementById(h2Id).offsetTop - postScroll;
-    if (offsetTop <= 280) {
+    if (offsetTop <= 100) {
       let mHTitle = document.getElementsByClassName('m-hTitle');
       for (let i = 0; i < mHTitle.length; i++) {
         mHTitle[i].style.color = '#062743bd';
@@ -45,7 +45,7 @@ for (let i = 0; i < post.length; i++) {
       postScroll = document.body.scrollTop + document.documentElement.scrollTop;
       offsetTop = document.getElementById(h2Id).offsetTop - postScroll;
       // let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-      if (offsetTop <= 280) {
+      if (offsetTop <= 100) {
         let mHTitle = document.getElementsByClassName('m-hTitle');
         for (let i = 0; i < mHTitle.length; i++) {
           mHTitle[i].style.color = '#062743bd';
@@ -94,7 +94,7 @@ for (let i = 0; i < post.length; i++) {
     // h3目录标题随航文章标题
     let postScroll = document.body.scrollTop + document.documentElement.scrollTop;
     let offsetTop = document.getElementById(h3Id).offsetTop - postScroll;
-    if (offsetTop <= 280) {
+    if (offsetTop <= 100) {
       let mHTitle = document.getElementsByClassName('m-hTitle');
       for (let i = 0; i < mHTitle.length; i++) {
         mHTitle[i].style.color = '#062743bd';
@@ -107,7 +107,7 @@ for (let i = 0; i < post.length; i++) {
       let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       let postScroll = document.body.scrollTop + document.documentElement.scrollTop;
       let offsetTop = document.getElementById(h3Id).offsetTop - postScroll;
-      if (offsetTop <= 280) {
+      if (offsetTop <= 100) {
         let mHTitle = document.getElementsByClassName('m-hTitle');
         for (let i = 0; i < mHTitle.length; i++) {
           mHTitle[i].style.color = '#062743bd';
@@ -126,15 +126,15 @@ for (let i = 0; i < post.length; i++) {
       //   postScroll = document.body.scrollTop + document.documentElement.scrollTop;
       //   offsetTop = document.getElementById(h3Id).offsetTop - postScroll;
       // });
-      if (offsetTop != 68) {
-        if (offsetTop > 68) {
+      if (offsetTop != 70) {
+        if (offsetTop > 70) {
           window.scrollBy({
-            top: offsetTop - 68,
+            top: offsetTop - 70,
             behavior: "smooth"
           });
-        } else if (offsetTop < 68) {
+        } else if (offsetTop < 70) {
           window.scrollBy({
-            top: offsetTop - 68,
+            top: offsetTop - 70,
             behavior: "smooth"
           });
         }
