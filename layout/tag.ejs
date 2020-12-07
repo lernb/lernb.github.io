@@ -1,0 +1,72 @@
+<!-- 标签具体详情页 -->
+<div class="wrap-bd">
+  <h1 class="tag-hd"><%- page.tag %>&nbsp;<span style="font-size: 22px; color: #ddd;">标签</span></h1>
+
+  <% page.posts.each(function(post, i){ %>
+  <% var year = post.date.year(); %>
+  <!-- <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <%= date(post.date, "YYYY-MM-DD") %><a href="<%- url_for(post.path) %>" class="archive-year"><%= post.title %></a>
+        </div>
+      </section> -->
+  <div class="p-list">
+    <ul>
+      <li class="p-list-item clearfix">
+        <!-- S 文章图片 -->
+        <div class="post-img">
+          <a href="<%- url_for(post.path) %>" title="<%= post.title %>">
+            <div class="overlay"></div>
+            <img src="<%- post.img %>" alt=VPS>
+          </a>
+        </div>
+        <!-- E 文章图片 -->
+        <!-- S 标题内容 -->
+        <div class="content">
+          <!-- S 文章标题 -->
+          <div class="d-pp-h">
+            <h1 class="p-h p-list-item-title"><a href="<%- url_for(post.path) %>"
+                title="<%- post.title %>"><%= post.title %></a></h1>
+          </div>
+          <!-- E 文章标题 -->
+
+          <!-- S 文章信息 -->
+          <div class="post-info">
+            <ul>
+              <li class="date post-info-item">
+                <span><%- date(post.date, "YYYY-MM-DD") %></span>
+              </li>
+            </ul>
+          </div>
+          <!-- E 文章信息 -->
+        </div>
+        <!-- E 标题内容 -->
+        <div class="zy">
+          <%- post.excerpt %><span>...</span><a class="readmore hoverLine hoverLine-thin" href="<%- url_for(post.path) %>">全文</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% }) %>
+  <!-- 底部分页 -->
+  <% if (page.total > 1){ %>
+  <div id="pageNav" style="clear: both;">
+    <% var prev_text = __('上一页');var next_text = __('下一页') %>
+    <%- paginator({
+          prev_text: prev_text,
+          next_text: next_text
+        }) %>
+  </div>
+  <% } %>
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        <% site.posts.sort('date', -1).limit(8).each(function(post){ %>
+        <!-- <span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span> -->
+        <li class="post-item"><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>
