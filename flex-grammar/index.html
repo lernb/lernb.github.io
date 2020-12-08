@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+    Flex布局语法 - LERNB
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 技术日志、资源分享,日常生活 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/pretty20200911.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200905.css">
+
+</head>
+
+<body onload="prettyPrint();">
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 63px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/tags" class="hoverLine">标签</a>
+          
+        </li>
+        <li>
+          
+          <a href="/categories" class="hoverLine">分类</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div id="hcata">
+      <ul class="headerMenu">
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/">首页</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/tags">标签</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/categories">分类</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        
+          <div class="bar-item">
+    <div class="t-h">
+      <h3>近期文章</h3>
+    </div>
+    <ul>
+      
+      <!-- <span class="post-date">2020-09-07</span> -->
+      <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+      
+      <!-- <span class="post-date">2020-08-23</span> -->
+      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+      
+      <!-- <span class="post-date">2020-08-22</span> -->
+      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-form/">HTML表单</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-table/">HTML表格标签</a></li>
+      
+    </ul>
+  </div>
+        
+
+        <!-- 分类 -->
+        
+        
+<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3>分类</h3>
+      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget category">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/css3/">css3</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/%E9%97%AE%E9%A2%98/">问题</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+    <!-- <div class="overhi"></div> -->
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+
+        
+
+        <!-- 归档 -->
+        
+
+        <!-- 标签 -->
+        
+        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3 class="widget-title">标签</h3>
+      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 16px; color: #65bbf3">VPS</a> <a href="/tags/Web/" style="font-size: 14px; color: #85caf6">Web</a> <a href="/tags/css/" style="font-size: 18px; color: #46adef">css</a> <a href="/tags/css3/" style="font-size: 16px; color: #65bbf3">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/html/" style="font-size: 22px; color: #0790e8">html</a> <a href="/tags/html5/" style="font-size: 12px; color: #a4d8fa">html5</a> <a href="/tags/inline-block/" style="font-size: 12px; color: #a4d8fa">inline-block</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/position/" style="font-size: 12px; color: #a4d8fa">position</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px; color: #269eec">前端</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 18px; color: #46adef">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 12px; color: #a4d8fa">浮动</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12px; color: #a4d8fa">系统</a> <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">选择器</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E7%9B%BE/" style="font-size: 12px; color: #a4d8fa">阿里云云盾</a>
+    </div>
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+        <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>标题目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+      </div>
+      <!--  -->
+      <div class="post-wrap">
+  <div class="post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>Flex布局语法</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title clearfix">
+        <div class="u-img">
+          <img src="/img/u.jpg" alt="">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-26</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" title="来源：阮一峰">
+
+              <span class="res">源</span><span class="res-link">阮一峰</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <p>2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局<a id="more"></a>。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+<p><img src="/img/flexsp.jpg" alt=""></p>
+<h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+<p>任何一个容器都可以指定为 Flex 布局。</p>
+<pre><code class="css">.box{
+  display: flex;
+}</code></pre>
+<p>行内元素也可以使用 Flex 布局。</p>
+<pre><code class="css">.box{
+  display: inline-flex;
+}</code></pre>
+<p>Webkit 内核的浏览器，必须加上<code>-webkit</code>前缀。</p>
+<pre><code class="css">.box{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}</code></pre>
+<p>注意，设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p>
+<h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</p>
+<p><img src="/img/flexcontainer.png" alt=""></p>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p>
+<h2 id="三、容器的属性"><a href="#三、容器的属性" class="headerlink" title="三、容器的属性"></a>三、容器的属性</h2><p>以下6个属性设置在容器上。</p>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
+<pre><code class="css">.box {
+  flex-direction: row | row-reverse | column | column-reverse;
+}</code></pre>
+<p><img src="/img/bg2015071005.png" alt=""></p>
+<p>它可能有4个值。</p>
+<ul>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<h3 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p>
+<p><img src="/img/bg2015071006.png" alt=""></p>
+<pre><code class="css">.box{
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}</code></pre>
+<p>它可能取三个值。</p>
+<p>（1）<code>nowrap</code>（默认）：不换行。</p>
+<p><img src="/img/bg2015071007.png" alt=""></p>
+<p>（2）<code>wrap</code>：换行，第一行在上方。</p>
+<p><img src="/img/bg2015071008.jpg" alt=""></p>
+<p>（3）<code>wrap-reverse</code>：换行，第一行在下方。</p>
+<p><img src="/img/bg2015071009.jpg" alt=""></p>
+<h3 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<pre><code class="css">.box {
+  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+}</code></pre>
+<h3 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<pre><code class="css">.box {
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+}</code></pre>
+<p><img src="/img/bg2015071010.png" alt=""></p>
+<p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p>
+<ul>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<h3 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<pre><code class="css">.box {
+  align-items: flex-start | flex-end | center | baseline | stretch;
+}</code></pre>
+<p><img src="/img/bg2015071011.png" alt=""></p>
+<p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p>
+<ul>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h3 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<pre><code class="css">.box {
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}</code></pre>
+<p><img src="/img/bg2015071012.png" alt=""></p>
+<p>该属性可能取6个值。</p>
+<ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+<li><code>center</code>：与交叉轴的中点对齐。</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<h2 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h2><p>以下6个属性设置在项目上。</p>
+<ul>
+<li><code>order</code></li>
+<li><code>flex-grow</code></li>
+<li><code>flex-shrink</code></li>
+<li><code>flex-basis</code></li>
+<li><code>flex</code></li>
+<li><code>align-self</code></li>
+</ul>
+<h3 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<pre><code class="css">.item {
+  order: &lt;integer&gt;;
+}</code></pre>
+<p><img src="/img/bg2015071013.png" alt=""></p>
+<h3 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
+<pre><code class="css">.item {
+  flex-grow: &lt;number&gt;; /* default 0 */
+}</code></pre>
+<p><img src="/img/bg2015071014.png" alt=""></p>
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+<h3 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<pre><code class="css">.item {
+  flex-shrink: &lt;number&gt;; /* default 1 */
+}</code></pre>
+<p><img src="/img/bg2015071015.jpg" alt=""></p>
+<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p>
+<p>负值对该属性无效。</p>
+<h3 id="4-4-flex-basis属性"><a href="#4-4-flex-basis属性" class="headerlink" title="4.4 flex-basis属性"></a>4.4 flex-basis属性</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
+<pre><code class="css">.item {
+  flex-basis: &lt;length&gt; | auto; /* default auto */
+}</code></pre>
+<p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p>
+<h3 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
+<pre><code class="css">.item {
+  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]
+}</code></pre>
+<p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<h3 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
+<pre><code class="css">.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}</code></pre>
+<p><img src="/img/bg2015071016.png" alt=""></p>
+<p>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</p>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/" rel="tag">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/" rel="tag">flex</a></li></ul>
+    </div>
+    
+    
+<script src="/js/pretty20200908.js"></script>
+
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/flex-examples/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption">&lt;&lt;上一篇</strong>
+        
+        <span class="hoverLine hoverLine-thin">Flex布局实例</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/Hexo-Git/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <span class="hoverLine hoverLine-thin">Hexo配置Git部署站点到服务器</span>
+        <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <!-- <span class="post-date">2020-09-07</span> -->
+        <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+        
+        <!-- <span class="post-date">2020-08-23</span> -->
+        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+        
+        <!-- <span class="post-date">2020-08-22</span> -->
+        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- 是否开启文章评论 -->
+  
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  console.log(postJs);
+  if (screen.width < 1236) {
+    console.log('<1236');
+    postJs.setAttribute('src', '/js/post-m20200917.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200910.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2020&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
