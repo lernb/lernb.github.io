@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+    HTML表单 - LERNB
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 技术日志、资源分享,日常生活 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/pretty20200912.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200906.css">
+
+</head>
+
+<body onload="prettyPrint();">
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 63px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/tags" class="hoverLine">标签</a>
+          
+        </li>
+        <li>
+          
+          <a href="/categories" class="hoverLine">分类</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div id="hcata">
+      <ul class="headerMenu">
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/">首页</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/tags">标签</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/categories">分类</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        
+          <div class="bar-item">
+    <div class="t-h">
+      <h3>近期文章</h3>
+    </div>
+    <ul>
+      
+      <!-- <span class="post-date">2020-09-07</span> -->
+      <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+      
+      <!-- <span class="post-date">2020-08-23</span> -->
+      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+      
+      <!-- <span class="post-date">2020-08-22</span> -->
+      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-form/">HTML表单</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-table/">HTML表格标签</a></li>
+      
+    </ul>
+  </div>
+        
+
+        <!-- 分类 -->
+        
+        
+<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3>分类</h3>
+      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget category">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/css3/">css3</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/%E9%97%AE%E9%A2%98/">问题</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+    <!-- <div class="overhi"></div> -->
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+
+        
+
+        <!-- 归档 -->
+        
+
+        <!-- 标签 -->
+        
+        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3 class="widget-title">标签</h3>
+      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 16px; color: #65bbf3">VPS</a> <a href="/tags/Web/" style="font-size: 14px; color: #85caf6">Web</a> <a href="/tags/css/" style="font-size: 18px; color: #46adef">css</a> <a href="/tags/css3/" style="font-size: 16px; color: #65bbf3">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/html/" style="font-size: 22px; color: #0790e8">html</a> <a href="/tags/html5/" style="font-size: 12px; color: #a4d8fa">html5</a> <a href="/tags/inline-block/" style="font-size: 12px; color: #a4d8fa">inline-block</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/position/" style="font-size: 12px; color: #a4d8fa">position</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px; color: #269eec">前端</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 18px; color: #46adef">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 12px; color: #a4d8fa">浮动</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12px; color: #a4d8fa">系统</a> <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">选择器</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E7%9B%BE/" style="font-size: 12px; color: #a4d8fa">阿里云云盾</a>
+    </div>
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+        <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>标题目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+      </div>
+      <!--  -->
+      <div class="post-wrap">
+  <div class="post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>HTML表单</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title clearfix">
+        <div class="u-img">
+          <img src="/img/u.jpg" alt="">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-20</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h2><p>实际网页中的表单效果，如下图<a id="more"></a></p>
+<p><img src="/img/bdd.png" alt=""></p>
+<p><strong>作用：</strong></p>
+<p>表单目的是为了收集用户信息。在我们网页中， 我们也需要跟用户进行交互，收集用户资料，此时也需要表单。</p>
+<blockquote>
+<p>在HTML中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域3个部分构成。</p>
+</blockquote>
+<p><strong>表单控件：</strong></p>
+<p>包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</p>
+<p><strong>提示信息：</strong></p>
+<p>一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</p>
+<p><strong>表单域：</strong>  </p>
+<p>他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</p>
+<h2 id="input-控件"><a href="#input-控件" class="headerlink" title="input 控件"></a>input 控件</h2><ul>
+<li><p>语法：</p>
+<pre><code class="html">&lt;input type=&quot;属性值&quot; value=&quot;你好&quot;&gt;</code></pre>
+<ul>
+<li>input 输入的意思 </li>
+<li>&lt;input /&gt;标签为单标签</li>
+<li>type属性设置不同的属性值用来指定不同的控件类型</li>
+<li>除了type属性还有别的属性</li>
+</ul>
+</li>
+<li><p>常用属性：</p>
+</li>
+</ul>
+<p><img src="/img/input.png" alt=""></p>
+<h3 id="type属性"><a href="#type属性" class="headerlink" title="type属性"></a><code>type</code>属性</h3><ul>
+<li>这个属性通过改变值，可以决定了你属于那种input表单。</li>
+<li>比如 type = ‘text’  就表示 文本框 可以做 用户名， 昵称等。</li>
+<li>比如 type = ‘password’  就是表示密码框   用户输入的内容 是不可见的。</li>
+</ul>
+<pre><code class="html">用户名: &lt;input type=&quot;text&quot; /&gt; 
+密  码：&lt;input type=&quot;password&quot; /&gt;</code></pre>
+<h3 id="value属性"><a href="#value属性" class="headerlink" title="value属性"></a><code>value</code>属性</h3><pre><code class="html">用户名:&lt;input type=&quot;text&quot;  name=&quot;username&quot; value=&quot;请输入用户名&quot;&gt; </code></pre>
+<ul>
+<li>value 默认的文本值。 有些表单想刚打开页面就默认显示几个文字，就可以通过这个value 来设置。</li>
+</ul>
+<h3 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a><code>name</code>属性</h3><pre><code class="html">用户名:&lt;input type=&quot;text&quot;  name=“username” /&gt;  </code></pre>
+<p>name表单的名字， 这样，后台可以通过这个name属性找到这个表单。  页面中的表单很多，name主要作用就是用于区别不同的表单。</p>
+<ul>
+<li>name属性后面的值，是我们自己定义的。</li>
+</ul>
+<ul>
+<li>radio  如果是一组，我们必须给他们命名相同的名字 name   这样就可以多个选其中的一个啦</li>
+</ul>
+<pre><code class="html">&lt;input type=&quot;radio&quot; name=&quot;sex&quot;  /&gt;男
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; /&gt;女</code></pre>
+<ul>
+<li>name属性，我们现在用的较少， 但是，当我们学ajax 和后台的时候，是必须的。</li>
+</ul>
+<h3 id="checked属性"><a href="#checked属性" class="headerlink" title="checked属性"></a><code>checked</code>属性</h3><ul>
+<li>表示默认选中状态。  较常见于 单选按钮和复选按钮。</li>
+</ul>
+<pre><code class="html">性别:
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;男&quot; checked=&quot;checked&quot; /&gt;男
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;女&quot; /&gt;女 </code></pre>
+<p>上面这个，表示就默认选中了“男”这个单选按钮</p>
+<h3 id="input属性小结"><a href="#input属性小结" class="headerlink" title="input属性小结"></a><code>input</code>属性小结</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">说明</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td align="left">表单类型</td>
+<td>用来指定不同的控件类型</td>
+</tr>
+<tr>
+<td>value</td>
+<td align="left">表单值</td>
+<td>表单里面默认显示的文本</td>
+</tr>
+<tr>
+<td>name</td>
+<td align="left">表单名字</td>
+<td>页面中的表单很多，name主要作用就是用于区别不同的表单。</td>
+</tr>
+<tr>
+<td>checked</td>
+<td align="left">默认选中</td>
+<td>表示那个单选或者复选按钮一开始就被选中了</td>
+</tr>
+</tbody></table>
+<h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p><strong>概念：</strong></p>
+<p>label 标签为 input 元素定义标注（标签）。</p>
+<p><strong>作用：</strong> </p>
+<p> 用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点。</p>
+<p><strong>绑定元素</strong></p>
+<ol>
+<li>第一种用法就是用label直接包括input表单。</li>
+</ol>
+<pre><code class="html">&lt;label&gt; 用户名： &lt;input type=&quot;radio&quot; name=&quot;usename&quot; value=&quot;请输入用户名&quot;&gt;   &lt;/label&gt;</code></pre>
+<p>   适合单个表单选择</p>
+<ol start="2">
+<li>第二种用法 for 属性规定 label 与哪个表单元素绑定。</li>
+</ol>
+<pre><code class="html">&lt;label for=&quot;sex&quot;&gt;男&lt;/label&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot;  id=&quot;sex&quot;&gt;</code></pre>
+<blockquote>
+<p> 当鼠标点击<code>label</code>标签里面的文字时，光标会定位到指定的表单里面。</p>
+</blockquote>
+<h2 id="textarea控件-文本域"><a href="#textarea控件-文本域" class="headerlink" title="textarea控件(文本域)"></a><code>textarea</code>控件(文本域)</h2><p><img src="/img/textarea.png" alt=""></p>
+<ul>
+<li>语法：</li>
+</ul>
+<pre><code class="html">&lt;textarea &gt;
+  文本内容
+&lt;/textarea&gt;</code></pre>
+<ul>
+<li><p>作用：</p>
+<p>通过textarea控件可以轻松地创建多行文本输入框.</p>
+<p><code>cols=&quot;每行中的字符数&quot;</code>、<code>rows=&quot;显示的行数&quot;</code>实际开发不用</p>
+</li>
+</ul>
+<h3 id="文本框和文本域区别"><a href="#文本框和文本域区别" class="headerlink" title="文本框和文本域区别"></a>文本框和文本域区别</h3><table>
+<thead>
+<tr>
+<th align="left">表单</th>
+<th align="center">名称</th>
+<th align="center">区别</th>
+<th align="right">默认值显示</th>
+<th align="right">用于场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">input type=”text”</td>
+<td align="center">文本框</td>
+<td align="center">只能显示一行文本</td>
+<td align="right">单标签，通过value显示默认值</td>
+<td align="right">用户名、昵称、密码等</td>
+</tr>
+<tr>
+<td align="left">textarea</td>
+<td align="center">文本域</td>
+<td align="center">可以显示多行文本</td>
+<td align="right">双标签，默认值写到标签中间</td>
+<td align="right">留言板</td>
+</tr>
+</tbody></table>
+<h2 id="select下拉列表"><a href="#select下拉列表" class="headerlink" title="select下拉列表"></a>select下拉列表</h2><p><strong>目的：</strong></p>
+<p>如果有多个选项让用户选择，为了节约空间，我们可以使用select控件定义下拉列表.</p>
+<p><img src="/img/sele.png" alt=""></p>
+<p><strong>语法：</strong></p>
+<pre><code class="html">&lt;select&gt;
+  &lt;option&gt;选项1&lt;/option&gt;
+  &lt;option&gt;选项2&lt;/option&gt;
+  &lt;option&gt;选项3&lt;/option&gt;
+  ...
+&lt;/select&gt;</code></pre>
+<blockquote>
+<p><strong>注意：</strong></p>
+<ol>
+<li>&lt;select&gt;  中至少包含一对 option </li>
+<li>在option 中定义selected =” selected “时，当前项即为默认选中项。</li>
+<li>但是我们实际开发会用的比较少</li>
+</ol>
+</blockquote>
+<h2 id="form表单域"><a href="#form表单域" class="headerlink" title="form表单域"></a>form表单域</h2><ul>
+<li><p>收集的用户信息怎么传递给服务器？</p>
+<p>通过form表单域</p>
+</li>
+<li><p>目的：</p>
+<p>在HTML中，form标签被用于定义表单域，以实现用户信息的收集和传递，form中的所有内容都会被提交给服务器。</p>
+</li>
+</ul>
+<p><strong>语法：</strong></p>
+<pre><code class="html">&lt;form action=&quot;url地址&quot; method=&quot;提交方式&quot; name=&quot;表单名称&quot;&gt;
+  各种表单控件
+&lt;/form&gt;</code></pre>
+<p><strong>常用属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">属性值</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td align="left">url地址</td>
+<td>用于指定接收并处理表单数据的服务器程序的url地址。</td>
+</tr>
+<tr>
+<td>method</td>
+<td align="left">get/post</td>
+<td>用于设置表单数据的提交方式，其取值为get或post。</td>
+</tr>
+<tr>
+<td>name</td>
+<td align="left">名称</td>
+<td>用于指定表单的名称，以区分同一个页面中的多个表单。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>注意:</strong>  </p>
+<p>每个表单都应该有自己表单域。我们现在做页面，不写看不到效果，但是 如果后面学 ajax 后台交互的时候，必须需要 form表单域。</p>
+</blockquote>
+<h3 id="元素属性"><a href="#元素属性" class="headerlink" title="元素属性"></a>元素属性</h3><ul>
+<li>元素属性值使用双引号语法</li>
+<li>元素属性值可以写上的都写上</li>
+</ul>
+<p>推荐：</p>
+<pre><code class="html">&lt;input type=&quot;text&quot; /&gt;    
+&lt;input type=&quot;radio&quot; name=&quot;name&quot; checked=&quot;checked&quot; /&gt;</code></pre>
+<p>不推荐：</p>
+<pre><code class="html">&lt;input type=text  /&gt;    
+&lt;input type=&#39;text&#39; /&gt;    
+&lt;input type=&quot;radio&quot; name=&quot;name&quot; checked /&gt;</code></pre>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+    </div>
+    
+    
+<script src="/js/pretty20200908.js"></script>
+
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/HTML5-tag/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption">&lt;&lt;上一篇</strong>
+        
+        <span class="hoverLine hoverLine-thin">HTML5新增标签</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/HTML-table/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <span class="hoverLine hoverLine-thin">HTML表格标签</span>
+        <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <!-- <span class="post-date">2020-09-07</span> -->
+        <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+        
+        <!-- <span class="post-date">2020-08-23</span> -->
+        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+        
+        <!-- <span class="post-date">2020-08-22</span> -->
+        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- 是否开启文章评论 -->
+  
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  console.log(postJs);
+  if (screen.width < 1236) {
+    console.log('<1236');
+    postJs.setAttribute('src', '/js/post-m20200917.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200910.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2020&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
