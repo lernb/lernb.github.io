@@ -1823,14 +1823,14 @@ html {
 }
 
 .post-wrap .post-text code {
-  padding: 3px 8px;
+  padding: 2px 6px;
   margin: 0 2px 0;
   color: #666;
   background-color: #1b1f230d;
   border-radius: 6px;
   white-space: nowrap;
-  font-size: 14px;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 16px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
 }
 
 .post .post-text .prettyprint code {
@@ -1839,15 +1839,17 @@ html {
   border: hidden;
   background-color: #f6f8fa;
   white-space: pre;
+  word-wrap: normal;
+  word-break: normal;
 }
 
 .post-wrap .post .post-text pre {
   padding: 3px 0;
   margin: 0 0 25px 0;
   background-color: #f6f8fa;
-  word-break: break-all;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  /* word-break: break-all; */
+  white-space: nowrap;
+  /* word-wrap: break-word; */
   font-size: 14px;
   font-family: "Microsoft YaHei", "PingFang SC", "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
