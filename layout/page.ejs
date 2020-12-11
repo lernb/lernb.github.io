@@ -1,0 +1,47 @@
+<div class="post-wrap">
+  <!-- 标签详情页 -->
+  <% if (page.type == 'tags'){ %>
+  <% if (site.tags.length){ %>
+  <div class="post">
+    <div class="post-con">
+      <div class="widget-wrap">
+        <div class="t-h">
+          <h1 class="widget-title">标签</h1>
+        </div>
+        <div class="widget tagcloud">
+          <%- tagcloud({min_font: 12, max_font: 30, color: true, start_color: '#A4D8FA', end_color: '#0790E8'}) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+  <!-- 分类详情页 -->
+  <% } else if (page.type == 'categories') { %>
+  <% if (site.categories.length){ %>
+  <div class="post">
+    <div class="post-con">
+      <div class="widget-wrap">
+        <div class="t-h">
+          <h1 class="widget-title">分类</h1>
+        </div>
+        <div class="widget">
+          <%- list_categories({show_count: theme.showCount}) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+  <% } %>
+  <!-- 移动端底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        <% site.posts.sort('date', -1).limit(8).each(function(post){ %>
+        <!-- <span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span> -->
+        <li class="post-item"><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>
