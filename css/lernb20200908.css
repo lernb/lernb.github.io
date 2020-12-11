@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* S index */
+@font-face {
+  font-family: cmFont;
+  src: url('/asset/cm.ttf');
+}
 
 .p-list {
   width: 850px;
@@ -1830,7 +1834,7 @@ html {
   border-radius: 6px;
   white-space: nowrap;
   font-size: 16px;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+  font-family: cmFont !important;
 }
 
 .post .post-text .prettyprint code {
