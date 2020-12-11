@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+    HTML表格标签 - LERNB
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 技术日志、资源分享,日常生活 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/pretty20200912.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200908.css">
+
+</head>
+
+<body onload="prettyPrint();">
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 63px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/tags" class="hoverLine">标签</a>
+          
+        </li>
+        <li>
+          
+          <a href="/categories" class="hoverLine">分类</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div id="hcata">
+      <ul class="headerMenu">
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/">首页</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/tags">标签</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/categories">分类</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        
+          <div class="bar-item">
+    <div class="t-h">
+      <h3>近期文章</h3>
+    </div>
+    <ul>
+      
+      <!-- <span class="post-date">2020-09-07</span> -->
+      <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+      
+      <!-- <span class="post-date">2020-08-23</span> -->
+      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+      
+      <!-- <span class="post-date">2020-08-22</span> -->
+      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-form/">HTML表单</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/HTML-table/">HTML表格标签</a></li>
+      
+    </ul>
+  </div>
+        
+
+        <!-- 分类 -->
+        
+        
+<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3>分类</h3>
+      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget category">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/css3/">css3</a><span class="category-list-count">5</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/%E9%97%AE%E9%A2%98/">问题</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+    <!-- <div class="overhi"></div> -->
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+
+        
+
+        <!-- 归档 -->
+        
+
+        <!-- 标签 -->
+        
+        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3 class="widget-title">标签</h3>
+      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 16px; color: #65bbf3">VPS</a> <a href="/tags/Web/" style="font-size: 14px; color: #85caf6">Web</a> <a href="/tags/css/" style="font-size: 18px; color: #46adef">css</a> <a href="/tags/css3/" style="font-size: 16px; color: #65bbf3">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/html/" style="font-size: 22px; color: #0790e8">html</a> <a href="/tags/html5/" style="font-size: 12px; color: #a4d8fa">html5</a> <a href="/tags/inline-block/" style="font-size: 12px; color: #a4d8fa">inline-block</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/position/" style="font-size: 12px; color: #a4d8fa">position</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px; color: #269eec">前端</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 18px; color: #46adef">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a> <a href="/tags/%E6%B5%AE%E5%8A%A8/" style="font-size: 12px; color: #a4d8fa">浮动</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 12px; color: #a4d8fa">系统</a> <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">选择器</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E7%9B%BE/" style="font-size: 12px; color: #a4d8fa">阿里云云盾</a>
+    </div>
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+        <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>标题目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+      </div>
+      <!--  -->
+      <div class="post-wrap">
+  <div class="post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>HTML表格标签</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title clearfix">
+        <div class="u-img">
+          <img src="/img/u.jpg" alt="">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-20</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h2><p><strong>创建表格的基本语法：</strong><a id="more"></a></p>
+<pre><code class="html">&lt;table&gt;
+  &lt;tr&gt;  
+    &lt;th&gt;表头&lt;/th&gt;
+    ...
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;单元格内的文字&lt;/td&gt;
+    ...
+  &lt;/tr&gt;
+  ...
+&lt;/table&gt;</code></pre>
+<p>在上面的语法中包含基本的三对HTML标签，分别为<code>table</code>、<code>tr</code>、<code>td</code> ，他们是创建表格的基本标签，缺一不可，下面对他们进行具体地解释</p>
+<ol>
+<li><code>table</code>用于定义一个表格标签。</li>
+<li><code>tr</code>标签 用于定义表格中的行，必须嵌套在 <code>table</code>标签中。</li>
+<li><code>td</code> 用于定义表格中的单元格，必须嵌套在<code>&lt;tr&gt;&lt;/tr&gt;</code>标签中。</li>
+<li>字母 <code>td</code> 指表格数据（table data），即数据单元格的内容，现在我们明白，表格最合适的地方就是用来存储数据的。</li>
+</ol>
+<p><img src="/img/table%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.jpg" alt=""></p>
+<blockquote>
+<p><strong>总结：</strong></p>
+<ul>
+<li>表格的主要目的是用来显示特殊数据的</li>
+<li>一个完整的表格有表格标签（table），行标签（tr），单元格标签（td）组成，没有列的标签</li>
+</ul>
+<ul>
+<li><tr></tr>中只能嵌套<td></td> 类的单元格</li>
+<li><td></td>标签，他就像一个容器，可以容纳所有的元素
+</li>
+</ul>
+</blockquote>
+<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><p>表格有部分属性我们不常用，这里重点记住<code>cellspacing</code>、<code>cellpadding</code>。</p>
+<p><img src="/img/tt.png" alt=""></p>
+<p>我们经常有个说法，是三参为0，平时开发的我们这三个参数 <code>border</code>、 <code>cellpadding</code>、 <code>cellspacing</code> 为<code>0</code>。</p>
+<p><img src="/img/table%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7.png" alt=""></p>
+<p><strong>案例1：</strong></p>
+<p><img src="/img/%E8%A1%A8%E6%A0%BC%E6%95%88%E6%9E%9C01.png" alt=""></p>
+<pre><code class="html">&lt;table width=&quot;500&quot; height=&quot;300&quot; border=&quot;1&quot; cellpadding=&quot;20&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
+   &lt;tr&gt;  &lt;th&gt;姓名&lt;/th&gt;   &lt;th&gt;性别&lt;/th&gt; &lt;th&gt;年龄&lt;/th&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;刘德华&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;55&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;郭富城&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;52&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;张学友&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;58&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;黎明&lt;/td&gt;   &lt;td&gt;男&lt;/td&gt; &lt;td&gt;18&lt;/td&gt;  &lt;/tr&gt;
+   &lt;tr&gt;  &lt;td&gt;刘晓庆&lt;/td&gt; &lt;td&gt;女&lt;/td&gt; &lt;td&gt;63&lt;/td&gt;  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+<h2 id="表头单元格标签th"><a href="#表头单元格标签th" class="headerlink" title="表头单元格标签th"></a>表头单元格标签<code>th</code></h2><ul>
+<li><p>作用：</p>
+<ul>
+<li>一般表头单元格位于表格的第一行或第一列，并且文本加粗居中</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<ul>
+<li>只需用表头标签<code>&lt;th&gt;&lt;/th&gt;</code>替代相应的单元格标签<code>&lt;td&gt;&lt;/td&gt;</code>即可。 </li>
+</ul>
+<p><img src="/img/th.png" alt=""></p>
+</li>
+</ul>
+<p><strong>案例2：</strong></p>
+<p>​    效果图</p>
+<p><img src="/img/tht.png" alt=""></p>
+<p>​    代码：</p>
+<hr>
+<pre><code class="html">&lt;table width=&quot;500&quot; border=&quot;1&quot; align=&quot;center&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+        &lt;tr&gt;  
+            &lt;th&gt;姓名&lt;/th&gt; 
+            &lt;th&gt;性别&lt;/th&gt;
+            &lt;th&gt;电话&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;小王&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+            &lt;td&gt;110&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;小明&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+            &lt;td&gt;120&lt;/td&gt;
+        &lt;/tr&gt;    
+    &lt;/table&gt;</code></pre>
+<blockquote>
+<p><code>th</code>也是一个单元格，只不过和普通的<code>td</code>单元格不一样，它会让自己里面的文字居中且加粗</p>
+</blockquote>
+<h2 id="表格标题caption"><a href="#表格标题caption" class="headerlink" title="表格标题caption"></a>表格标题<code>caption</code></h2><p><strong>定义和用法：</strong></p>
+<pre><code class="html">&lt;table&gt;
+   &lt;caption&gt;我是表格标题&lt;/caption&gt;
+&lt;/table&gt;</code></pre>
+<blockquote>
+<p><strong>注意：</strong></p>
+<ol>
+<li><code>caption</code>元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</li>
+<li><code>caption</code>标签必须紧随 <code>table</code> 标签之后。</li>
+<li>这个标签只存在表格里面才有意义。</li>
+</ol>
+</blockquote>
+<h2 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h2><p>合并单元格是我们比较常用的一个操作，但是不会合并的很复杂。</p>
+<h3 id="合并单元格2种方式"><a href="#合并单元格2种方式" class="headerlink" title="合并单元格2种方式"></a>合并单元格2种方式</h3><ul>
+<li>跨行合并：<code>rowspan=&quot;合并单元格的个数&quot;</code></li>
+<li>跨列合并：<code>colspan=&quot;合并单元格的个数&quot;</code></li>
+</ul>
+<h3 id="合并单元格顺序"><a href="#合并单元格顺序" class="headerlink" title="合并单元格顺序"></a>合并单元格顺序</h3><blockquote>
+<p>合并的顺序按照<strong>先上后下，先左后右</strong>的顺序</p>
+</blockquote>
+<p>跟我们以前学习汉字的书写顺序完全一致。</p>
+<h3 id="合并单元格三步曲"><a href="#合并单元格三步曲" class="headerlink" title="合并单元格三步曲"></a>合并单元格三步曲</h3><ol>
+<li>先确定是跨行还是跨列合并</li>
+<li>根据 先上 后下   先左  后右的原则找到目标单元格    然后写上 合并方式 还有 要合并的单元格数量  比如 ： <code>&lt;td colspan=&quot;3&quot;&gt;&lt;/td&gt;</code></li>
+<li>删除多余的单元格 单元格      </li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>标签名</th>
+<th align="left">定义</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;table&gt;&lt;/table&gt;</code></td>
+<td align="left">表格标签</td>
+<td align="left">就是一个四方的盒子</td>
+</tr>
+<tr>
+<td><code>&lt;tr&gt;&lt;/tr&gt;</code></td>
+<td align="left">表格行标签</td>
+<td align="left">行标签要再table标签内部才有意义</td>
+</tr>
+<tr>
+<td><code>&lt;td&gt;&lt;/td&gt;</code></td>
+<td align="left">单元格标签</td>
+<td align="left">单元格标签是个容器级元素，可以放任何东西</td>
+</tr>
+<tr>
+<td><code>&lt;th&gt;&lt;/th&gt;</code></td>
+<td align="left">表头单元格标签</td>
+<td align="left">它还是一个单元格，但是里面的文字会居中且加粗</td>
+</tr>
+<tr>
+<td><code>&lt;caption&gt;&lt;/caption&gt;</code></td>
+<td align="left">表格标题标签</td>
+<td align="left">表格的标题，跟着表格一起走，和表格居中对齐</td>
+</tr>
+<tr>
+<td><code>clospan</code> 和 <code>rowspan</code></td>
+<td align="left">合并属性</td>
+<td align="left">用来合并单元格的</td>
+</tr>
+</tbody></table>
+<ol>
+<li>表格提供了HTML 中定义表格式数据的方法。</li>
+<li>表格中由行中的单元格组成。</li>
+<li>表格中没有列元素，列的个数取决于行的单元格个数。</li>
+</ol>
+<h2 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h2><h3 id="表格划分结构"><a href="#表格划分结构" class="headerlink" title="表格划分结构"></a>表格划分结构</h3><blockquote>
+<p>对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用<code>thead</code>、<code>tbody</code>、<code>tfoot</code>来标注， 这样更好的分清表格结构</p>
+</blockquote>
+<p><img src="/img/thead.png" alt=""></p>
+<blockquote>
+<p><strong>注意：</strong></p>
+<ol>
+<li><code>&lt;thead&gt;&lt;/thead&gt;</code>：用于定义表格的头部。用来放标题之类的东西。<code>&lt;thead&gt;</code> 内部必须拥有 <code>&lt;tr&gt;</code> 标签！</li>
+<li><code>&lt;tbody&gt;&lt;/tbody&gt;</code>：用于定义表格的主体。放数据本体 。</li>
+<li><code>&lt;tfoot&gt;&lt;/tfoot&gt;</code>放表格的脚注之类。</li>
+<li>以上标签都是放到table标签中。</li>
+</ol>
+</blockquote>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+    </div>
+    
+    
+<script src="/js/pretty20200908.js"></script>
+
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/HTML-form/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption">&lt;&lt;上一篇</strong>
+        
+        <span class="hoverLine hoverLine-thin">HTML表单</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/Web-standard-browsers/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <span class="hoverLine hoverLine-thin">Web标准与浏览器</span>
+        <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <!-- <span class="post-date">2020-09-07</span> -->
+        <li class="post-item"><a href="/nginx-https/">Nginx配置https</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+        
+        <!-- <span class="post-date">2020-08-23</span> -->
+        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+        
+        <!-- <span class="post-date">2020-08-22</span> -->
+        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+        
+        <!-- <span class="post-date">2020-08-20</span> -->
+        <li class="post-item"><a href="/HTML5-tag/">HTML5新增标签</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- 是否开启文章评论 -->
+  
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  console.log(postJs);
+  if (screen.width < 1236) {
+    console.log('<1236');
+    postJs.setAttribute('src', '/js/post-m20200917.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200910.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2020&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
