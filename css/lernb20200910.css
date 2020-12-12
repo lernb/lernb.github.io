@@ -295,7 +295,7 @@
     /* 使用省略标记 */
     text-overflow: ellipsis;
     vertical-align: initial;
-    color: #18a0db;
+    color: #565656;
   }
   .p-list .p-list-item .postz {
     display: none;
