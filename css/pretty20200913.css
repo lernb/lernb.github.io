@@ -34,14 +34,14 @@
 }
 
 .prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
-  background-color: #f6f8fa;
+  background-color: #2d2d2d;
   width: 0;
   height: 5px;
   background-clip: padding-box;
 }
 
 .prettyprint .linenums::-webkit-scrollbar-thumb, pre .prettyprint .linenums::-webkit-scrollbar-thumb {
-  background-color: lightgray;
+  background-color: #666666;
   border-radius: 4px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .prettyprint.linenums ol li, pre.prettyprint.linenums ol li {
-  padding: 0 10px 0 12px;
+  padding: 0 10px 0 6px;
   color: #bebec5;
   line-height: 25px;
   margin-left: 0;
@@ -67,15 +67,15 @@
 }
 
 .prettyprint .com {
-  color: slategray
+  color: #999
 }
 
 .prettyprint .lit {
-  color: #c0c
+  color: #fc929e
 }
 
 .prettyprint .pun, .prettyprint .opn, .prettyprint .clo {
-  color: #999
+  color: #88c6be
 }
 
 .prettyprint .fun {
@@ -83,19 +83,19 @@
 }
 
 .prettyprint .str, .prettyprint .atv {
-  color: #333
+  color: rgb(136, 198, 190)
 }
 
 .prettyprint .kwd, .prettyprint .tag {
-  color: #e2777a
+  color: #c5a5c5
 }
 
 .prettyprint .typ, .prettyprint .atn, .prettyprint .dec, .prettyprint .var {
-  color: #690
+  color: #7ec699
 }
 
 .prettyprint .pln {
-  color: #07a
+  color: #79b6f2
 }
 
 /* E pretty */

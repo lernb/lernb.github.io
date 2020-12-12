@@ -1835,16 +1835,16 @@ html {
   padding: 0;
   margin: 0;
   border: hidden;
-  background-color: #f6f8fa;
+  background-color: #282c34;
   white-space: pre;
   word-wrap: normal;
   word-break: normal;
 }
 
 .post-wrap .post .post-text pre {
-  padding: 3px 0;
+  padding: 3px 0 2px;
   margin: 0 0 25px 0;
-  background-color: #f6f8fa;
+  background-color: #282c34;
   /* word-break: break-all; */
   white-space: nowrap;
   /* word-wrap: break-word; */
