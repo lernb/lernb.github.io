@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -258,9 +259,9 @@
 <p><strong>注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充</strong></p>
 </blockquote>
 <p>语法</p>
-<pre><code class="css"> transform: translate3d(x, y, z)</code></pre>
+<pre><code class="language-css"> transform: translate3d(x, y, z)</code></pre>
 <p>代码演示</p>
-<pre><code class="css">transform: translate3d(100px, 100px, 100px)
+<pre><code class="language-css">transform: translate3d(100px, 100px, 100px)
 /* 注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充 */
 transform: translate3d(100px, 100px, 0)</code></pre>
 <h2 id="透视perspective"><a href="#透视perspective" class="headerlink" title="透视perspective"></a>透视<code>perspective</code></h2><ul>
@@ -285,7 +286,7 @@ transform: translate3d(100px, 100px, 0)</code></pre>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="css">body {
+<pre><code class="language-css">body {
   perspective: 1000px;
 }</code></pre>
 <h2 id="translateZ"><a href="#translateZ" class="headerlink" title="translateZ"></a>translateZ</h2><p><code>translateZ</code> 与 <code>perspecitve</code> 的区别</p>
@@ -303,7 +304,7 @@ transform: translate3d(100px, 100px, 0)</code></pre>
 <li><code>transform: rotate3d(x, y, z, 45deg)</code> – 沿着自定义轴旋转 45 deg 为角度</li>
 </ul>
 <p>代码案例</p>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   perspective: 300px;
 }
 
@@ -324,7 +325,7 @@ img:hover {
 </li>
 </ul>
 <h2 id="3D旋转-rotateY"><a href="#3D旋转-rotateY" class="headerlink" title="3D旋转 rotateY"></a>3D旋转 <code>rotateY</code></h2><p>代码演示</p>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   perspective: 500px;
 }
 
@@ -345,7 +346,7 @@ img:hover {
 </li>
 </ul>
 <h2 id="3D旋转-rotateZ"><a href="#3D旋转-rotateZ" class="headerlink" title="3D旋转 rotateZ"></a>3D旋转 <code>rotateZ</code></h2><p>代码演示</p>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   perspective: 500px;
 }
 
@@ -368,7 +369,7 @@ img:hover {
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   perspective: 500px;
 }
 
@@ -397,7 +398,7 @@ img:hover {
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -486,9 +487,9 @@ img:hover {
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

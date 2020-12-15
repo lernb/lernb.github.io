@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -239,7 +240,7 @@
 <p>全自动安装CentOS时默认提供VNC功能，可使用VNC Viewer查看进度，VNC端口为1或者5901，系统安装后自动删除。</p>
 <p>目前CentOS系统只支持任意版本重装为CentOS 6.x及以下版本。<strong>注意：OpenVZ构架不适用。</strong></p>
 </blockquote>
-<h3 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h3><pre><code>#Debian/Ubuntu系统:
+<h3 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h3><pre><code class="language-bash">#Debian/Ubuntu系统:
 apt-get update
 
 #RedHat/CentOS系统:
@@ -268,28 +269,32 @@ bash InstallNET.sh   -d/--debian [dist-name]
 # dist-name: 发行版本代号
 # dist-version: 发行版本号
 # -apt/-yum/--mirror : 使用定义镜像
-# -a/-m : 询问是否能进入VNC自行操作. -a 为不提示(一般用于全自动安装), -m 为提示。</code></pre><h3 id="使用脚本自动安装Debian"><a href="#使用脚本自动安装Debian" class="headerlink" title="使用脚本自动安装Debian"></a>使用脚本自动安装Debian</h3><pre><code>#下载InstallNET.sh安装脚本（如已下载则跳过）：
+# -a/-m : 询问是否能进入VNC自行操作. -a 为不提示(一般用于全自动安装), -m 为提示。</code></pre>
+<h3 id="使用脚本自动安装Debian"><a href="#使用脚本自动安装Debian" class="headerlink" title="使用脚本自动安装Debian"></a>使用脚本自动安装Debian</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
 wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
 
 #全自动安装debian 8 64位
 bash InstallNET.sh -d 8 -v 64 -a --mirror &#39;http://mirrors.ustc.edu.cn/debian/&#39;
 
 #全自动安装debian 9 64位
-bash InstallNET.sh -d 9 -v 64 -a --mirror &#39;http://mirrors.ustc.edu.cn/debian/&#39;</code></pre><h3 id="使用脚本自动安装CentOS"><a href="#使用脚本自动安装CentOS" class="headerlink" title="使用脚本自动安装CentOS"></a>使用脚本自动安装CentOS</h3><pre><code>#下载InstallNET.sh安装脚本（如已下载则跳过）：
+bash InstallNET.sh -d 9 -v 64 -a --mirror &#39;http://mirrors.ustc.edu.cn/debian/&#39;</code></pre>
+<h3 id="使用脚本自动安装CentOS"><a href="#使用脚本自动安装CentOS" class="headerlink" title="使用脚本自动安装CentOS"></a>使用脚本自动安装CentOS</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
 wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
 
 #全自动安装CentOS 6.10 64位
 bash InstallNET.sh -c 6.10 -v 64 -a --mirror &#39;http://mirror.centos.org/centos&#39;
 
 #全自动安装CentOS 7 64位（目前该脚本不支持）
-bash InstallNET.sh -c 7 -v 64 -a --mirror &#39;http://mirror.centos.org/centos&#39;</code></pre><h3 id="使用脚本自动安装Ubuntu"><a href="#使用脚本自动安装Ubuntu" class="headerlink" title="使用脚本自动安装Ubuntu"></a>使用脚本自动安装Ubuntu</h3><pre><code>#下载InstallNET.sh安装脚本（如已下载则跳过）：
+bash InstallNET.sh -c 7 -v 64 -a --mirror &#39;http://mirror.centos.org/centos&#39;</code></pre>
+<h3 id="使用脚本自动安装Ubuntu"><a href="#使用脚本自动安装Ubuntu" class="headerlink" title="使用脚本自动安装Ubuntu"></a>使用脚本自动安装Ubuntu</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
 wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
 
 #全自动安装ubuntu 16.10 64位
 bash InstallNET.sh -d 16.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubuntu/&#39;
 
 #全自动安装ubuntu 18.10 64位
-bash InstallNET.sh -u 18.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubuntu/&#39;</code></pre><blockquote>
+bash InstallNET.sh -u 18.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubuntu/&#39;</code></pre>
+<blockquote>
 <p>经过使用测试，本文介绍的安装脚本最好在IO读写较快的机器上使用，否则可能会出现卡死的情况。</p>
 <p>已在腾讯云轻量应用服务器通过实际测试。</p>
 <p>纯净的Debian/Ubuntu/CentOS与Windows系统安装大概需要花费半个小时的时间（实际视硬件与网络环境因素而定）</p>
@@ -304,7 +309,7 @@ bash InstallNET.sh -u 18.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubu
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -393,9 +398,9 @@ bash InstallNET.sh -u 18.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubu
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

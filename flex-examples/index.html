@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -238,77 +239,77 @@
 <p>下面，就来看看Flex如何实现，从1个点到9个点的布局。你可以到<a href="http://codepen.io/LandonSchropp/pen/KpzzGo" target="_blank" rel="noopener">codepen</a>查看Demo。</p>
 <p><img src="/img/bg2015071329.png" alt="img"></p>
 <p>如果不加说明，本节的HTML模板一律如下。</p>
-<pre><code class="markup">&lt;div class=&quot;box&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
   &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 <p>上面代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目。如果有多个项目，就要添加多个span元素，以此类推。</p>
 <h3 id="1-1-单项目"><a href="#1-1-单项目" class="headerlink" title="1.1 单项目"></a>1.1 单项目</h3><p>首先，只有左上角1个点的情况。Flex布局默认就是首行左对齐，所以一行代码就够了。</p>
 <p><img src="/img/bg2015071301.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
 }</code></pre>
 <p>设置项目的对齐方式，就能实现居中对齐和右对齐。</p>
 <p><img src="/img/bg2015071302.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: center;
 }</code></pre>
 <p><img src="/img/bg2015071303.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: flex-end;
 }</code></pre>
 <p>设置交叉轴对齐方式，可以垂直移动主轴。</p>
 <p><img src="/img/bg2015071304.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   align-items: center;
 }</code></pre>
 <p><img src="/img/bg2015071305.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: center;
   align-items: center;
 }</code></pre>
 <p><img src="/img/bg2015071306.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }</code></pre>
 <p><img src="/img/bg2015071307.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
 }</code></pre>
 <h3 id="1-2-双项目"><a href="#1-2-双项目" class="headerlink" title="1.2 双项目"></a>1.2 双项目</h3><p><img src="/img/bg2015071308.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: space-between;
 }</code></pre>
 <p><img src="/img/bg2015071309.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }</code></pre>
 <p><img src="/img/bg2015071310.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }</code></pre>
 <p><img src="/img/bg2015071311.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
 }</code></pre>
 <p><img src="/img/bg2015071312.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
 }
 
@@ -316,7 +317,7 @@
   align-self: center;
 }</code></pre>
 <p><img src="/img/bg2015071313.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   justify-content: space-between;
 }
@@ -325,7 +326,7 @@
   align-self: flex-end;
 }</code></pre>
 <h3 id="1-3-三项目"><a href="#1-3-三项目" class="headerlink" title="1.3 三项目"></a>1.3 三项目</h3><p><img src="/img/bg2015071314.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
 }
 
@@ -337,7 +338,7 @@
   align-self: flex-end;
 }</code></pre>
 <h3 id="1-4-四项目"><a href="#1-4-四项目" class="headerlink" title="1.4 四项目"></a>1.4 四项目</h3><p><img src="/img/bg2015071315.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -345,7 +346,7 @@
 }</code></pre>
 <p><img src="/img/bg2015071316.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;box&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
   &lt;div class=&quot;column&quot;&gt;
     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
@@ -356,7 +357,7 @@
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
@@ -368,13 +369,13 @@
   justify-content: space-between;
 }</code></pre>
 <h3 id="1-5-六项目"><a href="#1-5-六项目" class="headerlink" title="1.5 六项目"></a>1.5 六项目</h3><p><img src="/img/bg2015071317.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
 }</code></pre>
 <p><img src="/img/bg2015071318.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -382,7 +383,7 @@
 }</code></pre>
 <p><img src="/img/bg2015071319.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;box&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
   &lt;div class=&quot;row&quot;&gt;
     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
@@ -397,7 +398,7 @@
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-wrap: wrap;
 }
@@ -415,20 +416,20 @@
   justify-content: space-between;
 }</code></pre>
 <h3 id="1-6-九项目"><a href="#1-6-九项目" class="headerlink" title="1.6 九项目"></a>1.6 九项目</h3><p><img src="/img/bg2015071320.png" alt="img"></p>
-<pre><code class="css">.box {
+<pre><code class="language-css">.box {
   display: flex;
   flex-wrap: wrap;
 }</code></pre>
 <h2 id="二、网格布局"><a href="#二、网格布局" class="headerlink" title="二、网格布局"></a>二、网格布局</h2><h3 id="2-1-基本网格布局"><a href="#2-1-基本网格布局" class="headerlink" title="2.1 基本网格布局"></a>2.1 基本网格布局</h3><p>最简单的网格布局，就是平均分布。在容器里面平均分配空间，跟上面的骰子布局很像，但是需要设置项目的自动缩放。</p>
 <p><img src="/img/bg2015071321.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;Grid&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;Grid&quot;&gt;
   &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.Grid {
+<pre><code class="language-css">.Grid {
   display: flex;
 }
 
@@ -438,12 +439,12 @@
 <h3 id="2-2-百分比布局"><a href="#2-2-百分比布局" class="headerlink" title="2.2 百分比布局"></a>2.2 百分比布局</h3><p>某个网格的宽度为固定的百分比，其余网格平均分配剩余的空间。</p>
 <p><img src="/img/bg2015071322.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;Grid&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;Grid&quot;&gt;
   &lt;div class=&quot;Grid-cell u-1of4&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
   &lt;div class=&quot;Grid-cell u-1of3&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<pre><code class="css">.Grid {
+<pre><code class="language-css">.Grid {
   display: flex;
 }
 
@@ -469,7 +470,7 @@
 <h2 id="三、圣杯布局"><a href="#三、圣杯布局" class="headerlink" title="三、圣杯布局"></a>三、圣杯布局</h2><p><a href="https://en.wikipedia.org/wiki/Holy_Grail_(web_design)" target="_blank" rel="noopener">圣杯布局</a>（Holy Grail Layout）指的是一种最常见的网站布局。页面从上到下，分成三个部分：头部（header），躯干（body），尾部（footer）。其中躯干又水平分成三栏，从左到右为：导航、主栏、副栏。</p>
 <p><img src="/img/bg2015071323.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;body class=&quot;HolyGrail&quot;&gt;
+<pre><code class="language-html">&lt;body class=&quot;HolyGrail&quot;&gt;
   &lt;header&gt;...&lt;/header&gt;
   &lt;div class=&quot;HolyGrail-body&quot;&gt;
     &lt;main class=&quot;HolyGrail-content&quot;&gt;...&lt;/main&gt;
@@ -479,7 +480,7 @@
   &lt;footer&gt;...&lt;/footer&gt;
 &lt;/body&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.HolyGrail {
+<pre><code class="language-css">.HolyGrail {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -509,7 +510,7 @@ footer {
   order: -1;
 }</code></pre>
 <p>如果是小屏幕，躯干的三栏自动变为垂直叠加。</p>
-<pre><code class="css">@media (max-width: 768px) {
+<pre><code class="language-css">@media (max-width: 768px) {
   .HolyGrail-body {
     flex-direction: column;
     flex: 1;
@@ -523,13 +524,13 @@ footer {
 <h2 id="四、输入框的布局"><a href="#四、输入框的布局" class="headerlink" title="四、输入框的布局"></a>四、输入框的布局</h2><p>我们常常需要在输入框的前方添加提示，后方添加按钮。</p>
 <p><img src="/img/bg2015071324.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;InputAddOn&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;InputAddOn&quot;&gt;
   &lt;span class=&quot;InputAddOn-item&quot;&gt;...&lt;/span&gt;
   &lt;input class=&quot;InputAddOn-field&quot;&gt;
   &lt;button class=&quot;InputAddOn-item&quot;&gt;...&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.InputAddOn {
+<pre><code class="language-css">.InputAddOn {
   display: flex;
 }
 
@@ -539,12 +540,12 @@ footer {
 <h2 id="五、悬挂式布局"><a href="#五、悬挂式布局" class="headerlink" title="五、悬挂式布局"></a>五、悬挂式布局</h2><p>有时，主栏的左侧或右侧，需要添加一个图片栏。</p>
 <p><img src="/img/bg2015071325.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;div class=&quot;Media&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;Media&quot;&gt;
   &lt;img class=&quot;Media-figure&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
   &lt;p class=&quot;Media-body&quot;&gt;...&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.Media {
+<pre><code class="language-css">.Media {
   display: flex;
   align-items: flex-start;
 }
@@ -559,13 +560,13 @@ footer {
 <h3 id="六、固定的底栏"><a href="#六、固定的底栏" class="headerlink" title="六、固定的底栏"></a>六、固定的底栏</h3><p>有时，页面内容太少，无法占满一屏的高度，底栏就会抬高到页面的中间。这时可以采用Flex布局，让底栏总是出现在页面的底部。</p>
 <p><img src="/img/bg2015071326.png" alt="img"></p>
 <p>HTML代码如下。</p>
-<pre><code class="markup">&lt;body class=&quot;Site&quot;&gt;
+<pre><code class="language-html">&lt;body class=&quot;Site&quot;&gt;
   &lt;header&gt;...&lt;/header&gt;
   &lt;main class=&quot;Site-content&quot;&gt;...&lt;/main&gt;
   &lt;footer&gt;...&lt;/footer&gt;
 &lt;/body&gt;</code></pre>
 <p>CSS代码如下。</p>
-<pre><code class="css">.Site {
+<pre><code class="language-css">.Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -577,7 +578,7 @@ footer {
 <h3 id="七，流式布局"><a href="#七，流式布局" class="headerlink" title="七，流式布局"></a>七，流式布局</h3><p>每行的项目数固定，会自动分行。</p>
 <p><img src="/img/bg2015071330.png" alt="img"></p>
 <p>CSS的写法。</p>
-<pre><code class="css">.parent {
+<pre><code class="language-css">.parent {
   width: 200px;
   height: 150px;
   background-color: black;
@@ -602,7 +603,7 @@ footer {
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -691,9 +692,9 @@ footer {
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

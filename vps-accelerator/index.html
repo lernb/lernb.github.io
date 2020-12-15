@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -261,7 +262,8 @@
 <p>以下命令都是基于amd64位架构，路径跟文件名根据实际替换</p>
 </blockquote>
 <h3 id="tinyfecVPN"><a href="#tinyfecVPN" class="headerlink" title="tinyfecVPN"></a>tinyfecVPN</h3><p>tinyfecVPN服务监听在服务器8855端口：</p>
-<pre><code>./tinyvpn_amd64 -s -l 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0</code></pre><ul>
+<pre><code class="language-bash">./tinyvpn_amd64 -s -l 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0</code></pre>
+<ul>
 <li><p><code>-s</code>以服务端模式运行</p>
 </li>
 <li><p><code>-l</code>服务端监听端口</p>
@@ -284,7 +286,8 @@
 <p>如果相同时节省一点流量，可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>-f2:2</code>和<code>--timeout 1</code>，<code>--timeout 1</code>可以更好的控制流量，稳定2倍流量，相对于<code>--timeout 0</code>延迟增加约为2ms。如果线路非常好，那可以将<code>-f2:2</code>替换成<code>-f2:1</code>，即每3个数据包允许丢包1个，消耗1.5倍流量</p>
 </blockquote>
 <h3 id="udp2raw"><a href="#udp2raw" class="headerlink" title="udp2raw"></a>udp2raw</h3><p>将udp2raw设定成伪装icmp模式</p>
-<pre><code>./udp2raw_amd64 -s -l 0.0.0.0:1000 -r 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;</code></pre><ul>
+<pre><code class="language-bash">./udp2raw_amd64 -s -l 0.0.0.0:1000 -r 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;</code></pre>
+<ul>
 <li><p><code>-s</code>以服务端模式运行</p>
 </li>
 <li><p><code>-l</code>服务监听位置（<code>ip:port</code>）。在和 udp2raw 客户端连接时有用，虽然icmp没有端口的概念，但是这个参数依然不可省略。</p>
@@ -301,7 +304,8 @@
 </li>
 </ul>
 <h2 id="客户端搭建"><a href="#客户端搭建" class="headerlink" title="客户端搭建"></a>客户端搭建</h2><p>udp2raw现在已经有了Windows客户端，可以去<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页相应项目下下载。本文使用的是虚拟机方式，网络为桥接模式。以下操作均在虚拟机中进行。</p>
-<h3 id="udp2raw-1"><a href="#udp2raw-1" class="headerlink" title="udp2raw"></a>udp2raw</h3><pre><code>./udp2raw_amd64 -c -r YOUR_SERVER_IP:1000 -l 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;</code></pre><ul>
+<h3 id="udp2raw-1"><a href="#udp2raw-1" class="headerlink" title="udp2raw"></a>udp2raw</h3><pre><code class="language-bash">./udp2raw_amd64 -c -r YOUR_SERVER_IP:1000 -l 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;</code></pre>
+<ul>
 <li><p><code>YOUR_SERVER_IP</code>远程服务器的IP地址</p>
 </li>
 <li><p><code>-c</code>以客户端模式运行</p>
@@ -314,7 +318,8 @@
 </li>
 </ul>
 <p>其他参数含义与上文服务端相同。</p>
-<h3 id="tinyfecVPN-1"><a href="#tinyfecVPN-1" class="headerlink" title="tinyfecVPN"></a>tinyfecVPN</h3><pre><code>./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0</code></pre><ul>
+<h3 id="tinyfecVPN-1"><a href="#tinyfecVPN-1" class="headerlink" title="tinyfecVPN"></a>tinyfecVPN</h3><pre><code class="language-bash">./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0</code></pre>
+<ul>
 <li><p><code>-c</code>以客户端模式运行</p>
 </li>
 <li><p><code>-r</code>上述udp2raw客户端本地监听地址（<code>ip:port</code>）。</p>
@@ -330,7 +335,8 @@
 </ul>
 <p>至此，就建立好了服务端到客户端的连接。</p>
 <h3 id="tinyPortMapper"><a href="#tinyPortMapper" class="headerlink" title="tinyPortMapper"></a>tinyPortMapper</h3><p>假定远程服务器端12345端口有不可描述的代理服务：</p>
-<pre><code>./tinymapper_amd64 -l0.0.0.0:1080 -r10.222.2.1:12345 -t -u</code></pre><ul>
+<pre><code class="language-bash">./tinymapper_amd64 -l0.0.0.0:1080 -r10.222.2.1:12345 -t -u</code></pre>
+<ul>
 <li><p><code>-l</code>本地监听地址端口。远程服务器端口将映射到此端口。本地电脑代理直接连接此地址</p>
 </li>
 <li><p><code>-r</code>映射的远程地址端口。这里的地址为tinyfecVPN子网中的IP地址。</p>
@@ -350,7 +356,7 @@
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -439,9 +445,9 @@
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

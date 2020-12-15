@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -234,15 +235,17 @@
 <h2 id="开始卸载"><a href="#开始卸载" class="headerlink" title="开始卸载"></a>开始卸载</h2><blockquote>
 <p>卸载操作前最好进行备份</p>
 </blockquote>
-<h3 id="卸载阿里云云盾监控"><a href="#卸载阿里云云盾监控" class="headerlink" title="卸载阿里云云盾监控"></a>卸载阿里云云盾监控</h3><pre><code>wget http://update.aegis.aliyun.com/download/uninstall.sh
+<h3 id="卸载阿里云云盾监控"><a href="#卸载阿里云云盾监控" class="headerlink" title="卸载阿里云云盾监控"></a>卸载阿里云云盾监控</h3><pre><code class="language-bash">wget http://update.aegis.aliyun.com/download/uninstall.sh
 chmod +x uninstall.sh
 ./uninstall.sh
 
 wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
 chmod +x quartz_uninstall.sh
-./quartz_uninstall.sh</code></pre><h3 id="清除残留文件"><a href="#清除残留文件" class="headerlink" title="清除残留文件"></a>清除残留文件</h3><pre><code>pkill aliyun-service
+./quartz_uninstall.sh</code></pre>
+<h3 id="清除残留文件"><a href="#清除残留文件" class="headerlink" title="清除残留文件"></a>清除残留文件</h3><pre><code class="language-bash">pkill aliyun-service
 rm -rf /etc/init.d/agentwatch /usr/sbin/aliyun-service
-rm -rf /usr/local/aegis*</code></pre><h3 id="屏蔽云盾IP段"><a href="#屏蔽云盾IP段" class="headerlink" title="屏蔽云盾IP段"></a>屏蔽云盾IP段</h3><pre><code>iptables -I INPUT -s 140.205.201.0/28 -j DROP
+rm -rf /usr/local/aegis*</code></pre>
+<h3 id="屏蔽云盾IP段"><a href="#屏蔽云盾IP段" class="headerlink" title="屏蔽云盾IP段"></a>屏蔽云盾IP段</h3><pre><code class="language-bash">iptables -I INPUT -s 140.205.201.0/28 -j DROP
 iptables -I INPUT -s 140.205.201.16/29 -j DROP
 iptables -I INPUT -s 140.205.201.32/28 -j DROP
 iptables -I INPUT -s 140.205.225.192/29 -j DROP
@@ -254,7 +257,8 @@ iptables -I INPUT -s 140.205.225.205/32 -j DROP
 iptables -I INPUT -s 140.205.225.195/32 -j DROP
 iptables -I INPUT -s 140.205.225.204/32 -j DROP
 iptables -I INPUT -s 140.205.201.0/24 -j DROP
-iptables -I INPUT -s 140.205.225.0/24 -j DROP</code></pre><p>至此卸载完成</p>
+iptables -I INPUT -s 140.205.225.0/24 -j DROP</code></pre>
+<p>至此卸载完成</p>
 
       </div>
     </div>
@@ -264,7 +268,7 @@ iptables -I INPUT -s 140.205.225.0/24 -j DROP</code></pre><p>至此卸载完成<
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -353,9 +357,9 @@ iptables -I INPUT -s 140.205.225.0/24 -j DROP</code></pre><p>至此卸载完成<
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

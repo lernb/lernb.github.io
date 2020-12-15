@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -236,10 +237,12 @@
 <p>本脚本只是安装Aria2后端，安装后默认会启</p>
 </blockquote>
 <h2 id="脚本版本"><a href="#脚本版本" class="headerlink" title="脚本版本"></a>脚本版本</h2><pre><code>Ver: 1.1.10</code></pre><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>执行下面的代码下载并运行脚本。</p>
-<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</code></pre><p>运行脚本后会出现脚本操作菜单，选择并输入<code>1</code>就会开始安装。</p>
+<pre><code class="language-bash">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</code></pre>
+<p>运行脚本后会出现脚本操作菜单，选择并输入<code>1</code>就会开始安装。</p>
 <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>进入下载脚本的目录并运行脚本：</p>
-<pre><code>./aria2.sh</code></pre><p>然后选择你要执行的选项即可。</p>
-<pre><code>Aria2 一键安装管理脚本 [vx.x.x]-- Toyo | doub.io/shell-jc4 --
+<pre><code class="language-bash">./aria2.sh</code></pre>
+<p>然后选择你要执行的选项即可。</p>
+<pre><code class="language-bash">Aria2 一键安装管理脚本 [vx.x.x]-- Toyo | doub.io/shell-jc4 --
 0. 升级脚本
 ———————————— 
 1. 安装 Aria2 
@@ -256,7 +259,8 @@
 10. 配置 自动更新 BT-Tracker服务器
 ———————————— 
 当前状态: 已安装 并 已启动 
-请输入数字 [0-10]:</code></pre><h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>启动：<code>/etc/init.d/aria2 start</code></p>
+请输入数字 [0-10]:</code></pre>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>启动：<code>/etc/init.d/aria2 start</code></p>
 <p>停止：<code>/etc/init.d/aria2 stop</code></p>
 <p>重启：<code>/etc/init.d/aria2 restart</code></p>
 <p>查看状态：<code>/etc/init.d/aria2 status</code></p>
@@ -267,12 +271,14 @@
 <p>本脚本只是安装Aria2后端，安装后默认会启动</p>
 </blockquote>
 <h3 id="wget-unknown-host-“raw-githubusercontent-com”之类的错误"><a href="#wget-unknown-host-“raw-githubusercontent-com”之类的错误" class="headerlink" title="wget: unknown host “raw.githubusercontent.com”之类的错误"></a><code>wget: unknown host “raw.githubusercontent.com”</code>之类的错误</h3><p>这是无法解析我的域名，多半是DNS的问题，请更换DNS为谷歌DNS(以下两行一起复制 一起执行)。</p>
-<pre><code>echo -e &quot;nameserver 8.8.8.8\nnameserver 8.8.4.4&quot; &gt; /etc/resolv.conf</code></pre><h3 id="提示wget-command-not-found的错误"><a href="#提示wget-command-not-found的错误" class="headerlink" title="提示wget: command not found的错误"></a>提示<code>wget: command not found</code>的错误</h3><p>这是你的系统精简的太干净了，wget都没有安装，所以需要安装wget。</p>
-<pre><code># CentOS系统:
+<pre><code class="language-bash">echo -e &quot;nameserver 8.8.8.8\nnameserver 8.8.4.4&quot; &gt; /etc/resolv.conf</code></pre>
+<h3 id="提示wget-command-not-found的错误"><a href="#提示wget-command-not-found的错误" class="headerlink" title="提示wget: command not found的错误"></a>提示<code>wget: command not found</code>的错误</h3><p>这是你的系统精简的太干净了，wget都没有安装，所以需要安装wget。</p>
+<pre><code class="language-bash"># CentOS系统:
 yum install -y wget
 
 # Debian/Ubuntu系统:
-apt-get install -y wget</code></pre><h3 id="升级脚本"><a href="#升级脚本" class="headerlink" title="升级脚本"></a>升级脚本</h3><p>升级脚本只需要运行脚本，然后选择并输入<code>0</code>回车即可，会自动检测最新版本并下载，当然重新下载脚本文件也可以，会自动覆盖原文件。</p>
+apt-get install -y wget</code></pre>
+<h3 id="升级脚本"><a href="#升级脚本" class="headerlink" title="升级脚本"></a>升级脚本</h3><p>升级脚本只需要运行脚本，然后选择并输入<code>0</code>回车即可，会自动检测最新版本并下载，当然重新下载脚本文件也可以，会自动覆盖原文件。</p>
 
       </div>
     </div>
@@ -282,7 +288,7 @@ apt-get install -y wget</code></pre><h3 id="升级脚本"><a href="#升级脚本
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -371,9 +377,9 @@ apt-get install -y wget</code></pre><h3 id="升级脚本"><a href="#升级脚本
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

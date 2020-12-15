@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -241,7 +242,7 @@
 <li>x 就是 x 轴上水平移动</li>
 <li>y 就是 y 轴上水平移动</li>
 </ul>
-<pre><code class="css">transform: translate(x, y)
+<pre><code class="language-css">transform: translate(x, y)
 transform: translateX(n)
 transfrom: translateY(n)</code></pre>
 <blockquote>
@@ -254,7 +255,7 @@ transfrom: translateY(n)</code></pre>
 </ul>
 </blockquote>
 <p>代码演示</p>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   background-color: lightseagreen;
   width: 200px;
   height: 100px;
@@ -279,7 +280,7 @@ transfrom: translateY(n)</code></pre>
 <p>2D 旋转指的是让元素在二维平面内顺时针或者逆时针旋转</p>
 </blockquote>
 <p><code>rotate</code> 语法</p>
-<pre><code class="css">/* 单位是：deg */
+<pre><code class="language-css">/* 单位是：deg */
 transform: rotate(度数) </code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
@@ -297,11 +298,11 @@ transform: rotate(度数) </code></pre>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="css">img:hover {
+<pre><code class="language-css">img:hover {
   transform: rotate(360deg)
 }</code></pre>
 <h3 id="设置元素旋转中心点-transform-origin"><a href="#设置元素旋转中心点-transform-origin" class="headerlink" title="设置元素旋转中心点(transform-origin)"></a>设置元素旋转中心点(transform-origin)</h3><p><code>transform-origin</code> 基础语法：</p>
-<pre><code class="css">transform-origin: x y;</code></pre>
+<pre><code class="language-css">transform-origin: x y;</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -315,7 +316,7 @@ transform: rotate(度数) </code></pre>
 <p><code>scale</code>用来控制元素的放大与缩小</p>
 </blockquote>
 <p>语法</p>
-<pre><code class="css">transform: scale(x, y)</code></pre>
+<pre><code class="language-css">transform: scale(x, y)</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -328,7 +329,7 @@ transform: rotate(度数) </code></pre>
 </ul>
 </blockquote>
 <p>代码演示：</p>
-<pre><code class="css">   div:hover {
+<pre><code class="language-css">   div:hover {
        /* 注意，数字是倍数的含义，所以不需要加单位 */
        /* transform: scale(2, 2) */
 
@@ -347,7 +348,7 @@ transform: rotate(度数) </code></pre>
 </ul>
 </blockquote>
 <p>代码演示：</p>
-<pre><code class="css">div:hover {
+<pre><code class="language-css">div:hover {
   transform: translate(200px, 0) rotate(360deg) scale(1.2)
 }</code></pre>
 
@@ -359,7 +360,7 @@ transform: rotate(度数) </code></pre>
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -448,9 +449,9 @@ transform: rotate(度数) </code></pre>
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

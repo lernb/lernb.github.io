@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -257,7 +258,7 @@
 <p>audio 的参数：</p>
 <p><img src="/img/audiocanshu.png" alt=""></p>
 <p>audio 代码演示：</p>
-<pre><code class="css">&lt;body&gt;
+<pre><code class="language-css">&lt;body&gt;
   &lt;!-- 注意：在 chrome 浏览器中已经禁用了 autoplay 属性 --&gt;
   &lt;!-- &lt;audio src=&quot;./media/snow.mp3&quot; controls autoplay&gt;&lt;/audio&gt; --&gt;
 
@@ -271,11 +272,11 @@
 <h3 id="多媒体视频标签"><a href="#多媒体视频标签" class="headerlink" title="多媒体视频标签"></a>多媒体视频标签</h3><p><code>video</code>视频标签目前支持三种格式</p>
 <p><img src="/img/vedio.png" alt=""></p>
 <p>语法格式：</p>
-<pre><code class="html">&lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code></pre>
+<pre><code class="language-html">&lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code></pre>
 <p>video 参数</p>
 <p><img src="/img/videocanshu.png" alt=""></p>
 <p>video 代码演示：</p>
-<pre><code class="html">&lt;body&gt;
+<pre><code class="language-html">&lt;body&gt;
   &lt;!-- &lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt; --&gt;
 
   &lt;!-- 谷歌浏览器禁用了自动播放功能，如果想自动播放，需要添加 muted 属性 --&gt;
@@ -304,7 +305,7 @@
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -393,9 +394,9 @@
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 

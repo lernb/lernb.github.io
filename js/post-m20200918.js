@@ -2,9 +2,9 @@ var pre = document.getElementsByTagName('pre');
 var h2 = document.getElementsByTagName('h2');
 var headhead = document.getElementsByClassName('headhead')[0];
 var downFlag = null, upFlag = null;
-for (let i = 0; i < pre.length; i++) {
-  pre[i].className = 'prettyprint linenums';
-}
+// for (let i = 0; i < pre.length; i++) {
+//   pre[i].className = 'prettyprint linenums';
+// }
 for (let i = 0; i < h2.length; i++) {
   let h2Pa = document.createElement('div');
   h2Pa.setAttribute('class', 't-h');
@@ -69,7 +69,7 @@ window.addEventListener('scroll', function () {
     var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
     var far = pageScroll - downFlag;
     if (far >= 100 && pageScroll >= 100) {
-      headhead.setAttribute('style', 'position: fixed; top: -74px;');
+      headhead.setAttribute('style', 'position: fixed; top: -84px;');
     }
   }
   else if (scrollDirection == 'up') {

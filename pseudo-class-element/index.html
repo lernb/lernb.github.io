@@ -31,14 +31,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/pretty20200913.css">
+<link rel="stylesheet" href="/css/prism20200911.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200911.css">
+<link rel="stylesheet" href="/css/lernb20200913.css">
 
 </head>
 
-<body onload="prettyPrint();">
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   <div class="headhead">
   <div class="pgbar">
     <div class="bar-in"></div>
@@ -243,13 +244,13 @@
 </li>
 <li><p>:first-child</p>
 <p>用于选择自身是第一个子元素的元素。如：</p>
-<pre><code class="html">&lt;div&gt;
+<pre><code class="language-html">&lt;div&gt;
   &lt;span&gt;第一个子元素&lt;/span&gt;
   &lt;span&gt;第二个子元素&lt;/span&gt;
   &lt;span&gt;第三个子元素&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 <p>选择div中的第一个span标签：</p>
-<pre><code class="css">span:first-child {
+<pre><code class="language-css">span:first-child {
   这是第一个子元素
 }</code></pre>
 </li>
@@ -264,7 +265,7 @@
 </li>
 <li><p>:before与:after</p>
 <p>用于设置元素之前跟之后的内容。可以通过before与after来设置清除（闭合）浮动</p>
-<pre><code class="html">&lt;div class=&quot;clearfix&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
     梦想属于每一个人，广大劳动群众要敢想敢干、敢于追梦
     &lt;div class=&quot;fl&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -306,7 +307,7 @@
     </div>
     
     
-<script src="/js/pretty20200908.js"></script>
+<script src="/js/prism.js"></script>
 
   </div>
   <!-- 文章底部导航 -->
@@ -395,9 +396,9 @@
   console.log(postJs);
   if (screen.width < 1236) {
     console.log('<1236');
-    postJs.setAttribute('src', '/js/post-m20200917.js');
+    postJs.setAttribute('src', '/js/post-m20200918.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200910.js');
+    postJs.setAttribute('src', '/js/post20200911.js');
   }
 </script>
 
