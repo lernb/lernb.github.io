@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<%- partial('_partial/head') %>
+
+<body onload="prettyPrint();" class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  <%- partial('_partial/header') %>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        <% if (theme.showRecent){ %>
+        <%- partial('_partial/recent') %>
+        <% } %>
+
+        <!-- 分类 -->
+        <% if (page.type != 'categories' && theme.showCategory){ %>
+        <%- partial('_partial/category') %>
+        <% } %>
+
+        <!-- 归档 -->
+        <% if (theme.showArchive){ %>
+        <%- partial('_partial/archive') %>
+        <% } %>
+
+        <!-- 标签 -->
+        <% if (page.type != 'tags' && theme.showTag){ %>
+        <%- partial('_partial/tag') %>
+        <% } %>
+
+        <!-- 文章目录 -->
+        <% if (is_post() && theme.showPostMenu){ <!-- 判断当前是否为文章页 -->%>
+        <%- partial('_partial/menu') %>
+        <% } %>
+        <!-- E 侧栏插件 -->
+      </div>
+      <!-- <%- theme.notice %> -->
+      <%- body %>
+    </div>
+  </div>
+  <%- partial('_partial/footer') %>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
