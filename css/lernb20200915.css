@@ -1628,9 +1628,10 @@ html {
 } */
 
 .post-wrap .post h1 {
-  color: #424242;
-  font-size: 30px;
+  color: #505050;
+  font-size: 26px;
   font-weight: bold;
+  line-height: 1.5;
 }
 
 .wrap-bd .tag-hd {
@@ -1646,7 +1647,7 @@ html {
 
 .post-wrap .post-text {
   line-height: 2;
-  color: #424242;
+  color: #505050;
   font-size: 16px;
   overflow: hidden;
 }
@@ -1759,9 +1760,9 @@ html {
 .post-wrap .post-text h2 {
   position: relative;
   display: inline-block;
-  /* padding: 5px 5px 0; */
   margin: 0;
-  font-size: 23px;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 /* 正文h2标题蓝色下划线 */
@@ -1779,7 +1780,7 @@ html {
 
 .post-wrap .post-text h3 {
   display: inline;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 27px;
   background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%);
 }
@@ -1916,6 +1917,10 @@ code {
   background-color: #18a0db;
 }
 
+.post-text table>tbody {
+  background-color: #fbfbfb;
+}
+
 .post-text table>tr, th {
   padding: 5px 16px;
   color: #fff;
@@ -1926,7 +1931,7 @@ code {
 }
 
 .post-text tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: #efefef;
 }
 
 .post-wrap .tags {
@@ -2202,6 +2207,7 @@ code {
   }
   .post-wrap .post-text {
     font-size: 1.6rem;
+    color: #424242;
   }
   .prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
     height: 2px;
@@ -2245,7 +2251,8 @@ code {
     box-shadow: 0 0 15px 0px rgba(154, 154, 154, 0.15);
   }
   .post-wrap .post h1 {
-    font-size: 28px;
+    font-size: 26px;
+    color: #424242;
   }
   .post-wrap .post .post-h {
     font-weight: bold;
