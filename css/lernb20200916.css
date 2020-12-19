@@ -15,16 +15,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   height: 200px;
   background-color: #fff;
-  box-shadow: 0 0 20px 2px rgba(146, 146, 146, 0.12);
+  box-shadow: 0 0 15px 0px rgba(146, 146, 146, 0.12);
   transition: all 0.3s ease-in-out;
 }
 
 .p-list .p-list-item:hover {
   /* box-shadow: 0 0 40px 1px rgba(24, 160, 219, .51); */
-  box-shadow: 0 0 40px 1px rgba(183, 183, 183, 0.51);
+  box-shadow: 0 0 20px 1px rgba(183, 183, 183, 0.51);
   /* transform: scale3d(1.011, 1.011, 1.011); */
 }
 
@@ -1236,7 +1236,7 @@ html {
   /* border-bottom: 1px solid #eaeaea; */
   width: 300px;
   height: 22px;
-  line-height: 20px;
+  line-height: 22px;
   font-size: 15px;
 }
 
@@ -1365,7 +1365,7 @@ html {
   position: relative;
   display: inline-block;
   max-width: 272px;
-  height: 22px;
+  height: 24px;
   line-height: 22px;
   color: #062743bd;
   /* 强制同一行内显示文本 */
@@ -1628,7 +1628,7 @@ html {
 } */
 
 .post-wrap .post h1 {
-  color: #505050;
+  color: #4c4c4c;
   font-size: 26px;
   font-weight: bold;
   line-height: 1.5;
@@ -1647,7 +1647,7 @@ html {
 
 .post-wrap .post-text {
   line-height: 2;
-  color: #505050;
+  color: #4c4c4c;
   font-size: 16px;
   overflow: hidden;
 }
@@ -1903,31 +1903,28 @@ code {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 10px auto 10px;
+  margin: 0 auto;
 }
 
 .post-wrap .post-text table {
   width: 100%;
   border-collapse: collapse;
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 20px;
 }
 
 .post-text table>thead {
-  background-color: #18a0db;
-}
-
-.post-text table>tbody {
-  background-color: #fbfbfb;
+  background-color: #f8f8f8;
 }
 
 .post-text table>tr, th {
   padding: 5px 16px;
-  color: #fff;
+  border: 1px solid #dfe2e5;
 }
 
 .post-text table>tr, td {
   padding: 5px 16px;
+  border: 1px solid #dfe2e5;
 }
 
 .post-text tr:nth-child(2n) {
@@ -2279,7 +2276,6 @@ code {
   .post-wrap .post-text img {
     max-width: 100%;
     margin: 0 auto;
-    margin-bottom: 20px;
   }
   .post-text blockquote {
     word-break: break-all;
