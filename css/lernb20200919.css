@@ -22,6 +22,12 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* .p-list .p-list-item-right {
+  float: left;
+  max-width: 790px;
+  padding: 20px 20px 0 30px;
+} */
+
 .p-list .p-list-item:hover {
   /* box-shadow: 0 0 40px 1px rgba(24, 160, 219, .51); */
   box-shadow: 0 0 20px 1px rgba(183, 183, 183, 0.51);
@@ -41,7 +47,7 @@
   text-align: justify;
   word-break: normal;
   word-wrap: break-word;
-  color: #424242;
+  color: #222;
   transition: all 0.2s ease;
 }
 
@@ -156,7 +162,7 @@
   max-width: 500px;
   height: 37px;
   overflow: hidden;
-  font-size: 22px;
+  font-size: 25px;
   vertical-align: top;
 }
 
@@ -284,7 +290,7 @@
   .p-list .p-list-item-title {
     width: auto;
     height: auto;
-    font-size: 20px;
+    font-size: 25px;
   }
   .p-list .p-list-item-title a {
     width: auto;
@@ -295,7 +301,6 @@
     /* 使用省略标记 */
     text-overflow: ellipsis;
     vertical-align: initial;
-    color: #424242;
   }
   .p-list .p-list-item-title a:hover::before {
     width: 0;
@@ -352,7 +357,7 @@
   .p-list .zy {
     position: absolute;
     right: 20px;
-    width: 60%;
+    width: 440px;
     bottom: 12px;
     height: 65px;
   }
@@ -371,13 +376,13 @@
   }
   .p-list .p-list-item .post-img {
     float: left;
-    width: 250px;
-    height: auto;
+    width: 270px;
+    height: 100%;
     overflow: hidden;
   }
   .p-list .p-list-item .content {
     float: right;
-    width: 450px;
+    width: 440px;
     padding: 20px 20px 20px 0;
     overflow: hidden;
   }
@@ -423,7 +428,7 @@ strong {
   margin: 0 auto;
   width: 100%;
   background-color: #fff;
-  padding: 90px 0 30px 0;
+  padding: 85px 0 30px 0;
 }
 
 /* 浏览器支持 backdrop-filter */
@@ -549,11 +554,11 @@ strong {
 
 .post-info {
   padding: 10px 0 5px 0;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .p-info-title {
-  margin: 25px 0 25px 0;
+  margin: 25px 0 35px 0;
 }
 
 .p-info-title .u-img {
@@ -652,7 +657,7 @@ strong {
     max-width: 414px;
   }
   .wrap-bd {
-    padding-top: 95px;
+    padding-top: 85px;
   }
   .headhead {
     margin-bottom: 30px;
@@ -1451,6 +1456,12 @@ html {
   cursor: pointer;
 }
 
+.bar .post-title-menu .m-hTitle {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
 .bar .post-title-menu a:hover {
   background-color: #ebedef;
 }
@@ -1629,8 +1640,8 @@ html {
 } */
 
 .post-wrap .post h1 {
-  color: #4c4c4c;
-  font-size: 26px;
+  color: #222;
+  font-size: 28px;
   font-weight: bold;
   line-height: 1.3;
 }
@@ -1647,14 +1658,14 @@ html {
 }
 
 .post-wrap .post-text {
-  line-height: 2;
-  color: #4c4c4c;
+  line-height: 1.8;
+  color: #222;
   font-size: 16px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .post-wrap .post-text ul {
-  padding-left: 20px;
+  padding-left: 15px;
   margin-bottom: 20px;
 }
 
@@ -1695,23 +1706,19 @@ html {
 }
 
 .post-wrap .post-text p {
-  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .post-text blockquote {
   position: relative;
-  margin: 0 0 25px 0;
-  padding: 5px 17px;
+  margin-bottom: 20px;
+  padding: 16px;
   background-color: #fbfbfb;
   border-left: 4px solid #d0d0d0;
   color: #7f7f7f;
 }
 
-.wrap .post-wrap .post-text blockquote p {
-  padding: 2px 0;
-}
-
-.wrap .post-wrap .post-text blockquote ul {
+.wrap .post-wrap .post-text blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -1738,19 +1745,17 @@ html {
 } */
 
 .post-wrap .post-text li {
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
-.post-wrap .post-text li p {
+/* .post-wrap .post-text li p {
   padding-bottom: 5px;
   margin: 5px 0;
-}
+} */
 
 .post-wrap .post-text h2, .post-wrap .post-text h3 {
   position: relative;
-  padding: 5px 0px 0;
   font-weight: bold;
-  margin-bottom: 22px;
 }
 
 /* .post-wrap .post-text .t-h {
@@ -1762,7 +1767,7 @@ html {
   position: relative;
   display: inline-block;
   margin: 0;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1.5;
 }
 
@@ -1780,24 +1785,25 @@ html {
 } */
 
 .post-wrap .post-text h3 {
-  display: inline;
-  font-size: 18px;
+  /* display: block; */
+  font-size: 20px;
   line-height: 27px;
-  background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%);
+  margin: 30px 0 20px;
+  /* background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%); */
 }
 
-.post-wrap .post-text h3:after {
+/* .post-wrap .post-text h3:after {
   content: '';
   display: block;
   height: 10px;
-}
+} */
 
 .post-wrap .post-text h4 {
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
   line-height: 27px;
-  margin-bottom: 15px;
+  margin: 5px 0 20px;
   background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%);
 }
 
@@ -1831,7 +1837,7 @@ code {
 }
 
 .post-text pre {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* .post .post-text .prettyprint code {
@@ -2203,13 +2209,14 @@ code {
     width: 100%;
     max-width: 414px;
     margin: 0 auto;
+    overflow: hidden;
   }
   .post-wrap .post .widget {
     font-size: 1.6rem;
   }
   .post-wrap .post-text {
     font-size: 1.6rem;
-    color: #424242;
+    /* color: #222; */
   }
   .post-wrap .post-text table {
     max-width: 750px;
@@ -2217,11 +2224,25 @@ code {
   .prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
     height: 2px;
   }
-  code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
-    height: 4px;
+  pre[class*="language-"] {
+    box-sizing: border-box;
+    width: calc(100% / 0.9);
+    margin-left: calc((100% / 0.9) * -0.05);
+    padding-left: 5.5%;
+    padding-right: 5.5%;
+  }
+  .pre-wrap {
+    width: calc(100% / 0.9);
+    /* margin-left: calc((100% / 0.9) * -0.05); */
+  }
+  div[class*="plusBtn"] .preBg {
+    left: -5%;
+  }
+  div[class*="plusBtn"] .preBtn {
+    left: 45%;
   }
   code[class*="language-"], pre[class*="language-"] {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .m-tit {
     box-sizing: content-box;
@@ -2252,13 +2273,12 @@ code {
   .post-wrap .post {
     /* width: 90%; */
     margin: 0 auto;
-    padding: 95px 0 45px;
+    padding: 85px 0 45px;
     box-shadow: 0 0 15px 0px rgba(154, 154, 154, 0.15);
   }
-  .post-wrap .post h1 {
-    font-size: 26px;
-    color: #424242;
-  }
+  /* .post-wrap .post h1 {
+    color: #29363d;
+  } */
   .post-wrap .post .post-h {
     font-weight: bold;
     font-size: 26px;

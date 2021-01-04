@@ -11,7 +11,7 @@ code[class*="language-"], pre[class*="language-"] {
   color: #ccc;
   background: none;
   font-family: cmFont;
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -29,22 +29,65 @@ code[class*="language-"], pre[class*="language-"] {
 
 code[class*="language-"]::-webkit-scrollbar, pre[class*="language-"]::-webkit-scrollbar {
   background-color: #2d2d2d;
-  width: 0;
+  width: 5px;
   height: 5px;
   background-clip: padding-box;
 }
 
 code[class*="language-"]::-webkit-scrollbar-thumb, pre[class*="language-"]::-webkit-scrollbar-thumb {
-  background-color: #666666;
+  background-color: #aaa;
   border-radius: 4px;
 }
 
 /* Code blocks */
 
+pre[class*="language-"] code {
+  padding: 0;
+  margin: 0;
+}
+
 pre[class*="language-"] {
-  padding: 1em;
+  position: relative;
+  padding: 1.3em;
   margin: .5em 0;
-  overflow: auto;
+  overflow-y: hidden;
+}
+
+.preAfter::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #2d2d2d;
+}
+
+div[class*="pre-wrap"] {
+  position: relative;
+}
+
+div[class*="plusBtn"] .preBtn {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  margin-left: -8px;
+  width: 16px;
+  height: 16px;
+  background: url('/asset/arrow2.png') no-repeat;
+  background-size: contain;
+  z-index: 2;
+  opacity: .65;
+  cursor: pointer;
+}
+
+div[class*="plusBtn"] .preBg {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180deg, rgb(45 45 45 / 30%) 2%, rgb(45 45 45 / 96%) 70%);
 }
 
 :not(pre)>code[class*="language-"], pre[class*="language-"] {

@@ -1,15 +1,44 @@
-var pre = document.getElementsByTagName('pre');
-var h2 = document.getElementsByTagName('h2');
-var headhead = document.getElementsByClassName('headhead')[0];
-var downFlag = null, upFlag = null;
-var table = document.getElementsByTagName('table');
+function $(cName) {
+  return document.getElementsByClassName(cName);
+}
+const pre = document.getElementsByTagName('pre'),
+  h2 = document.getElementsByTagName('h2'),
+  headhead = document.getElementsByClassName('headhead')[0],
+  table = document.getElementsByTagName('table');
+let downFlag = null, upFlag = null;
 // for (let i = 0; i < pre.length; i++) {
 //   pre[i].className = 'prettyprint linenums';
 // }
+
+for (let i = 0; i < pre.length; i++) {
+  let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
+  if (preHeight.match(/\d+/g)[0] > 700) {
+    let preWrap = document.createElement('div'),
+      preBg = document.createElement('div'),
+      preBtn = document.createElement('div');
+    preWrap.setAttribute('class', 'pre-wrap');
+    pre[i].style.height = '700px';
+    pre[i].className += ' preAfter';
+    pre[i].parentNode.insertBefore(preWrap, pre[i]);
+    preWrap.appendChild(pre[i]);
+    preWrap.appendChild(preBg);
+    preWrap.appendChild(preBtn);
+    preWrap.className += ' .plusBtn';
+    preBg.setAttribute('class', 'preBg');
+    preBtn.setAttribute('class', 'preBtn');
+    preBtn.onclick = function () {
+      pre[i].style.height = 'auto';
+      pre[i].style.overflow = 'auto';
+      preBg.style.display = 'none';
+      preBtn.style.display = 'none';
+    }
+  }
+}
+
 for (let i = 0; i < h2.length; i++) {
   let h2Pa = document.createElement('div');
   h2Pa.setAttribute('class', 't-h');
-  h2Pa.setAttribute('style', 'margin-bottom: 23px; border-bottom: 1px solid #eaeaea;');
+  h2Pa.setAttribute('style', 'margin: 35px 0 20px; border-bottom: 1px solid #eaeaea;');
   h2[i].parentNode.insertBefore(h2Pa, h2[i].nextElementSibling);
   h2Pa.appendChild(h2[i]);
 }
@@ -21,7 +50,7 @@ for (let i = 0; i < table.length; i++) {
 }
 
 function getPageScroll() {
-  var xScroll, yScroll;
+  let xScroll, yScroll;
   if (self.pageYOffset) {
     yScroll = self.pageYOffset;
     xScroll = self.pageXOffset;
@@ -36,14 +65,14 @@ function getPageScroll() {
   return arrayPageScroll;
 };
 
-var scrollAction = { x: 'undefined', y: 'undefined' }, scrollDirection;
+let scrollAction = { x: 'undefined', y: 'undefined' }, scrollDirection;
 function scrollFunc() {
   if (typeof scrollAction.x == 'undefined') {
     scrollAction.x = window.pageXOffset;
     scrollAction.y = window.pageYOffset;
   }
-  var diffX = scrollAction.x - window.pageXOffset;
-  var diffY = scrollAction.y - window.pageYOffset;
+  let diffX = scrollAction.x - window.pageXOffset,
+    diffY = scrollAction.y - window.pageYOffset;
   if (diffX < 0) {
     // Scroll right
     scrollDirection = 'right';
@@ -73,8 +102,8 @@ window.addEventListener('scroll', function () {
     if (downFlag == null) {
       downFlag = document.body.scrollTop + document.documentElement.scrollTop;
     }
-    var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
-    var far = pageScroll - downFlag;
+    let pageScroll = document.body.scrollTop + document.documentElement.scrollTop,
+      far = pageScroll - downFlag;
     if (far >= 100 && pageScroll >= 100) {
       headhead.setAttribute('style', 'position: fixed; top: -84px;');
     }
@@ -86,8 +115,8 @@ window.addEventListener('scroll', function () {
     if (upFlag == null) {
       upFlag = document.body.scrollTop + document.documentElement.scrollTop;
     }
-    var pageScroll = document.body.scrollTop + document.documentElement.scrollTop;
-    var far = pageScroll - upFlag;
+    let pageScroll = document.body.scrollTop + document.documentElement.scrollTop,
+      far = pageScroll - upFlag;
     if (far <= -100) {
       headhead.setAttribute('style', 'position: fixed; top: 0;');
     }

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+    轮播图实现 - LERNB | 网络日志
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 学习、记录、分享 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.png">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/prism20200912.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200919.css">
+
+</head>
+
+<body>
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 63px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/tags" class="hoverLine">标签</a>
+          
+        </li>
+        <li>
+          
+          <a href="/categories" class="hoverLine">分类</a>
+          
+        </li>
+      </ul>
+    </div>
+    <div id="hcata">
+      <ul class="headerMenu">
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/">首页</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/tags">标签</a></li>
+        <li class="post-item"
+          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+            href="/categories">分类</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+  <div class="wrap">
+    <div class="wrap-content clearfix">
+      <div class="bar barbar">
+        <!-- S 侧栏插件 -->
+        <!-- 最近文章 -->
+        
+          <div class="bar-item">
+    <div class="t-h">
+      <h3>近期文章</h3>
+    </div>
+    <ul>
+      
+      <!-- <span class="post-date">2020-12-26</span> -->
+      <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li>
+      
+      <!-- <span class="post-date">2020-12-19</span> -->
+      <li class="post-item"><a href="/slideshow/">轮播图实现</a></li>
+      
+      <!-- <span class="post-date">2020-12-12</span> -->
+      <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li>
+      
+      <!-- <span class="post-date">2020-09-07</span> -->
+      <li class="post-item"><a href="/nginx-https/">Nginx 配置https</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+      
+      <!-- <span class="post-date">2020-08-26</span> -->
+      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+      
+      <!-- <span class="post-date">2020-08-23</span> -->
+      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+      
+      <!-- <span class="post-date">2020-08-22</span> -->
+      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
+      
+      <!-- <span class="post-date">2020-08-20</span> -->
+      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
+      
+    </ul>
+  </div>
+        
+
+        <!-- 分类 -->
+        
+        
+<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3>分类</h3>
+      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget category">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">24</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css3/">css3</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/javascript/">javascript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+    <!-- <div class="overhi"></div> -->
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+
+        
+
+        <!-- 归档 -->
+        
+
+        <!-- 标签 -->
+        
+        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+  
+  <div class="widget-wrap">
+    <div class="t-h">
+      <h3 class="widget-title">标签</h3>
+      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/BFC/" style="font-size: 12px; color: #a4d8fa">BFC</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/HTML/" style="font-size: 16px; color: #65bbf3">HTML</a> <a href="/tags/HTML5/" style="font-size: 22px; color: #0790e8">HTML5</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 18px; color: #46adef">VPS</a> <a href="/tags/css/" style="font-size: 22px; color: #0790e8">css</a> <a href="/tags/css3/" style="font-size: 18px; color: #46adef">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/float/" style="font-size: 12px; color: #a4d8fa">float</a> <a href="/tags/javascript/" style="font-size: 14px; color: #85caf6">javascript</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 20px; color: #269eec">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a>
+    </div>
+  </div>
+  
+  <div class="overhi"></div>
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+        <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>标题目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+      </div>
+      <!--  -->
+      <div class="post-wrap">
+  <div class="post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>轮播图实现</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/img/u.jpg" alt="">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-12-19</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h2><p>实现需求：</p>
+<ul>
+<li>无缝循环轮播<a id="more"></a></li>
+<li>左右按钮点击切换</li>
+<li>底部小圆点指示效果与点击切换</li>
+</ul>
+<iframe id="frame" scrolling="no" src="/asset/lunbo2.html" style="display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto; border: 0; margin-bottom: 20px;"></iframe>
+
+<blockquote>
+<p>此轮播图实现方式中并没有节流处理，可以任意速度点击切换轮播，但是有一定的局限性，下文进行说明。</p>
+</blockquote>
+<h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><pre><code class="language-html">&lt;div class=&quot;banner&quot;&gt;
+    &lt;div class=&quot;slide&quot;&gt;
+      &lt;!-- 图片区 --&gt;
+      &lt;div class=&quot;slide-item&quot;&gt;
+        &lt;img src=&quot;./img/c1.jpg&quot; alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide-item&quot;&gt;
+        &lt;img src=&quot;./img/c2.png&quot; alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide-item&quot;&gt;
+        &lt;img src=&quot;./img/c3.png&quot; alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide-item&quot;&gt;
+        &lt;img src=&quot;./img/c4.png&quot; alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide-item&quot;&gt;
+        &lt;img src=&quot;./img/c5.png&quot; alt=&quot;&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 底部小圆点 --&gt;
+    &lt;div class=&quot;dots-container&quot;&gt;
+      &lt;span class=&quot;active&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- 左右两侧按钮 --&gt;
+    &lt;div class=&quot;btn btnPre&quot;&gt;&amp;lt;&lt;/div&gt;
+    &lt;div class=&quot;btn btnNext&quot;&gt;&amp;gt;&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+<h3 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h3><pre><code class="language-css">.banner {
+      position: relative;
+      overflow: hidden;
+      width: 500px;
+      height: 300px;
+    }
+
+    /* 清除浮动 */
+    .slide::before,
+    .slide:after {
+      content: &#39; &#39;;
+      display: table;
+    }
+
+    .slide::after {
+      clear: both;
+    }
+
+    .slide-item {
+      float: left;
+    }
+
+    .btn {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -10px;
+      background-color: #6363636e;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      font-size: 20px;
+      transition: all .4s;
+    }
+
+    .btnPre {
+      left: 10px;
+    }
+
+    .btnNext {
+      right: 10px;
+    }
+
+    /* 底部小圆点 */
+    .dots-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      margin-left: -50px;
+      padding: 0 5px;
+      width: 90px;
+      height: 15px;
+      border-radius: 10px;
+      background-color: #40404040;
+    }
+
+    .dots-container span {
+      display: block;
+      border: 4px solid #ddd;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transition: width .4s;
+      cursor: pointer;
+    }
+
+    .dots-container .active {
+      width: 5px;
+      border-radius: 30%;
+      border-color: #fff;
+    }</code></pre>
+<h3 id="JavaScript代码"><a href="#JavaScript代码" class="headerlink" title="JavaScript代码"></a>JavaScript代码</h3><pre><code class="language-javascript">function $(cName) {
+  return document.getElementsByClassName(cName);
+}
+// 获取元素
+const banner = $(&#39;banner&#39;)[0],
+  slide = $(&#39;slide&#39;)[0],
+  slideItem = $(&#39;slide-item&#39;),
+  btnPre = $(&#39;btnPre&#39;)[0],
+  btnNext = $(&#39;btnNext&#39;)[0],
+  span = $(&#39;dots-item&#39;);
+
+// 在头部增加一张图，在末尾增加一张图
+slide.insertBefore(slideItem[slideItem.length - 1].cloneNode(true), slideItem[0]);
+slide.appendChild(slideItem[1].cloneNode(true));
+slide.style.width = `${(slideItem.length) * 500}px`; // 定义图片项目容器总宽度，每张图宽度为500
+slide.style.transform = &#39;translateX(-500px)&#39;;
+
+let index = 1, // 定义图片下标，第一张index为1
+  timer, timer2,
+  duration = &#39;transform .3s&#39;; // 定义动画过度
+
+// 右侧按钮
+btnNext.onclick = function () {
+  resetDots();
+  if (index &gt; slideItem.length - 2) { // 处理滚动到尾部
+    index = 1;
+    slide.style.transition = &#39;none&#39;;
+    slide.style.transform = `translateX(-${index * 500}px)`; // 将整个slide移至逻辑第一张位置，即实际第二张
+    timer = setTimeout(() =&gt; { // 定时延迟确保以上两步操作先完成执行
+      slide.style.transition = duration;
+      slide.style.transform = `translateX(-${++index * 500}px)`; // 打开过渡效果并继续变换位置实现无缝滚动效果
+      span[index - 1].className = &#39;active&#39;; // 设置变换完成后对应小圆点点亮
+      clearTimeout(timer);
+    }, 16);
+  } else {
+    slide.style.transition = duration;
+    slide.style.transform = `translateX(-${++index * 500}px)`; // 每次滚动
+    if (index == slideItem.length - 1) {  // 处理滚动到最后一张即逻辑第一张小圆点点亮位置
+      span[0].className = &#39;active&#39;;
+    } else {
+      span[index - 1].className = &#39;active&#39;;
+    }
+  }
+}
+// 左侧按钮
+btnPre.onclick = function () {
+  resetDots();
+  if (index &lt; 1) { // 处理滚动到头部
+    index = slideItem.length - 2;
+    slide.style.transition = &#39;none&#39;;
+    slide.style.transform = `translateX(-${index * 500}px)`; // 将整个slide移至逻辑最后一张位置，即实际倒数第二张
+    timer = setTimeout(() =&gt; { // 定时延迟确保以上两步操作先完成执行
+      slide.style.transition = duration;
+      slide.style.transform = `translateX(-${--index * 500}px)`; // 打开过渡效果并继续变换位置实现无缝滚动效果
+      span[index - 1].className = &#39;active&#39;; // 设置变换完成后对应小圆点点亮
+      clearTimeout(timer);
+    }, 16);
+  } else {
+    slide.style.transition = duration;
+    slide.style.transform = `translateX(-${--index * 500}px)`; // 每次滚动
+    if (index == 0) { // 处理滚动到第一张即逻辑最后一张小圆点点亮位置
+      span[span.length - 1].className = &#39;active&#39;;
+    } else {
+      span[index - 1].className = &#39;active&#39;;
+    }
+  }
+}
+// 自动循环播放定时器
+timer2 = setInterval(() =&gt; {
+  btnNext.onclick();
+}, 3000);
+
+function resetDots() { // 小圆点样式重置方法
+  for (let i = 0; i &lt; span.length; i++) {
+    span[i].className = &#39;&#39;;
+  }
+
+function moveDots() { // 底部小圆点点按事件
+  for (let i = 0; i &lt; span.length; i++) {
+    (function (n) {
+      span[n].onclick = function () {
+        resetDots();
+        span[n].className = &#39;active&#39;;
+        slide.style.transition = duration;
+        slide.style.transform = `translateX(-${(n + 1) * 500}px)`;
+        index = n + 1;
+      }
+    })(i);
+  }
+}
+moveDots();
+// 鼠标移入移出暂停、继续播放循环
+banner.addEventListener(&quot;mouseover&quot;, function () {
+  clearInterval(timer2);
+});
+banner.addEventListener(&quot;mouseout&quot;, function () {
+  timer2 = setInterval(() =&gt; {
+    btnNext.onclick();
+  }, 2000);
+});</code></pre>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+    </div>
+    
+    
+<script src="/js/prism.js"></script>
+
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/throttle-debounce/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption">&lt;&lt;上一篇</strong>
+        
+        <span class="hoverLine hoverLine-thin">理解防抖与节流</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/hover-transform/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <span class="hoverLine hoverLine-thin">父级元素设置高度为0子元素仍然显示</span>
+        <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <!-- <span class="post-date">2020-12-26</span> -->
+        <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li>
+        
+        <!-- <span class="post-date">2020-12-19</span> -->
+        <li class="post-item"><a href="/slideshow/">轮播图实现</a></li>
+        
+        <!-- <span class="post-date">2020-12-12</span> -->
+        <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li>
+        
+        <!-- <span class="post-date">2020-09-07</span> -->
+        <li class="post-item"><a href="/nginx-https/">Nginx 配置https</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
+        
+        <!-- <span class="post-date">2020-08-26</span> -->
+        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
+        
+        <!-- <span class="post-date">2020-08-23</span> -->
+        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
+        
+        <!-- <span class="post-date">2020-08-22</span> -->
+        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <!-- 是否开启文章评论 -->
+  
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200919.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200912.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m.js');
+    } else {
+      layoutJs.setAttribute('src', '');
+    }
+  </script>
+</body>
+
+</html>
