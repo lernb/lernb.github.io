@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/css/prism20200912.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200919.css">
+<link rel="stylesheet" href="/css/lernb20200920.css">
 
 </head>
 
@@ -70,17 +70,17 @@
       <ul id="header-btn">
         <li>
           
-          <a href="/" class="hoverLine">首页</a>
+          <a href="/" class="home-btn hoverLine">主页</a>
           
         </li>
         <li>
           
-          <a href="/tags" class="hoverLine">标签</a>
+          <a href="/tags" class="tag-btn hoverLine">标签</a>
           
         </li>
         <li>
           
-          <a href="/categories" class="hoverLine">分类</a>
+          <a href="/categories" class="cate-btn hoverLine">分类</a>
           
         </li>
       </ul>
@@ -88,13 +88,13 @@
     <div id="hcata">
       <ul class="headerMenu">
         <li class="post-item"
-          style="padding-left: 25px; background: url('/asset/home.png') no-repeat 0 4px; background-size: 18px 18px;"><a
-            href="/">首页</a></li>
+          style="background: url('/asset/home.png') no-repeat 0 6px; background-size: 18px 18px;"><a
+            href="/">主页</a></li>
         <li class="post-item"
-          style="padding-left: 25px; background: url('/asset/tag.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+          style="background: url('/asset/tag.png') no-repeat 0 6px; background-size: 18px 18px;"><a
             href="/tags">标签</a></li>
         <li class="post-item"
-          style="padding-left: 25px; background: url('/asset/cate.png') no-repeat 0 4px; background-size: 18px 18px;"><a
+          style="background: url('/asset/cate.png') no-repeat 0 6px; background-size: 18px 18px;"><a
             href="/categories">分类</a></li>
       </ul>
       
@@ -104,11 +104,14 @@
   <div class="wrap">
     <div class="wrap-content clearfix">
       <div class="bar barbar">
+        <div class="barside">
         <!-- S 侧栏插件 -->
         <!-- 最近文章 -->
         
+
+        
           <div class="bar-item">
-    <div class="t-h">
+    <div class="t-h hRec">
       <h3>近期文章</h3>
     </div>
     <ul>
@@ -128,72 +131,60 @@
       <!-- <span class="post-date">2020-08-26</span> -->
       <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
       
-      <!-- <span class="post-date">2020-08-26</span> -->
-      <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
-      
-      <!-- <span class="post-date">2020-08-23</span> -->
-      <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
-      
-      <!-- <span class="post-date">2020-08-22</span> -->
-      <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
-      
-      <!-- <span class="post-date">2020-08-20</span> -->
-      <li class="post-item"><a href="/CSS32D-transform/">CSS3 2D转换</a></li>
-      
-      <!-- <span class="post-date">2020-08-20</span> -->
-      <li class="post-item"><a href="/CSS3-selector/">CSS3选择器</a></li>
-      
     </ul>
   </div>
         
 
+        <hr style="border: 0;border-top: 1px solid #eaecef;">
+
         <!-- 分类 -->
-        
-        
-<div class="bar-item" style="max-height: 300px; overflow: hidden;">
+        <!--  -->
+          <!--  -->
+          <div class="bar-item">
   
-  <div class="widget-wrap">
-    <div class="t-h">
-      <h3>分类</h3>
-      <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+    <div class="widget-wrap">
+      <div class="t-h hCate">
+        <h3>分类</h3>
+        <!-- <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
+      </div>
+      <div class="widget category">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span></li></ul>
+      </div>
+      <!-- <div class="overhi"></div> -->
     </div>
-    <div class="widget category">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">24</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML5/">HTML5</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/css3/">css3</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/javascript/">javascript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/VPS/">VPS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-    <!-- <div class="overhi"></div> -->
-  </div>
-  
-  <div class="overhi"></div>
+    
+      <!-- <div class="overhi"></div> -->
 </div>
 
-        
+        <hr style="border: 0;border-top: 1px solid #eaecef;">
 
         <!-- 归档 -->
         
 
         <!-- 标签 -->
-        
-        <div class="bar-item" style="position: relative; max-height: 200px; overflow: hidden;">
+        <!-- 
+           -->
+          <div class="bar-item" style="position: relative;">
   
   <div class="widget-wrap">
-    <div class="t-h">
+    <div class="t-h hTag">
       <h3 class="widget-title">标签</h3>
-      <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a>
+      <!-- <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
     </div>
     <div class="widget tagcloud">
-      <a href="/tags/Aria2/" style="font-size: 12px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 12px; color: #a4d8fa">BBR</a> <a href="/tags/BFC/" style="font-size: 12px; color: #a4d8fa">BFC</a> <a href="/tags/Git/" style="font-size: 12px; color: #a4d8fa">Git</a> <a href="/tags/HTML/" style="font-size: 16px; color: #65bbf3">HTML</a> <a href="/tags/HTML5/" style="font-size: 22px; color: #0790e8">HTML5</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 12px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 18px; color: #46adef">VPS</a> <a href="/tags/css/" style="font-size: 22px; color: #0790e8">css</a> <a href="/tags/css3/" style="font-size: 18px; color: #46adef">css3</a> <a href="/tags/flex/" style="font-size: 14px; color: #85caf6">flex</a> <a href="/tags/float/" style="font-size: 12px; color: #a4d8fa">float</a> <a href="/tags/javascript/" style="font-size: 14px; color: #85caf6">javascript</a> <a href="/tags/nginx/" style="font-size: 12px; color: #a4d8fa">nginx</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 20px; color: #269eec">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 12px; color: #a4d8fa">浏览器</a>
+      <a href="/tags/Aria2/" style="font-size: 13px; color: #a4d8fa">Aria2</a> <a href="/tags/BBR/" style="font-size: 13px; color: #a4d8fa">BBR</a> <a href="/tags/BFC/" style="font-size: 13px; color: #a4d8fa">BFC</a> <a href="/tags/Git/" style="font-size: 13px; color: #a4d8fa">Git</a> <a href="/tags/HTML/" style="font-size: 13px; color: #65bbf3">HTML</a> <a href="/tags/HTML5/" style="font-size: 13px; color: #0790e8">HTML5</a> <a href="/tags/Hexo/" style="font-size: 13px; color: #85caf6">Hexo</a> <a href="/tags/IPv6/" style="font-size: 13px; color: #a4d8fa">IPv6</a> <a href="/tags/VPS/" style="font-size: 13px; color: #46adef">VPS</a> <a href="/tags/css/" style="font-size: 13px; color: #0790e8">css</a> <a href="/tags/css3/" style="font-size: 13px; color: #46adef">css3</a> <a href="/tags/flex/" style="font-size: 13px; color: #85caf6">flex</a> <a href="/tags/float/" style="font-size: 13px; color: #a4d8fa">float</a> <a href="/tags/javascript/" style="font-size: 13px; color: #85caf6">javascript</a> <a href="/tags/nginx/" style="font-size: 13px; color: #a4d8fa">nginx</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" style="font-size: 13px; color: #a4d8fa">加速器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 13px; color: #a4d8fa">博客</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px; color: #a4d8fa">工具</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 13px; color: #269eec">折腾</a> <a href="/tags/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/" style="font-size: 13px; color: #a4d8fa">文字处理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 13px; color: #a4d8fa">浏览器</a>
     </div>
   </div>
   
-  <div class="overhi"></div>
+  <!-- <div class="overhi"></div> -->
 </div>
-        
+      </div>
 
         <!-- 文章目录 -->
         
         <div class="bar-item post-title-menu-flag">
   <div class="t-h">
-    <h3>标题目录</h3>
+    <h3>目录</h3>
   </div>
   <div class="post-title-content">
     <ul class="post-title-menu">
@@ -430,15 +421,6 @@ function showPosition(position)
         <!-- <span class="post-date">2020-08-26</span> -->
         <li class="post-item"><a href="/flex-examples/">Flex布局实例</a></li>
         
-        <!-- <span class="post-date">2020-08-26</span> -->
-        <li class="post-item"><a href="/flex-grammar/">Flex布局语法</a></li>
-        
-        <!-- <span class="post-date">2020-08-23</span> -->
-        <li class="post-item"><a href="/Hexo-Git/">Hexo配置Git部署站点到服务器</a></li>
-        
-        <!-- <span class="post-date">2020-08-22</span> -->
-        <li class="post-item"><a href="/CSS3D-transform/">CSS3 3D转换</a></li>
-        
       </ul>
     </div>
   </div>
@@ -472,7 +454,7 @@ function showPosition(position)
   if (screen.width < 1236) {
     postJs.setAttribute('src', '/js/post-m20200919.js');
   } else {
-    postJs.setAttribute('src', '/js/post20200912.js');
+    postJs.setAttribute('src', '/js/post20200913.js');
   }
 </script>
 
@@ -500,7 +482,7 @@ function showPosition(position)
   <script type="text/javascript">
     let layoutJs = document.getElementById('layout-js');
     if (screen.width < 1236) {
-      layoutJs.setAttribute('src', '/js/layout-m.js');
+      layoutJs.setAttribute('src', '/js/layout-m20200918.js');
     } else {
       layoutJs.setAttribute('src', '');
     }

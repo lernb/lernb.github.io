@@ -213,7 +213,7 @@ let ptmf = $('post-title-menu-flag')[0],
 window.addEventListener('scroll', function () {
   let scroll = document.body.scrollTop + document.documentElement.scrollTop;
   if (scroll >= scrolled) {
-    ptmf.setAttribute('style', 'position: fixed; top: 78px; width: 300px;');
+    ptmf.setAttribute('style', 'position: fixed; box-sizing: border-box; top: 78px; width: 320px; padding: 0 20px 0;');
     toTop.style.right = '15px';
   } else {
     ptmf.setAttribute('style', 'position: initial; top: initial;');

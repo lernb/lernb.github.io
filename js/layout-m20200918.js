@@ -59,29 +59,50 @@ function clk() {
 let iList = document.getElementsByClassName('p-list-item');
 let wrapbd = document.getElementsByClassName('wrap-bd')[0];
 for (let i = 0; i < iList.length; i++) {
-  (function () {
-    iList[i].addEventListener('touchstart', function (e) {
+  (function (n) {
+    iList[n].addEventListener('touchstart', function (e) {
       e.stopPropagation();
-      console.log('touchstart');
-      iList[i].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
+      iList[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
     });
-    iList[i].addEventListener('touchend', function (e) {
+    iList[n].addEventListener('touchend', function (e) {
       // setTimeout(function () {
       //   iList[i].setAttribute('style', 'transform: initial');
       // }, 200);
-      iList[i].setAttribute('style', 'transform: initial');
+      iList[n].setAttribute('style', 'transform: initial');
     });
-    iList[i].addEventListener('touchmove', function (e) {
+    iList[n].addEventListener('touchmove', function (e) {
       setTimeout(function () {
-        iList[i].setAttribute('style', 'transform: initial');
+        iList[n].setAttribute('style', 'transform: initial');
       }, 200);
     });
   })(i);
 }
-wrapbd.addEventListener('touchstart', function (e) {
-  for (let i = 0; i < iList.length; i++) {
-    setTimeout(function () {
-      iList[i].setAttribute('style', 'transform: initial');
-    }, 200);
-  }
-});
+// wrapbd.addEventListener('touchstart', function (e) {
+//   for (let i = 0; i < iList.length; i++) {
+//     setTimeout(function () {
+//       iList[i].setAttribute('style', 'transform: initial');
+//     }, 200);
+//   }
+// });
+
+let pcate = document.getElementsByClassName('post')[0].getElementsByClassName('category-list-item');
+console.log(pcate);
+for (let i = 0; i < pcate.length; i++) {
+  (function (n) {
+    pcate[n].addEventListener('touchstart', function (e) {
+      e.stopPropagation();
+      pcate[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
+    });
+    pcate[n].addEventListener('touchend', function (e) {
+      // setTimeout(function () {
+      //   pcate[i].setAttribute('style', 'transform: initial');
+      // }, 200);
+      pcate[n].setAttribute('style', 'transform: initial');
+    });
+    pcate[n].addEventListener('touchmove', function (e) {
+      setTimeout(function () {
+        pcate[n].setAttribute('style', 'transform: initial');
+      }, 200);
+    });
+  })(i);
+}
