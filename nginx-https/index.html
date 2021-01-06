@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/css/prism20200913.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200922.css">
+<link rel="stylesheet" href="/css/lernb20200923.css">
 
 </head>
 
@@ -236,7 +236,7 @@
     }
 }</code></pre>
 <p>使用 <code>http://</code>访问，就会如下显示</p>
-<p><img src="/img/41651.png" alt="img"></p>
+<p><img src="/img/nginx-https.assets/41651.png" alt="img"></p>
 <h2 id="配置-https"><a href="#配置-https" class="headerlink" title="配置 https"></a>配置 https</h2><h3 id="Https-基础配置"><a href="#Https-基础配置" class="headerlink" title="Https 基础配置"></a>Https 基础配置</h3><pre><code class="language-bash">server {
     listen                  443 ssl;
     server_name             wangsijie.top www.wangsijie.top;
@@ -251,7 +251,7 @@
     }
 }</code></pre>
 <p>重启后，以 <code>https://</code> 开头访问你的网站，就会发现</p>
-<p><img src="/img/141613.png" alt=""></p>
+<p><img src="/img/nginx-https.assets/141613.png" alt=""></p>
 <h3 id="修改-http-配置"><a href="#修改-http-配置" class="headerlink" title="修改 http 配置"></a>修改 http 配置</h3><p>但是用 <code>http://</code> 访问，仍旧显示连接不安全，我们需要修改配置，当访问 http 时会重定向到 https 如下</p>
 <pre><code class="language-bash">server {
     listen  80;

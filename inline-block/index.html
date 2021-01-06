@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/css/prism20200913.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200922.css">
+<link rel="stylesheet" href="/css/lernb20200923.css">
 
 </head>
 
@@ -220,10 +220,10 @@
       <!-- E 文章信息 -->
       <div class="post-text">
         <h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>在同一个块级元素中相邻的两个行内块元素，其中一个设置<code>overflow: hidden</code>后，另一个行内元素会出现位置向下偏移的情况<a id="more"></a>，如下图：</p>
-<p><img src="/img/inline-block-wwrong.png" alt=""></p>
+<p><img src="/img/inline-block.assets/inline-block-wwrong.png" alt=""></p>
 <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>出现这个问题的主要原因是如果一个inline-block元素的<code>overflow</code>属性被设置为非<code>visible</code>值后，那么该元素的baseline将被强制修改为元素下外边沿，在默认情况下baseline为字符的底线位置且<code>vertical-align</code>的属性值为<code>baseline</code>。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>给设置了<code>overflow：hidden</code>的元素添加<code>vertical-align: bottom</code>属性即可。</p>
-<p><img src="/img/inline-block.png" alt=""></p>
+<p><img src="/img/inline-block.assets/inline-block.png" alt=""></p>
 
       </div>
     </div>
