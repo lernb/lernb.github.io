@@ -35,7 +35,7 @@ function clk() {
     btnShow.style.display = "inline-block";
     // btnShow.className = "animate__flipInX";
     // layer.className = "cata animate__fadeOut";
-    header.style.height = 63 + "px";
+    header.style.height = 55 + "px";
     isShow = false;
     // setTimeout(function () {
     //   isShow = false;

@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/css/prism20200912.css">
 
   
-<link rel="stylesheet" href="/css/lernb20200921.css">
+<link rel="stylesheet" href="/css/lernb20200922.css">
 
 </head>
 
@@ -53,7 +53,7 @@
       headerJs.setAttribute('src', '/js/layouts.js');
     }
   </script>
-  <div class="header-wrap" id="he" style="height: 63px;">
+  <div class="header-wrap" id="he" style="height: 55px;">
     <div class="blur-bg"></div>
     <div class="head">
       <button onclick="clk()">
@@ -86,15 +86,17 @@
       </ul>
     </div>
     <div id="hcata">
+      <img src="/img/u.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div>
       <ul class="headerMenu">
         <li class="post-item"
-          style="background: url('/asset/home.png') no-repeat 0 6px; background-size: 18px 18px;"><a
+          style="background-image: url('/asset/home.png');"><a
             href="/">主页</a></li>
         <li class="post-item"
-          style="background: url('/asset/tag.png') no-repeat 0 6px; background-size: 18px 18px;"><a
+          style="background-image: url('/asset/tag.png');"><a
             href="/tags">标签</a></li>
         <li class="post-item"
-          style="background: url('/asset/cate.png') no-repeat 0 6px; background-size: 18px 18px;"><a
+          style="background-image: url('/asset/cate.png');"><a
             href="/categories">分类</a></li>
       </ul>
       
@@ -438,6 +440,8 @@ img:hover {
   </div>
   <!-- 是否开启文章评论 -->
   
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
   <script src="/js/valines.js"></script>
   <div id="vcomments"></div>
   <script>
@@ -494,7 +498,7 @@ img:hover {
   <script type="text/javascript">
     let layoutJs = document.getElementById('layout-js');
     if (screen.width < 1236) {
-      layoutJs.setAttribute('src', '/js/layout-m20200918.js');
+      layoutJs.setAttribute('src', '/js/layout-m20200919.js');
     } else {
       layoutJs.setAttribute('src', '');
     }
