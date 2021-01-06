@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/prism20200912.css">
+<link rel="stylesheet" href="/css/prism20200913.css">
 
   
 <link rel="stylesheet" href="/css/lernb20200922.css">
@@ -231,48 +231,36 @@
 $ node --version
 # v12.16.2</code></pre>
 <p>如果正确出现版本号，则说明已经安装，反之则未安装。</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ul>
-<li><p>从<a href="https://git-scm.com" target="_blank" rel="noopener">官网</a>下载安装Git</p>
-</li>
-<li><p>配置用户信息，设置用户名以及邮箱</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>从Git <a href="https://git-scm.com" target="_blank" rel="noopener">官网</a>下载安装。</p>
+<p>配置用户信息，设置用户名以及邮箱：</p>
 <pre><code class="language-bash">$ git config --global user.name &quot;用户名&quot;
 $ git config --global user.email &quot;邮箱地址&quot;
 
 #查看配置
 $ git config --list</code></pre>
-</li>
-<li><p><strong>获取key</strong>，下文配置SSH需要用到</p>
+<p><strong>获取key</strong>，下文配置SSH需要用到。</p>
 <p>在Git Bash中执行以下命令：</p>
 <pre><code class="language-bash">#创建公钥
 $ ssh-keygen -t rsa -C &quot;邮箱地址&quot;
 #然后获取复制公钥备用
 $ cat ~/.ssh/id_rsa.pub</code></pre>
-</li>
-</ul>
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>从<a href="[https://nodejs.org](https://nodejs.org/)">官网</a>下载安装，安装完成后可以在在Git Bash中输入<code>node --version</code>查看当前安装版本</p>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>从Node.js <a href="[https://nodejs.org](https://nodejs.org/)">官网</a>下载安装，安装完成后可以在在Git Bash中输入<code>node --version</code>查看当前安装版本。</p>
 <h3 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h3><p>更多详细配置可以参照<a href="[https://hexo.io/zh-cn/docs](https://hexo.io/zh-cn/docs/)">官方文档</a>。</p>
 <p>新建存放Hexo站点目录的文件夹，如<code>hexo</code>，进入<code>hexo</code>内空白处右键菜单点击<code>git bash</code>：</p>
-<ul>
-<li><p>安装Hexo</p>
+<p>安装Hexo</p>
 <pre><code class="language-bash">$ npm install -g hexo-cli</code></pre>
-</li>
-<li><p>安装完成后</p>
+<p>安装完成后</p>
 <pre><code class="language-bash">$ hexo init
 $ npm install</code></pre>
-</li>
-<li><p>启动本地站点服务</p>
+<p>启动本地站点服务</p>
 <pre><code class="language-bash">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo server</code></pre>
 <p>完成后可以在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>查看搭建的本地站点。</p>
-</li>
-</ul>
 <h2 id="服务器端安装"><a href="#服务器端安装" class="headerlink" title="服务器端安装"></a>服务器端安装</h2><p>将系统包列表更新到最新：</p>
 <pre><code class="language-bash">$ apt-get update -y
 $ apt-get upgrade -y</code></pre>
-<h3 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h3><ul>
-<li><p>创建git用户</p>
+<h3 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h3><p>创建git用户</p>
 <pre><code class="language-bash">$ adduser git</code></pre>
-</li>
-<li><p>赋予sudo权限</p>
+<p>赋予sudo权限</p>
 <pre><code class="language-bash">$ chmod 740 /etc/sudoers
 $ vim /etc/sudoers</code></pre>
 <p>定位到<code>root</code>一行下方添加以下字段</p>
@@ -280,17 +268,13 @@ $ vim /etc/sudoers</code></pre>
 <p><img src="/img/gitsudoer.png" alt=""></p>
 <p>修改完成后改回权限</p>
 <pre><code class="language-bash">$ chmod 400 /etc/sudoers</code></pre>
-</li>
-</ul>
-<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ul>
-<li><p>切换git用户，并到git用户目录</p>
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>切换git用户，并到git用户目录</p>
 <pre><code class="language-bash">#切换到git用户
 $ su git
 
 #转到git用户目录
 $ cd /home/git</code></pre>
-</li>
-<li><p>配置ssh</p>
+<p>配置ssh</p>
 <pre><code class="language-bash"># 创建.ssh文件夹
 $ mkdir ~/.ssh
 #输入可查看是否创建
@@ -302,20 +286,11 @@ $ vim ~/.ssh/authorized_keys
 # 保存关闭authorized_keys后，修改相应权限
 $ chmod 600 ~/.ssh/authorized_keys
 $ chmod 700 ~/.ssh</code></pre>
-</li>
-</ul>
-<ul>
-<li><p>然后输入测试是否可以登录</p>
+<p>然后输入测试是否可以登录</p>
 <pre><code class="language-bash">$ ssh -v git@68.168.141.184</code></pre>
-<ul>
-<li><p>默认22端口，不是则需要在后面加上<code>-p 端口号</code></p>
-</li>
-<li><p>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!是以前配置过主机，需要进行删除</p>
+<p>默认22端口，不是则需要在后面加上<code>-p 端口号</code></p>
+<p>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!是以前配置过主机，需要进行删除</p>
 <pre><code class="language-bash">$ vi ~/.ssh/known_hosts</code></pre>
-</li>
-</ul>
-</li>
-</ul>
 <h3 id="创建git裸库"><a href="#创建git裸库" class="headerlink" title="创建git裸库"></a>创建git裸库</h3><pre><code class="language-bash"># 回到git目录
 $ cd /home/git
 # 使用git用户创建git裸仓库，以blog.git为例
