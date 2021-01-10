@@ -1,8 +1,9 @@
-function $(cName) {
+function _(cName) {
   return document.getElementsByClassName(cName);
 }
 const pre = document.getElementsByTagName('pre'),
-  h2 = document.getElementsByTagName('h2'),
+  h2 = _('post')[0].getElementsByTagName('h2'),
+  // h3 = _('post')[0].getElementsByTagName('h3'),
   headhead = document.getElementsByClassName('headhead')[0],
   table = document.getElementsByTagName('table');
 let downFlag = null, upFlag = null;
@@ -35,13 +36,14 @@ for (let i = 0; i < pre.length; i++) {
   }
 }
 
-for (let i = 0; i < h2.length; i++) {
-  let h2Pa = document.createElement('div');
-  h2Pa.setAttribute('class', 't-h');
-  h2Pa.setAttribute('style', 'margin: 35px 0 20px; border-bottom: 1px solid #eaeaea;');
-  h2[i].parentNode.insertBefore(h2Pa, h2[i].nextElementSibling);
-  h2Pa.appendChild(h2[i]);
-}
+// for (let i = 0; i < h2.length; i++) {
+//   let h2Pa = document.createElement('div');
+//   h2Pa.setAttribute('class', 't-h');
+//   h2Pa.setAttribute('style', 'margin: 35px 0 20px; border-bottom: 1px solid #eaeaea;');
+//   h2[i].parentNode.insertBefore(h2Pa, h2[i].nextElementSibling);
+//   h2Pa.appendChild(h2[i]);
+// }
+
 for (let i = 0; i < table.length; i++) {
   let tableWrap = document.createElement('div');
   tableWrap.setAttribute('class', 'table-wrap');

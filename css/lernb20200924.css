@@ -847,7 +847,7 @@ strong {
     background-color: rgba(255, 255, 255, 0.65);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(55px);
-    transition: height .4s ease;
+    transition: height .4s cubic-bezier(.57,.03,.3,.98);
   }
 }
 
@@ -856,7 +856,7 @@ strong {
 @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   .header-wrap {
     background-color: #fff;
-    transition: height .4s ease;
+    transition: height .4s cubic-bezier(.57,.03,.3,.98);
   }
 }
 
@@ -1333,7 +1333,7 @@ html {
   padding: 1px 6px;
   background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0 0 8px 0px rgba(154, 154, 154, 0.15);
+  box-shadow: 0 0 5px 0px rgba(154, 154, 154, 0.15);
   transition: all .3s ease;
 }
 
@@ -1555,6 +1555,7 @@ html {
 .bar .post-title-menu-flag {
   max-height: 80%;
   padding: 0 20px 0;
+  overflow-x: hidden;
 }
 
 .bar .post-title-content {
@@ -1566,24 +1567,28 @@ html {
   width: 0;
 }
 
-.bar .post-title-content::-webkit-scrollbar {
-  background-color: white;
-  width: 3px;
+.bar .post-title-menu-flag::-webkit-scrollbar {
+  background-color: #eeeeee;
+  width: 6px;
   height: 0px;
   background-clip: padding-box;
 }
 
-.bar .post-title-content::-webkit-scrollbar-thumb {
-  background-color: lightgray;
-  border-radius: 3px;
+.bar .post-title-menu-flag::-webkit-scrollbar-thumb {
+  background-color: #cecece;
+  border-radius: 6px;
 }
 
 .bar .post-title-menu {
   padding-left: 0;
 }
 
-.bar .post-title-menu ul a {
+.bar .post-title-menu .h3Title {
   padding-left: 24px;
+}
+
+.bar .post-title-menu .h4Title {
+  padding-left: 48px;
 }
 
 .bar .post-title-menu a {
@@ -1990,10 +1995,19 @@ html {
 
 .post-wrap .post-text h2 {
   position: relative;
-  display: inline-block;
-  margin: 0;
+  /* display: inline-block; */
+  margin: 35px 0 20px;
   font-size: 25px;
   line-height: 1.5;
+}
+
+.post-wrap .post-text h2::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  height: 1px;
+  background-color: #eaeaea;
 }
 
 /* 正文h2标题蓝色下划线 */
@@ -2450,6 +2464,7 @@ code {
   }
   .post-wrap .post .widget {
     font-size: 1.6rem;
+    text-align: initial;
   }
   .post-wrap .widget .category-list li {
     transition: transform .2s;
@@ -2633,8 +2648,8 @@ code {
     margin-bottom: 5px;
     padding: 0 5px;
     background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 0 5px 1px rgba(154, 154, 154, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 0 6px 1px rgba(154, 154, 154, 0.15);
     transition: all .2s ease-in-out;
   }
   #article-nav {

@@ -1,10 +1,10 @@
 // let layer = document.getElementById("layer");
-let header = document.getElementById("he");
-let headerHeight = parseInt(he.style.height);
-let hcata = document.getElementById("hcata");
-let btnShow = document.getElementById("show");
-let btnClose = document.getElementById("close");
-let isShow = false;
+let header = document.getElementById("he"),
+  headerHeight = parseInt(he.style.height),
+  hcata = document.getElementById("hcata"),
+  btnShow = document.getElementById("show"),
+  btnClose = document.getElementById("close"),
+  isShow = false;
 // 获取浏览器视口高度
 let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 window.addEventListener('scroll', function () {
