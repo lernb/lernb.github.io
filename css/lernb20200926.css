@@ -848,7 +848,7 @@ strong {
     background-color: rgba(255, 255, 255, 0.65);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(55px);
-    transition: height .4s cubic-bezier(.57,.03,.3,.98);
+    transition: height .4s ease;
   }
 }
 
@@ -857,7 +857,7 @@ strong {
 @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   .header-wrap {
     background-color: #fff;
-    transition: height .4s cubic-bezier(.57,.03,.3,.98);
+    transition: height .4s ease;
   }
 }
 
