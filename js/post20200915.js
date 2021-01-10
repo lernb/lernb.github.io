@@ -119,25 +119,7 @@ if (pre.length) {
   for (let i = 0; i < pre.length; i++) {
     let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
     if (preHeight.match(/\d+/g)[0] > 700) {
-      let preWrap = document.createElement('div'),
-        preBg = document.createElement('div'),
-        preBtn = document.createElement('div');
-      preWrap.setAttribute('class', 'pre-wrap');
       pre[i].style.height = '700px';
-      pre[i].className += ' preAfter';
-      pre[i].parentNode.insertBefore(preWrap, pre[i]);
-      preWrap.appendChild(pre[i]);
-      preWrap.appendChild(preBg);
-      preWrap.appendChild(preBtn);
-      preWrap.className += ' .plusBtn';
-      preBg.setAttribute('class', 'preBg');
-      preBtn.setAttribute('class', 'preBtn');
-      preBtn.onclick = function () {
-        pre[i].style.height = 'auto';
-        pre[i].style.overflow = 'auto';
-        preBg.style.display = 'none';
-        preBtn.style.display = 'none';
-      }
     }
   }
 }
