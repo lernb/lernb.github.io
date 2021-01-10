@@ -156,7 +156,7 @@ div[class*="plusBtn"] .preBg {
 
 pre[class*="language-"].line-numbers {
   position: relative;
-  padding-left: 3.8em;
+  padding-left: 2.8em;
   counter-reset: linenumber;
 }
 
@@ -170,8 +170,8 @@ pre[class*="language-"].line-numbers>code {
   pointer-events: none;
   top: 0;
   font-size: 100%;
-  left: -3.8em;
-  width: 3em;
+  left: -2.7em;
+  width: 2.3em;
   /* works for line-numbers below 1000 lines */
   letter-spacing: -1px;
   border-right: 1px solid #999;
@@ -190,6 +190,6 @@ pre[class*="language-"].line-numbers>code {
   content: counter(linenumber);
   color: #999;
   display: block;
-  padding-right: 0.8em;
+  padding-right: 0.5em;
   text-align: right;
 }
