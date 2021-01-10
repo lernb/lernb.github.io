@@ -161,6 +161,7 @@
   display: inline-block;
   max-width: 500px;
   height: 42px;
+  line-height: 40px;
   overflow: hidden;
   font-size: 25px;
   vertical-align: top;
