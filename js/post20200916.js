@@ -73,6 +73,7 @@ if (headings.length && menuTitle) {
     }
   }, 100));
 
+  // 目录固定
   const ptmf = _('post-title-menu-flag')[0];
   let toTop = document.getElementById('toTop'),
     scrolled = ptmf.offsetTop - 78,
@@ -115,14 +116,14 @@ if (headings.length && menuTitle) {
   menuTitle.appendChild(pNoTitle);
 }
 
-if (pre.length) {
-  for (let i = 0; i < pre.length; i++) {
-    let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
-    if (preHeight.match(/\d+/g)[0] > 700) {
-      pre[i].style.height = '700px';
-    }
-  }
-}
+// if (pre.length) {
+//   for (let i = 0; i < pre.length; i++) {
+//     let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
+//     if (preHeight.match(/\d+/g)[0] > 700) {
+//       pre[i].style.height = '700px';
+//     }
+//   }
+// }
 
 // 防抖处理
 function debounce(fn, delay) {

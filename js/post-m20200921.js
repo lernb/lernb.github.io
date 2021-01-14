@@ -8,12 +8,12 @@ const pre = document.getElementsByTagName('pre'),
   table = document.getElementsByTagName('table');
 let downFlag = null, upFlag = null;
 
-for (let i = 0; i < pre.length; i++) {
-  let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
-  if (preHeight.match(/\d+/g)[0] > 550) {
-    pre[i].style.height = '550px';
-  }
-}
+// for (let i = 0; i < pre.length; i++) {
+//   let preHeight = pre[i].currentStyle ? pre[i].currentStyle.height : window.getComputedStyle(pre[i], null).height;
+//   if (preHeight.match(/\d+/g)[0] > 550) {
+//     pre[i].style.height = '550px';
+//   }
+// }
 
 // for (let i = 0; i < h2.length; i++) {
 //   let h2Pa = document.createElement('div');

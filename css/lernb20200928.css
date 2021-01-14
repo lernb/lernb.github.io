@@ -1949,7 +1949,7 @@ html {
   color: #7f7f7f;
 }
 
-.wrap .post-wrap .post-text blockquote> :last-child {
+.wrap .post-wrap .post-text blockquote> :last-child, .wrap .post-wrap .post-text blockquote> :last-child> :last-child, .wrap .post-wrap .post-text blockquote> :last-child> :last-child>:last-child {
   margin-bottom: 0;
 }
 
