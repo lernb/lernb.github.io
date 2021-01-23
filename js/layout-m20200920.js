@@ -1,12 +1,16 @@
 // let layer = document.getElementById("layer");
-let header = document.getElementById("he"),
+const header = document.getElementById("he"),
   headerHeight = parseInt(he.style.height),
   hcata = document.getElementById("hcata"),
   btnShow = document.getElementById("show"),
   btnClose = document.getElementById("close"),
-  isShow = false;
+  pcate = document.getElementsByClassName('category-list-item'),
+  headerMenu = document.getElementsByClassName('headerMenu')[0].getElementsByTagName('a');
+
 // 获取浏览器视口高度
-let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+  isShow = false;
+
 window.addEventListener('scroll', function () {
   windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 });
@@ -85,24 +89,47 @@ for (let i = 0; i < iList.length; i++) {
 //   }
 // });
 
-let pcate = document.getElementsByClassName('post')[0].getElementsByClassName('category-list-item');
-console.log(pcate);
-for (let i = 0; i < pcate.length; i++) {
-  (function (n) {
-    pcate[n].addEventListener('touchstart', function (e) {
-      e.stopPropagation();
-      pcate[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
-    });
-    pcate[n].addEventListener('touchend', function (e) {
-      // setTimeout(function () {
-      //   pcate[i].setAttribute('style', 'transform: initial');
-      // }, 200);
-      pcate[n].setAttribute('style', 'transform: initial');
-    });
-    pcate[n].addEventListener('touchmove', function (e) {
-      setTimeout(function () {
+
+if (pcate.length) {
+  for (let i = 0; i < pcate.length; i++) {
+    (function (n) {
+      pcate[n].addEventListener('touchstart', function (e) {
+        e.stopPropagation();
+        pcate[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
+      });
+      pcate[n].addEventListener('touchend', function (e) {
+        // setTimeout(function () {
+        //   pcate[i].setAttribute('style', 'transform: initial');
+        // }, 200);
         pcate[n].setAttribute('style', 'transform: initial');
-      }, 200);
-    });
-  })(i);
+      });
+      pcate[n].addEventListener('touchmove', function (e) {
+        setTimeout(function () {
+          pcate[n].setAttribute('style', 'transform: initial');
+        }, 200);
+      });
+    })(i);
+  }
+}
+
+if (headerMenu.length) {
+  for (let i = 0; i < headerMenu.length; i++) {
+    (function (n) {
+      headerMenu[n].addEventListener('touchstart', function (e) {
+        e.stopPropagation();
+        headerMenu[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
+      });
+      headerMenu[n].addEventListener('touchend', function (e) {
+        // setTimeout(function () {
+        //   headerMenu[i].setAttribute('style', 'transform: initial');
+        // }, 200);
+        headerMenu[n].setAttribute('style', 'transform: initial');
+      });
+      headerMenu[n].addEventListener('touchmove', function (e) {
+        setTimeout(function () {
+          headerMenu[n].setAttribute('style', 'transform: initial');
+        }, 200);
+      });
+    })(i);
+  }
 }

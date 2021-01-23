@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      流式布局与浮动原理及BFC - LERNB | 网络日志
+        
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 学习、记录、分享 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.ico">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/prism20200916.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200929.css">
+
+</head>
+
+<body class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="home-btn hoverLine">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine hoverLineActive" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+      <div class="bar-item bar-au clearfix">
+  <!-- <div class="au-left" style="float: left;"> -->
+  <div class="headback">
+    <img class="au-head" src="/asset/u.jpg" alt="头像">
+  </div>
+  <div class="au-name">lernb.</div>
+  <div class="slogan" style="margin-bottom: 10px;">
+    <p>学习 · 记录 · 分享</p>
+  </div>
+  <!-- </div> -->
+  <!-- <div class="au-right" style="float: right; width: calc(100% - 110px);"> -->
+  <!-- <div class="au-site"></div> -->
+  <!-- <div class="au-btn clearfix">
+    <a class="au-btn-item btn-left" href="#">邮箱</a>
+    <a class="au-btn-item btn-right" href="#">关于</a>
+  </div> -->
+  <!-- </div> -->
+</div>
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+        <div class="wrap clearfix">
+        
+      
+    <div class="wrap-content clearfix">
+      
+      <!--  -->
+      <div class="post-wrap note-wrap">
+  <div class="post note-post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>流式布局与浮动原理及BFC</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u2.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-07</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="标准流、流式布局"><a href="#标准流、流式布局" class="headerlink" title="标准流、流式布局"></a>标准流、流式布局</h2><p>网页内元素按照从左至右、从上到下的顺序排列的方式就是流式布局<a id="more"></a></p>
+<p><img src="/img/flow-float.assets/standard-flow.png" alt=""></p>
+<h2 id="元素的浮动"><a href="#元素的浮动" class="headerlink" title="元素的浮动"></a>元素的浮动</h2><h3 id="什么是浮动"><a href="#什么是浮动" class="headerlink" title="什么是浮动"></a>什么是浮动</h3><p>设置了float属性的元素会脱离标准文档流的控制并移动到其父元素指定位置的过程。<br>通过<code>float</code>属性来定义浮动，<code>选择器{float：none | left | right}</code> </p>
+<p><strong>浮动的特性：</strong></p>
+<ul>
+<li><p>浮动的元素会脱离实际的文档流，不再占用标准流的空间，但会影响文档流中文字的排版，且浮动只有左右浮动</p>
+</li>
+<li><p>浮动的排列方式也是按照流式布局，如果当前浮动元素的前一个元素也是浮动元素，则当前浮动元素浮动后会紧挨着前一个浮动元素，顶部与顶部对齐，左边或者右边对齐；如果前一个元素是标准文档流元素，则当前浮动元素浮动后其顶部会与标准流元素的<strong>底部对齐</strong>（多栏布局需要注意元素的书写位置）</p>
+</li>
+<li><p>浮动后的元素具有包裹性，未设置宽高属性，其默认宽高就是内容的宽高</p>
+</li>
+<li><p>浮动后的元素具有破坏性，会造成原布局的内容高度塌陷，可以通过给<strong>浮动元素的父元素</strong>设置属性<code>overflow：hidden</code>使父元素具有<strong>包裹性</strong></p>
+</li>
+</ul>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>给元素设置<code>clear: left | right | both</code>属性清除浮动</p>
+<pre><code class="language-html">&lt;div class=&quot;banner&quot;&gt;banner&lt;/div&gt;
+  &lt;div class=&quot;center&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;left&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;right&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;
+&lt;style&gt;
+    .banner {
+      border: 1px solid red;
+      height: 200px;
+      background-color: red;
+    }
+
+    .center {
+      border: 1px solid yellow;
+      /* 方法一：父容器div overflow:hidden闭合浮动 */
+      overflow: hidden;
+    }
+
+    .left {
+      border: 1px solid blue;
+      height: 500px;
+      width: 100px;
+      float: left;
+      background-color: blue;
+    }
+
+    .right {
+      border: 1px solid lawngreen;
+      height: 600px;
+      width: 100px;
+      float: right;
+      background-color: lawngreen;
+    }
+
+    .main {
+      background-color: aqua;
+      margin: 0 104px;
+      height: 500px;
+    }
+
+    .footer {
+      border: 1px solid black;
+      height: 200px;
+      /* 方法二：clear清除浮动 */
+      /* clear: both; */
+      background-color: black;
+    }
+  &lt;/style&gt;</code></pre>
+<h3 id="闭合浮动与BFC"><a href="#闭合浮动与BFC" class="headerlink" title="闭合浮动与BFC"></a>闭合浮动与BFC</h3><p>闭合浮动就是触发元素的BFC（Block Formatting Context）块级格式化上下文，触发了BFC的元素就具有了包裹性，即使里面的<strong>子元素</strong>是浮动的</p>
+<p>触发BFC：</p>
+<ul>
+<li><p><code>float</code>属性值不为<code>none</code></p>
+</li>
+<li><p><code>display</code>为<code>block</code>或者<code>table</code></p>
+</li>
+<li><p><code>overflow</code>属性值不为<code>visible</code></p>
+</li>
+<li><p><code>position</code>属性值为<code>absolute</code>或者<code>fixed</code></p>
+</li>
+<li><p>新出的属性<code>display:flow-root</code>，兼容性差</p>
+</li>
+</ul>
+<blockquote>
+<p>触发了BFC的元素形成了一个独立的布局环境，内部布局与外部布局互不影响，里面的<strong>子元素</strong>不会影响父元素的布局，但是子元素的子元素如果是浮动的就无法包裹。</p>
+</blockquote>
+<p><strong>BFC的常见作用：</strong></p>
+<ul>
+<li><p>解决父元素高度塌陷的问题：</p>
+<p>通常父元素的高度会被子元素撑开，如果父元素没有设置高度，子元素是浮动的话，由于子元素浮动脱离了文档流，父元素高度为0就会出现高度塌陷的问题，此时可以给父元素设置BFC使之产生独立的布局空间闭合浮动。</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;style&gt;
+    .box {
+      width: 1226px;
+      background-color: red;
+      margin: 0 auto;
+
+      /*设置了一个BFC区域*/
+      overflow: hidden;
+
+    }
+
+    .child1 {
+      width: 300px;
+      height: 100px;
+      background-color: green;
+      float: left;
+    }
+
+    .child2 {
+      width: 300px;
+      height: 100px;
+      background-color: blue;
+      float: right;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;box clearfix&quot;&gt;
+    &lt;div class=&quot;child1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;child2&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p&gt;哈哈哈哈哈&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<ul>
+<li><p>解决被浮动元素覆盖问题（两栏自适应布局）:</p>
+<p>浮动元素会覆盖标准文档流的兄弟元素，可以触发被遮挡元素的BFC来解决</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;style&gt;
+    .father {
+      width: 100px;
+      height: 50px;
+      background-color: red;
+      float: left;
+    }
+
+    .child {
+      /*设置BFC*/
+      overflow: hidden;
+      width: 600px;
+      height: 100px;
+      background-color: blue;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;father&quot;&gt;
+    aaa
+  &lt;/div&gt;
+  &lt;div class=&quot;child&quot;&gt;
+    bbb
+  &lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p><img src="/img/flow-float.assets/standard-flow-exec.png" alt=""></p>
+<ul>
+<li><p>结局外边距margin高度塌陷问题（高度重合）</p>
+<p>标准文档流中块级元素垂直方向的margin外边距不会相加而是以较大的为准，这就是margin塌陷，可以通过触发BFC来解决</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+    .father {
+      overflow: hidden;
+      background-color: #424242;
+    }
+
+    .box2 {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 30px;
+      /* overflow: hidden; */
+    }
+
+    .box3 {
+      margin-top: 40px;
+      background-color: green;
+      width: 50px;
+      height: 50px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;father&quot;&gt;
+    &lt;div class=&quot;box2&quot;&gt;box2&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<h4 id="clearfix清除浮动"><a href="#clearfix清除浮动" class="headerlink" title=".clearfix清除浮动"></a>.clearfix清除浮动</h4><p>以上面提到的几种方式触发BFC闭合浮动有时会出现意外的效果，现在可以用:before、:after伪元素进行清除浮动，只需要在父元素上添加以下CSS样式即可</p>
+<pre><code class="language-css">.clearfix::before, .clearfix::after {
+      content: &quot; &quot;;/* 空格 兼容Opera浏览器 */
+      display: table;
+    }
+
+.clearfix::after {
+      clear: both;
+    }
+
+.clearfix {
+      /* 兼容IE 6/7 */
+      zoom: 1;
+    }</code></pre>
+
+      </div>
+    </div>
+    
+    
+<script src="/js/prism.js"></script>
+
+  </div>
+  <!-- 底部文章列表 -->
+  <!-- <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <li class="post-item"><a href="/Hexo-tag-404/">Hexo标签或分类404</a></li>
+        
+        <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li>
+        
+        <li class="post-item"><a href="/slideshow/">轮播图实现</a></li>
+        
+        <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li>
+        
+        <li class="post-item"><a href="/nginx-https/">Nginx 配置https</a></li>
+        
+      </ul>
+    </div>
+  </div> -->
+  <!-- 是否开启文章评论 -->
+  
+  <div class="co clearfix">
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+</div>
+  
+  <nav id="toTop">TOP</nav>
+  <div class="note-bar-btn nonselect">
+    <span class="menu-btn-content nonselect">&times;</span>
+    <span class="bar-btn-menu nonselect">目录</span>
+  </div>
+</div>
+<div class="bar barbar note-bar">
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">简介</h3>
+        <li>
+          
+          <a href="/note/note-intro.html">简介</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html-ellipsis.html">html溢出文字省略号处理</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-geolocation.html">HTML5 地理定位</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-table.html">HTML表格标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-serversentevents.html">HTML Server-Sent 事件</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webstorage.html">HTML 本地存储</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webworkers.html">HTML Web Workers</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a class="noteActive" href="/note/HTML/flow-float/index.html" style=" color: #18a0db;">流式布局与浮动原理及BFC</a>
+          
+        </li>
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS-feature.html">CSS特性及选择器优先级</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3-selector.html">CSS3选择器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/pseudo-class-element.html">伪类和伪元素</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200922.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js');
+    }
+  </script>
+</body>
+
+</html>

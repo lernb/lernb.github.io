@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      伪类和伪元素 - LERNB | 网络日志
+        
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 学习、记录、分享 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.ico">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/prism20200916.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200929.css">
+
+</head>
+
+<body class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="home-btn hoverLine">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine hoverLineActive" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+      <div class="bar-item bar-au clearfix">
+  <!-- <div class="au-left" style="float: left;"> -->
+  <div class="headback">
+    <img class="au-head" src="/asset/u.jpg" alt="头像">
+  </div>
+  <div class="au-name">lernb.</div>
+  <div class="slogan" style="margin-bottom: 10px;">
+    <p>学习 · 记录 · 分享</p>
+  </div>
+  <!-- </div> -->
+  <!-- <div class="au-right" style="float: right; width: calc(100% - 110px);"> -->
+  <!-- <div class="au-site"></div> -->
+  <!-- <div class="au-btn clearfix">
+    <a class="au-btn-item btn-left" href="#">邮箱</a>
+    <a class="au-btn-item btn-right" href="#">关于</a>
+  </div> -->
+  <!-- </div> -->
+</div>
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+        <div class="wrap clearfix">
+        
+      
+    <div class="wrap-content clearfix">
+      
+      <!--  -->
+      <div class="post-wrap note-wrap">
+  <div class="post note-post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>伪类和伪元素</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u2.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-07</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><ul>
+<li><p>:link</p>
+<p>应用于未被访问的链接。IE6不兼容，可以直接用<code>&lt;a&gt;&lt;/a&gt;</code>标签代替<a id="more"></a></p>
+</li>
+<li><p>:visited</p>
+<p>应用于已经被访问的链接</p>
+</li>
+<li><p>:hover</p>
+<p>应用于鼠标指针悬停时的效果。IE6只是用于<code>&lt;a&gt;&lt;/a&gt;</code>链接，IE7之后适用于所有元素</p>
+</li>
+<li><p>:active</p>
+<p>应用于已经被激活的元素，如被点击过的元素、被按下的按钮等</p>
+</li>
+<li><p>:focus</p>
+<p>应用于键盘输入焦点的元素</p>
+</li>
+<li><p>:first-child</p>
+<p>用于选择自身是第一个子元素的元素。如：</p>
+<pre><code class="language-html">&lt;div&gt;
+  &lt;span&gt;第一个子元素&lt;/span&gt;
+  &lt;span&gt;第二个子元素&lt;/span&gt;
+  &lt;span&gt;第三个子元素&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+<p>选择div中的第一个span标签：</p>
+<pre><code class="language-css">span:first-child {
+  这是第一个子元素
+}</code></pre>
+</li>
+</ul>
+<h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2><p>伪元素是控制内容，在CSS3中是两个冒号</p>
+<ul>
+<li><p>:first-line</p>
+<p>控制文本第一行的内容</p>
+</li>
+<li><p>:first-letter</p>
+<p>控制文本首个单词字母或者首个汉字</p>
+</li>
+<li><p>:before与:after</p>
+<p>用于设置元素之前跟之后的内容。可以通过before与after来设置清除（闭合）浮动</p>
+<pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+    梦想属于每一个人，广大劳动群众要敢想敢干、敢于追梦
+    &lt;div class=&quot;fl&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    div {
+      border: 1px solid red;
+    }
+
+    .fl {
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      float: right;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: &quot; &quot;;/* 空格 兼容Opera浏览器 */
+      display: table;
+    }
+
+    .clearfix::after {
+      clear: both;
+    }
+
+    .clearfix {
+      /* 兼容IE 6/7 */
+      zoom: 1;
+    }
+  &lt;/style&gt;</code></pre>
+</li>
+</ul>
+
+      </div>
+    </div>
+    
+    
+<script src="/js/prism.js"></script>
+
+  </div>
+  <!-- 底部文章列表 -->
+  <!-- <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <li class="post-item"><a href="/Hexo-tag-404/">Hexo标签或分类404</a></li>
+        
+        <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li>
+        
+        <li class="post-item"><a href="/slideshow/">轮播图实现</a></li>
+        
+        <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li>
+        
+        <li class="post-item"><a href="/nginx-https/">Nginx 配置https</a></li>
+        
+      </ul>
+    </div>
+  </div> -->
+  <!-- 是否开启文章评论 -->
+  
+  <div class="co clearfix">
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+</div>
+  
+  <nav id="toTop">TOP</nav>
+  <div class="note-bar-btn nonselect">
+    <span class="menu-btn-content nonselect">&times;</span>
+    <span class="bar-btn-menu nonselect">目录</span>
+  </div>
+</div>
+<div class="bar barbar note-bar">
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">简介</h3>
+        <li>
+          
+          <a href="/note/note-intro.html">简介</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html-ellipsis.html">html溢出文字省略号处理</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-geolocation.html">HTML5 地理定位</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-table.html">HTML表格标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-serversentevents.html">HTML Server-Sent 事件</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webstorage.html">HTML 本地存储</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webworkers.html">HTML Web Workers</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/flow-float/index.html">流式布局与浮动原理及BFC</a>
+          
+        </li>
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS-feature.html">CSS特性及选择器优先级</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3-selector.html">CSS3选择器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a class="noteActive" href="/note/CSS/pseudo-class-element.html" style=" color: #18a0db;">伪类和伪元素</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200922.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js');
+    }
+  </script>
+</body>
+
+</html>

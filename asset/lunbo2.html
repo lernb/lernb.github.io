@@ -142,7 +142,7 @@
 
       let index = 1, // 定义图片下标，第一张index为1
         timer = null, timer2, // 定时器
-        duration = '.3s', // 定义动画过度
+        duration = '.5s', // 定义动画过度
         bannerWidth = banner.currentStyle ? banner.currentStyle.width.match(/\d+/g)[0] : window.getComputedStyle(banner, null).width.match(/\d+/g)[0];
 
       // 处理Safari兼容问题
@@ -165,7 +165,7 @@
         // if (!timer) {
         //   resetDots();
         //   slide.style.transition = `transform ${duration}`;
-        //   slide.style.transform = `translateX(-${++index * 500}px)`; // 每次滚动
+        //   slide.style.transform = `translateX(-${++index * bannerWidth}px)`; // 每次滚动
         //   if (index == slideItem.length - 1) {  // 处理滚动到最后一张即逻辑第一张小圆点点亮位置
         //     span[0].className = 'active';
         //   } else {
@@ -175,11 +175,12 @@
         //     if (index > slideItem.length - 2) { // 处理滚动到尾部
         //       index = 1;
         //       slide.style.transition = 'none'; // 关闭过渡效果
-        //       slide.style.transform = `translateX(-${index * 500}px)`; // 将整个slide移至逻辑第一张位置，即实际第二张
+        //       slide.style.transform = `translateX(-${index * bannerWidth}px)`; // 将整个slide移至逻辑第一张位置，即实际第二张
         //     }
         //     timer = null;
-        //   }, 300);
+        //   }, 500);
         // }
+        
         // 未使用节流方式
         resetDots();
         if (index > slideItem.length - 2) { // 处理滚动到尾部

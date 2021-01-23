@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      HTML5 地理定位 - LERNB | 网络日志
+        
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 学习、记录、分享 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/asset/favicon.ico">
+  <link rel="apple-touch-icon" href="/asset/favicon.ico">
+  
+<link rel="stylesheet" href="/css/reset.css">
+
+  
+<link rel="stylesheet" href="/css/prism20200916.css">
+
+  
+<link rel="stylesheet" href="/css/lernb20200929.css">
+
+</head>
+
+<body class="line-numbers">
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  <div class="headhead">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts.js');
+    }
+  </script>
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    <div class="head">
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="https://lernb.com" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="home-btn hoverLine">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine hoverLineActive" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+      <div class="bar-item bar-au clearfix">
+  <!-- <div class="au-left" style="float: left;"> -->
+  <div class="headback">
+    <img class="au-head" src="/asset/u.jpg" alt="头像">
+  </div>
+  <div class="au-name">lernb.</div>
+  <div class="slogan" style="margin-bottom: 10px;">
+    <p>学习 · 记录 · 分享</p>
+  </div>
+  <!-- </div> -->
+  <!-- <div class="au-right" style="float: right; width: calc(100% - 110px);"> -->
+  <!-- <div class="au-site"></div> -->
+  <!-- <div class="au-btn clearfix">
+    <a class="au-btn-item btn-left" href="#">邮箱</a>
+    <a class="au-btn-item btn-right" href="#">关于</a>
+  </div> -->
+  <!-- </div> -->
+</div>
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+        <div class="wrap clearfix">
+        
+      
+    <div class="wrap-content clearfix">
+      
+      <!--  -->
+      <div class="post-wrap note-wrap">
+  <div class="post note-post">
+    <div class="m-tit">
+      <div class="m-tit-con">
+        <h1>HTML5 地理定位</h1>
+      </div>
+    </div>
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u2.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-18</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://www.w3school.com.cn/" target="_blank" title="来源：w3school">
+
+              <span class="res">源</span><span class="res-link">w3school</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <blockquote>
+<p><strong>HTML5 Geolocation（地理定位）用于定位用户的位置</strong><a id="more"></a>。</p>
+</blockquote>
+<h2 id="定位用户的位置"><a href="#定位用户的位置" class="headerlink" title="定位用户的位置"></a>定位用户的位置</h2><p>HTML5 Geolocation API 用于获得用户的地理位置。</p>
+<p>鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。</p>
+<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>Internet Explorer 9、Firefox、Chrome、Safari 以及 Opera 支持地理定位。</p>
+<p><strong>注释：</strong>对于拥有 GPS 的设备，比如 iPhone，地理定位更加精确。</p>
+<h2 id="HTML5-使用地理定位"><a href="#HTML5-使用地理定位" class="headerlink" title="HTML5 - 使用地理定位"></a>HTML5 - 使用地理定位</h2><p>请使用 getCurrentPosition() 方法来获得用户的位置。</p>
+<p>下例是一个简单的地理定位实例，可返回用户位置的经度和纬度。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">&lt;script&gt;
+var x=document.getElementById(&quot;demo&quot;);
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}
+  }
+function showPosition(position)
+  {
+  x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
+  &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
+  }
+&lt;/script&gt;</code></pre>
+<p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation" target="_blank" rel="noopener">亲自试一试</a></p>
+<p>例子解释：</p>
+<ul>
+<li>检测是否支持地理定位</li>
+<li>如果支持，则运行 getCurrentPosition() 方法。如果不支持，则向用户显示一段消息。</li>
+<li>如果getCurrentPosition()运行成功，则向参数showPosition中规定的函数返回一个coordinates对象</li>
+<li>showPosition() 函数获得并显示经度和纬度</li>
+</ul>
+<p>上面的例子是一个非常基础的地理定位脚本，不含错误处理。</p>
+<h2 id="处理错误和拒绝"><a href="#处理错误和拒绝" class="headerlink" title="处理错误和拒绝"></a>处理错误和拒绝</h2><p>getCurrentPosition() 方法的第二个参数用于处理错误。它规定当获取用户位置失败时运行的函数：</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML=&quot;User denied the request for Geolocation.&quot;
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML=&quot;Location information is unavailable.&quot;
+      break;
+    case error.TIMEOUT:
+      x.innerHTML=&quot;The request to get user location timed out.&quot;
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML=&quot;An unknown error occurred.&quot;
+      break;
+    }
+  }</code></pre>
+<p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_error" target="_blank" rel="noopener">亲自试一试</a></p>
+<p>错误代码：</p>
+<ul>
+<li>Permission denied - 用户不允许地理定位</li>
+<li>Position unavailable - 无法获取当前位置</li>
+<li>Timeout - 操作超时</li>
+</ul>
+<h2 id="在地图中显示结果"><a href="#在地图中显示结果" class="headerlink" title="在地图中显示结果"></a>在地图中显示结果</h2><p>如需在地图中显示结果，您需要访问可使用经纬度的地图服务，比如谷歌地图或百度地图：</p>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">function showPosition(position)
+{
+var latlon=position.coords.latitude+&quot;,&quot;+position.coords.longitude;
+
+var img_url=&quot;http://maps.googleapis.com/maps/api/staticmap?center=&quot;
++latlon+&quot;&amp;zoom=14&amp;size=400x300&amp;sensor=false&quot;;
+
+document.getElementById(&quot;mapholder&quot;).innerHTML=&quot;&lt;img src=&#39;&quot;+img_url+&quot;&#39; /&gt;&quot;;
+}</code></pre>
+<p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_map" target="_blank" rel="noopener">亲自试一试</a></p>
+<p>在上例中，我们使用返回的经纬度数据在谷歌地图中显示位置（使用静态图像）。</p>
+<p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_map_script" target="_blank" rel="noopener">谷歌地图脚本</a></p>
+<p>上面的链接向您演示如何使用脚本来显示带有标记、缩放和拖曳选项的交互式地图。</p>
+<h2 id="给定位置的信息"><a href="#给定位置的信息" class="headerlink" title="给定位置的信息"></a>给定位置的信息</h2><p>本页演示的是如何在地图上显示用户的位置。不过，地理定位对于给定位置的信息同样很有用处。</p>
+<p>案例：</p>
+<ul>
+<li>更新本地信息</li>
+<li>显示用户周围的兴趣点</li>
+<li>交互式车载导航系统 (GPS)</li>
+</ul>
+<h2 id="getCurrentPosition-方法-返回数据"><a href="#getCurrentPosition-方法-返回数据" class="headerlink" title="getCurrentPosition() 方法 - 返回数据"></a>getCurrentPosition() 方法 - 返回数据</h2><p>若成功，则 getCurrentPosition() 方法返回对象。始终会返回 latitude、longitude 以及 accuracy 属性。如果可用，则会返回其他下面的属性。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">coords.latitude</td>
+<td align="left">十进制数的纬度</td>
+</tr>
+<tr>
+<td align="left">coords.longitude</td>
+<td align="left">十进制数的经度</td>
+</tr>
+<tr>
+<td align="left">coords.accuracy</td>
+<td align="left">位置精度</td>
+</tr>
+<tr>
+<td align="left">coords.altitude</td>
+<td align="left">海拔，海平面以上以米计</td>
+</tr>
+<tr>
+<td align="left">coords.altitudeAccuracy</td>
+<td align="left">位置的海拔精度</td>
+</tr>
+<tr>
+<td align="left">coords.heading</td>
+<td align="left">方向，从正北开始以度计</td>
+</tr>
+<tr>
+<td align="left">coords.speed</td>
+<td align="left">速度，以米/每秒计</td>
+</tr>
+<tr>
+<td align="left">timestamp</td>
+<td align="left">响应的日期/时间</td>
+</tr>
+</tbody></table>
+<h2 id="Geolocation-对象-其他有趣的方法"><a href="#Geolocation-对象-其他有趣的方法" class="headerlink" title="Geolocation 对象 - 其他有趣的方法"></a>Geolocation 对象 - 其他有趣的方法</h2><p>watchPosition() - 返回用户的当前位置，并继续返回用户移动时的更新位置（就像汽车上的 GPS）。</p>
+<p>clearWatch() - 停止 watchPosition() 方法</p>
+<p>下面的例子展示 watchPosition() 方法。您需要一台精确的 GPS 设备来测试该例（比如 iPhone）：</p>
+<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">&lt;script&gt;
+var x=document.getElementById(&quot;demo&quot;);
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.watchPosition(showPosition);
+    }
+  else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}
+  }
+function showPosition(position)
+  {
+  x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
+  &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
+  }
+&lt;/script&gt;</code></pre>
+<p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_watchposition" target="_blank" rel="noopener">亲自试一试</a></p>
+
+      </div>
+    </div>
+    
+    
+<script src="/js/prism.js"></script>
+
+  </div>
+  <!-- 底部文章列表 -->
+  <!-- <div class="bar">
+    <h3>近期文章</h3>
+    <div class="bar-item">
+      <ul>
+        
+        <li class="post-item"><a href="/Hexo-tag-404/">Hexo标签或分类404</a></li>
+        
+        <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li>
+        
+        <li class="post-item"><a href="/slideshow/">轮播图实现</a></li>
+        
+        <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li>
+        
+        <li class="post-item"><a href="/nginx-https/">Nginx 配置https</a></li>
+        
+      </ul>
+    </div>
+  </div> -->
+  <!-- 是否开启文章评论 -->
+  
+  <div class="co clearfix">
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+</div>
+  
+  <nav id="toTop">TOP</nav>
+  <div class="note-bar-btn nonselect">
+    <span class="menu-btn-content nonselect">&times;</span>
+    <span class="bar-btn-menu nonselect">目录</span>
+  </div>
+</div>
+<div class="bar barbar note-bar">
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">简介</h3>
+        <li>
+          
+          <a href="/note/note-intro.html">简介</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html-ellipsis.html">html溢出文字省略号处理</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a class="noteActive" href="/note/HTML/html5-geolocation.html" style=" color: #18a0db;">HTML5 地理定位</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/HTML-table.html">HTML表格标签</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-serversentevents.html">HTML Server-Sent 事件</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webstorage.html">HTML 本地存储</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-webworkers.html">HTML Web Workers</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/flow-float/index.html">流式布局与浮动原理及BFC</a>
+          
+        </li>
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS-feature.html">CSS特性及选择器优先级</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3-selector.html">CSS3选择器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/pseudo-class-element.html">伪类和伪元素</a>
+          
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+  <ul class="noteUl">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200922.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+    </div>
+  </div>
+  <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:liuenrg@foxmail.com" title="电子邮件">lernb</a>&nbsp;|&nbsp;</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js');
+    }
+  </script>
+</body>
+
+</html>
