@@ -50,7 +50,7 @@ pre[class*="language-"] {
   position: relative;
   padding: 1.3em;
   margin: .5em 0;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 .preAfter::after {
@@ -158,6 +158,7 @@ pre[class*="language-"].line-numbers {
   position: relative;
   padding-left: 3.8em;
   counter-reset: linenumber;
+  border-radius: 10px;
 }
 
 pre[class*="language-"].line-numbers>code {
@@ -192,4 +193,10 @@ pre[class*="language-"].line-numbers>code {
   display: block;
   padding-right: 0.8em;
   text-align: right;
+}
+
+@media(max-width:767px) {
+  pre[class*="language-"].line-numbers {
+    border-radius: 0;
+  }
 }
