@@ -159,7 +159,7 @@ pre[class*="language-"].line-numbers {
   position: relative;
   padding-left: 3.8em;
   counter-reset: linenumber;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 pre[class*="language-"].line-numbers>code {
