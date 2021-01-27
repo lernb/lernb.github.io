@@ -7,6 +7,7 @@ const pre = document.getElementsByTagName('pre'),
   headhead = document.getElementsByClassName('headhead')[0],
   table = document.getElementsByTagName('table'),
   noteBar = _('note-bar')[0],
+  noteWrap = _('note-wrap')[0],
   noteUl = _('noteUl'),
   noteActive = _('noteActive')[0],
   noteBarBtn = _('note-bar-btn')[0],
@@ -92,6 +93,9 @@ window.addEventListener('scroll', function () {
       far = pageScroll - downFlag;
     if (far >= 100 && pageScroll >= 100) {
       headhead.setAttribute('style', 'position: fixed; top: -84px;');
+      if (noteBar) {
+        noteBar.style.paddingTop = '25px';
+      }
     }
   }
   else if (scrollDirection == 'up') {
@@ -105,6 +109,9 @@ window.addEventListener('scroll', function () {
       far = pageScroll - upFlag;
     if (far <= -100) {
       headhead.setAttribute('style', 'position: fixed; top: 0;');
+      if (noteBar) {
+        noteBar.style.paddingTop = '65px';
+      }
     }
   }
 });
@@ -145,17 +152,53 @@ if (noteUl.length) {
 
 if (noteBar) {
   let windowHeight,
-    isShow = true;
-  noteBarBtn.onclick = function () {
+    isShow = true,
+    showed,
+    dclick;
+  noteBar.addEventListener('click', function (e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    } else {
+      e.cancelBubble = true;
+    }
+  });
+  noteBarBtn.addEventListener('click', function (e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    } else {
+      e.cancelBubble = true;
+    }
     windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     if (isShow) {
+      showed = true;
+      dclick = true;
       noteBar.setAttribute('style', `transform: scale3d(1, 1, 1); height: ${windowHeight}px;`);
       menuBtnCon.style.transform = 'rotateZ(0deg)';
+      noteBarBtn.style.left = '60%';
+      window.addEventListener('scroll', function () {
+        if (showed) {
+          windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+          noteBar.style.height = windowHeight + 'px';
+        }
+      });
       isShow = false;
+      noteWrap.addEventListener('click', function () {
+        if (dclick) {
+          showed = false;
+          noteBar.setAttribute('style', `transform: scale3d(0, 0, 0); height: ${windowHeight}px;`);
+          menuBtnCon.style.transform = 'rotateZ(-45deg)';
+          noteBarBtn.style.left = '20px';
+          isShow = true;
+          dclick = false;
+        }
+      });
     } else {
+      showed = false;
+      dclick = false;
       noteBar.setAttribute('style', `transform: scale3d(0, 0, 0); height: ${windowHeight}px;`);
       menuBtnCon.style.transform = 'rotateZ(-45deg)';
+      noteBarBtn.style.left = '20px';
       isShow = true;
     }
-  }
+  });
 }
