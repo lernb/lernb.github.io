@@ -3221,12 +3221,12 @@ code {
   .prettyprint .linenums::-webkit-scrollbar, pre .prettyprint .linenums::-webkit-scrollbar {
     height: 2px;
   }
-  pre[class*="language-"] {
+  .post .post-text pre[class*="language-"] {
     box-sizing: border-box;
     width: calc(100% / 0.9);
     margin-left: calc((100% / 0.9) * -0.05);
-    padding-left: 5.5%;
-    padding-right: 5.5%;
+    /* padding-left: 5.5%;
+    padding-right: 5.5%; */
   }
   .pre-wrap {
     width: calc(100% / 0.9);
@@ -3238,7 +3238,7 @@ code {
   div[class*="plusBtn"] .preBtn {
     left: 45%;
   }
-  code[class*="language-"], pre[class*="language-"] {
+  .post .post-text code[class*="language-"], .post .post-text pre[class*="language-"] {
     font-size: 1.3rem;
   }
   .post-wrap .post .post-h-banner {
