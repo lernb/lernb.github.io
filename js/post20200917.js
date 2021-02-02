@@ -160,7 +160,7 @@ if (noteUl.length) {
           noteUl[j].style.height = 'auto';
           targetHeight = window.getComputedStyle(noteUl[j]).height;
           noteUl[j].style.height = height;
-          noteUl[j].offsetWidth = noteUl[j].offsetWidth;
+          noteUl[j].offsetWidth = noteUl[j].offsetWidth;//触发重绘
           noteUl[j].style.height = targetHeight;
         }
       }
