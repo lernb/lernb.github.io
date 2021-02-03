@@ -1764,7 +1764,9 @@ html {
 .bar-item .d-pp-h a:hover::before {
   width: 0;
 }
+
 .bar-item .p-list-item {
+  margin-bottom: 10px;
   transition: transform .3s;
 }
 
@@ -2918,6 +2920,7 @@ code {
 }
 
 .post-wrap .bar-item .p-list-item {
+  margin-bottom: 20px;
   height: 10vh;
 }
 

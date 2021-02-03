@@ -67,7 +67,7 @@ h1 {
   width: 18vw;
   height: 5vh;
   line-height: 2vh;
-  padding-top: .8vh;
+  padding-top: .7vh;
   background-color: #15831C;
 }
 
@@ -78,7 +78,7 @@ h1 {
   width: 26vw;
   height: 5vh;
   line-height: 2vh;
-  padding-top: .8vh;
+  padding-top: .7vh;
   background-color: #FF6F00;
 }
 
@@ -105,11 +105,12 @@ h1 {
   box-sizing: border-box;
   left: 17vw;
   top: 41.8vh;
-  width: 47vw;
+  width: 48vw;
   height: 3vh;
-  line-height: 3vh;
+  line-height: 3.2vh;
   font-size: 13px;
-  padding: 2px 1vw;
+  padding: 0px 1px;
+  border-radius: 5px;
 }
 
 .sub10 {
