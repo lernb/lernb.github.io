@@ -493,19 +493,19 @@
       <!-- E 文章信息 -->
       <div class="post-text">
         <h2 id="第一步：按下-Shift-F10-启动命令提示符"><a href="#第一步：按下-Shift-F10-启动命令提示符" class="headerlink" title="第一步：按下 Shift + F10 启动命令提示符"></a>第一步：按下 Shift + F10 启动命令提示符</h2><p>在 Windows 的安装界面按下 Shift + F10 启动命令提示符。</p>
-<h2 id="第二步：启动diskpart"><a href="#第二步：启动diskpart" class="headerlink" title="第二步：启动diskpart"></a>第二步：启动diskpart</h2><p>在命令提示符窗口中输入<code>diskpart</code>后回车</p>
+<h2 id="第二步：启动diskpart"><a href="#第二步：启动diskpart" class="headerlink" title="第二步：启动diskpart"></a>第二步：启动diskpart</h2><p>在命令提示符窗口中输入<code>diskpart</code>后回车：</p>
 <pre><code class="language-bash">&gt;diskpart</code></pre>
-<p>然后再输入<code>list disk</code></p>
+<p>然后再输入<code>list disk</code>：</p>
 <pre><code class="language-bash">DISKPART&gt;list disk</code></pre>
 <p>这时命令提示符中会列出此计算机上所有的磁盘和其格式：</p>
 <p><img src="/img/diskpart.assets/diskpart.png" alt=""></p>
-<p>选中磁盘0</p>
+<p>选中磁盘0：</p>
 <pre><code class="language-bash">DISKPART&gt; select disk 0</code></pre>
-<p>选中后输入<code>clean</code>回车清除</p>
+<p>选中后输入<code>clean</code>回车清除：</p>
 <pre><code class="language-bash">DISKPART&gt; clean</code></pre>
-<p>清除后输入<code>convert mbr</code>回车</p>
+<p>清除后输入<code>convert mbr</code>回车：</p>
 <pre><code class="language-bash">DISKPART&gt; convert mbr</code></pre>
-<p>然后输入<code>exit</code>回车退出</p>
+<p>然后输入<code>exit</code>回车退出：</p>
 <pre><code class="language-bash">DISKPART&gt; exit</code></pre>
 
       </div>
