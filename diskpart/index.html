@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      Flex布局实例 - LERNB | 网络日志
+      将磁盘转换为MBR磁盘 - LERNB | 网络日志
         
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -180,10 +180,10 @@
                   <h1 class="" style="line-height: 1.3;">
                     
                       <a class="hoverLine" href="/diskpart/" title="将磁盘转换为MBR磁盘"
-                        style="width: 100%; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        style="color: #18a0db; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
                         将磁盘转换为MBR磁盘
                       </a>
-                    
+                      
                   </h1>
                 </div>
                 <!-- E 文章标题 -->
@@ -466,14 +466,14 @@
         <!--  -->
         <div class="post-wrap">
   <div class="post">
-    <!-- <div class="post-h-banner" data-img="/img/flex-examples.assets/flex-box.png"> -->
+    <!-- <div class="post-h-banner" data-img="/img/diskpart.assets/diskpart2.png"> -->
       <!-- <div class="overlaylay"></div> -->
       <div class="m-tit">
         <div class="m-tit-con">
           <div class="ph-cate">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+            
           </div>
-          <h1>Flex布局实例</h1>
+          <h1>将磁盘转换为MBR磁盘</h1>
         </div>
       </div>
     <!-- </div> -->
@@ -485,387 +485,34 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2020-08-26</span>&nbsp;&nbsp;
-            
-            <a id="reslink" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" title="来源：阮一峰">
-
-              <span class="res">源</span><span class="res-link">阮一峰</span>
-            </a>
+          <div class="post-date"><span>2021-02-19</span>&nbsp;&nbsp;
             
           </div>
         </div>
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <p>不管是什么布局，Flex往往都可以几行命令搞定<a id="more"></a>。</p>
-<p><img src="/img/flex-examples.assets/bg2015071327.png" alt="img"></p>
-<p>这里只列出代码，详细的语法解释请查阅《<a href="https://lernb.com/flex-grammar">Flex布局语法</a>》。本文主要参考资料是<a href="http://davidwalsh.name/flexbox-dice" target="_blank" rel="noopener">Landon Schropp</a>的文章和<a href="http://philipwalton.github.io/solved-by-flexbox/" target="_blank" rel="noopener">Solved by Flexbox</a>。</p>
-<h2 id="一、骰子的布局"><a href="#一、骰子的布局" class="headerlink" title="一、骰子的布局"></a>一、骰子的布局</h2><p>骰子的一面，最多可以放置9个点。</p>
-<p><img src="/img/flex-examples.assets/bg2015071328.png" alt="img"></p>
-<p>下面，就来看看Flex如何实现，从1个点到9个点的布局。你可以到<a href="http://codepen.io/LandonSchropp/pen/KpzzGo" target="_blank" rel="noopener">codepen</a>查看Demo。</p>
-<p><img src="/img/flex-examples.assets/bg2015071329.png" alt="img"></p>
-<p>如果不加说明，本节的HTML模板一律如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
-  &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-<p>上面代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目。如果有多个项目，就要添加多个span元素，以此类推。</p>
-<h3 id="1-1-单项目"><a href="#1-1-单项目" class="headerlink" title="1.1 单项目"></a>1.1 单项目</h3><p>首先，只有左上角1个点的情况。Flex布局默认就是首行左对齐，所以一行代码就够了。</p>
-<p><img src="/img/flex-examples.assets/bg2015071301.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-}</code></pre>
-<p>设置项目的对齐方式，就能实现居中对齐和右对齐。</p>
-<p><img src="/img/flex-examples.assets/bg2015071302.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: center;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071303.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: flex-end;
-}</code></pre>
-<p>设置交叉轴对齐方式，可以垂直移动主轴。</p>
-<p><img src="/img/flex-examples.assets/bg2015071304.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  align-items: center;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071305.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071306.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071307.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}</code></pre>
-<h3 id="1-2-双项目"><a href="#1-2-双项目" class="headerlink" title="1.2 双项目"></a>1.2 双项目</h3><p><img src="/img/flex-examples.assets/bg2015071308.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: space-between;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071309.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071310.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071311.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071312.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-}
-
-.item:nth-child(2) {
-  align-self: center;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071313.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.item:nth-child(2) {
-  align-self: flex-end;
-}</code></pre>
-<h3 id="1-3-三项目"><a href="#1-3-三项目" class="headerlink" title="1.3 三项目"></a>1.3 三项目</h3><p><img src="/img/flex-examples.assets/bg2015071314.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-}
-
-.item:nth-child(2) {
-  align-self: center;
-}
-
-.item:nth-child(3) {
-  align-self: flex-end;
-}</code></pre>
-<h3 id="1-4-四项目"><a href="#1-4-四项目" class="headerlink" title="1.4 四项目"></a>1.4 四项目</h3><p><img src="/img/flex-examples.assets/bg2015071315.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-content: space-between;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071316.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
-  &lt;div class=&quot;column&quot;&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;column&quot;&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-}
-
-.column {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: space-between;
-}</code></pre>
-<h3 id="1-5-六项目"><a href="#1-5-六项目" class="headerlink" title="1.5 六项目"></a>1.5 六项目</h3><p><img src="/img/flex-examples.assets/bg2015071317.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071318.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: space-between;
-}</code></pre>
-<p><img src="/img/flex-examples.assets/bg2015071319.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
-  &lt;div class=&quot;row&quot;&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;row&quot;&gt;
-    &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;row&quot;&gt;
-     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-     &lt;span class=&quot;item&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.row{
-  flex-basis: 100%;
-  display:flex;
-}
-
-.row:nth-child(2){
-  justify-content: center;
-}
-
-.row:nth-child(3){
-  justify-content: space-between;
-}</code></pre>
-<h3 id="1-6-九项目"><a href="#1-6-九项目" class="headerlink" title="1.6 九项目"></a>1.6 九项目</h3><p><img src="/img/flex-examples.assets/bg2015071320.png" alt="img"></p>
-<pre><code class="language-css">.box {
-  display: flex;
-  flex-wrap: wrap;
-}</code></pre>
-<h2 id="二、网格布局"><a href="#二、网格布局" class="headerlink" title="二、网格布局"></a>二、网格布局</h2><h3 id="2-1-基本网格布局"><a href="#2-1-基本网格布局" class="headerlink" title="2.1 基本网格布局"></a>2.1 基本网格布局</h3><p>最简单的网格布局，就是平均分布。在容器里面平均分配空间，跟上面的骰子布局很像，但是需要设置项目的自动缩放。</p>
-<p><img src="/img/flex-examples.assets/bg2015071321.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;Grid&quot;&gt;
-  &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.Grid {
-  display: flex;
-}
-
-.Grid-cell {
-  flex: 1;
-}</code></pre>
-<h3 id="2-2-百分比布局"><a href="#2-2-百分比布局" class="headerlink" title="2.2 百分比布局"></a>2.2 百分比布局</h3><p>某个网格的宽度为固定的百分比，其余网格平均分配剩余的空间。</p>
-<p><img src="/img/flex-examples.assets/bg2015071322.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;Grid&quot;&gt;
-  &lt;div class=&quot;Grid-cell u-1of4&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;Grid-cell&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;Grid-cell u-1of3&quot;&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<pre><code class="language-css">.Grid {
-  display: flex;
-}
-
-.Grid-cell {
-  flex: 1;
-}
-
-.Grid-cell.u-full {
-  flex: 0 0 100%;
-}
-
-.Grid-cell.u-1of2 {
-  flex: 0 0 50%;
-}
-
-.Grid-cell.u-1of3 {
-  flex: 0 0 33.3333%;
-}
-
-.Grid-cell.u-1of4 {
-  flex: 0 0 25%;
-}</code></pre>
-<h2 id="三、圣杯布局"><a href="#三、圣杯布局" class="headerlink" title="三、圣杯布局"></a>三、圣杯布局</h2><p><a href="https://en.wikipedia.org/wiki/Holy_Grail_(web_design)" target="_blank" rel="noopener">圣杯布局</a>（Holy Grail Layout）指的是一种最常见的网站布局。页面从上到下，分成三个部分：头部（header），躯干（body），尾部（footer）。其中躯干又水平分成三栏，从左到右为：导航、主栏、副栏。</p>
-<p><img src="/img/flex-examples.assets/bg2015071323.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;body class=&quot;HolyGrail&quot;&gt;
-  &lt;header&gt;...&lt;/header&gt;
-  &lt;div class=&quot;HolyGrail-body&quot;&gt;
-    &lt;main class=&quot;HolyGrail-content&quot;&gt;...&lt;/main&gt;
-    &lt;nav class=&quot;HolyGrail-nav&quot;&gt;...&lt;/nav&gt;
-    &lt;aside class=&quot;HolyGrail-ads&quot;&gt;...&lt;/aside&gt;
-  &lt;/div&gt;
-  &lt;footer&gt;...&lt;/footer&gt;
-&lt;/body&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.HolyGrail {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-header,
-footer {
-  flex: 1;
-}
-
-.HolyGrail-body {
-  display: flex;
-  flex: 1;
-}
-
-.HolyGrail-content {
-  flex: 1;
-}
-
-.HolyGrail-nav, .HolyGrail-ads {
-  /* 两个边栏的宽度设为12em */
-  flex: 0 0 12em;
-}
-
-.HolyGrail-nav {
-  /* 导航放到最左边 */
-  order: -1;
-}</code></pre>
-<p>如果是小屏幕，躯干的三栏自动变为垂直叠加。</p>
-<pre><code class="language-css">@media (max-width: 768px) {
-  .HolyGrail-body {
-    flex-direction: column;
-    flex: 1;
-  }
-  .HolyGrail-nav,
-  .HolyGrail-ads,
-  .HolyGrail-content {
-    flex: auto;
-  }
-}</code></pre>
-<h2 id="四、输入框的布局"><a href="#四、输入框的布局" class="headerlink" title="四、输入框的布局"></a>四、输入框的布局</h2><p>我们常常需要在输入框的前方添加提示，后方添加按钮。</p>
-<p><img src="/img/flex-examples.assets/bg2015071324.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;InputAddOn&quot;&gt;
-  &lt;span class=&quot;InputAddOn-item&quot;&gt;...&lt;/span&gt;
-  &lt;input class=&quot;InputAddOn-field&quot;&gt;
-  &lt;button class=&quot;InputAddOn-item&quot;&gt;...&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.InputAddOn {
-  display: flex;
-}
-
-.InputAddOn-field {
-  flex: 1;
-}</code></pre>
-<h2 id="五、悬挂式布局"><a href="#五、悬挂式布局" class="headerlink" title="五、悬挂式布局"></a>五、悬挂式布局</h2><p>有时，主栏的左侧或右侧，需要添加一个图片栏。</p>
-<p><img src="/img/flex-examples.assets/bg2015071325.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;div class=&quot;Media&quot;&gt;
-  &lt;img class=&quot;Media-figure&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
-  &lt;p class=&quot;Media-body&quot;&gt;...&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.Media {
-  display: flex;
-  align-items: flex-start;
-}
-
-.Media-figure {
-  margin-right: 1em;
-}
-
-.Media-body {
-  flex: 1;
-}</code></pre>
-<h3 id="六、固定的底栏"><a href="#六、固定的底栏" class="headerlink" title="六、固定的底栏"></a>六、固定的底栏</h3><p>有时，页面内容太少，无法占满一屏的高度，底栏就会抬高到页面的中间。这时可以采用Flex布局，让底栏总是出现在页面的底部。</p>
-<p><img src="/img/flex-examples.assets/bg2015071326.png" alt="img"></p>
-<p>HTML代码如下。</p>
-<pre><code class="language-html">&lt;body class=&quot;Site&quot;&gt;
-  &lt;header&gt;...&lt;/header&gt;
-  &lt;main class=&quot;Site-content&quot;&gt;...&lt;/main&gt;
-  &lt;footer&gt;...&lt;/footer&gt;
-&lt;/body&gt;</code></pre>
-<p>CSS代码如下。</p>
-<pre><code class="language-css">.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
-}</code></pre>
-<h3 id="七，流式布局"><a href="#七，流式布局" class="headerlink" title="七，流式布局"></a>七，流式布局</h3><p>每行的项目数固定，会自动分行。</p>
-<p><img src="/img/flex-examples.assets/bg2015071330.png" alt="img"></p>
-<p>CSS的写法。</p>
-<pre><code class="language-css">.parent {
-  width: 200px;
-  height: 150px;
-  background-color: black;
-  display: flex;
-  flex-flow: row wrap;
-  align-content: flex-start;
-}
-
-.child {
-  box-sizing: border-box;
-  background-color: white;
-  flex: 0 0 25%;
-  height: 50px;
-  border: 1px solid red;
-}</code></pre>
+        <h2 id="第一步：按下-Shift-F10-启动命令提示符"><a href="#第一步：按下-Shift-F10-启动命令提示符" class="headerlink" title="第一步：按下 Shift + F10 启动命令提示符"></a>第一步：按下 Shift + F10 启动命令提示符</h2><p>在 Windows 的安装界面按下 Shift + F10 启动命令提示符。</p>
+<h2 id="第二步：启动diskpart"><a href="#第二步：启动diskpart" class="headerlink" title="第二步：启动diskpart"></a>第二步：启动diskpart</h2><p>在命令提示符窗口中输入<code>diskpart</code>后回车</p>
+<pre><code class="language-bash">&gt;diskpart</code></pre>
+<p>然后再输入<code>list disk</code></p>
+<pre><code class="language-bash">DISKPART&gt;list disk</code></pre>
+<p>这时命令提示符中会列出此计算机上所有的磁盘和其格式：</p>
+<p><img src="/img/diskpart.assets/diskpart.png" alt=""></p>
+<p>选中磁盘0</p>
+<pre><code class="language-bash">DISKPART&gt; select disk 0</code></pre>
+<p>选中后输入<code>clean</code>回车清除</p>
+<pre><code class="language-bash">DISKPART&gt; clean</code></pre>
+<p>清除后输入<code>convert mbr</code>回车</p>
+<pre><code class="language-bash">DISKPART&gt; convert mbr</code></pre>
+<p>然后输入<code>exit</code>回车退出</p>
+<pre><code class="language-bash">DISKPART&gt; exit</code></pre>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/" rel="tag">CSS3</a></li></ul>
+      
     </div>
     
     
@@ -876,20 +523,11 @@ footer {
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/nginx-https/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title">
-        <strong class="article-nav-caption">&lt;&lt;上一篇</strong>
-        
-        <span class="hoverLine hoverLine-thin">Nginx 配置https</span>
-        
-      </div>
-    </a>
     
-    
-    <a href="/flex-grammar/" id="article-nav-older" class="article-nav-link-wrap"
+    <a href="/Hexo-tag-404/" id="article-nav-older" class="article-nav-link-wrap"
       style="text-align: right;">
       <div class="article-nav-title">
-        <span class="hoverLine hoverLine-thin">Flex布局语法</span>
+        <span class="hoverLine hoverLine-thin">Hexo标签或分类404</span>
         <strong class="article-nav-caption">下一篇&gt;&gt;</strong>
       </div>
     </a>
@@ -928,10 +566,10 @@ footer {
                   <h1 class="" style="line-height: 1.3;">
                     
                       <a class="hoverLine" href="/diskpart/" title="将磁盘转换为MBR磁盘"
-                        style="width: 100%; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        style="color: #18a0db; font-size: 13px; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
                         将磁盘转换为MBR磁盘
                       </a>
-                    
+                      
                   </h1>
                 </div>
                 <!-- E 文章标题 -->
