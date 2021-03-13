@@ -1,4 +1,4 @@
-if (screen.width < 768) {
+if (screen.width >= 768) {
   let bar = document.getElementsByClassName('bar-in')[0],
     pgtimer;
   document.addEventListener('readystatechange', function () {
