@@ -1,5 +1,6 @@
 let bar = document.getElementsByClassName('bar-in')[0],
   pgtimer;
+  console.log(bar);
 document.addEventListener('readystatechange', function () {
   if (document.readyState == "interactive") {
     let w = 60;
