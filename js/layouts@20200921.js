@@ -2,8 +2,8 @@ let bar = document.getElementsByClassName('bar-in')[0],
   pgtimer;
 document.addEventListener('readystatechange', function () {
   if (document.readyState == "interactive") {
-    let w = 30;
-    bar.style.width = 30 + '%';
+    let w = 20;
+    bar.style.width = 20 + '%';
     pgtimer = setInterval(function () {
       w += .1;
       if (w <= 95) {
