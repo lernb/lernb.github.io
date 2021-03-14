@@ -15,7 +15,7 @@ if (screen.width >= 768) {
       bar.style.width = 100 + '%';
       setTimeout(function () {
         bar.parentElement.style.display = 'none';
-      }, 300);
+      }, 501);
       clearInterval(pgtimer);
     }
   });
