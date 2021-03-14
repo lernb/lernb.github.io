@@ -12,11 +12,11 @@ if (screen.width >= 768) {
         }
       }, 50);
     } else {
+      clearInterval(pgtimer);
       bar.style.width = 100 + '%';
       setTimeout(function () {
         bar.parentElement.style.display = 'none';
-      }, 501);
-      clearInterval(pgtimer);
+      }, 301);
     }
   });
 }
