@@ -13,8 +13,8 @@ if (screen.width >= 768) {
       }, 50);
     } else {
       bar.style.width = 100 + '%';
+      clearInterval(pgtimer);
       setTimeout(function () {
-        clearInterval(pgtimer);
         bar.parentElement.style.display = 'none';
       }, 301);
     }
