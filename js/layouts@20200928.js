@@ -15,13 +15,13 @@ if (screen.width >= 768) {
     } else {
       clearInterval(pgtimer);
       bar.style.width = 100 + '%';
-      // setTimeout(function () {
-      //   bar.style.opacity = "0";
-      //   opa = true;
-      // }, 2000);
-      // if (opa) {
-      //   bar.parentElement.style.display = 'none';
-      // }
+      setTimeout(function () {
+        bar.style.opacity = "0";
+        opa = true;
+      }, 300);
+      if (opa) {
+        bar.parentElement.style.display = 'none';
+      }
     }
   });
 }
