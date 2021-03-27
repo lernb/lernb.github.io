@@ -18,7 +18,7 @@ if (screen.width >= 768) {
       setTimeout(function () {
         bar.style.opacity = "0";
         opa = true;
-      }, 300);
+      }, 400);
       if (opa) {
         bar.parentElement.style.display = 'none';
       }
