@@ -14,6 +14,7 @@ if (screen.width >= 768) {
       // }, 50);
       console.log("interactive");
     } else {
+      console.log("done");
       // clearInterval(pgtimer);
       // bar.style.width = 100 + '%';
       // setTimeout(function () {
