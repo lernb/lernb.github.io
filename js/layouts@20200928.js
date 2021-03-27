@@ -1,22 +1,20 @@
 if (screen.width >= 768) {
   let bar = document.getElementsByClassName('bar-in')[0],
     pgtimer,
-    opa = false,
-    w = 20;
+    opa = false;
   document.addEventListener('readystatechange', function () {
     if (document.readyState == "interactive") {
-      // bar.style.width = w + '%';
-      // pgtimer = setInterval(function () {
-      //   w += .1;
-      //   if (w <= 95) {
-      //     bar.style.width = w + '%';
-      //   }
-      // }, 50);
-      console.log("interactive");
+      let w = 20;
+      bar.style.width = w + '%';
+      pgtimer = setInterval(function () {
+        w += .1;
+        if (w <= 95) {
+          bar.style.width = w + '%';
+        }
+      }, 50);
     } else {
-      console.log("done");
-      // clearInterval(pgtimer);
-      // bar.style.width = 100 + '%';
+      clearInterval(pgtimer);
+      bar.style.width = 100 + '%';
       // setTimeout(function () {
       //   bar.style.opacity = "0";
       //   opa = true;
