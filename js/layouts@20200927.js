@@ -1,6 +1,7 @@
 if (screen.width >= 768) {
   let bar = document.getElementsByClassName('bar-in')[0],
-    pgtimer;
+    pgtimer,
+    opa = false;
   document.addEventListener('readystatechange', function () {
     if (document.readyState == "interactive") {
       let w = 20;
@@ -15,8 +16,12 @@ if (screen.width >= 768) {
       bar.style.width = 100 + '%';
       clearInterval(pgtimer);
       setTimeout(function () {
+        bar.style.opacity = "0";
+        opa = true;
+      }, 300);
+      if (opa) {
         bar.parentElement.style.display = 'none';
-      }, 301);
+      }
     }
   });
 }
