@@ -1920,13 +1920,19 @@ html {
 }
 
 .bar .widget .category-list .category-list-item {
+  display: inline-block;
   position: relative;
+  width: 42%;
   padding: 6px 10px 6px;
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 0 12px 0px rgb(24 160 219 / 25%);
   transition: transform .3s;
   background: linear-gradient(-90deg, rgb(121 199 255) 10%, rgb(24 160 219) 100%);
+}
+
+.bar .widget .category-list .category-list-item:nth-child(2n+1) {
+  margin-right: 3%;
 }
 
 .bar .widget .category-list .category-list-count {
