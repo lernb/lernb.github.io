@@ -66,31 +66,18 @@ for (let i = 0; i < iList.length; i++) {
   (function (n) {
     iList[n].addEventListener('touchstart', function (e) {
       e.stopPropagation();
-      // iList[n].setAttribute('style', 'transform: scale3d(.97, .97, .97)');
       iList[n].style.transform = 'scale3d(.97, .97, .97)';
     });
     iList[n].addEventListener('touchend', function (e) {
-      // setTimeout(function () {
-      //   iList[i].setAttribute('style', 'transform: initial');
-      // }, 200);
-      // iList[n].setAttribute('style', 'transform: initial');
       iList[n].style.transform = 'initial';
     });
     iList[n].addEventListener('touchmove', function (e) {
       setTimeout(function () {
-        // iList[n].setAttribute('style', 'transform: initial');
         iList[n].style.transform = 'initial';
       }, 200);
     });
   })(i);
 }
-// wrapbd.addEventListener('touchstart', function (e) {
-//   for (let i = 0; i < iList.length; i++) {
-//     setTimeout(function () {
-//       iList[i].setAttribute('style', 'transform: initial');
-//     }, 200);
-//   }
-// });
 
 
 if (pcate.length) {
