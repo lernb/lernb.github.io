@@ -710,7 +710,7 @@ strong {
   /* border-radius: 10px; */
 }
 
-body::before {
+.banner-back::before {
   content: ' ';
   position: fixed;
   top: 55px;
