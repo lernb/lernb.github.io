@@ -49,7 +49,7 @@
 <link rel="stylesheet" href="/css/prism20200920.css">
 
   
-<link rel="stylesheet" href="/css/lernb20201012.css?v=0417.css">
+<link rel="stylesheet" href="/css/lernb20201012.css?v=0421.css">
 
 </head>
 
@@ -68,7 +68,10 @@
     }
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
   <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
   <div class="header-wrap" id="he" style="height: 55px;">
     <div class="blur-bg"></div>
     
@@ -449,7 +452,25 @@
         </div>
         
         <!--  -->
-        
+        <script>
+  let indexTimer,
+    indexHead = document.getElementsByClassName('headhead')[0];
+  window.addEventListener('scroll', function() {
+    if(!indexTimer) {
+      indexTimer = setTimeout(() => {
+        let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
+        if(indexScroll >= 160) {
+          indexHead.className = 'headhead headlo headbdfOn';
+        } else {
+          indexHead.className = 'headhead headlo headbdf';
+        }
+        indexTimer = null;
+        clearTimeout(indexTimer);
+      }, 100);
+    }
+  });
+</script>
+
     <div class="wrap-bd clearfix">
       <div id="cate-hd">
    <!--
@@ -805,7 +826,7 @@
   <script type="text/javascript">
     let layoutJs = document.getElementById('layout-js');
     if (screen.width < 1236) {
-      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0418');
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
     }
   </script>
 </body>
