@@ -49,7 +49,7 @@
 <link rel="stylesheet" href="/css/prism20200920.css">
 
   
-<link rel="stylesheet" href="/css/lernb20201012.css?v=0423.css">
+<link rel="stylesheet" href="/css/lernb20201012.css?v=042214.css">
 
 </head>
 
@@ -69,7 +69,7 @@
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   
-  <div class="headhead headlo headbdf">
+  <div class="headhead headlo headbdf headbdfAfter">
 
 <!-- <div class="headhead headbdf"> -->
   <div class="header-wrap" id="he" style="height: 55px;">
@@ -460,10 +460,10 @@
     if(!indexTimer) {
       indexTimer = setTimeout(() => {
         let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
-        if(indexScroll >= 160) {
-          indexHead.className = 'headhead headlo headbdfOn';
+        if(indexScroll >= 170) {
+          indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
         } else {
-          indexHead.className = 'headhead headlo headbdf';
+          indexHead.className = 'headhead headlo headbdf headbdfAfter';
         }
         indexTimer = null;
         clearTimeout(indexTimer);
