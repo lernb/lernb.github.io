@@ -46,10 +46,10 @@
 <link rel="stylesheet" href="/css/reset.css">
 
   
-<link rel="stylesheet" href="/css/prism20200920.css">
+<link rel="stylesheet" href="/css/prism20200922.css">
 
   
-<link rel="stylesheet" href="/css/lernb20201012.css?v=0420.css">
+<link rel="stylesheet" href="/css/lernb20201012.css?v=0417.css">
 
 </head>
 
@@ -68,10 +68,7 @@
     }
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
-  
   <div class="headhead">
-
-<!-- <div class="headhead headbdf"> -->
   <div class="header-wrap" id="he" style="height: 55px;">
     <div class="blur-bg"></div>
     
@@ -114,13 +111,28 @@
     <div id="hcata">
       <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
       <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
-
-      <!-- author -->
-
+      <div class="bar-item bar-au clearfix">
+  <!-- <div class="au-left" style="float: left;"> -->
+  <div class="headback">
+    <img class="au-head" src="/asset/u2.jpg" alt="头像">
+  </div>
+  <div class="au-name">lernb.</div>
+  <div class="slogan" style="margin-bottom: 10px;">
+    <p>学习 · 记录 · 分享</p>
+  </div>
+  <!-- </div> -->
+  <!-- <div class="au-right" style="float: right; width: calc(100% - 110px);"> -->
+  <!-- <div class="au-site"></div> -->
+  <!-- <div class="au-btn clearfix">
+    <a class="au-btn-item btn-left" href="#">邮箱</a>
+    <a class="au-btn-item btn-right" href="#">关于</a>
+  </div> -->
+  <!-- </div> -->
+</div>
       <div class="headerMenu">
         <a href="/">首页</a>
         <a href="/tags">标签</a>
-        <a href="/note/note-intro.html">前端</a>
+        <a href="/note/note-intro.html">学习</a>
         <!-- <a href="/categories">分类</a> -->
       </div>
       
@@ -129,9 +141,6 @@
 </div>
     <div class="wrap clearfix">
       
-  
-  <div class="container" style="margin-top: 60px; box-shadow: initial;">
-  
     <div class="wrap-content clearfix">
       
         <!--  -->
@@ -306,14 +315,14 @@ function drop(ev) {
       
     
       
+    
+      
         <h3 class="h3T">简介</h3>
         <li>
           
           <a href="/note/note-intro.html">简介</a>
           
         </li>
-      
-    
       
     
       
@@ -379,7 +388,7 @@ function drop(ev) {
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/HTML-table.html">HTML表格标签</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -388,7 +397,7 @@ function drop(ev) {
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
+          <a href="/note/HTML/HTML-table.html">HTML表格标签</a>
           
         </li>
       
@@ -442,7 +451,7 @@ function drop(ev) {
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/html5-geolocation.html">HTML5 地理定位</a>
+          <a href="/note/HTML/html5-serversentevents.html">HTML Server-Sent 事件</a>
           
         </li>
       
@@ -451,7 +460,7 @@ function drop(ev) {
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/html5-serversentevents.html">HTML Server-Sent 事件</a>
+          <a href="/note/HTML/html5-geolocation.html">HTML5 地理定位</a>
           
         </li>
       
@@ -500,15 +509,6 @@ function drop(ev) {
         <h3 class="h3T">CSS</h3> 
         <li>
           
-          <a href="/note/CSS/CSS3-selector.html">CSS3选择器</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
           <a href="/note/CSS/CSS-feature.html">CSS特性及选择器优先级</a>
           
         </li>
@@ -518,7 +518,7 @@ function drop(ev) {
         <h3 class="h3T">CSS</h3> 
         <li>
           
-          <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
           
         </li>
       
@@ -527,7 +527,16 @@ function drop(ev) {
         <h3 class="h3T">CSS</h3> 
         <li>
           
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          <a href="/note/CSS/CSS3-selector.html">CSS3选择器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
+          <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
       
@@ -631,13 +640,12 @@ function drop(ev) {
 
       </div>
     </div>
-    </div>
     
   <script id="layout-js"></script>
   <script type="text/javascript">
     let layoutJs = document.getElementById('layout-js');
     if (screen.width < 1236) {
-      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js');
     }
   </script>
 </body>
