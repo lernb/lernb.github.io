@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: cmFont;
-  src: url('/asset/cm.ttf');
+  src: url('https://lernb.gitee.io/asset/cm.ttf');
 }
 
 .wrap-bd {
