@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* S index */
 
-@font-face {
+/* @font-face {
   font-family: cmFont;
-  src: url('https://gitee.com/lernb/pic-host/raw/master/cm.ttf');
-}
+  src: url('/asset/cm.ttf');
+} */
 
 .wrap-bd {
   width: 700px;
@@ -1290,7 +1290,7 @@ strong {
   .header-wrap {
     /* background-color: #fff; */
     transition: height .4s;
-    }
+  }
 }
 
 .pgbar {
@@ -2719,6 +2719,7 @@ html {
   font-size: 16px;
   /* overflow: hidden; */
 }
+
 .post-wrap.note-wrap .post-text {
   color: #2c3e50;
 }
