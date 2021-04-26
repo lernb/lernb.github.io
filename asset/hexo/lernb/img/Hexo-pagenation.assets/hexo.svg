@@ -1,0 +1,14 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#18a0db" id="canvas_background" height="402" width="602" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#000" transform="rotate(-90 155.3560943603516,190.25662231445312) " id="svg_2" d="m64.356078,190.256631l39.000007,-77.999957l104.000011,0l38.999995,77.999957l-38.999995,77.999957l-104.000011,0l-39.000007,-77.999957z" stroke-width="0" fill="#ffffff"/>
+  <text stroke="#000" transform="matrix(5.133175061342,0,0,5.133175061342,-566.9880736481017,-790.1655808583938) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_3" y="199.966452" x="131.720755" stroke-opacity="null" stroke-width="0" fill="#18a0db">H</text>
+  <text stroke="#000" transform="matrix(4.17309203020909,0,0,4.17309203020909,-984.0721282515561,-801.5844970981844) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="246.647481" x="294.783523" stroke-opacity="null" stroke-width="0" fill="#ffffff">HEXO</text>
+ </g>
+</svg>

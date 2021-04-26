@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE内核浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      Hexo配置Git部署站点到服务器 - LERNB | 网络日志
+        
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 学习、记录、分享 - LERNB" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-page-mode" content="app">
+	<meta name="browsermode" content="application">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#5e72e4">
+
+	<meta name="application-name" content="LERNB">
+	<meta name="apple-mobile-web-app-title" content="LERNB">
+  <link href="/asset/favicon.png" rel="apple-touch-icon-precomposed">
+  <link href="/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
+  <link rel="stylesheet" href="https://lernb.gitee.io/css/reset.css">
+  <link rel="stylesheet" href="https://lernb.gitee.io/css/lernb20201012.css?v=04252157">
+  <link rel="stylesheet" href="https://lernb.gitee.io/css/prism20200920.css">
+  <link rel="stylesheet" href="https://lernb.gitee.io/css/cmFont.css">
+</head>
+
+<body class="line-numbers">
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script src="https://lernb.gitee.io/js/layouts@20200929.js"></script>
+  <!-- <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts@20200921.js');
+    }
+  </script> -->
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
+  <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    
+    <div class="head">
+    
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="home-btn hoverLine">首页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">前端</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+
+      <!-- author -->
+
+      <div class="headerMenu">
+        <a href="/">首页</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">前端</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+    <div class="wrap clearfix">
+      
+  
+  <div class="container" style="padding-top: 60px; box-shadow: initial;">
+  
+    <div class="wrap-content clearfix">
+      
+      <div class="bar barbar">
+        <!-- <div class="barside"> -->
+        <!-- S 侧栏插件 -->
+        
+
+        <!-- 最近文章 -->
+        
+        <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px; color: #222;">最近更新</h3>
+  </div>
+  <ul>
+    
+      <!-- <span class="post-date">2021-02-19</span> -->
+      <!-- <li class="post-item"><a href="/diskpart/">将磁盘转换为MBR格式</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/diskpart/" title="将磁盘转换为MBR格式" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/diskpart/" title="将磁盘转换为MBR格式"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        将磁盘转换为MBR格式
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2021-02-19
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2021-01-10</span> -->
+      <!-- <li class="post-item"><a href="/Hexo-tag-404/">Hexo标签或分类404</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/Hexo-tag-404/" title="Hexo标签或分类404" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/Hexo-tag-404/" title="Hexo标签或分类404"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        Hexo标签或分类404
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2021-01-10
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-26</span> -->
+      <!-- <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/throttle-debounce/" title="理解防抖与节流" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/javascript.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/throttle-debounce/" title="理解防抖与节流"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        理解防抖与节流
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-26
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-19</span> -->
+      <!-- <li class="post-item"><a href="/slideshow/">轮播图实现</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/slideshow/" title="轮播图实现" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/slideshow.jpg" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/slideshow/" title="轮播图实现"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        轮播图实现
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-19
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-12</span> -->
+      <!-- <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/hover-transform/" title="父级元素设置高度为0子元素仍然显示" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/CSSSS.jpg" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/hover-transform/" title="父级元素设置高度为0子元素仍然显示"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        父级元素设置高度为0子元素仍然显示
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-12
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+  </ul>
+</div>
+        
+
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+
+        <!-- 分类 -->
+        
+          <div class="bar-item">
+  
+    <div class="widget-wrap">
+      <div class="t-h hCate">
+        <h3>分类</h3>
+        <!-- <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
+      </div>
+      <div class="widget category">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a><span class="category-list-count">6</span></li></ul>
+      </div>
+      <!-- <div class="overhi"></div> -->
+    </div>
+    
+      <!-- <div class="overhi"></div> -->
+</div>
+        
+          
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+          
+        <!-- 归档 -->
+        
+            
+        <!-- 标签 -->
+        
+          <div class="bar-item" style="position: relative;">
+  
+  <div class="widget-wrap">
+    <div class="t-h hTag">
+      <h3 class="widget-title">标签</h3>
+      <!-- <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
+    </div>
+    <div class="widget tagcloud">
+      <a href="/tags/Aria2/" style="font-size: 13px;">Aria2</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13px;">CSS3</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/IPv6/" style="font-size: 13px;">IPv6</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/VPS/" style="font-size: 13px;">VPS</a> <a href="/tags/diskpart/" style="font-size: 13px;">diskpart</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a>
+    </div>
+  </div>
+  
+  <!-- <div class="overhi"></div> -->
+</div>
+        
+
+        <!-- 文章目录 -->
+        
+          <div class="bar-item post-title-menu-flag">
+  <div class="t-h">
+    <h3>目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+          
+          <!-- E 侧栏插件 -->
+        </div>
+        
+        <!--  -->
+        <div class="post-wrap">
+  <div class="post">
+    <!-- <div class="post-h-banner" data-img="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png"> -->
+      <!-- <div class="overlaylay"></div> -->
+      <div class="m-tit">
+        <div class="m-tit-con">
+          <div class="ph-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+          </div>
+          <h1>Hexo配置Git部署站点到服务器</h1>
+        </div>
+      </div>
+    <!-- </div> -->
+    <div class="post-con">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="https://lernb.gitee.io/asset/u2.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-08-23</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://www.jianshu.com/p/b926ecf1c6f6" target="_blank" title="来源：简书">
+
+              <span class="res">源</span><span class="res-link">简书</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="post-text">
+        <h2 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h2><p>首先查看本机是否已经安装<code>Git</code>和<code>Node.js</code>，在Bash中输入<a id="more"></a>以下命令</p>
+<pre><code class="language-bash">$ git --version 
+#git version 2.22.0.windows.1
+
+$ node --version
+# v12.16.2</code></pre>
+<p>如果正确出现版本号，则说明已经安装，反之则未安装。</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>从Git <a href="https://git-scm.com" target="_blank" rel="noopener">官网</a>下载安装。</p>
+<p>配置用户信息，设置用户名以及邮箱：</p>
+<pre><code class="language-bash">$ git config --global user.name &quot;用户名&quot;
+$ git config --global user.email &quot;邮箱地址&quot;
+
+#查看配置
+$ git config --list</code></pre>
+<p><strong>获取key</strong>，下文配置SSH需要用到。</p>
+<p>在Git Bash中执行以下命令：</p>
+<pre><code class="language-bash">#创建公钥
+$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;
+#然后获取复制公钥备用
+$ cat ~/.ssh/id_rsa.pub</code></pre>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>从Node.js <a href="[https://nodejs.org](https://nodejs.org/)">官网</a>下载安装，安装完成后可以在在Git Bash中输入<code>node --version</code>查看当前安装版本。</p>
+<h3 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h3><p>更多详细配置可以参照<a href="[https://hexo.io/zh-cn/docs](https://hexo.io/zh-cn/docs/)">官方文档</a>。</p>
+<p>新建存放Hexo站点目录的文件夹，如<code>hexo</code>，进入<code>hexo</code>内空白处右键菜单点击<code>git bash</code>：</p>
+<p>安装Hexo</p>
+<pre><code class="language-bash">$ npm install -g hexo-cli</code></pre>
+<p>安装完成后</p>
+<pre><code class="language-bash">$ hexo init
+$ npm install</code></pre>
+<p>启动本地站点服务</p>
+<pre><code class="language-bash">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo server</code></pre>
+<p>完成后可以在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>查看搭建的本地站点。</p>
+<h2 id="服务器端安装"><a href="#服务器端安装" class="headerlink" title="服务器端安装"></a>服务器端安装</h2><p>将系统包列表更新到最新：</p>
+<pre><code class="language-bash">$ apt-get update -y
+$ apt-get upgrade -y</code></pre>
+<h3 id="创建git用户"><a href="#创建git用户" class="headerlink" title="创建git用户"></a>创建git用户</h3><p>创建git用户</p>
+<pre><code class="language-bash">$ adduser git</code></pre>
+<p>赋予sudo权限</p>
+<pre><code class="language-bash">$ chmod 740 /etc/sudoers
+$ vim /etc/sudoers</code></pre>
+<p>定位到<code>root</code>一行下方添加以下字段</p>
+<pre><code class="language-bash">git ALL=(ALL) ALL</code></pre>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/gitsudoer.png" alt=""></p>
+<p>修改完成后改回权限</p>
+<pre><code class="language-bash">$ chmod 400 /etc/sudoers</code></pre>
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>切换git用户，并到git用户目录</p>
+<pre><code class="language-bash">#切换到git用户
+$ su git
+
+#转到git用户目录
+$ cd /home/git</code></pre>
+<p>配置ssh</p>
+<pre><code class="language-bash"># 创建.ssh文件夹
+$ mkdir ~/.ssh
+#输入可查看是否创建
+$ ls -a
+# 创建authorized_keys文件并编辑
+$ vim ~/.ssh/authorized_keys
+# 如果你还没有生成公钥，那么首先在本地电脑中执行 cat ~/.ssh/id_rsa.pub | pbcopy生成公钥
+# 再将公钥复制粘贴到authorized_keys
+# 保存关闭authorized_keys后，修改相应权限
+$ chmod 600 ~/.ssh/authorized_keys
+$ chmod 700 ~/.ssh</code></pre>
+<p>然后输入测试是否可以登录</p>
+<pre><code class="language-bash">$ ssh -v git@68.168.141.184</code></pre>
+<p>默认22端口，不是则需要在后面加上<code>-p 端口号</code></p>
+<p>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!是以前配置过主机，需要进行删除</p>
+<pre><code class="language-bash">$ vi ~/.ssh/known_hosts</code></pre>
+<h3 id="创建git裸库"><a href="#创建git裸库" class="headerlink" title="创建git裸库"></a>创建git裸库</h3><pre><code class="language-bash"># 回到git目录
+$ cd /home/git
+# 使用git用户创建git裸仓库，以blog.git为例
+$ git init --bare blog.git</code></pre>
+<h3 id="检查用户权限"><a href="#检查用户权限" class="headerlink" title="检查用户权限"></a>检查用户权限</h3><p>查看<code>blog.git</code>、<code>.ssh</code>和站点目录的用户组权限是否都为<code>git:git</code></p>
+<pre><code class="language-bash">$ ls -l /var/www/
+$ ls -l /homw/git/</code></pre>
+<p>如果不是则</p>
+<pre><code class="language-bash">$ sudo chown git:git -R /var/www/blog
+$ sudo chown git:git -R /home/git/blog.git</code></pre>
+<h3 id="使用git-hooks同步网站根目录"><a href="#使用git-hooks同步网站根目录" class="headerlink" title="使用git-hooks同步网站根目录"></a>使用git-hooks同步网站根目录</h3><p>使用一个钩子文件：<code>post-receive</code>，每当git仓库接收到内容的时候，就会自动调用这个钩子，把内容同步到网站根目录。</p>
+<p><strong>git用户下执行</strong></p>
+<pre><code class="language-bash">#切换到hooks目录下
+$ cd /home/git/blog.git/hooks
+#创建文件
+$ vim post-receive</code></pre>
+<p>添加如下</p>
+<pre><code class="language-bash">#!/bin/bash
+GIT_REPO=/home/git/blog.git
+TMP_GIT_CLONE=/tmp/blog
+PUBLIC_WWW=/home/wwwroot/default
+rm -rf ${TMP_GIT_CLONE}
+git clone $GIT_REPO $TMP_GIT_CLONE
+rm -rf ${PUBLIC_WWW}/*
+cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}</code></pre>
+<p>保存后，执行以下赋予权限</p>
+<pre><code class="language-bash">$ chmod +x post-receive</code></pre>
+<h3 id="关闭git用户的shell权限"><a href="#关闭git用户的shell权限" class="headerlink" title="关闭git用户的shell权限"></a>关闭git用户的shell权限</h3><pre><code class="language-bash">#执行
+$ vim /etc/paswd</code></pre>
+<p>将最后一行</p>
+<pre><code class="language-bash">git:x:1000:1000::/home/git:/bin/bash
+#改为
+git:x:1000:1000::/home/git:/usr/bin/git-shell</code></pre>
+<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><p>配置本地Hexo的_config.yml</p>
+<pre><code class="language-bash">deploy: 
+  type: git
+  repo: git@115.159.87.49:blog.git
+  branch: master</code></pre>
+<p>同步到服务器</p>
+<pre><code class="language-bash">#清理、生成、部署
+$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+    </div>
+    
+    <script src="https://lernb.gitee.io/js/prism.js"></script>
+  </div>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/flex-grammar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
+        
+        <span class="hoverLine hoverLine-thin">Flex布局语法</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/Hexo-pagenation/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
+        <span class="hoverLine hoverLine-thin">Hexo分类设置分页不显示的问题</span>
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px; color: #222;">最近更新</h3>
+  </div>
+  <ul>
+    
+      <!-- <span class="post-date">2021-02-19</span> -->
+      <!-- <li class="post-item"><a href="/diskpart/">将磁盘转换为MBR格式</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/diskpart/" title="将磁盘转换为MBR格式" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/diskpart/" title="将磁盘转换为MBR格式"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        将磁盘转换为MBR格式
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2021-02-19
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2021-01-10</span> -->
+      <!-- <li class="post-item"><a href="/Hexo-tag-404/">Hexo标签或分类404</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/Hexo-tag-404/" title="Hexo标签或分类404" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/Hexo-tag-404/" title="Hexo标签或分类404"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        Hexo标签或分类404
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2021-01-10
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-26</span> -->
+      <!-- <li class="post-item"><a href="/throttle-debounce/">理解防抖与节流</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/throttle-debounce/" title="理解防抖与节流" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/javascript.png" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/throttle-debounce/" title="理解防抖与节流"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        理解防抖与节流
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-26
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-19</span> -->
+      <!-- <li class="post-item"><a href="/slideshow/">轮播图实现</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/slideshow/" title="轮播图实现" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/slideshow.jpg" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/slideshow/" title="轮播图实现"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        轮播图实现
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-19
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+      <!-- <span class="post-date">2020-12-12</span> -->
+      <!-- <li class="post-item"><a href="/hover-transform/">父级元素设置高度为0子元素仍然显示</a></li> -->
+      <li class="p-list-item clearfix"
+        style="border-radius: 10px;">
+        <!-- S 文章图片 -->
+        
+          <div class="post-img" style="display: inline-block; width: 28%; vertical-align: bottom;">
+            <a href="/hover-transform/" title="父级元素设置高度为0子元素仍然显示" style="float: none; width: 100%; min-height: 70px; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <div class="overlay"></div>
+              <img src="https://gitee.com/lernb/pic-host/raw/master/img/CSSSS.jpg" alt="文图" style="min-height: auto; width: 100%; height: 100%;">
+            </a>
+          </div>
+          
+            <!-- E 文章图片 -->
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+              <!-- S 标题内容 -->
+              <div class="content">
+                <div class="ph-cate">
+                  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h">
+                  <h1 class="" style="line-height: 1.3;">
+                    
+                      <a class="hoverLine" href="/hover-transform/" title="父级元素设置高度为0子元素仍然显示"
+                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        父级元素设置高度为0子元素仍然显示
+                      </a>
+                    
+                  </h1>
+                </div>
+                <!-- E 文章标题 -->
+
+                <!-- S 文章信息 -->
+                <div class="post-info" style="padding: 0; margin: 0; border: 0;">
+                  <ul>
+                    <li class="date post-info-item">
+                      <span style="font-size: 12px; font-weight: normal;">
+                        2020-12-12
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- E 文章信息 -->
+              </div>
+              <!-- E 标题内容 -->
+            </div>
+      </li>
+      
+  </ul>
+</div>
+  <!-- 是否开启文章评论 -->
+  
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="https://lernb.gitee.io/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', 'https://lernb.gitee.io/js/post-m20200923.js');
+  } else {
+    postJs.setAttribute('src', 'https://lernb.gitee.io/js/post20200917.js');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+      </div>
+    </div>
+    </div>
+    
+      <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
+      <!-- <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a>&nbsp;|</span> -->
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank">苏ICP备2020049244号</a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+    
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', 'https://lernb.gitee.io/js/layout-m20200920.js?v=0421');
+    }
+  </script>
+</body>
+
+</html>
