@@ -11,8 +11,8 @@
   <meta charset="UTF-8">
   <title>
     
-      分类 - LERNB | 网络日志
-        
+          LERNB | 网络日志
+            
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="expires" content="0"> -->
@@ -96,7 +96,7 @@
         <!-- </li> -->
         <!-- <li> -->
           
-          <!-- <a href="/categories" class="cate-btn hoverLine hoverLineActive">分类</a> -->
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
           
         <!-- </li> -->
       </ul>
@@ -396,6 +396,22 @@
 
         <!-- 分类 -->
         
+          <div class="bar-item">
+  
+    <div class="widget-wrap">
+      <div class="t-h hCate">
+        <h3>分类</h3>
+        <!-- <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
+      </div>
+      <div class="widget category">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a><span class="category-list-count">7</span></li></ul>
+      </div>
+      <!-- <div class="overhi"></div> -->
+    </div>
+    
+      <!-- <div class="overhi"></div> -->
+</div>
+        
           
         <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
           
@@ -426,62 +442,72 @@
         </div>
         
         <!--  -->
+        <script>
+  let indexTimer,
+    indexHead = document.getElementsByClassName('headhead')[0];
+  window.addEventListener('scroll', function() {
+    if(!indexTimer) {
+      indexTimer = setTimeout(() => {
+        let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
+        if(indexScroll >= 170) {
+          indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
+        } else {
+          indexHead.className = 'headhead headlo headbdf headbdfAfter';
+        }
+        indexTimer = null;
+        clearTimeout(indexTimer);
+      }, 100);
+    }
+  });
+</script>
+
+    <div class="wrap-bd clearfix">
+      <div id="cate-hd">
+   <!--
+    --><a href="/">最近</a><!--
+    --><!--
+    --><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></li></ul>
+</div>
+      <!-- <h1 class="deta-hd">
+        最近
+      </h1> -->
+      <!-- <div class="rec">
+        最近更新
+      </div> -->
+      <ul class="p-list">
         
-<div class="post-wrap">
-  <!-- 标签详情页 -->
-  
-  
-  <div class="post">
-    <div class="post-con">
-      <div class="widget-wrap">
-        <h1 class="deta-hd cate-hd">分类</h1>
-        <div class="widget">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a><span class="category-list-count">7</span></li></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-  <!-- 移动端底部文章列表 -->
-  <div class="mo-rec">
-  <h3 style="width: 90%; margin: 20px auto 20px; font-size: 20px; font-weight: bold; color: #222;">最近更新</h3>
-  
-    <div class="p-list">
-      <ul>
-        <li class="p-list-item clearfix">
-          <!-- S 文章图片 -->
           
-            <div class="post-img">
-              <a href="/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
-                <div class="overlay"></div>
-                <img src="https://gitee.com/lernb/pic-host/raw/master/img/cache-control.jpg" alt="文图">
-              </a>
-            </div>
             
+              <!-- <div class="p-list"> -->
+              <li class="p-list-item clearfix">
+                <div class="ph-cate">
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+                </div>
+                <!-- S 文章标题 -->
+                <div class="d-pp-h" style="margin-bottom: 12px;">
+                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/set-nginx-cache/"
+                      title="Nginx下关于缓存控制字段cache-control的配置">
+                      Nginx下关于缓存控制字段cache-control的配置
+                    </a></h1>
+                </div>
+                <!-- E 文章标题 -->
+                <!-- S 文章图片 -->
+                <div class="post-img">
+                  <a href="/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                    <div class="overlay"></div>
+                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/cache-control.jpg" alt="文章封面">
+                  </a>
+                </div>
                 <!-- E 文章图片 -->
-                <div class="p-list-item-right clearfix">
+                <div class="p-list-item-right img-pc">
                   <!-- S 标题内容 -->
                   <div class="content">
-                    <div class="ph-cate">
-                      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+                    <div class="zy">
+                      HTTP协议的Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会影响另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached等。<span>...</span><a class="readmore hoverLine hoverLine-thin"
+                          href="/set-nginx-cache/"></a>
                     </div>
-                    <!-- S 文章标题 -->
-                    <div class="d-pp-h">
-                      <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/set-nginx-cache/"
-                          title="Nginx下关于缓存控制字段cache-control的配置">
-                          Nginx下关于缓存控制字段cache-control的配置
-                        </a></h1>
-                    </div>
-                    <!-- E 文章标题 -->
-
-                    
                   </div>
                   <!-- E 标题内容 -->
-                  <div class="zy">
-                    HTTP协议的Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会影响另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached等。<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                        href="/set-nginx-cache/">全文</a>
-                  </div>
                   <!-- S 文章信息 -->
                   <div class="post-info">
                     <ul>
@@ -494,115 +520,34 @@
                   </div>
                   <!-- E 文章信息 -->
                 </div>
-        </li>
-      </ul>
-    </div>
-      
-    <div class="p-list">
-      <ul>
-        <li class="p-list-item clearfix">
-          <!-- S 文章图片 -->
-          
-            <div class="post-img">
-              <a href="/diskpart/" title="将磁盘转换为MBR格式">
-                <div class="overlay"></div>
-                <img src="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png" alt="文图">
-              </a>
-            </div>
-            
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right clearfix">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="ph-cate">
-                      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                    </div>
-                    <!-- S 文章标题 -->
-                    <div class="d-pp-h">
-                      <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/diskpart/"
-                          title="将磁盘转换为MBR格式">
-                          将磁盘转换为MBR格式
-                        </a></h1>
-                    </div>
-                    <!-- E 文章标题 -->
-
+              </li>
+              <!-- </div> -->
+              
+                  
                     
-                  </div>
-                  <!-- E 标题内容 -->
-                  <div class="zy">
-                    第一步：按下 Shift + F10 启动命令提示符。在 Windows 的安装界面按下 Shift + F10 启动命令提示符。一：按下 Shift + F10 启动命令提示符<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                        href="/diskpart/">全文</a>
-                  </div>
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <li class="date post-info-item">
-                        <span>
-                          2021-02-19
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-        </li>
       </ul>
     </div>
-      
-    <div class="p-list">
-      <ul>
-        <li class="p-list-item clearfix">
-          <!-- S 文章图片 -->
-          
-            <div class="post-img">
-              <a href="/Hexo-tag-404/" title="Hexo标签或分类404">
-                <div class="overlay"></div>
-                <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文图">
-              </a>
-            </div>
-            
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right clearfix">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="ph-cate">
-                      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
-                    </div>
-                    <!-- S 文章标题 -->
-                    <div class="d-pp-h">
-                      <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/Hexo-tag-404/"
-                          title="Hexo标签或分类404">
-                          Hexo标签或分类404
-                        </a></h1>
-                    </div>
-                    <!-- E 文章标题 -->
-
-                    
-                  </div>
-                  <!-- E 标题内容 -->
-                  <div class="zy">
-                    今天部署博客发现部分标签点击出现404问题，许久之前也出现过类似现象，把字母改成小写就正常了<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                        href="/Hexo-tag-404/">全文</a>
-                  </div>
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <li class="date post-info-item">
-                        <span>
-                          2021-01-10
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-        </li>
-      </ul>
-    </div>
-      
-    </div>
-    </div>
+    <!-- 分页 -->
     
+        <script>
+          window.onload = function () {
+            /*
+             *  由于 IE6, IE7 不支持 contentDocument 属性，所以此处用了通用的
+             *  window.frames["iframe Name"] or window.frames[index]
+             */
+            // var d = window.frames[0].document;
+            // console.log(d.getElementsByTagName('html')[0].offsetHeight);
+
+            // const frame = document.getElementsByClassName('frame');
+            // for (let i = 0; i < window.frames.length; i++) {
+            //   for (let j = 0; j < frame.length; j++) {
+            //     if (i == j) {
+            //       frame[j].style.height = window.frames[i].document.getElementsByTagName('html')[0].offsetHeight + 'px';
+            //     }
+            //   }
+            // }
+          }
+        </script>
       </div>
     </div>
     </div>
