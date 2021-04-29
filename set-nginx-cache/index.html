@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=04272031">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0429">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -150,7 +150,7 @@
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -199,7 +199,7 @@
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -248,7 +248,7 @@
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -297,7 +297,7 @@
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -346,7 +346,7 @@
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -645,9 +645,10 @@ add_header  Cache-Control  private;</code></pre>
 <p>客户端第二次请求此URL时，根据HTTP协议的规定，浏览器会向服务器传送<code>If-Modified-Since</code>报头（<code>HttpRequest Header</code>），询问该时间之后文件是否有被修改过：</p>
 <pre><code class="language-bash">If-Modified-Since:Tue, 24 Feb 2019 08:01:04 GMT</code></pre>
 <p>如果服务器端的资源没有变化，则自动返回<code>304</code>（NotChanged.）状态码内容为空，这样就节省了传输数据量。当服务器端代码发生改变或者重启服务器时，则重新发出资源，返回和第一次请求时类似。从而保证不向客户端重复发出资源，也保证当服务器有变化时，客户端能够得到最新的资源。</p>
-<blockquote>
-<p>注意： 如果<code>If-Modified-Since</code>的时间比服务器当前时间（当前的请求时间<code>request_time</code>）还晚，会认为是个非法请求。</p>
+<blockquote class="i">
+注意： 如果<code>If-Modified-Since</code>的时间比服务器当前时间（当前的请求时间<code>request_time</code>）还晚，会认为是个非法请求。
 </blockquote>
+
 <h4 id="4-1-2-Etag工作原理"><a href="#4-1-2-Etag工作原理" class="headerlink" title="4.1.2 Etag工作原理"></a>4.1.2 <code>Etag</code>工作原理</h4><p>HTTP协议规格说明定义<code>ETag</code>为“被请求变量的实体标记”（参见14.19）。简单点即服务器响应时给请求URL标记，并在HTTP响应头中将其传送到客户端，类似服务器端返回的格式：</p>
 <pre><code class="language-bash">Etag:“5d8c72a5edda8d6a:3239″</code></pre>
 <p>客户端的查询更新格式是这样的：</p>
@@ -662,15 +663,20 @@ add_header  Cache-Control  private;</code></pre>
 <p><code>Last-Modified</code>和<code>ETags</code>请求的http报头一起使用，服务器首先产生<code>Last-Modified/Etag</code>标记，服务器可在稍后使用它来判断页面是否已经被修改，来决定文件是否继续缓存。</p>
 <p><strong>过程如下：</strong></p>
 <p>1) 客户端请求一个页面（A）。<br>2) 服务器返回页面A，并在给A加上一个<code>Last-Modified/ETag</code>。<br>3) 客户端展现该页面，并将页面连同<code>Last-Modified/ETag</code>一起缓存。<br>4) 客户再次请求页面A，并将上次请求时服务器返回的<code>Last-Modified/ETag</code>一起传递给服务器。<br>5) 服务器检查该<code>Last-Modified</code>或<code>ETag</code>，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应<code>304</code>和一个空的响应体。</p>
-<blockquote>
-<p><strong>需要注意：</strong></p>
-<p>1) <code>Last-Modified</code>和<code>Etag</code>头都是由WebServer发出的<code>HttpReponse Header</code>，WebServer应该同时支持这两种头。<br>2) WebServer发送完<code>Last-Modified/Etag</code>头给客户端后，客户端会缓存这些头；<br>3) 客户端再次发起相同页面的请求时，将分别发送与<code>Last-Modified/Etag</code>对应的<code>HttpRequestHeader:If-Modified-Since</code>和<code>If-None-Match</code>。我们可以看到这两个<code>Header</code>的值和WebServer发出的<code>Last-Modified</code>，<code>Etag</code>值完全一样；<br>4) 通过上述值到服务器端检查，判断文件是否继续缓存；</p>
+<blockquote class="w">
+<b>需要注意：</b><br>
+1) <code>Last-Modified</code>和<code>Etag</code>头都是由WebServer发出的<code>HttpReponse Header</code>，WebServer应该同时支持这两种头；<br>
+2) WebServer发送完<code>Last-Modified/Etag</code>头给客户端后，客户端会缓存这些头；<br>
+3) 客户端再次发起相同页面的请求时，将分别发送与<code>Last-Modified/Etag</code>对应的<code>HttpRequestHeader:If-Modified-Since</code>和<code>If-None-Match</code>。我们可以看到这两个<code>Header</code>的值和WebServer发出的<code>Last-Modified</code>，<code>Etag</code>值完全一样；<br>
+4) 通过上述值到服务器端检查，判断文件是否继续缓存；
 </blockquote>
+
 <h4 id="4-1-7-关于Cache-Control-max-age-秒和Expires"><a href="#4-1-7-关于Cache-Control-max-age-秒和Expires" class="headerlink" title="4.1.7 关于Cache-Control: max-age=秒和Expires"></a>4.1.7 关于<code>Cache-Control: max-age=秒</code>和<code>Expires</code></h4><p><code>Expires = 时间</code>，HTTP 1.0 版本，缓存的载止时间，允许客户端在这个时间之前不去检查（发请求）；<code>max-age = 秒</code>，HTTP 1.1版本，资源在本地缓存多少秒；如果<code>max-age</code>和<code>Expires</code>同时存在，则被<code>Cache-Control</code>的<code>max-age</code>覆盖。</p>
 <p><strong><code>Expires</code>的一个缺点</strong>: 返回的到期时间是服务器端的时间，这样存在一个问题，如果客户端的时间与服务器的时间相差很大，那么误差就很大，所以在HTTP 1.1版开始，使用<code>Cache-Control: max-age=秒</code>替代。</p>
-<blockquote>
-<p>Expires=<code>max-age</code> + “每次下载时的当前的request时间”</p>
+<blockquote class="i">
+Expires=<code>max-age</code> + "每次下载时的当前的request时间"
 </blockquote>
+
 <p>所以一旦重新下载的页面后，<code>expires</code>就重新计算一次，但last-modified不会变化.</p>
 <h4 id="4-1-8-基于Nginx配置使用总结"><a href="#4-1-8-基于Nginx配置使用总结" class="headerlink" title="4.1.8 基于Nginx配置使用总结"></a>4.1.8 基于Nginx配置使用总结</h4><p>分布式系统（有ng-ha 和 应用的负载均衡），最好使用<code>Last-Modified</code>和<code>Expires</code>，把<code>Etag</code>关闭掉。</p>
 <p>1) 关闭<code>etag</code></p>
@@ -812,13 +818,12 @@ location ~.*\.(js|css)?$
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>注意点：</p>
-<ul>
-<li>缓存控制字段<code>cache-control</code>的配置（<code>add_header</code>）要放在<code>http</code>，<code>server</code>，<code>location</code>区域，或是放在<code>location</code>的<code>if</code>判断里，例如<code>add_header Cache-Control no-cache;</code>。</li>
-<li>如果前面有LB负载代理层，则缓存控制字段<code>cache-control</code>配置要放在后端的真实服务器Nginx的<code>location</code>区域，并且要指定root根路径，否则访问会出现404 (即找不到访问路径)；</li>
-</ul>
+<blockquote class="w">
+注意点：<br>
+1) 缓存控制字段<code>cache-control</code>的配置（<code>add_header</code>）要放在<code>http</code>，<code>server</code>，<code>location</code>区域，或是放在<code>location</code>的<code>if</code>判断里，例如<code>add_header Cache-Control no-cache;</code>。<br>
+2) 如果前面有LB负载代理层，则缓存控制字段<code>cache-control</code>配置要放在后端的真实服务器Nginx的<code>location</code>区域，并且要指定root根路径，否则访问会出现<code>404</code> (即找不到访问路径)。
 </blockquote>
+
 <p>针对上面的案例需求，操作记录如下：</p>
 <p><strong>1) 本案中在实际场景中，有LB层. LB层的Nginx配置不需要配置，这里只是粘贴下负载配置：</strong></p>
 <pre><code class="language-bash">[root@fvtlb01 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web.kevin.com.conf
@@ -997,7 +1002,7 @@ server {
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -1046,7 +1051,7 @@ server {
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -1095,7 +1100,7 @@ server {
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -1144,7 +1149,7 @@ server {
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -1193,7 +1198,7 @@ server {
           </div>
           
             <!-- E 文章图片 -->
-            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 68%; margin-left: 2%;">
+            <div class="p-list-item-right" style="position: relative; display: inline-block; width: 67%; margin-left: 2%;">
               <!-- S 标题内容 -->
               <div class="content">
                 <div class="ph-cate">
@@ -1262,7 +1267,7 @@ server {
   if (screen.width < 1236) {
     postJs.setAttribute('src', 'https://blog.lernb.com/js/post-m20200923.js');
   } else {
-    postJs.setAttribute('src', 'https://blog.lernb.com/js/post20200917.js?v=0427');
+    postJs.setAttribute('src', 'https://blog.lernb.com/js/post20200917.js?v=0429');
   }
 </script>
 
