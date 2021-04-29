@@ -645,7 +645,7 @@ add_header  Cache-Control  private;</code></pre>
 <p>客户端第二次请求此URL时，根据HTTP协议的规定，浏览器会向服务器传送<code>If-Modified-Since</code>报头（<code>HttpRequest Header</code>），询问该时间之后文件是否有被修改过：</p>
 <pre><code class="language-bash">If-Modified-Since:Tue, 24 Feb 2019 08:01:04 GMT</code></pre>
 <p>如果服务器端的资源没有变化，则自动返回<code>304</code>（NotChanged.）状态码内容为空，这样就节省了传输数据量。当服务器端代码发生改变或者重启服务器时，则重新发出资源，返回和第一次请求时类似。从而保证不向客户端重复发出资源，也保证当服务器有变化时，客户端能够得到最新的资源。</p>
-<blockquote class="i">
+<blockquote class="w">
 注意： 如果<code>If-Modified-Since</code>的时间比服务器当前时间（当前的请求时间<code>request_time</code>）还晚，会认为是个非法请求。
 </blockquote>
 
