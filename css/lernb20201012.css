@@ -3557,6 +3557,12 @@ code {
     word-break: break-all;
     border-radius: 0;
   }
+  .post-text blockquote.w {
+    border-left-width: 6px;
+  }
+  .post-text blockquote.i {
+    border-left-width: 6px;
+  }
   .wrap-content .mo-rec {
     display: block;
   }
