@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,46 +146,59 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><ul>
-<li><p>:link</p>
+        <h2 id="伪类选择器"><a class="header-anchor" href="#伪类选择器"></a>伪类选择器</h2>
+<ul>
+<li>
+<p>:link</p>
 <p>应用于未被访问的链接。IE6不兼容，可以直接用<code>&lt;a&gt;&lt;/a&gt;</code>标签代替<a id="more"></a></p>
 </li>
-<li><p>:visited</p>
+<li>
+<p>:visited</p>
 <p>应用于已经被访问的链接</p>
 </li>
-<li><p>:hover</p>
+<li>
+<p>:hover</p>
 <p>应用于鼠标指针悬停时的效果。IE6只是用于<code>&lt;a&gt;&lt;/a&gt;</code>链接，IE7之后适用于所有元素</p>
 </li>
-<li><p>:active</p>
+<li>
+<p>:active</p>
 <p>应用于已经被激活的元素，如被点击过的元素、被按下的按钮等</p>
 </li>
-<li><p>:focus</p>
+<li>
+<p>:focus</p>
 <p>应用于键盘输入焦点的元素</p>
 </li>
-<li><p>:first-child</p>
+<li>
+<p>:first-child</p>
 <p>用于选择自身是第一个子元素的元素。如：</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre><code class="language-language-html">&lt;div&gt;
   &lt;span&gt;第一个子元素&lt;/span&gt;
   &lt;span&gt;第二个子元素&lt;/span&gt;
   &lt;span&gt;第三个子元素&lt;/span&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
 <p>选择div中的第一个span标签：</p>
-<pre><code class="language-css">span:first-child {
+<pre><code class="language-language-css">span:first-child {
   这是第一个子元素
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
-<h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2><p>伪元素是控制内容，在CSS3中是两个冒号</p>
+<h2 id="伪元素选择器"><a class="header-anchor" href="#伪元素选择器"></a>伪元素选择器</h2>
+<p>伪元素是控制内容，在CSS3中是两个冒号</p>
 <ul>
-<li><p>:first-line</p>
+<li>
+<p>:first-line</p>
 <p>控制文本第一行的内容</p>
 </li>
-<li><p>:first-letter</p>
+<li>
+<p>:first-letter</p>
 <p>控制文本首个单词字母或者首个汉字</p>
 </li>
-<li><p>:before与:after</p>
+<li>
+<p>:before与:after</p>
 <p>用于设置元素之前跟之后的内容。可以通过before与after来设置清除（闭合）浮动</p>
-<pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+<pre><code class="language-language-html">&lt;div class=&quot;clearfix&quot;&gt;
     梦想属于每一个人，广大劳动群众要敢想敢干、敢于追梦
     &lt;div class=&quot;fl&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -215,7 +228,8 @@
       /* 兼容IE 6/7 */
       zoom: 1;
     }
-  &lt;/style&gt;</code></pre>
+  &lt;/style&gt;
+</code></pre>
 </li>
 </ul>
 
@@ -343,10 +357,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -364,25 +388,16 @@
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -401,6 +416,15 @@
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -442,16 +466,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -462,28 +476,6 @@
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -517,6 +509,15 @@
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -532,12 +533,25 @@
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

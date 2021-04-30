@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,12 +146,16 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="3D特点"><a href="#3D特点" class="headerlink" title="3D特点"></a>3D特点</h2><ul>
-<li><p>近大远小</p>
+        <h2 id="3D特点"><a class="header-anchor" href="#3D特点"></a>3D特点</h2>
+<ul>
+<li>
+<p>近大远小</p>
 </li>
-<li><p>物体和面遮挡不可见<a id="more"></a></p>
+<li>
+<p>物体和面遮挡不可见<a id="more"></a></p>
 </li>
-<li><p>三维坐标系</p>
+<li>
+<p>三维坐标系</p>
 <ul>
 <li>x 轴：水平向右  – <strong>x 轴右边是正值，左边是负值</strong></li>
 <li>y 轴：垂直向下  – <strong>y 轴下面是正值，上面是负值</strong></li>
@@ -160,7 +164,8 @@
 </li>
 </ul>
 <p><img src="/img/CSS3D-transform.assets/sanwei.png" alt=""></p>
-<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2><p><code>3D</code> 转换要点</p>
+<h2 id="3D转换"><a class="header-anchor" href="#3D转换"></a>3D转换</h2>
+<p><code>3D</code> 转换要点</p>
 <ul>
 <li><code>3D</code> 位移：<code>translate3d(x, y, z)</code></li>
 <li><code>3D</code> 旋转：<code>rotate3d(x, y, z)</code></li>
@@ -179,41 +184,56 @@
 <p><strong>注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充</strong></p>
 </blockquote>
 <p>语法</p>
-<pre><code class="language-css"> transform: translate3d(x, y, z)</code></pre>
+<pre><code class="language-language-css"> transform: translate3d(x, y, z)
+</code></pre>
 <p>代码演示</p>
-<pre><code class="language-css">transform: translate3d(100px, 100px, 100px)
+<pre><code class="language-language-css">transform: translate3d(100px, 100px, 100px)
 /* 注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充 */
-transform: translate3d(100px, 100px, 0)</code></pre>
-<h2 id="透视perspective"><a href="#透视perspective" class="headerlink" title="透视perspective"></a>透视<code>perspective</code></h2><ul>
-<li><p>如果想要网页产生 <code>3D</code> 效果需要透视(理解成 <code>3D</code> 物体投影的 <code>2D</code> 平面上)</p>
+transform: translate3d(100px, 100px, 0)
+</code></pre>
+<h2 id="透视perspective"><a class="header-anchor" href="#透视perspective"></a>透视<code>perspective</code></h2>
+<ul>
+<li>
+<p>如果想要网页产生 <code>3D</code> 效果需要透视(理解成 <code>3D</code> 物体投影的 <code>2D</code> 平面上)</p>
 </li>
-<li><p>实际上模仿人类的视觉位置，可视为安排一直眼睛去看</p>
+<li>
+<p>实际上模仿人类的视觉位置，可视为安排一直眼睛去看</p>
 </li>
-<li><p>透视也称为视距，所谓的视距就是人的眼睛到屏幕的距离</p>
+<li>
+<p>透视也称为视距，所谓的视距就是人的眼睛到屏幕的距离</p>
 </li>
-<li><p>距离视觉点越近的在电脑平面成像越大，越远成像越小</p>
+<li>
+<p>距离视觉点越近的在电脑平面成像越大，越远成像越小</p>
 </li>
-<li><p>透视的单位是像素</p>
+<li>
+<p>透视的单位是像素</p>
 </li>
-<li><p><strong>透视需要写在被视察元素的父盒子上面</strong></p>
+<li>
+<p><strong>透视需要写在被视察元素的父盒子上面</strong></p>
 </li>
 </ul>
-<h3 id="视距"><a href="#视距" class="headerlink" title="视距"></a>视距</h3><p>​     <img src="/img/CSS3D-transform.assets/perspective.png" alt=""></p>
+<h3 id="视距"><a class="header-anchor" href="#视距"></a>视距</h3>
+<p>​     <img src="/img/CSS3D-transform.assets/perspective.png" alt=""></p>
 <ul>
-<li><p>d：就是视距，视距就是指人的眼睛到屏幕的距离</p>
+<li>
+<p>d：就是视距，视距就是指人的眼睛到屏幕的距离</p>
 </li>
-<li><p>z：就是 z 轴，z 轴越大(正值)，我们看到的物体就越大       </p>
+<li>
+<p>z：就是 z 轴，z 轴越大(正值)，我们看到的物体就越大</p>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="language-css">body {
+<pre><code class="language-language-css">body {
   perspective: 1000px;
-}</code></pre>
-<h2 id="translateZ"><a href="#translateZ" class="headerlink" title="translateZ"></a>translateZ</h2><p><code>translateZ</code> 与 <code>perspecitve</code> 的区别</p>
+}
+</code></pre>
+<h2 id="translateZ"><a class="header-anchor" href="#translateZ"></a>translateZ</h2>
+<p><code>translateZ</code> 与 <code>perspecitve</code> 的区别</p>
 <ul>
 <li><code>perspecitve</code> 给父级进行设置，<code>translateZ</code> 给 子元素进行设置不同的大小</li>
 </ul>
-<h2 id="3D旋转rotateX"><a href="#3D旋转rotateX" class="headerlink" title="3D旋转rotateX"></a>3D旋转<code>rotateX</code></h2><blockquote>
+<h2 id="3D旋转rotateX"><a class="header-anchor" href="#3D旋转rotateX"></a>3D旋转<code>rotateX</code></h2>
+<blockquote>
 <p>3D 旋转指可以让元素在三维平面内沿着 x 轴、y 轴、z 轴 或者自定义轴进行旋转</p>
 </blockquote>
 <p>语法</p>
@@ -224,7 +244,7 @@ transform: translate3d(100px, 100px, 0)</code></pre>
 <li><code>transform: rotate3d(x, y, z, 45deg)</code> – 沿着自定义轴旋转 45 deg 为角度</li>
 </ul>
 <p>代码案例</p>
-<pre><code class="language-css">div {
+<pre><code class="language-language-css">div {
   perspective: 300px;
 }
 
@@ -236,13 +256,17 @@ img {
 
 img:hover {
   transform: rotateX(-45deg)
-}</code></pre>
-<h3 id="左手准则"><a href="#左手准则" class="headerlink" title="左手准则"></a>左手准则</h3><ul>
+}
+</code></pre>
+<h3 id="左手准则"><a class="header-anchor" href="#左手准则"></a>左手准则</h3>
+<ul>
 <li>左手的手拇指指向 x 轴的正方向</li>
-<li>其余手指的弯曲方向就是该元素沿着 x 轴旋转的方向<br><img src="/img/CSS3D-transform.assets/rotateX.jpg" alt="">     </li>
+<li>其余手指的弯曲方向就是该元素沿着 x 轴旋转的方向<br>
+<img src="/img/CSS3D-transform.assets/rotateX.jpg" alt=""></li>
 </ul>
-<h2 id="3D旋转-rotateY"><a href="#3D旋转-rotateY" class="headerlink" title="3D旋转 rotateY"></a>3D旋转 <code>rotateY</code></h2><p>代码演示</p>
-<pre><code class="language-css">div {
+<h2 id="3D旋转-rotateY"><a class="header-anchor" href="#3D旋转-rotateY"></a>3D旋转 <code>rotateY</code></h2>
+<p>代码演示</p>
+<pre><code class="language-language-css">div {
   perspective: 500px;
 }
 
@@ -254,15 +278,21 @@ img {
 
 img:hover {
   transform: rotateY(180deg)
-}</code></pre>
-<h3 id="左手准则-1"><a href="#左手准则-1" class="headerlink" title="左手准则"></a>左手准则</h3><ul>
-<li><p>左手的拇指指向 y 轴的正方向</p>
+}
+</code></pre>
+<h3 id="左手准则-v2"><a class="header-anchor" href="#左手准则-v2"></a>左手准则</h3>
+<ul>
+<li>
+<p>左手的拇指指向 y 轴的正方向</p>
 </li>
-<li><p>其余的手指弯曲方向就是该元素沿着 y 轴旋转的方向(正值)<br><img src="/img/CSS3D-transform.assets/rotateY.png" alt=""></p>
+<li>
+<p>其余的手指弯曲方向就是该元素沿着 y 轴旋转的方向(正值)<br>
+<img src="/img/CSS3D-transform.assets/rotateY.png" alt=""></p>
 </li>
 </ul>
-<h2 id="3D旋转-rotateZ"><a href="#3D旋转-rotateZ" class="headerlink" title="3D旋转 rotateZ"></a>3D旋转 <code>rotateZ</code></h2><p>代码演示</p>
-<pre><code class="language-css">div {
+<h2 id="3D旋转-rotateZ"><a class="header-anchor" href="#3D旋转-rotateZ"></a>3D旋转 <code>rotateZ</code></h2>
+<p>代码演示</p>
+<pre><code class="language-language-css">div {
   perspective: 500px;
 }
 
@@ -274,18 +304,20 @@ img {
 
 img:hover {
   transform: rotateZ(180deg)
-}</code></pre>
+}
+</code></pre>
 <p><code>rotate3d</code>：</p>
 <ul>
 <li><code>transform: rotate3d(x, y, z, deg)</code> – 沿着自定义轴旋转 deg 为角度</li>
-<li>x, y, z 表示旋转轴的矢量，是标识你是否希望沿着该轴进行旋转，最后一个标识旋转的角度<ul>
+<li>x, y, z 表示旋转轴的矢量，是标识你是否希望沿着该轴进行旋转，最后一个标识旋转的角度
+<ul>
 <li><code>transform: rotate3d(1, 1, 0, 180deg)</code> – 沿着对角线旋转 45deg</li>
 <li><code>transform: rotate3d(1, 0, 0, 180deg)</code> – 沿着 x 轴旋转 45deg</li>
 </ul>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="language-css">div {
+<pre><code class="language-language-css">div {
   perspective: 500px;
 }
 
@@ -297,8 +329,10 @@ img {
 
 img:hover {
   transform: rotate3d(1, 1, 0, 180deg)
-}</code></pre>
-<h2 id="3D呈现-transform-style"><a href="#3D呈现-transform-style" class="headerlink" title="3D呈现 transform-style"></a>3D呈现 <code>transform-style</code></h2><p><code>transform-style</code></p>
+}
+</code></pre>
+<h2 id="3D呈现-transform-style"><a class="header-anchor" href="#3D呈现-transform-style"></a>3D呈现 <code>transform-style</code></h2>
+<p><code>transform-style</code></p>
 <ul>
 <li>控制子元素是否开启三维立体环境</li>
 <li><code>transform-style: flat</code>  代表子元素不开启 <code>3D</code> 立体空间，默认的</li>
@@ -430,10 +464,20 @@ img:hover {
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -451,25 +495,16 @@ img:hover {
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -488,6 +523,15 @@ img:hover {
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -529,16 +573,6 @@ img:hover {
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -549,28 +583,6 @@ img:hover {
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -604,6 +616,15 @@ img:hover {
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a class="noteActive" href="/note/CSS/CSS3D-transform.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -619,12 +640,25 @@ img:hover {
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a class="noteActive" href="/note/CSS/CSS3D-transform.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

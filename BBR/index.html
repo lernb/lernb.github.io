@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -473,42 +473,54 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="什么是BBR"><a href="#什么是BBR" class="headerlink" title="什么是BBR"></a>什么是BBR</h2><p>BBR是由谷歌开发的一个新的TCP拥塞控制算法，主要通过优化控制TCP的拥塞，充分利用带宽并降低延迟来达到TCP加速的效果<a id="more"></a>。</p>
-<h2 id="安装BBR"><a href="#安装BBR" class="headerlink" title="安装BBR"></a>安装BBR</h2><blockquote>
+        <h2 id="什么是BBR"><a class="header-anchor" href="#什么是BBR"></a>什么是BBR</h2>
+<p>BBR是由谷歌开发的一个新的TCP拥塞控制算法，主要通过优化控制TCP的拥塞，充分利用带宽并降低延迟来达到TCP加速的效果<a id="more"></a>。</p>
+<h2 id="安装BBR"><a class="header-anchor" href="#安装BBR"></a>安装BBR</h2>
+<div class="warning">
 <p>安装前须做好备份</p>
-</blockquote>
-<h3 id="升级内核"><a href="#升级内核" class="headerlink" title="升级内核"></a>升级内核</h3><p>由于BBR只支持4.9版本以上的内核，所以需要先更新升级系统内核。Debian 9/Ubuntu 17或者更新版本的系统，可跳过此步骤。</p>
+</div>
+<h3 id="升级内核"><a class="header-anchor" href="#升级内核"></a>升级内核</h3>
+<p>由于BBR只支持4.9版本以上的内核，所以需要先更新升级系统内核。Debian 9/Ubuntu 17或者更新版本的系统，可跳过此步骤。</p>
 <p>执行以下命令下载内核文件：</p>
-<pre><code class="language-bash">wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-headers-4.9.186-0409186_4.9.186-0409186.201907210453_all.deb
+<pre><code class="language-language-bash">wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-headers-4.9.186-0409186_4.9.186-0409186.201907210453_all.deb
 
 wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-headers-4.9.186-0409186-generic_4.9.186-0409186.201907210453_amd64.deb
 
-wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-image-4.9.186-0409186-generic_4.9.186-0409186.201907210453_amd64.deb</code></pre>
-<blockquote>
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-image-4.9.186-0409186-generic_4.9.186-0409186.201907210453_amd64.deb
+</code></pre>
+<div class="tip">
 <p>若提示<code>wget: command not found</code>的错误，执行<code>apt-get install -y wget</code>命令安装wget即可</p>
-</blockquote>
+</div>
 <p>安装内核：</p>
-<pre><code class="language-bash">sudo dpkg -i *.deb</code></pre>
+<pre><code class="language-language-bash">sudo dpkg -i *.deb
+</code></pre>
 <p>更新grub文件：</p>
-<pre><code class="language-bash">update-grub</code></pre>
+<pre><code class="language-language-bash">update-grub
+</code></pre>
 <p>完成后执行<code>reboot</code>命令重启系统，重新启动后执行<code>uname -r</code>命令查看内核版本：</p>
-<pre><code class="language-bash">root@debian:~# uname -r4.9.186-0409186-generic</code></pre>
+<pre><code class="language-language-bash">root@debian:~# uname -r4.9.186-0409186-generic
+</code></pre>
 <p>这样内核就升级完成了。</p>
-<h3 id="开启BBR"><a href="#开启BBR" class="headerlink" title="开启BBR"></a>开启BBR</h3><p>执行<code>lsmod | grep bbr</code>命令查看系统是否开启BBR：</p>
-<pre><code class="language-bash">root@boss:~# lsmod | grep bbrtcp_bbr                        20480  10</code></pre>
+<h3 id="开启BBR"><a class="header-anchor" href="#开启BBR"></a>开启BBR</h3>
+<p>执行<code>lsmod | grep bbr</code>命令查看系统是否开启BBR：</p>
+<pre><code class="language-language-bash">root@boss:~# lsmod | grep bbrtcp_bbr                        20480  10
+</code></pre>
 <p>如果没有出现<code>bbr</code>字样说明BBR还未开启，执行以下命令修改配置文件：</p>
-<pre><code class="language-bash">cat &gt;&gt; /etc/sysctl.conf &lt;&lt;EOF
+<pre><code class="language-language-bash">cat &gt;&gt; /etc/sysctl.conf &lt;&lt;EOF
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
-EOF</code></pre>
+EOF
+</code></pre>
 <p>然后执行<code>sysctl -p</code>命令使配置生效：</p>
-<pre><code class="language-bash">root@debian :~# sysctl -p
+<pre><code class="language-language-bash">root@debian :~# sysctl -p
 net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr</code></pre>
+net.ipv4.tcp_congestion_control = bbr
+</code></pre>
 <p>执行后会出现以上两条信息。</p>
 <p>使用<code>lsmod | grep bbr</code>命令查看BBR是否开启成功</p>
-<pre><code class="language-bash">root@boss:~# lsmod | grep bbr
-tcp_bbr                        20480  10</code></pre>
+<pre><code class="language-language-bash">root@boss:~# lsmod | grep bbr
+tcp_bbr                        20480  10
+</code></pre>
 <p>出现<code>bbr</code>字样，说明BBR已经正确开启。</p>
 
       </div>

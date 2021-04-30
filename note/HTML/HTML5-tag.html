@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,9 +146,10 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h2><ul>
+        <h2 id="语义化标签"><a class="header-anchor" href="#语义化标签"></a>语义化标签</h2>
+<ul>
 <li><code>header</code>—  头部标签</li>
-<li><code>nav</code>—  导航标签<a id="more"></a></li>
+<li><code>nav </code>—  导航标签<a id="more"></a></li>
 <li><code>article</code>—   内容标签</li>
 <li><code>section</code>—   块级标签</li>
 <li><code>aside</code>—   侧边栏标签</li>
@@ -164,12 +165,14 @@
 <li>语义化标签，在移动端支持比较友好</li>
 </ul>
 </blockquote>
-<h2 id="多媒体标签"><a href="#多媒体标签" class="headerlink" title="多媒体标签"></a>多媒体标签</h2><p>多媒体标签有两个，分别是</p>
+<h2 id="多媒体标签"><a class="header-anchor" href="#多媒体标签"></a>多媒体标签</h2>
+<p>多媒体标签有两个，分别是</p>
 <ul>
 <li>音频  – <code>audio</code></li>
 <li>视频  – <code>video</code></li>
 </ul>
-<h3 id="多媒体音频标签"><a href="#多媒体音频标签" class="headerlink" title="多媒体音频标签"></a>多媒体音频标签</h3><ul>
+<h3 id="多媒体音频标签"><a class="header-anchor" href="#多媒体音频标签"></a>多媒体音频标签</h3>
+<ul>
 <li>可以在不使用标签的情况下，也能够原生的支持音频格式文件的播放，</li>
 <li>播放格式有限</li>
 </ul>
@@ -178,7 +181,7 @@
 <p>audio 的参数：</p>
 <p><img src="/img/HTML5-tag.assets/audiocanshu.png" alt=""></p>
 <p>audio 代码演示：</p>
-<pre><code class="language-css">&lt;body&gt;
+<pre><code class="language-language-css">&lt;body&gt;
   &lt;!-- 注意：在 chrome 浏览器中已经禁用了 autoplay 属性 --&gt;
   &lt;!-- &lt;audio src=&quot;./media/snow.mp3&quot; controls autoplay&gt;&lt;/audio&gt; --&gt;
 
@@ -188,15 +191,18 @@
   &lt;audio controls&gt;
     &lt;source src=&quot;./media/snow.mp3&quot; type=&quot;audio/mpeg&quot; /&gt;
   &lt;/audio&gt;
-&lt;/body&gt;</code></pre>
-<h3 id="多媒体视频标签"><a href="#多媒体视频标签" class="headerlink" title="多媒体视频标签"></a>多媒体视频标签</h3><p><code>video</code>视频标签目前支持三种格式</p>
+&lt;/body&gt;
+</code></pre>
+<h3 id="多媒体视频标签"><a class="header-anchor" href="#多媒体视频标签"></a>多媒体视频标签</h3>
+<p><code>video</code>视频标签目前支持三种格式</p>
 <p><img src="/img/HTML5-tag.assets/vedio.png" alt=""></p>
 <p>语法格式：</p>
-<pre><code class="language-html">&lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code></pre>
+<pre><code class="language-language-html">&lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;
+</code></pre>
 <p>video 参数</p>
 <p><img src="/img/HTML5-tag.assets/videocanshu.png" alt=""></p>
 <p>video 代码演示：</p>
-<pre><code class="language-html">&lt;body&gt;
+<pre><code class="language-language-html">&lt;body&gt;
   &lt;!-- &lt;video src=&quot;./media/video.mp4&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt; --&gt;
 
   &lt;!-- 谷歌浏览器禁用了自动播放功能，如果想自动播放，需要添加 muted 属性 --&gt;
@@ -204,7 +210,8 @@
     &lt;source src=&quot;./media/video.mp4&quot; type=&quot;video/mp4&quot;&gt;
     &lt;source src=&quot;./media/video.ogg&quot; type=&quot;video/ogg&quot;&gt;
   &lt;/video&gt;
-&lt;/body&gt;</code></pre>
+&lt;/body&gt;
+</code></pre>
 <blockquote>
 <p>多媒体标签总结</p>
 <ul>
@@ -214,8 +221,10 @@
 <li>谷歌浏览器中视频添加 muted 标签可以自己播放</li>
 </ul>
 </blockquote>
-<h2 id="新增input标签"><a href="#新增input标签" class="headerlink" title="新增input标签"></a>新增<code>input</code>标签</h2><p><img src="/img/HTML5-tag.assets/h5input.png" alt=""></p>
-<h2 id="新增表单属性"><a href="#新增表单属性" class="headerlink" title="新增表单属性"></a>新增表单属性</h2><p><img src="/img/HTML5-tag.assets/newinput.png" alt=""></p>
+<h2 id="新增input标签"><a class="header-anchor" href="#新增input标签"></a>新增<code>input</code>标签</h2>
+<p><img src="/img/HTML5-tag.assets/h5input.png" alt=""></p>
+<h2 id="新增表单属性"><a class="header-anchor" href="#新增表单属性"></a>新增表单属性</h2>
+<p><img src="/img/HTML5-tag.assets/newinput.png" alt=""></p>
 
       </div>
     </div>
@@ -341,10 +350,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -362,25 +381,16 @@
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a class="noteActive" href="/note/HTML/HTML5-tag.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -399,6 +409,15 @@
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -440,16 +459,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -460,28 +469,6 @@
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -515,6 +502,15 @@
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -530,12 +526,25 @@
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

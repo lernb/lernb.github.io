@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -151,9 +151,11 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="拖放"><a href="#拖放" class="headerlink" title="拖放"></a>拖放</h2><p>拖放（Drag 和 Drop）是很常见的特性。它指的是您抓取某物并拖入不同的位置<a id="more"></a>。</p>
+        <h2 id="拖放"><a class="header-anchor" href="#拖放"></a>拖放</h2>
+<p>拖放（Drag 和 Drop）是很常见的特性。它指的是您抓取某物并拖入不同的位置<a id="more"></a>。</p>
 <p>拖放是 HTML5 标准的组成部分：任何元素都是可拖放的。</p>
-<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>表格中的数字指示了完全支持拖放的首个浏览器版本。</p>
+<h2 id="浏览器支持"><a class="header-anchor" href="#浏览器支持"></a>浏览器支持</h2>
+<p>表格中的数字指示了完全支持拖放的首个浏览器版本。</p>
 <table>
 <thead>
 <tr>
@@ -165,7 +167,8 @@
 <th>Opera</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>拖放</td>
 <td>4.0</td>
 <td>9.0</td>
@@ -173,9 +176,12 @@
 <td>6.0</td>
 <td>12.0</td>
 </tr>
-</tbody></table>
-<h2 id="HTML-拖放实例"><a href="#HTML-拖放实例" class="headerlink" title="HTML 拖放实例"></a>HTML 拖放实例</h2><p>下列是关于拖放的简单例子：</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+</tbody>
+</table>
+<h2 id="HTML-拖放实例"><a class="header-anchor" href="#HTML-拖放实例"></a>HTML 拖放实例</h2>
+<p>下列是关于拖放的简单例子：</p>
+<h3 id="实例"><a class="header-anchor" href="#实例"></a>实例</h3>
+<pre><code class="language-language-html">&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;script&gt;
@@ -201,30 +207,40 @@ function drop(ev) {
 &lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot;&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_draganddrop" target="_blank" rel="noopener">亲自试一试</a></p>
 <p>它也许看上去有点复杂，不过让我们研究一下拖放事件的所有不同部分。</p>
-<h2 id="把元素设置为可拖放"><a href="#把元素设置为可拖放" class="headerlink" title="把元素设置为可拖放"></a>把元素设置为可拖放</h2><p>首先：为了把一个元素设置为可拖放，请把 draggable 属性设置为 true：</p>
-<pre><code class="language-html">&lt;img draggable=&quot;true&quot;&gt;</code></pre>
-<h2 id="拖放的内容-ondragstart-和-setData"><a href="#拖放的内容-ondragstart-和-setData" class="headerlink" title="拖放的内容 - ondragstart 和 setData()"></a>拖放的内容 - ondragstart 和 setData()</h2><p>然后，规定当元素被拖动时发生的事情。</p>
+<h2 id="把元素设置为可拖放"><a class="header-anchor" href="#把元素设置为可拖放"></a>把元素设置为可拖放</h2>
+<p>首先：为了把一个元素设置为可拖放，请把 draggable 属性设置为 true：</p>
+<pre><code class="language-language-html">&lt;img draggable=&quot;true&quot;&gt;
+</code></pre>
+<h2 id="拖放的内容-ondragstart-和-setData"><a class="header-anchor" href="#拖放的内容-ondragstart-和-setData"></a>拖放的内容 - ondragstart 和 setData()</h2>
+<p>然后，规定当元素被拖动时发生的事情。</p>
 <p>在上面的例子中，ondragstart 属性调用了一个 drag(event) 函数，规定拖动什么数据。</p>
 <p>dataTransfer.setData() 方法设置被拖动数据的数据类型和值：</p>
-<pre><code class="language-javascript">function drag(ev) {
+<pre><code class="language-language-javascript">function drag(ev) {
     ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
-}</code></pre>
+}
+</code></pre>
 <p>在本例中，数据类型是 “text”，而值是这个可拖动元素的 id (“drag1”)。</p>
-<h2 id="拖到何处-ondragover"><a href="#拖到何处-ondragover" class="headerlink" title="拖到何处 - ondragover"></a>拖到何处 - ondragover</h2><p>ondragover 事件规定被拖动的数据能够被放置到何处。</p>
+<h2 id="拖到何处-ondragover"><a class="header-anchor" href="#拖到何处-ondragover"></a>拖到何处 - ondragover</h2>
+<p>ondragover 事件规定被拖动的数据能够被放置到何处。</p>
 <p>默认地，数据/元素无法被放置到其他元素中。为了实现拖放，我们必须阻止元素的这种默认的处理方式。</p>
 <p>这个任务由 ondragover 事件的 event.preventDefault() 方法完成：</p>
-<pre><code class="language-javascript">event.preventDefault()</code></pre>
-<h2 id="进行放置-ondrop"><a href="#进行放置-ondrop" class="headerlink" title="进行放置 - ondrop"></a>进行放置 - ondrop</h2><p>当放开被拖数据时，会发生 drop 事件。</p>
+<pre><code class="language-language-javascript">event.preventDefault()
+</code></pre>
+<h2 id="进行放置-ondrop"><a class="header-anchor" href="#进行放置-ondrop"></a>进行放置 - ondrop</h2>
+<p>当放开被拖数据时，会发生 drop 事件。</p>
 <p>在上面的例子中，ondrop 属性调用了一个函数，drop(event)：</p>
-<pre><code class="language-javascript">function drop(ev) {
+<pre><code class="language-language-javascript">function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData(&quot;text&quot;);
     ev.target.appendChild(document.getElementById(data));
-}</code></pre>
-<h3 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h3><ul>
+}
+</code></pre>
+<h3 id="代码解释："><a class="header-anchor" href="#代码解释："></a>代码解释：</h3>
+<ul>
 <li>调用 preventDefault() 来阻止数据的浏览器默认处理方式（drop 事件的默认行为是以链接形式打开）</li>
 <li>通过 dataTransfer.getData() 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据</li>
 <li>被拖数据是被拖元素的 id (“drag1”)</li>
@@ -355,10 +371,20 @@ function drop(ev) {
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -376,25 +402,16 @@ function drop(ev) {
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a class="noteActive" href="/note/HTML/html5-draganddrop.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">HTML5 拖放</a>
           
         </li>
       
@@ -413,6 +430,15 @@ function drop(ev) {
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a class="noteActive" href="/note/HTML/html5-draganddrop.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">HTML5 拖放</a>
           
         </li>
       
@@ -454,16 +480,6 @@ function drop(ev) {
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -474,28 +490,6 @@ function drop(ev) {
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -529,6 +523,15 @@ function drop(ev) {
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -544,12 +547,25 @@ function drop(ev) {
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

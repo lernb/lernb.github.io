@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,15 +146,20 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="translate-2D转换"><a href="#translate-2D转换" class="headerlink" title="translate 2D转换"></a><code>translate</code> 2D转换</h2><p>2D 转换</p>
+        <h2 id="translate-2D转换"><a class="header-anchor" href="#translate-2D转换"></a><code>translate</code> 2D转换</h2>
+<p>2D 转换</p>
 <ul>
-<li><p>2D 转换是改变标签在二维平面上的位置和形状<a id="more"></a></p>
+<li>
+<p>2D 转换是改变标签在二维平面上的位置和形状<a id="more"></a></p>
 </li>
-<li><p>移动： <code>translate</code></p>
+<li>
+<p>移动： <code>translate</code></p>
 </li>
-<li><p>旋转： <code>rotate</code></p>
+<li>
+<p>旋转： <code>rotate</code></p>
 </li>
-<li><p>缩放： <code>scale</code></p>
+<li>
+<p>缩放： <code>scale</code></p>
 </li>
 </ul>
 <p><code>translate</code> 语法</p>
@@ -162,9 +167,10 @@
 <li>x 就是 x 轴上水平移动</li>
 <li>y 就是 y 轴上水平移动</li>
 </ul>
-<pre><code class="language-css">transform: translate(x, y)
+<pre><code class="language-language-css">transform: translate(x, y)
 transform: translateX(n)
-transfrom: translateY(n)</code></pre>
+transfrom: translateY(n)
+</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -175,7 +181,7 @@ transfrom: translateY(n)</code></pre>
 </ul>
 </blockquote>
 <p>代码演示</p>
-<pre><code class="language-css">div {
+<pre><code class="language-language-css">div {
   background-color: lightseagreen;
   width: 200px;
   height: 100px;
@@ -194,14 +200,18 @@ transfrom: translateY(n)</code></pre>
 
   /* 垂直移动 100px */
   transform: translateY(100px)
-}</code></pre>
-<h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><p><code>代码</code></p>
-<h2 id="rotate-2D旋转"><a href="#rotate-2D旋转" class="headerlink" title="rotate 2D旋转"></a><code>rotate</code> 2D旋转</h2><blockquote>
+}
+</code></pre>
+<h3 id="水平垂直居中"><a class="header-anchor" href="#水平垂直居中"></a>水平垂直居中</h3>
+<p><code>代码</code></p>
+<h2 id="rotate-2D旋转"><a class="header-anchor" href="#rotate-2D旋转"></a><code>rotate</code> 2D旋转</h2>
+<blockquote>
 <p>2D 旋转指的是让元素在二维平面内顺时针或者逆时针旋转</p>
 </blockquote>
 <p><code>rotate</code> 语法</p>
-<pre><code class="language-css">/* 单位是：deg */
-transform: rotate(度数) </code></pre>
+<pre><code class="language-language-css">/* 单位是：deg */
+transform: rotate(度数) 
+</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -212,17 +222,22 @@ transform: rotate(度数) </code></pre>
 </blockquote>
 <p>使用步骤：</p>
 <ul>
-<li><p>给元素添加转换属性 <code>transform</code>。</p>
+<li>
+<p>给元素添加转换属性 <code>transform</code>。</p>
 </li>
-<li><p>属性值为 <code>rotate(角度)</code>，如 <code>transform:rotate(30deg)</code>  顺时针方向旋转<strong>30度</strong>。</p>
+<li>
+<p>属性值为 <code>rotate(角度)</code>，如 <code>transform:rotate(30deg)</code>  顺时针方向旋转<strong>30度</strong>。</p>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="language-css">img:hover {
+<pre><code class="language-language-css">img:hover {
   transform: rotate(360deg)
-}</code></pre>
-<h3 id="设置元素旋转中心点-transform-origin"><a href="#设置元素旋转中心点-transform-origin" class="headerlink" title="设置元素旋转中心点(transform-origin)"></a>设置元素旋转中心点(transform-origin)</h3><p><code>transform-origin</code> 基础语法：</p>
-<pre><code class="language-css">transform-origin: x y;</code></pre>
+}
+</code></pre>
+<h3 id="设置元素旋转中心点-transform-origin"><a class="header-anchor" href="#设置元素旋转中心点-transform-origin"></a>设置元素旋转中心点(transform-origin)</h3>
+<p><code>transform-origin</code> 基础语法：</p>
+<pre><code class="language-language-css">transform-origin: x y;
+</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -231,12 +246,15 @@ transform: rotate(度数) </code></pre>
 <li>还可以给 x y 设置像素或者方位名词(<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>、<code>center</code>)</li>
 </ul>
 </blockquote>
-<h3 id="旋转中心demo"><a href="#旋转中心demo" class="headerlink" title="旋转中心demo"></a>旋转中心demo</h3><p><code>代码</code></p>
-<h2 id="scale缩放"><a href="#scale缩放" class="headerlink" title="scale缩放"></a><code>scale</code>缩放</h2><blockquote>
+<h3 id="旋转中心demo"><a class="header-anchor" href="#旋转中心demo"></a>旋转中心demo</h3>
+<p><code>代码</code></p>
+<h2 id="scale缩放"><a class="header-anchor" href="#scale缩放"></a><code>scale</code>缩放</h2>
+<blockquote>
 <p><code>scale</code>用来控制元素的放大与缩小</p>
 </blockquote>
 <p>语法</p>
-<pre><code class="language-css">transform: scale(x, y)</code></pre>
+<pre><code class="language-language-css">transform: scale(x, y)
+</code></pre>
 <blockquote>
 <p><strong>注意：</strong></p>
 <ul>
@@ -249,17 +267,19 @@ transform: rotate(度数) </code></pre>
 </ul>
 </blockquote>
 <p>代码演示：</p>
-<pre><code class="language-css">   div:hover {
-       /* 注意，数字是倍数的含义，所以不需要加单位 */
-       /* transform: scale(2, 2) */
-
-       /* 实现等比缩放，同时修改宽与高 */
-       /* transform: scale(2) */
-
-       /* 小于 1 就等于缩放*/
-       transform: scale(0.5, 0.5)
-   }</code></pre>
-<h2 id="2D-转换综合写法以及顺序问题"><a href="#2D-转换综合写法以及顺序问题" class="headerlink" title="2D 转换综合写法以及顺序问题"></a>2D 转换综合写法以及顺序问题</h2><blockquote>
+<pre><code class="language-language-css">   div:hover {
+	   /* 注意，数字是倍数的含义，所以不需要加单位 */
+	   /* transform: scale(2, 2) */
+   
+	   /* 实现等比缩放，同时修改宽与高 */
+	   /* transform: scale(2) */
+   
+	   /* 小于 1 就等于缩放*/
+	   transform: scale(0.5, 0.5)
+   }
+</code></pre>
+<h2 id="2D-转换综合写法以及顺序问题"><a class="header-anchor" href="#2D-转换综合写法以及顺序问题"></a>2D 转换综合写法以及顺序问题</h2>
+<blockquote>
 <p><strong>要点：</strong></p>
 <ul>
 <li>同时使用多个转换，其格式为 <code>transform: translate() rotate() scale()</code></li>
@@ -268,9 +288,10 @@ transform: rotate(度数) </code></pre>
 </ul>
 </blockquote>
 <p>代码演示：</p>
-<pre><code class="language-css">div:hover {
+<pre><code class="language-language-css">div:hover {
   transform: translate(200px, 0) rotate(360deg) scale(1.2)
-}</code></pre>
+}
+</code></pre>
 
       </div>
     </div>
@@ -396,10 +417,20 @@ transform: rotate(度数) </code></pre>
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -417,25 +448,16 @@ transform: rotate(度数) </code></pre>
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -454,6 +476,15 @@ transform: rotate(度数) </code></pre>
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -495,16 +526,6 @@ transform: rotate(度数) </code></pre>
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -515,28 +536,6 @@ transform: rotate(度数) </code></pre>
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -570,6 +569,15 @@ transform: rotate(度数) </code></pre>
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a class="noteActive" href="/note/CSS/CSS32D-transform.html" style=" color: #18a0db; background-color: rgb(235, 237, 239);">CSS3 2D转换</a>
           
         </li>
@@ -585,12 +593,25 @@ transform: rotate(度数) </code></pre>
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

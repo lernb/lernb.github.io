@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -154,10 +154,12 @@
         <blockquote>
 <p><strong>Server-Sent 事件允许网页从服务器获得更新</strong><a id="more"></a>。</p>
 </blockquote>
-<h2 id="Server-Sent-事件-One-Way-Messaging"><a href="#Server-Sent-事件-One-Way-Messaging" class="headerlink" title="Server-Sent 事件 - One Way Messaging"></a>Server-Sent 事件 - One Way Messaging</h2><p>Server-Sent 事件指的是网页自动从服务器获得更新。</p>
+<h2 id="Server-Sent-事件-One-Way-Messaging"><a class="header-anchor" href="#Server-Sent-事件-One-Way-Messaging"></a>Server-Sent 事件 - One Way Messaging</h2>
+<p>Server-Sent 事件指的是网页自动从服务器获得更新。</p>
 <p>以前也可能做到这一点，前提是网页不得不询问是否有可用的更新。通过 Server-Sent 事件，更新能够自动到达。</p>
 <p>例如：Facebook/Twitter 更新、股价更新、新的博文、赛事结果，等等。</p>
-<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>表格中的数字指示完全支持 server-sent 事件的首个浏览器。</p>
+<h2 id="浏览器支持"><a class="header-anchor" href="#浏览器支持"></a>浏览器支持</h2>
+<p>表格中的数字指示完全支持 server-sent 事件的首个浏览器。</p>
 <table>
 <thead>
 <tr>
@@ -169,7 +171,8 @@
 <th>Opera</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>SSE</td>
 <td>6.0</td>
 <td>不支持</td>
@@ -177,34 +180,42 @@
 <td>5.0</td>
 <td>11.5</td>
 </tr>
-</tbody></table>
-<h2 id="接收-Server-Sent-事件通知"><a href="#接收-Server-Sent-事件通知" class="headerlink" title="接收 Server-Sent 事件通知"></a>接收 Server-Sent 事件通知</h2><p>EventSource 对象用于接收服务器发送事件通知：</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">var source = new EventSource(&quot;demo_sse.php&quot;);
+</tbody>
+</table>
+<h2 id="接收-Server-Sent-事件通知"><a class="header-anchor" href="#接收-Server-Sent-事件通知"></a>接收 Server-Sent 事件通知</h2>
+<p>EventSource 对象用于接收服务器发送事件通知：</p>
+<h3 id="实例"><a class="header-anchor" href="#实例"></a>实例</h3>
+<pre><code class="language-language-javascript">var source = new EventSource(&quot;demo_sse.php&quot;);
 source.onmessage = function(event) {
     document.getElementById(&quot;result&quot;).innerHTML += event.data + &quot;&lt;br&gt;&quot;;
-};</code></pre>
+};
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_sse" target="_blank" rel="noopener">亲自试一试</a></p>
-<h3 id="例子解释："><a href="#例子解释：" class="headerlink" title="例子解释："></a>例子解释：</h3><ul>
+<h3 id="例子解释："><a class="header-anchor" href="#例子解释："></a>例子解释：</h3>
+<ul>
 <li>创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 “demo_sse.php”）</li>
 <li>每当接收到一次更新，就会发生 onmessage 事件</li>
 <li>当 onmessage 事件发生时，把已接收的数据推入 id 为 “result” 的元素中</li>
 </ul>
-<h2 id="检测-Server-Sent-事件支持"><a href="#检测-Server-Sent-事件支持" class="headerlink" title="检测 Server-Sent 事件支持"></a>检测 Server-Sent 事件支持</h2><p>在 TIY 实例中，我们编写了一段额外的代码来检测服务器发送事件的浏览器支持：</p>
-<pre><code class="language-javascript">if(typeof(EventSource) !== &quot;undefined&quot;) {
+<h2 id="检测-Server-Sent-事件支持"><a class="header-anchor" href="#检测-Server-Sent-事件支持"></a>检测 Server-Sent 事件支持</h2>
+<p>在 TIY 实例中，我们编写了一段额外的代码来检测服务器发送事件的浏览器支持：</p>
+<pre><code class="language-language-javascript">if(typeof(EventSource) !== &quot;undefined&quot;) {
     // 是的！支持服务器发送事件！
     // 一些代码.....
 } else {
     // 抱歉！不支持服务器发送事件！
-}</code></pre>
-<h2 id="服务器端代码实例"><a href="#服务器端代码实例" class="headerlink" title="服务器端代码实例"></a>服务器端代码实例</h2><p>为了使上例运行，您需要能够发送数据更新的服务器（比如 PHP 或 ASP）。</p>
+}
+</code></pre>
+<h2 id="服务器端代码实例"><a class="header-anchor" href="#服务器端代码实例"></a>服务器端代码实例</h2>
+<p>为了使上例运行，您需要能够发送数据更新的服务器（比如 PHP 或 ASP）。</p>
 <p>服务器端事件流的语法非常简单。请把 “Content-Type” 报头设置为 “text/event-stream”。现在，您可以开始发送事件流了。</p>
-<pre><code class="language-php">PHP 中的代码 (demo_sse.php)：
+<pre><code class="language-language-php">PHP 中的代码 (demo_sse.php)：
 
 &lt;?php
-header(&#39;Content-Type: text/event-stream&#39;);
-header(&#39;Cache-Control: no-cache&#39;);
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
 
-$time = date(&#39;r&#39;);
+$time = date('r');
 echo &quot;data: The server time is: {$time}\n\n&quot;;
 flush();
 ?&gt;
@@ -216,34 +227,39 @@ Response.ContentType = &quot;text/event-stream&quot;
 Response.Expires = -1
 Response.Write(&quot;data: The server time is: &quot; &amp; now())
 Response.Flush()
-%&gt;</code></pre>
-<h3 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h3><ul>
+%&gt;
+</code></pre>
+<h3 id="代码解释："><a class="header-anchor" href="#代码解释："></a>代码解释：</h3>
+<ul>
 <li>把报头 “Content-Type” 设置为 “text/event-stream”</li>
 <li>规定不对页面进行缓存</li>
-<li>输出要发送的日期（始终以 “data: “ 开头）</li>
+<li>输出要发送的日期（始终以 &quot;data: &quot; 开头）</li>
 <li>向网页刷新输出数据</li>
 </ul>
-<h2 id="EventSource-对象"><a href="#EventSource-对象" class="headerlink" title="EventSource 对象"></a>EventSource 对象</h2><p>在上例中，我们使用 onmessage 事件来获取消息。不过还可以使用其他事件：</p>
+<h2 id="EventSource-对象"><a class="header-anchor" href="#EventSource-对象"></a>EventSource 对象</h2>
+<p>在上例中，我们使用 onmessage 事件来获取消息。不过还可以使用其他事件：</p>
 <table>
 <thead>
 <tr>
-<th align="left">事件</th>
-<th align="left">描述</th>
+<th style="text-align:left">事件</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">onopen</td>
-<td align="left">当通往服务器的连接被打开</td>
+<tbody>
+<tr>
+<td style="text-align:left">onopen</td>
+<td style="text-align:left">当通往服务器的连接被打开</td>
 </tr>
 <tr>
-<td align="left">onmessage</td>
-<td align="left">当接收到消息</td>
+<td style="text-align:left">onmessage</td>
+<td style="text-align:left">当接收到消息</td>
 </tr>
 <tr>
-<td align="left">onerror</td>
-<td align="left">当发生错误</td>
+<td style="text-align:left">onerror</td>
+<td style="text-align:left">当发生错误</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
       </div>
     </div>
@@ -369,10 +385,20 @@ Response.Flush()
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -390,25 +416,16 @@ Response.Flush()
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -427,6 +444,15 @@ Response.Flush()
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -468,16 +494,6 @@ Response.Flush()
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -488,28 +504,6 @@ Response.Flush()
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -543,6 +537,15 @@ Response.Flush()
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -558,12 +561,25 @@ Response.Flush()
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

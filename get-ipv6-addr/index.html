@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -479,21 +479,27 @@
       <!-- E 文章信息 -->
       <div class="post-text">
         <p>IPv6完整地址是128位的，本文的方法可以获取IPv6/64位短码地址，而且可设置租用7天（7天内为静态，可尝试用于建站）<a id="more"></a>。</p>
-<h2 id="获取IPv6"><a href="#获取IPv6" class="headerlink" title="获取IPv6"></a>获取IPv6</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>需要将光猫开启IPv4+v6双协议，这里使用的是<strong>桥接模式</strong>。</p>
+<h2 id="获取IPv6"><a class="header-anchor" href="#获取IPv6"></a>获取IPv6</h2>
+<h3 id="第一步"><a class="header-anchor" href="#第一步"></a>第一步</h3>
+<p>需要将光猫开启IPv4+v6双协议，这里使用的是<strong>桥接模式</strong>。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i1.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>打开网络-&gt;用户侧管理-&gt;IPv6设置。设置成如图所示即可。</p>
+<h3 id="第二步"><a class="header-anchor" href="#第二步"></a>第二步</h3>
+<p>打开网络-&gt;用户侧管理-&gt;IPv6设置。设置成如图所示即可。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i2.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>打开路由器设置界面-外部网络WAN-联机类型：PPPoE-输入宽带账号和密码。</p>
-<p>记得在设置界面下发勾选：启用V.PN + DHCP连接以及 Spoof LAN TTL value（这两个选项勾选后电脑通过路由器也可以访问到光猫，方便后期修改设置）。</p>
+<h3 id="第三步"><a class="header-anchor" href="#第三步"></a>第三步</h3>
+<p>打开路由器设置界面-外部网络WAN-联机类型：PPPoE-输入宽带账号和密码。</p>
+<p>记得在设置界面下发勾选：<a href="http://xn--V-g88ax62h.PN" target="_blank" rel="noopener">启用V.PN</a> + DHCP连接以及 Spoof LAN TTL value（这两个选项勾选后电脑通过路由器也可以访问到光猫，方便后期修改设置）。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i3.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>路由器设置IPv6-如图设置，DNS这一项不强求。</p>
+<h3 id="第四步"><a class="header-anchor" href="#第四步"></a>第四步</h3>
+<p>路由器设置IPv6-如图设置，DNS这一项不强求。</p>
 <p>自动配置这一项一定要选择Stateful（全状态）。</p>
 <p>租约时间输入：604800，这是7天时间，7天内IP地址都是静态的，已经测试过了。（但是每个地区的运营商不一样，可能是3天也可能是5天。不过你需要设置为7天即可，不影响。重庆是7天）</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i4.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
 <p>保存后，你就可以看到你的前缀为56位，内部分配的地址为64位短码地址，不会再给你的设备分配128位长地址了。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i5.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i6.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>你可以使用Best Trace路由跟踪软件进行查询路由表（软件支持IOS，安卓，Android，MAC，PC）</p>
+<h2 id="最后"><a class="header-anchor" href="#最后"></a>最后</h2>
+<p>你可以使用Best Trace路由跟踪软件进行查询路由表（软件支持IOS，安卓，Android，MAC，PC）</p>
 
       </div>
     </div>

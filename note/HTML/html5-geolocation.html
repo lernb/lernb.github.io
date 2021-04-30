@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -154,13 +154,17 @@
         <blockquote>
 <p><strong>HTML5 Geolocation（地理定位）用于定位用户的位置</strong><a id="more"></a>。</p>
 </blockquote>
-<h2 id="定位用户的位置"><a href="#定位用户的位置" class="headerlink" title="定位用户的位置"></a>定位用户的位置</h2><p>HTML5 Geolocation API 用于获得用户的地理位置。</p>
+<h2 id="定位用户的位置"><a class="header-anchor" href="#定位用户的位置"></a>定位用户的位置</h2>
+<p>HTML5 Geolocation API 用于获得用户的地理位置。</p>
 <p>鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。</p>
-<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>Internet Explorer 9、Firefox、Chrome、Safari 以及 Opera 支持地理定位。</p>
-<p><strong>注释：</strong>对于拥有 GPS 的设备，比如 iPhone，地理定位更加精确。</p>
-<h2 id="HTML5-使用地理定位"><a href="#HTML5-使用地理定位" class="headerlink" title="HTML5 - 使用地理定位"></a>HTML5 - 使用地理定位</h2><p>请使用 getCurrentPosition() 方法来获得用户的位置。</p>
+<h2 id="浏览器支持"><a class="header-anchor" href="#浏览器支持"></a>浏览器支持</h2>
+<p>Internet Explorer 9、Firefox、Chrome、Safari 以及 Opera 支持地理定位。</p>
+<p>**注释：**对于拥有 GPS 的设备，比如 iPhone，地理定位更加精确。</p>
+<h2 id="HTML5-使用地理定位"><a class="header-anchor" href="#HTML5-使用地理定位"></a>HTML5 - 使用地理定位</h2>
+<p>请使用 getCurrentPosition() 方法来获得用户的位置。</p>
 <p>下例是一个简单的地理定位实例，可返回用户位置的经度和纬度。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">&lt;script&gt;
+<h3 id="实例"><a class="header-anchor" href="#实例"></a>实例</h3>
+<pre><code class="language-language-javascript">&lt;script&gt;
 var x=document.getElementById(&quot;demo&quot;);
 function getLocation()
   {
@@ -175,7 +179,8 @@ function showPosition(position)
   x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
   &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
   }
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation" target="_blank" rel="noopener">亲自试一试</a></p>
 <p>例子解释：</p>
 <ul>
@@ -185,8 +190,10 @@ function showPosition(position)
 <li>showPosition() 函数获得并显示经度和纬度</li>
 </ul>
 <p>上面的例子是一个非常基础的地理定位脚本，不含错误处理。</p>
-<h2 id="处理错误和拒绝"><a href="#处理错误和拒绝" class="headerlink" title="处理错误和拒绝"></a>处理错误和拒绝</h2><p>getCurrentPosition() 方法的第二个参数用于处理错误。它规定当获取用户位置失败时运行的函数：</p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">function showError(error)
+<h2 id="处理错误和拒绝"><a class="header-anchor" href="#处理错误和拒绝"></a>处理错误和拒绝</h2>
+<p>getCurrentPosition() 方法的第二个参数用于处理错误。它规定当获取用户位置失败时运行的函数：</p>
+<h3 id="实例-v2"><a class="header-anchor" href="#实例-v2"></a>实例</h3>
+<pre><code class="language-language-javascript">function showError(error)
   {
   switch(error.code)
     {
@@ -203,7 +210,8 @@ function showPosition(position)
       x.innerHTML=&quot;An unknown error occurred.&quot;
       break;
     }
-  }</code></pre>
+  }
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_error" target="_blank" rel="noopener">亲自试一试</a></p>
 <p>错误代码：</p>
 <ul>
@@ -211,72 +219,81 @@ function showPosition(position)
 <li>Position unavailable - 无法获取当前位置</li>
 <li>Timeout - 操作超时</li>
 </ul>
-<h2 id="在地图中显示结果"><a href="#在地图中显示结果" class="headerlink" title="在地图中显示结果"></a>在地图中显示结果</h2><p>如需在地图中显示结果，您需要访问可使用经纬度的地图服务，比如谷歌地图或百度地图：</p>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">function showPosition(position)
+<h2 id="在地图中显示结果"><a class="header-anchor" href="#在地图中显示结果"></a>在地图中显示结果</h2>
+<p>如需在地图中显示结果，您需要访问可使用经纬度的地图服务，比如谷歌地图或百度地图：</p>
+<h3 id="实例-v3"><a class="header-anchor" href="#实例-v3"></a>实例</h3>
+<pre><code class="language-language-javascript">function showPosition(position)
 {
 var latlon=position.coords.latitude+&quot;,&quot;+position.coords.longitude;
 
 var img_url=&quot;http://maps.googleapis.com/maps/api/staticmap?center=&quot;
 +latlon+&quot;&amp;zoom=14&amp;size=400x300&amp;sensor=false&quot;;
 
-document.getElementById(&quot;mapholder&quot;).innerHTML=&quot;&lt;img src=&#39;&quot;+img_url+&quot;&#39; /&gt;&quot;;
-}</code></pre>
+document.getElementById(&quot;mapholder&quot;).innerHTML=&quot;&lt;img src='&quot;+img_url+&quot;' /&gt;&quot;;
+}
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_map" target="_blank" rel="noopener">亲自试一试</a></p>
 <p>在上例中，我们使用返回的经纬度数据在谷歌地图中显示位置（使用静态图像）。</p>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_map_script" target="_blank" rel="noopener">谷歌地图脚本</a></p>
 <p>上面的链接向您演示如何使用脚本来显示带有标记、缩放和拖曳选项的交互式地图。</p>
-<h2 id="给定位置的信息"><a href="#给定位置的信息" class="headerlink" title="给定位置的信息"></a>给定位置的信息</h2><p>本页演示的是如何在地图上显示用户的位置。不过，地理定位对于给定位置的信息同样很有用处。</p>
+<h2 id="给定位置的信息"><a class="header-anchor" href="#给定位置的信息"></a>给定位置的信息</h2>
+<p>本页演示的是如何在地图上显示用户的位置。不过，地理定位对于给定位置的信息同样很有用处。</p>
 <p>案例：</p>
 <ul>
 <li>更新本地信息</li>
 <li>显示用户周围的兴趣点</li>
 <li>交互式车载导航系统 (GPS)</li>
 </ul>
-<h2 id="getCurrentPosition-方法-返回数据"><a href="#getCurrentPosition-方法-返回数据" class="headerlink" title="getCurrentPosition() 方法 - 返回数据"></a>getCurrentPosition() 方法 - 返回数据</h2><p>若成功，则 getCurrentPosition() 方法返回对象。始终会返回 latitude、longitude 以及 accuracy 属性。如果可用，则会返回其他下面的属性。</p>
+<h2 id="getCurrentPosition-方法-返回数据"><a class="header-anchor" href="#getCurrentPosition-方法-返回数据"></a>getCurrentPosition() 方法 - 返回数据</h2>
+<p>若成功，则 getCurrentPosition() 方法返回对象。始终会返回 latitude、longitude 以及 accuracy 属性。如果可用，则会返回其他下面的属性。</p>
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">描述</th>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">coords.latitude</td>
-<td align="left">十进制数的纬度</td>
+<tbody>
+<tr>
+<td style="text-align:left">coords.latitude</td>
+<td style="text-align:left">十进制数的纬度</td>
 </tr>
 <tr>
-<td align="left">coords.longitude</td>
-<td align="left">十进制数的经度</td>
+<td style="text-align:left">coords.longitude</td>
+<td style="text-align:left">十进制数的经度</td>
 </tr>
 <tr>
-<td align="left">coords.accuracy</td>
-<td align="left">位置精度</td>
+<td style="text-align:left">coords.accuracy</td>
+<td style="text-align:left">位置精度</td>
 </tr>
 <tr>
-<td align="left">coords.altitude</td>
-<td align="left">海拔，海平面以上以米计</td>
+<td style="text-align:left">coords.altitude</td>
+<td style="text-align:left">海拔，海平面以上以米计</td>
 </tr>
 <tr>
-<td align="left">coords.altitudeAccuracy</td>
-<td align="left">位置的海拔精度</td>
+<td style="text-align:left">coords.altitudeAccuracy</td>
+<td style="text-align:left">位置的海拔精度</td>
 </tr>
 <tr>
-<td align="left">coords.heading</td>
-<td align="left">方向，从正北开始以度计</td>
+<td style="text-align:left">coords.heading</td>
+<td style="text-align:left">方向，从正北开始以度计</td>
 </tr>
 <tr>
-<td align="left">coords.speed</td>
-<td align="left">速度，以米/每秒计</td>
+<td style="text-align:left">coords.speed</td>
+<td style="text-align:left">速度，以米/每秒计</td>
 </tr>
 <tr>
-<td align="left">timestamp</td>
-<td align="left">响应的日期/时间</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left">响应的日期/时间</td>
 </tr>
-</tbody></table>
-<h2 id="Geolocation-对象-其他有趣的方法"><a href="#Geolocation-对象-其他有趣的方法" class="headerlink" title="Geolocation 对象 - 其他有趣的方法"></a>Geolocation 对象 - 其他有趣的方法</h2><p>watchPosition() - 返回用户的当前位置，并继续返回用户移动时的更新位置（就像汽车上的 GPS）。</p>
+</tbody>
+</table>
+<h2 id="Geolocation-对象-其他有趣的方法"><a class="header-anchor" href="#Geolocation-对象-其他有趣的方法"></a>Geolocation 对象 - 其他有趣的方法</h2>
+<p>watchPosition() - 返回用户的当前位置，并继续返回用户移动时的更新位置（就像汽车上的 GPS）。</p>
 <p>clearWatch() - 停止 watchPosition() 方法</p>
 <p>下面的例子展示 watchPosition() 方法。您需要一台精确的 GPS 设备来测试该例（比如 iPhone）：</p>
-<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code class="language-javascript">&lt;script&gt;
+<h3 id="实例-v4"><a class="header-anchor" href="#实例-v4"></a>实例</h3>
+<pre><code class="language-language-javascript">&lt;script&gt;
 var x=document.getElementById(&quot;demo&quot;);
 function getLocation()
   {
@@ -291,7 +308,8 @@ function showPosition(position)
   x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
   &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
   }
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;
+</code></pre>
 <p><a href="https://www.w3school.com.cn/tiy/t.asp?f=html5_geolocation_watchposition" target="_blank" rel="noopener">亲自试一试</a></p>
 
       </div>
@@ -418,10 +436,20 @@ function showPosition(position)
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -439,25 +467,16 @@ function showPosition(position)
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -476,6 +495,15 @@ function showPosition(position)
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -517,16 +545,6 @@ function showPosition(position)
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -537,28 +555,6 @@ function showPosition(position)
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -592,6 +588,15 @@ function showPosition(position)
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -607,12 +612,25 @@ function showPosition(position)
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -473,18 +473,20 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h2><p>实现需求：</p>
+        <h2 id="实际效果"><a class="header-anchor" href="#实际效果"></a>实际效果</h2>
+<p>实现需求：</p>
 <ul>
 <li>无缝循环轮播<a id="more"></a></li>
 <li>左右按钮点击切换</li>
 <li>底部小圆点指示效果与点击切换</li>
 </ul>
 <iframe id="frame" scrolling="no" src="/asset/lunbo2.html" style="display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto; border: 0; margin-bottom: 20px;"></iframe>
-
-<blockquote>
+<div class="tip">
 <p>此轮播图实现方式中并没有节流处理，可以任意速度点击切换轮播，但是有一定的局限性，下文进行说明。</p>
-</blockquote>
-<h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><pre><code class="language-html">&lt;div class=&quot;banner&quot;&gt;
+</div>
+<h2 id="代码部分"><a class="header-anchor" href="#代码部分"></a>代码部分</h2>
+<h3 id="HTML代码"><a class="header-anchor" href="#HTML代码"></a>HTML代码</h3>
+<pre><code class="language-language-html">&lt;div class=&quot;banner&quot;&gt;
     &lt;div class=&quot;slide&quot;&gt;
       &lt;!-- 图片区 --&gt;
       &lt;div class=&quot;slide-item&quot;&gt;
@@ -514,8 +516,10 @@
     &lt;!-- 左右两侧按钮 --&gt;
     &lt;div class=&quot;btn btnPre&quot;&gt;&amp;lt;&lt;/div&gt;
     &lt;div class=&quot;btn btnNext&quot;&gt;&amp;gt;&lt;/div&gt;
-  &lt;/div&gt;</code></pre>
-<h3 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h3><pre><code class="language-css">.banner {
+  &lt;/div&gt;
+</code></pre>
+<h3 id="CSS代码"><a class="header-anchor" href="#CSS代码"></a>CSS代码</h3>
+<pre><code class="language-language-css">.banner {
       position: relative;
       overflow: hidden;
       width: 500px;
@@ -525,7 +529,7 @@
     /* 清除浮动 */
     .slide::before,
     .slide:after {
-      content: &#39; &#39;;
+      content: ' ';
       display: table;
     }
 
@@ -592,48 +596,50 @@
       width: 5px;
       border-radius: 30%;
       border-color: #fff;
-    }</code></pre>
-<h3 id="JavaScript代码"><a href="#JavaScript代码" class="headerlink" title="JavaScript代码"></a>JavaScript代码</h3><pre><code class="language-javascript">function $(cName) {
+    }
+</code></pre>
+<h3 id="JavaScript代码"><a class="header-anchor" href="#JavaScript代码"></a>JavaScript代码</h3>
+<pre><code class="language-language-javascript">function $(cName) {
   return document.getElementsByClassName(cName);
 }
 // 获取元素
-const banner = $(&#39;banner&#39;)[0],
-  slide = $(&#39;slide&#39;)[0],
-  slideItem = $(&#39;slide-item&#39;),
-  btnPre = $(&#39;btnPre&#39;)[0],
-  btnNext = $(&#39;btnNext&#39;)[0],
-  span = $(&#39;dots-item&#39;);
+const banner = $('banner')[0],
+  slide = $('slide')[0],
+  slideItem = $('slide-item'),
+  btnPre = $('btnPre')[0],
+  btnNext = $('btnNext')[0],
+  span = $('dots-item');
 
 // 在头部增加一张图，在末尾增加一张图
 slide.insertBefore(slideItem[slideItem.length - 1].cloneNode(true), slideItem[0]);
 slide.appendChild(slideItem[1].cloneNode(true));
 slide.style.width = `${(slideItem.length) * 500}px`; // 定义图片项目容器总宽度，每张图宽度为500
-slide.style.transform = &#39;translateX(-500px)&#39;;
+slide.style.transform = 'translateX(-500px)';
 
 let index = 1, // 定义图片下标，第一张index为1
   timer, timer2,
-  duration = &#39;transform .3s&#39;; // 定义动画过度
+  duration = 'transform .3s'; // 定义动画过度
 
 // 右侧按钮
 btnNext.onclick = function () {
   resetDots();
   if (index &gt; slideItem.length - 2) { // 处理滚动到尾部
     index = 1;
-    slide.style.transition = &#39;none&#39;;
+    slide.style.transition = 'none';
     slide.style.transform = `translateX(-${index * 500}px)`; // 将整个slide移至逻辑第一张位置，即实际第二张
     timer = setTimeout(() =&gt; { // 定时延迟确保以上两步操作先完成执行
       slide.style.transition = duration;
       slide.style.transform = `translateX(-${++index * 500}px)`; // 打开过渡效果并继续变换位置实现无缝滚动效果
-      span[index - 1].className = &#39;active&#39;; // 设置变换完成后对应小圆点点亮
+      span[index - 1].className = 'active'; // 设置变换完成后对应小圆点点亮
       clearTimeout(timer);
     }, 16);
   } else {
     slide.style.transition = duration;
     slide.style.transform = `translateX(-${++index * 500}px)`; // 每次滚动
     if (index == slideItem.length - 1) {  // 处理滚动到最后一张即逻辑第一张小圆点点亮位置
-      span[0].className = &#39;active&#39;;
+      span[0].className = 'active';
     } else {
-      span[index - 1].className = &#39;active&#39;;
+      span[index - 1].className = 'active';
     }
   }
 }
@@ -642,21 +648,21 @@ btnPre.onclick = function () {
   resetDots();
   if (index &lt; 1) { // 处理滚动到头部
     index = slideItem.length - 2;
-    slide.style.transition = &#39;none&#39;;
+    slide.style.transition = 'none';
     slide.style.transform = `translateX(-${index * 500}px)`; // 将整个slide移至逻辑最后一张位置，即实际倒数第二张
     timer = setTimeout(() =&gt; { // 定时延迟确保以上两步操作先完成执行
       slide.style.transition = duration;
       slide.style.transform = `translateX(-${--index * 500}px)`; // 打开过渡效果并继续变换位置实现无缝滚动效果
-      span[index - 1].className = &#39;active&#39;; // 设置变换完成后对应小圆点点亮
+      span[index - 1].className = 'active'; // 设置变换完成后对应小圆点点亮
       clearTimeout(timer);
     }, 16);
   } else {
     slide.style.transition = duration;
     slide.style.transform = `translateX(-${--index * 500}px)`; // 每次滚动
     if (index == 0) { // 处理滚动到第一张即逻辑最后一张小圆点点亮位置
-      span[span.length - 1].className = &#39;active&#39;;
+      span[span.length - 1].className = 'active';
     } else {
-      span[index - 1].className = &#39;active&#39;;
+      span[index - 1].className = 'active';
     }
   }
 }
@@ -667,7 +673,7 @@ timer2 = setInterval(() =&gt; {
 
 function resetDots() { // 小圆点样式重置方法
   for (let i = 0; i &lt; span.length; i++) {
-    span[i].className = &#39;&#39;;
+    span[i].className = '';
   }
 
 function moveDots() { // 底部小圆点点按事件
@@ -675,7 +681,7 @@ function moveDots() { // 底部小圆点点按事件
     (function (n) {
       span[n].onclick = function () {
         resetDots();
-        span[n].className = &#39;active&#39;;
+        span[n].className = 'active';
         slide.style.transition = duration;
         slide.style.transform = `translateX(-${(n + 1) * 500}px)`;
         index = n + 1;
@@ -692,7 +698,8 @@ banner.addEventListener(&quot;mouseout&quot;, function () {
   timer2 = setInterval(() =&gt; {
     btnNext.onclick();
   }, 2000);
-});</code></pre>
+});
+</code></pre>
 
       </div>
     </div>

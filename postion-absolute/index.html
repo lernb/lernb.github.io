@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -476,15 +476,17 @@
         <p>绝对定位或者固定定位的盒子无法通过设置<code>margin</code>来设置水平居中，可以通过如下方式设置<a id="more"></a>水平居中：</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/position-center.png" alt=""></p>
 <ul>
-<li><p><code>left: 50%</code>使得盒子左侧移动到父元素水平中心</p>
+<li>
+<p><code>left: 50%</code>使得盒子左侧移动到父元素水平中心</p>
 </li>
-<li><p>通过<code>margin-left: -100px</code>使得盒子向左移动自身的一半</p>
+<li>
+<p>通过<code>margin-left: -100px</code>使得盒子向左移动自身的一半</p>
 </li>
 </ul>
-<blockquote>
+<div class="tip">
 <p>通过设置<code>position</code>属性，可以改变元素的<code>display</code>模式，一般一个元素添加了浮动、固定定位和绝对定位之后，默认的<code>display</code>属性就会变成<code>inline-block</code>行内块。</p>
 <p>绝对定位元素依据最近有定位属性的父级元素进行定位，否则相对于文档进行定位。</p>
-</blockquote>
+</div>
 
       </div>
     </div>

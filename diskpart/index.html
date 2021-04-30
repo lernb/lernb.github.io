@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -473,21 +473,29 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="一、按Shift-F10启动命令提示符"><a href="#一、按Shift-F10启动命令提示符" class="headerlink" title="一、按Shift + F10启动命令提示符"></a>一、按Shift + F10启动命令提示符</h2><p>在 Windows 的安装界面按下 Shift + F10 启动命令提示符。</p>
-<h2 id="二、启动diskpart"><a href="#二、启动diskpart" class="headerlink" title="二、启动diskpart"></a>二、启动diskpart</h2><p>在命令提示符窗口中输入<code>diskpart</code>后回车：</p>
-<pre><code class="language-bash">&gt;diskpart</code></pre>
+        <h2 id="一、按Shift-F10启动命令提示符"><a class="header-anchor" href="#一、按Shift-F10启动命令提示符"></a>一、按Shift + F10启动命令提示符</h2>
+<p>在 Windows 的安装界面按下 Shift + F10 启动命令提示符。</p>
+<h2 id="二、启动diskpart"><a class="header-anchor" href="#二、启动diskpart"></a>二、启动diskpart</h2>
+<p>在命令提示符窗口中输入<code>diskpart</code>后回车：</p>
+<pre><code class="language-language-bash">&gt;diskpart
+</code></pre>
 <p>然后再输入<code>list disk</code>：</p>
-<pre><code class="language-bash">DISKPART&gt;list disk</code></pre>
+<pre><code class="language-language-bash">DISKPART&gt;list disk
+</code></pre>
 <p>这时命令提示符中会列出此计算机上所有的磁盘及其格式：</p>
 <p><img src="/img/diskpart.assets/diskpart.png" alt=""></p>
 <p>选中磁盘0：</p>
-<pre><code class="language-bash">DISKPART&gt; select disk 0</code></pre>
+<pre><code class="language-language-bash">DISKPART&gt; select disk 0
+</code></pre>
 <p>选中后输入<code>clean</code>回车进行清除操作：</p>
-<pre><code class="language-bash">DISKPART&gt; clean</code></pre>
+<pre><code class="language-language-bash">DISKPART&gt; clean
+</code></pre>
 <p>清除后输入<code>convert mbr</code>回车进行转换：</p>
-<pre><code class="language-bash">DISKPART&gt; convert mbr</code></pre>
+<pre><code class="language-language-bash">DISKPART&gt; convert mbr
+</code></pre>
 <p>然后输入<code>exit</code>回车退出：</p>
-<pre><code class="language-bash">DISKPART&gt; exit</code></pre>
+<pre><code class="language-language-bash">DISKPART&gt; exit
+</code></pre>
 
       </div>
     </div>

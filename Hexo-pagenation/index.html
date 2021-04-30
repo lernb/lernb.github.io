@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -474,11 +474,13 @@
       <!-- E 文章信息 -->
       <div class="post-text">
         <p>最近折腾写自己的站点主题，整体过程还算流畅，想着给分类页面和标签页面的文章列表加个分页的功能，折腾了好久才给搞定，遇到了一些问题记录一下<a id="more"></a>。</p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>原本在首页添加分页功能的时候，直接添上分页功能的代码就能够显示分页了，想着给其他页面添加分页功能也就是添加一下代码的事情，最后证明是我想的稍微简单了:)。折腾了好久才发现原来Hexo的配置文件<code>_config.yml</code>中的分页功能是单独设置的，配置文件默认已经配置好了首页<code>index</code>的分页设置，所以首页直接添上分页代码就能直接显示。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>依葫芦画瓢按照原默认配置代码再给要分页的页面也配置一下：</p>
-<pre><code class="language-yml"># 默认首页已经配置
+<h2 id="问题原因"><a class="header-anchor" href="#问题原因"></a>问题原因</h2>
+<p>原本在首页添加分页功能的时候，直接添上分页功能的代码就能够显示分页了，想着给其他页面添加分页功能也就是添加一下代码的事情，最后证明是我想的稍微简单了:)。折腾了好久才发现原来Hexo的配置文件<code>_config.yml</code>中的分页功能是单独设置的，配置文件默认已经配置好了首页<code>index</code>的分页设置，所以首页直接添上分页代码就能直接显示。</p>
+<h2 id="解决办法"><a class="header-anchor" href="#解决办法"></a>解决办法</h2>
+<p>依葫芦画瓢按照原默认配置代码再给要分页的页面也配置一下：</p>
+<pre><code class="language-language-yml"># 默认首页已经配置
 index_generator:
-    path: &#39;&#39;
+    path: ''
     per_page: 10
     order_by: -date
 # 需要添加分页的页面，直接在下方添加
@@ -489,7 +491,8 @@ tag_generator:
 # 分类页
 category_generator:
     per_page: 8 # 控制每一页显示的条目
-    order_by: -date # 根据日期排序</code></pre>
+    order_by: -date # 根据日期排序
+</code></pre>
 <p>配置好后保存重新生成<code>hexo g</code>或者<code>hexo s</code>生效。</p>
 
       </div>

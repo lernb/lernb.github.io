@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -476,9 +476,11 @@
         <p>今天部署博客发现部分标签点击出现404问题，许久之前也出现过类似现象，把字母改成小写就正常了。</p>
 <p>这次的问题是之前正常的标签也出现了404，改成小写果然又正常了。看来问题应该就是出在字母的大小写上了。</p>
 <p>于是乎谷歌一阵搜索，果然，导致这个问题的原因就是Hexo 中的Git 配置文件设置了对大小写不敏感。<a id="more"></a></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在Hexo 博客目录下的<code>.deploy_git</code>目录中，再进入<code>.git</code>目录（此目录默认是隐藏的，需要系统设置打开显示隐藏文件夹），修改此目录中的<code>config</code>文件:</p>
-<pre><code class="language-bash"># 将以下条目设置成false即可
-ignorecase = false</code></pre>
+<h2 id="解决方法"><a class="header-anchor" href="#解决方法"></a>解决方法</h2>
+<p>在Hexo 博客目录下的<code>.deploy_git</code>目录中，再进入<code>.git</code>目录（此目录默认是隐藏的，需要系统设置打开显示隐藏文件夹），修改此目录中的<code>config</code>文件:</p>
+<pre><code class="language-language-bash"># 将以下条目设置成false即可
+ignorecase = false
+</code></pre>
 <p>保存，然后清除并重新生成部署博客即可。</p>
 
       </div>

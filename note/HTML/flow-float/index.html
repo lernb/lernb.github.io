@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,95 +146,112 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="标准流、流式布局"><a href="#标准流、流式布局" class="headerlink" title="标准流、流式布局"></a>标准流、流式布局</h2><p>网页内元素按照从左至右、从上到下的顺序排列的方式就是流式布局<a id="more"></a></p>
+        <h2 id="标准流、流式布局"><a class="header-anchor" href="#标准流、流式布局"></a>标准流、流式布局</h2>
+<p>网页内元素按照从左至右、从上到下的顺序排列的方式就是流式布局<a id="more"></a></p>
 <p><img src="/img/flow-float.assets/standard-flow.png" alt=""></p>
-<h2 id="元素的浮动"><a href="#元素的浮动" class="headerlink" title="元素的浮动"></a>元素的浮动</h2><h3 id="什么是浮动"><a href="#什么是浮动" class="headerlink" title="什么是浮动"></a>什么是浮动</h3><p>设置了float属性的元素会脱离标准文档流的控制并移动到其父元素指定位置的过程。<br>通过<code>float</code>属性来定义浮动，<code>选择器{float：none | left | right}</code> </p>
+<h2 id="元素的浮动"><a class="header-anchor" href="#元素的浮动"></a>元素的浮动</h2>
+<h3 id="什么是浮动"><a class="header-anchor" href="#什么是浮动"></a>什么是浮动</h3>
+<p>设置了float属性的元素会脱离标准文档流的控制并移动到其父元素指定位置的过程。<br>
+通过<code>float</code>属性来定义浮动，<code>选择器{float：none | left | right}</code></p>
 <p><strong>浮动的特性：</strong></p>
 <ul>
-<li><p>浮动的元素会脱离实际的文档流，不再占用标准流的空间，但会影响文档流中文字的排版，且浮动只有左右浮动</p>
+<li>
+<p>浮动的元素会脱离实际的文档流，不再占用标准流的空间，但会影响文档流中文字的排版，且浮动只有左右浮动</p>
 </li>
-<li><p>浮动的排列方式也是按照流式布局，如果当前浮动元素的前一个元素也是浮动元素，则当前浮动元素浮动后会紧挨着前一个浮动元素，顶部与顶部对齐，左边或者右边对齐；如果前一个元素是标准文档流元素，则当前浮动元素浮动后其顶部会与标准流元素的<strong>底部对齐</strong>（多栏布局需要注意元素的书写位置）</p>
+<li>
+<p>浮动的排列方式也是按照流式布局，如果当前浮动元素的前一个元素也是浮动元素，则当前浮动元素浮动后会紧挨着前一个浮动元素，顶部与顶部对齐，左边或者右边对齐；如果前一个元素是标准文档流元素，则当前浮动元素浮动后其顶部会与标准流元素的<strong>底部对齐</strong>（多栏布局需要注意元素的书写位置）</p>
 </li>
-<li><p>浮动后的元素具有包裹性，未设置宽高属性，其默认宽高就是内容的宽高</p>
+<li>
+<p>浮动后的元素具有包裹性，未设置宽高属性，其默认宽高就是内容的宽高</p>
 </li>
-<li><p>浮动后的元素具有破坏性，会造成原布局的内容高度塌陷，可以通过给<strong>浮动元素的父元素</strong>设置属性<code>overflow：hidden</code>使父元素具有<strong>包裹性</strong></p>
+<li>
+<p>浮动后的元素具有破坏性，会造成原布局的内容高度塌陷，可以通过给<strong>浮动元素的父元素</strong>设置属性<code>overflow：hidden</code>使父元素具有<strong>包裹性</strong></p>
 </li>
 </ul>
-<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>给元素设置<code>clear: left | right | both</code>属性清除浮动</p>
-<pre><code class="language-html">&lt;div class=&quot;banner&quot;&gt;banner&lt;/div&gt;
-  &lt;div class=&quot;center&quot;&gt;
-    &lt;div class=&quot;left&quot;&gt;left&lt;/div&gt;
-    &lt;div class=&quot;right&quot;&gt;right&lt;/div&gt;
-    &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;
+<h3 id="清除浮动"><a class="header-anchor" href="#清除浮动"></a>清除浮动</h3>
+<p>给元素设置<code>clear: left | right | both</code>属性清除浮动</p>
+<pre><code class="language-language-html">&lt;div class=&quot;banner&quot;&gt;banner&lt;/div&gt;
+ &lt;div class=&quot;center&quot;&gt;
+   &lt;div class=&quot;left&quot;&gt;left&lt;/div&gt;
+   &lt;div class=&quot;right&quot;&gt;right&lt;/div&gt;
+   &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;
 &lt;style&gt;
-    .banner {
-      border: 1px solid red;
-      height: 200px;
-      background-color: red;
-    }
+   .banner {
+     border: 1px solid red;
+     height: 200px;
+     background-color: red;
+   }
 
-    .center {
-      border: 1px solid yellow;
-      /* 方法一：父容器div overflow:hidden闭合浮动 */
-      overflow: hidden;
-    }
+   .center {
+     border: 1px solid yellow;
+     /* 方法一：父容器div overflow:hidden闭合浮动 */
+     overflow: hidden;
+   }
 
-    .left {
-      border: 1px solid blue;
-      height: 500px;
-      width: 100px;
-      float: left;
-      background-color: blue;
-    }
+   .left {
+     border: 1px solid blue;
+     height: 500px;
+     width: 100px;
+     float: left;
+     background-color: blue;
+   }
 
-    .right {
-      border: 1px solid lawngreen;
-      height: 600px;
-      width: 100px;
-      float: right;
-      background-color: lawngreen;
-    }
+   .right {
+     border: 1px solid lawngreen;
+     height: 600px;
+     width: 100px;
+     float: right;
+     background-color: lawngreen;
+   }
 
-    .main {
-      background-color: aqua;
-      margin: 0 104px;
-      height: 500px;
-    }
+   .main {
+     background-color: aqua;
+     margin: 0 104px;
+     height: 500px;
+   }
 
-    .footer {
-      border: 1px solid black;
-      height: 200px;
-      /* 方法二：clear清除浮动 */
-      /* clear: both; */
-      background-color: black;
-    }
-  &lt;/style&gt;</code></pre>
-<h3 id="闭合浮动与BFC"><a href="#闭合浮动与BFC" class="headerlink" title="闭合浮动与BFC"></a>闭合浮动与BFC</h3><p>闭合浮动就是触发元素的BFC（Block Formatting Context）块级格式化上下文，触发了BFC的元素就具有了包裹性，即使里面的<strong>子元素</strong>是浮动的</p>
+   .footer {
+     border: 1px solid black;
+     height: 200px;
+     /* 方法二：clear清除浮动 */
+     /* clear: both; */
+     background-color: black;
+   }
+ &lt;/style&gt;
+</code></pre>
+<h3 id="闭合浮动与BFC"><a class="header-anchor" href="#闭合浮动与BFC"></a>闭合浮动与BFC</h3>
+<p>闭合浮动就是触发元素的BFC（Block Formatting Context）块级格式化上下文，触发了BFC的元素就具有了包裹性，即使里面的<strong>子元素</strong>是浮动的</p>
 <p>触发BFC：</p>
 <ul>
-<li><p><code>float</code>属性值不为<code>none</code></p>
+<li>
+<p><code>float</code>属性值不为<code>none</code></p>
 </li>
-<li><p><code>display</code>为<code>block</code>或者<code>table</code></p>
+<li>
+<p><code>display</code>为<code>block</code>或者<code>table</code></p>
 </li>
-<li><p><code>overflow</code>属性值不为<code>visible</code></p>
+<li>
+<p><code>overflow</code>属性值不为<code>visible</code></p>
 </li>
-<li><p><code>position</code>属性值为<code>absolute</code>或者<code>fixed</code></p>
+<li>
+<p><code>position</code>属性值为<code>absolute</code>或者<code>fixed</code></p>
 </li>
-<li><p>新出的属性<code>display:flow-root</code>，兼容性差</p>
+<li>
+<p>新出的属性<code>display:flow-root</code>，兼容性差</p>
 </li>
 </ul>
-<blockquote>
+<div class="success">
 <p>触发了BFC的元素形成了一个独立的布局环境，内部布局与外部布局互不影响，里面的<strong>子元素</strong>不会影响父元素的布局，但是子元素的子元素如果是浮动的就无法包裹。</p>
-</blockquote>
+</div>
 <p><strong>BFC的常见作用：</strong></p>
 <ul>
-<li><p>解决父元素高度塌陷的问题：</p>
+<li>
+<p>解决父元素高度塌陷的问题：</p>
 <p>通常父元素的高度会被子元素撑开，如果父元素没有设置高度，子元素是浮动的话，由于子元素浮动脱离了文档流，父元素高度为0就会出现高度塌陷的问题，此时可以给父元素设置BFC使之产生独立的布局空间闭合浮动。</p>
 </li>
 </ul>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<pre><code class="language-language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
 &lt;head&gt;
@@ -275,13 +292,15 @@
   &lt;p&gt;哈哈哈哈哈&lt;/p&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
 <ul>
-<li><p>解决被浮动元素覆盖问题（两栏自适应布局）:</p>
+<li>
+<p>解决被浮动元素覆盖问题（两栏自适应布局）:</p>
 <p>浮动元素会覆盖标准文档流的兄弟元素，可以触发被遮挡元素的BFC来解决</p>
 </li>
 </ul>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<pre><code class="language-language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
 &lt;head&gt;
@@ -315,14 +334,16 @@
 
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
 <p><img src="/img/flow-float.assets/standard-flow-exec.png" alt=""></p>
 <ul>
-<li><p>结局外边距margin高度塌陷问题（高度重合）</p>
+<li>
+<p>结局外边距margin高度塌陷问题（高度重合）</p>
 <p>标准文档流中块级元素垂直方向的margin外边距不会相加而是以较大的为准，这就是margin塌陷，可以通过触发BFC来解决</p>
 </li>
 </ul>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<pre><code class="language-language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
 &lt;head&gt;
@@ -357,9 +378,11 @@
   &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
-<h4 id="clearfix清除浮动"><a href="#clearfix清除浮动" class="headerlink" title=".clearfix清除浮动"></a>.clearfix清除浮动</h4><p>以上面提到的几种方式触发BFC闭合浮动有时会出现意外的效果，现在可以用:before、:after伪元素进行清除浮动，只需要在父元素上添加以下CSS样式即可</p>
-<pre><code class="language-css">.clearfix::before, .clearfix::after {
+&lt;/html&gt;
+</code></pre>
+<h4 id="clearfix清除浮动"><a class="header-anchor" href="#clearfix清除浮动"></a>.clearfix清除浮动</h4>
+<p>以上面提到的几种方式触发BFC闭合浮动有时会出现意外的效果，现在可以用:before、:after伪元素进行清除浮动，只需要在父元素上添加以下CSS样式即可</p>
+<pre><code class="language-language-css">.clearfix::before, .clearfix::after {
       content: &quot; &quot;;/* 空格 兼容Opera浏览器 */
       display: table;
     }
@@ -371,7 +394,8 @@
 .clearfix {
       /* 兼容IE 6/7 */
       zoom: 1;
-    }</code></pre>
+    }
+</code></pre>
 
       </div>
     </div>
@@ -497,10 +521,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -518,25 +552,16 @@
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -555,6 +580,15 @@
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -596,16 +630,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -616,28 +640,6 @@
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -671,6 +673,15 @@
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -686,12 +697,25 @@
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

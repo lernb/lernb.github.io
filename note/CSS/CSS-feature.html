@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,16 +146,21 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="CSS-层叠性"><a href="#CSS-层叠性" class="headerlink" title="CSS 层叠性"></a>CSS 层叠性</h2><ul>
-<li><p>概念</p>
+        <h2 id="CSS-层叠性"><a class="header-anchor" href="#CSS-层叠性"></a>CSS 层叠性</h2>
+<ul>
+<li>
+<p>概念</p>
 <p>层叠性是指多种样式的叠加<a id="more"></a>，如果多个样式设置到同一个元素上，这个时候一个属性就会将另一个属性层叠掉。</p>
 </li>
-<li><p>原则</p>
+<li>
+<p>原则</p>
 <p>同一个元素设置多个样式造成样式冲突，遵循的原则是<strong>就近原则</strong>，执行最近的样式。</p>
 </li>
 </ul>
-<h2 id="CSS-继承性"><a href="#CSS-继承性" class="headerlink" title="CSS 继承性"></a>CSS 继承性</h2><ul>
-<li><p>概念</p>
+<h2 id="CSS-继承性"><a class="header-anchor" href="#CSS-继承性"></a>CSS 继承性</h2>
+<ul>
+<li>
+<p>概念</p>
 <p>子标签会继承父元素的一些样式，如文本颜色和字体大小</p>
 </li>
 </ul>
@@ -166,15 +171,18 @@
 <li>子元素可以继承父元素的样式比如：<code>text-</code>、<code>font-</code>、<code>line-</code>这些开头的样式，以及<code>color</code>样式</li>
 </ul>
 </blockquote>
-<h2 id="CSS-选择器优先级（重要）"><a href="#CSS-选择器优先级（重要）" class="headerlink" title="CSS 选择器优先级（重要）"></a>CSS 选择器优先级（重要）</h2><ul>
-<li><p>概念</p>
+<h2 id="CSS-选择器优先级（重要）"><a class="header-anchor" href="#CSS-选择器优先级（重要）"></a>CSS 选择器优先级（重要）</h2>
+<ul>
+<li>
+<p>概念</p>
 <p>多个样式规则应用在同一个元素上，这时：</p>
 <ul>
 <li>选择器相同，执行CSS层叠性规则，<strong>就近原则</strong></li>
 <li>选择器不同，计算选择优先级权重</li>
 </ul>
 </li>
-<li><p>权重计算</p>
+<li>
+<p>权重计算</p>
 <table>
 <thead>
 <tr>
@@ -182,7 +190,8 @@
 <th>计算权重</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>样式继承或通配符*</td>
 <td>0,0,0,0</td>
 </tr>
@@ -199,14 +208,15 @@
 <td>0,1,0,0</td>
 </tr>
 <tr>
-<td>内联样式style=””</td>
+<td>内联样式style=“”</td>
 <td>1,0,0,0</td>
 </tr>
 <tr>
 <td>!important</td>
 <td>∞ 无穷大</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <blockquote>
 <p>权重顺序：内联样式,id选择器,类选择器（包含伪类）,标签选择器</p>
 <ul>
@@ -214,14 +224,15 @@
 </ul>
 </blockquote>
 </li>
-<li><p>权重叠加</p>
+<li>
+<p>权重叠加</p>
 <p>当使用复合选择器，后代选择器等多个选择器组合时，会出现选择器权重叠加，即权重相加，如：</p>
 <ul>
-<li>div ul li —-&gt; 0,0,0,3</li>
-<li>.nav ul li —-&gt; 0,0,1,2</li>
-<li>a:hover —-&gt; 0,0,1,1</li>
+<li>div ul li ----&gt; 0,0,0,3</li>
+<li>.nav ul li ----&gt; 0,0,1,2</li>
+<li>a:hover ----&gt; 0,0,1,1</li>
 </ul>
-<blockquote>
+<div class="warning">
 <p>注意：</p>
 <ul>
 <li>权重数位之间没有进制关系，比如：0,0,0,5 + 0,0,0,5 = 0,0,0,10，而不是0,0,1,0</li>
@@ -230,7 +241,7 @@
 <li>权重相同时则根据层叠性的就近原则</li>
 <li><code>&lt;a&gt;&lt;/a&gt;</code>标签与<code>h</code>标题这两个特殊标签在浏览器中有自己特殊的样式，所以有时需要单独设置样式</li>
 </ul>
-</blockquote>
+</div>
 </li>
 </ul>
 
@@ -358,10 +369,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -379,25 +400,16 @@
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -416,6 +428,15 @@
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -457,16 +478,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -477,28 +488,6 @@
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -532,6 +521,15 @@
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -547,12 +545,25 @@
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

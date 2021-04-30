@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,8 +146,9 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h2><p><strong>创建表格的基本语法：</strong><a id="more"></a></p>
-<pre><code class="language-html">&lt;table&gt;
+        <h2 id="创建表格"><a class="header-anchor" href="#创建表格"></a>创建表格</h2>
+<p><strong>创建表格的基本语法：</strong><a id="more"></a></p>
+<pre><code class="language-language-html">&lt;table&gt;
   &lt;tr&gt;  
     &lt;th&gt;表头&lt;/th&gt;
     ...
@@ -157,7 +158,8 @@
     ...
   &lt;/tr&gt;
   ...
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
 <p>在上面的语法中包含基本的三对HTML标签，分别为<code>table</code>、<code>tr</code>、<code>td</code> ，他们是创建表格的基本标签，缺一不可，下面对他们进行具体地解释</p>
 <ol>
 <li><code>table</code>用于定义一个表格标签。</li>
@@ -166,153 +168,167 @@
 <li>字母 <code>td</code> 指表格数据（table data），即数据单元格的内容，现在我们明白，表格最合适的地方就是用来存储数据的。</li>
 </ol>
 <p><img src="/img/HTML-table.assets/table%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.jpg" alt=""></p>
-<blockquote>
+<div class="tip">
 <p><strong>总结：</strong></p>
 <ul>
 <li>表格的主要目的是用来显示特殊数据的</li>
 <li>一个完整的表格有表格标签（table），行标签（tr），单元格标签（td）组成，没有列的标签</li>
 </ul>
 <ul>
-<li><tr></tr>中只能嵌套<td></td> 类的单元格</li>
-<li><td></td>标签，他就像一个容器，可以容纳所有的元素
+<li>
+<tr></tr>中只能嵌套<td></td> 类的单元格
+</li>
+<li>
+<td></td>标签，他就像一个容器，可以容纳所有的元素
 </li>
 </ul>
-</blockquote>
-<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><p>表格有部分属性我们不常用，这里重点记住<code>cellspacing</code>、<code>cellpadding</code>。</p>
+</div>
+<h2 id="表格属性"><a class="header-anchor" href="#表格属性"></a>表格属性</h2>
+<p>表格有部分属性我们不常用，这里重点记住<code>cellspacing </code>、<code>cellpadding</code>。</p>
 <p><img src="/img/HTML-table.assets/tt.png" alt=""></p>
 <p>我们经常有个说法，是三参为0，平时开发的我们这三个参数 <code>border</code>、 <code>cellpadding</code>、 <code>cellspacing</code> 为<code>0</code>。</p>
 <p><img src="/img/HTML-table.assets/table%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7.png" alt=""></p>
 <p><strong>案例1：</strong></p>
 <p><img src="/img/HTML-table.assets/%E8%A1%A8%E6%A0%BC%E6%95%88%E6%9E%9C01.png" alt=""></p>
-<pre><code class="language-html">&lt;table width=&quot;500&quot; height=&quot;300&quot; border=&quot;1&quot; cellpadding=&quot;20&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
+<pre><code class="language-language-html">&lt;table width=&quot;500&quot; height=&quot;300&quot; border=&quot;1&quot; cellpadding=&quot;20&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
    &lt;tr&gt;  &lt;th&gt;姓名&lt;/th&gt;   &lt;th&gt;性别&lt;/th&gt; &lt;th&gt;年龄&lt;/th&gt;  &lt;/tr&gt;
    &lt;tr&gt;  &lt;td&gt;刘德华&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;55&lt;/td&gt;  &lt;/tr&gt;
    &lt;tr&gt;  &lt;td&gt;郭富城&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;52&lt;/td&gt;  &lt;/tr&gt;
    &lt;tr&gt;  &lt;td&gt;张学友&lt;/td&gt; &lt;td&gt;男&lt;/td&gt; &lt;td&gt;58&lt;/td&gt;  &lt;/tr&gt;
    &lt;tr&gt;  &lt;td&gt;黎明&lt;/td&gt;   &lt;td&gt;男&lt;/td&gt; &lt;td&gt;18&lt;/td&gt;  &lt;/tr&gt;
    &lt;tr&gt;  &lt;td&gt;刘晓庆&lt;/td&gt; &lt;td&gt;女&lt;/td&gt; &lt;td&gt;63&lt;/td&gt;  &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-<h2 id="表头单元格标签th"><a href="#表头单元格标签th" class="headerlink" title="表头单元格标签th"></a>表头单元格标签<code>th</code></h2><ul>
-<li><p>作用：</p>
+&lt;/table&gt;
+</code></pre>
+<h2 id="表头单元格标签th"><a class="header-anchor" href="#表头单元格标签th"></a>表头单元格标签<code>th</code></h2>
+<ul>
+<li>作用：
 <ul>
 <li>一般表头单元格位于表格的第一行或第一列，并且文本加粗居中</li>
 </ul>
 </li>
-<li><p>语法：</p>
+<li>语法：
 <ul>
-<li>只需用表头标签<code>&lt;th&gt;&lt;/th&gt;</code>替代相应的单元格标签<code>&lt;td&gt;&lt;/td&gt;</code>即可。 </li>
+<li>只需用表头标签<code>&lt;th&gt;&lt;/th&gt;</code>替代相应的单元格标签<code>&lt;td&gt;&lt;/td&gt;</code>即可。</li>
 </ul>
-<p><img src="/img/HTML-table.assets/th.png" alt=""></p>
 </li>
 </ul>
+<p><img src="/img/HTML-table.assets/th.png" alt=""></p>
 <p><strong>案例2：</strong></p>
-<p>​    效果图</p>
+<p>​	效果图</p>
 <p><img src="/img/HTML-table.assets/tht.png" alt=""></p>
-<p>​    代码：</p>
+<p>​	代码：</p>
 <hr>
-<pre><code class="language-html">&lt;table width=&quot;500&quot; border=&quot;1&quot; align=&quot;center&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
-        &lt;tr&gt;  
-            &lt;th&gt;姓名&lt;/th&gt; 
-            &lt;th&gt;性别&lt;/th&gt;
-            &lt;th&gt;电话&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;小王&lt;/td&gt;
-            &lt;td&gt;女&lt;/td&gt;
-            &lt;td&gt;110&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;小明&lt;/td&gt;
-            &lt;td&gt;男&lt;/td&gt;
-            &lt;td&gt;120&lt;/td&gt;
-        &lt;/tr&gt;    
-    &lt;/table&gt;</code></pre>
-<blockquote>
+<pre><code class="language-language-html">&lt;table width=&quot;500&quot; border=&quot;1&quot; align=&quot;center&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+		&lt;tr&gt;  
+			&lt;th&gt;姓名&lt;/th&gt; 
+			&lt;th&gt;性别&lt;/th&gt;
+			&lt;th&gt;电话&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;小王&lt;/td&gt;
+			&lt;td&gt;女&lt;/td&gt;
+			&lt;td&gt;110&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;小明&lt;/td&gt;
+			&lt;td&gt;男&lt;/td&gt;
+			&lt;td&gt;120&lt;/td&gt;
+		&lt;/tr&gt;	
+	&lt;/table&gt;
+</code></pre>
+<div class="tip">
 <p><code>th</code>也是一个单元格，只不过和普通的<code>td</code>单元格不一样，它会让自己里面的文字居中且加粗</p>
-</blockquote>
-<h2 id="表格标题caption"><a href="#表格标题caption" class="headerlink" title="表格标题caption"></a>表格标题<code>caption</code></h2><p><strong>定义和用法：</strong></p>
-<pre><code class="language-html">&lt;table&gt;
+</div>
+<h2 id="表格标题caption"><a class="header-anchor" href="#表格标题caption"></a>表格标题<code>caption</code></h2>
+<p><strong>定义和用法：</strong></p>
+<pre><code class="language-language-html">&lt;table&gt;
    &lt;caption&gt;我是表格标题&lt;/caption&gt;
-&lt;/table&gt;</code></pre>
-<blockquote>
-<p><strong>注意：</strong></p>
-<ol>
-<li><code>caption</code>元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</li>
-<li><code>caption</code>标签必须紧随 <code>table</code> 标签之后。</li>
-<li>这个标签只存在表格里面才有意义。</li>
-</ol>
-</blockquote>
-<h2 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h2><p>合并单元格是我们比较常用的一个操作，但是不会合并的很复杂。</p>
-<h3 id="合并单元格2种方式"><a href="#合并单元格2种方式" class="headerlink" title="合并单元格2种方式"></a>合并单元格2种方式</h3><ul>
-<li>跨行合并：<code>rowspan=&quot;合并单元格的个数&quot;</code></li>
+&lt;/table&gt;
+</code></pre>
+<div class="warning">
+<p><strong>注意：</strong><br>
+<code>caption </code>元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上；<br>
+<code>caption </code>标签必须紧随 <code>table</code> 标签之后；<br>
+这个标签只存在表格里面才有意义。</p>
+</div>
+<h2 id="合并单元格"><a class="header-anchor" href="#合并单元格"></a>合并单元格</h2>
+<p>合并单元格是我们比较常用的一个操作，但是不会合并的很复杂。</p>
+<h3 id="合并单元格2种方式"><a class="header-anchor" href="#合并单元格2种方式"></a>合并单元格2种方式</h3>
+<ul>
+<li>跨行合并：<code>rowspan=&quot;合并单元格的个数&quot; </code></li>
 <li>跨列合并：<code>colspan=&quot;合并单元格的个数&quot;</code></li>
 </ul>
-<h3 id="合并单元格顺序"><a href="#合并单元格顺序" class="headerlink" title="合并单元格顺序"></a>合并单元格顺序</h3><blockquote>
+<h3 id="合并单元格顺序"><a class="header-anchor" href="#合并单元格顺序"></a>合并单元格顺序</h3>
+<div class="success">
 <p>合并的顺序按照<strong>先上后下，先左后右</strong>的顺序</p>
-</blockquote>
+</div>
 <p>跟我们以前学习汉字的书写顺序完全一致。</p>
-<h3 id="合并单元格三步曲"><a href="#合并单元格三步曲" class="headerlink" title="合并单元格三步曲"></a>合并单元格三步曲</h3><ol>
+<h3 id="合并单元格三步曲"><a class="header-anchor" href="#合并单元格三步曲"></a>合并单元格三步曲</h3>
+<ol>
 <li>先确定是跨行还是跨列合并</li>
 <li>根据 先上 后下   先左  后右的原则找到目标单元格    然后写上 合并方式 还有 要合并的单元格数量  比如 ： <code>&lt;td colspan=&quot;3&quot;&gt;&lt;/td&gt;</code></li>
-<li>删除多余的单元格 单元格      </li>
+<li>删除多余的单元格 单元格</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<h2 id="总结"><a class="header-anchor" href="#总结"></a>总结</h2>
+<table>
 <thead>
 <tr>
 <th>标签名</th>
-<th align="left">定义</th>
-<th align="left">说明</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>&lt;table&gt;&lt;/table&gt;</code></td>
-<td align="left">表格标签</td>
-<td align="left">就是一个四方的盒子</td>
+<td style="text-align:left">表格标签</td>
+<td style="text-align:left">就是一个四方的盒子</td>
 </tr>
 <tr>
 <td><code>&lt;tr&gt;&lt;/tr&gt;</code></td>
-<td align="left">表格行标签</td>
-<td align="left">行标签要再table标签内部才有意义</td>
+<td style="text-align:left">表格行标签</td>
+<td style="text-align:left">行标签要再table标签内部才有意义</td>
 </tr>
 <tr>
 <td><code>&lt;td&gt;&lt;/td&gt;</code></td>
-<td align="left">单元格标签</td>
-<td align="left">单元格标签是个容器级元素，可以放任何东西</td>
+<td style="text-align:left">单元格标签</td>
+<td style="text-align:left">单元格标签是个容器级元素，可以放任何东西</td>
 </tr>
 <tr>
 <td><code>&lt;th&gt;&lt;/th&gt;</code></td>
-<td align="left">表头单元格标签</td>
-<td align="left">它还是一个单元格，但是里面的文字会居中且加粗</td>
+<td style="text-align:left">表头单元格标签</td>
+<td style="text-align:left">它还是一个单元格，但是里面的文字会居中且加粗</td>
 </tr>
 <tr>
 <td><code>&lt;caption&gt;&lt;/caption&gt;</code></td>
-<td align="left">表格标题标签</td>
-<td align="left">表格的标题，跟着表格一起走，和表格居中对齐</td>
+<td style="text-align:left">表格标题标签</td>
+<td style="text-align:left">表格的标题，跟着表格一起走，和表格居中对齐</td>
 </tr>
 <tr>
 <td><code>clospan</code> 和 <code>rowspan</code></td>
-<td align="left">合并属性</td>
-<td align="left">用来合并单元格的</td>
+<td style="text-align:left">合并属性</td>
+<td style="text-align:left">用来合并单元格的</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ol>
 <li>表格提供了HTML 中定义表格式数据的方法。</li>
 <li>表格中由行中的单元格组成。</li>
 <li>表格中没有列元素，列的个数取决于行的单元格个数。</li>
 </ol>
-<h2 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h2><h3 id="表格划分结构"><a href="#表格划分结构" class="headerlink" title="表格划分结构"></a>表格划分结构</h3><blockquote>
+<h2 id="拓展阅读"><a class="header-anchor" href="#拓展阅读"></a>拓展阅读</h2>
+<h3 id="表格划分结构"><a class="header-anchor" href="#表格划分结构"></a>表格划分结构</h3>
+<div class="tip">
 <p>对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用<code>thead</code>、<code>tbody</code>、<code>tfoot</code>来标注， 这样更好的分清表格结构</p>
-</blockquote>
+</div>
 <p><img src="/img/HTML-table.assets/thead.png" alt=""></p>
-<blockquote>
-<p><strong>注意：</strong></p>
-<ol>
-<li><code>&lt;thead&gt;&lt;/thead&gt;</code>：用于定义表格的头部。用来放标题之类的东西。<code>&lt;thead&gt;</code> 内部必须拥有 <code>&lt;tr&gt;</code> 标签！</li>
-<li><code>&lt;tbody&gt;&lt;/tbody&gt;</code>：用于定义表格的主体。放数据本体 。</li>
-<li><code>&lt;tfoot&gt;&lt;/tfoot&gt;</code>放表格的脚注之类。</li>
-<li>以上标签都是放到table标签中。</li>
-</ol>
-</blockquote>
+<div class="warning">
+<p><strong>注意：</strong><br>
+<code>&lt;thead&gt;&lt;/thead&gt;</code>：用于定义表格的头部。用来放标题之类的东西。<code>&lt;thead&gt;</code> 内部必须拥有 <code>&lt;tr&gt;</code> 标签！<br>
+<code>&lt;tbody&gt;&lt;/tbody&gt;</code>：用于定义表格的主体。放数据本体 。<br>
+<code>&lt;tfoot&gt;&lt;/tfoot&gt;</code>放表格的脚注之类。<br>
+以上标签都是放到table标签中。</p>
+</div>
 
       </div>
     </div>
@@ -438,10 +454,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -459,25 +485,16 @@
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -496,6 +513,15 @@
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -537,16 +563,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -557,28 +573,6 @@
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -612,6 +606,15 @@
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -627,12 +630,25 @@
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -478,31 +478,33 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <blockquote>
+        <div class="warning">
 <p>安装脚本不建议用于生产环境</p>
-</blockquote>
+</div>
 <p>Linux VPS主机一键全自动DD安装纯净Debian/Ubuntu/CentOS和Windows操作系统<a id="more"></a>，Linux的ISO建议直接到官网上下载，而Windows由于版权的问题一般来说可以使用热心网友制作的DD包。</p>
-<h2 id="安装Linux系统"><a href="#安装Linux系统" class="headerlink" title="安装Linux系统"></a>安装Linux系统</h2><blockquote>
+<h2 id="安装Linux系统"><a class="header-anchor" href="#安装Linux系统"></a>安装Linux系统</h2>
+<div class="success">
 <p>全自动安装后root密码：<code>MoeClub.org</code>，安装完成后最好修改为自己的密码。</p>
 <p>全自动安装CentOS时默认提供VNC功能，可使用VNC Viewer查看进度，VNC端口为1或者5901，系统安装后自动删除。</p>
 <p>目前CentOS系统只支持任意版本重装为CentOS 6.x及以下版本。<strong>注意：OpenVZ构架不适用。</strong></p>
-</blockquote>
-<h3 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h3><pre><code class="language-bash">#Debian/Ubuntu系统:
+</div>
+<h3 id="安装脚本"><a class="header-anchor" href="#安装脚本"></a>安装脚本</h3>
+<pre><code class="language-language-bash">#Debian/Ubuntu系统:
 apt-get update
-
+ 
 #RedHat/CentOS系统:
 yum update
-
+ 
 #安装必需软件:
 #Debian/Ubuntu:
 apt-get install -y xz-utils openssl gawk file
-
+ 
 #RedHat/CentOS:
 yum install -y xz openssl gawk file
-
+ 
 #下载InstallNET.sh安装脚本：
-wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
-
+wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' &amp;&amp; chmod a+x InstallNET.sh
+ 
 #脚本使用方法：
 bash InstallNET.sh   -d/--debian [dist-name]
                      -u/--ubuntu [dist-name]
@@ -512,41 +514,49 @@ bash InstallNET.sh   -d/--debian [dist-name]
                      -apt/-yum/--mirror
                      -dd/--image
                      -a/-m
-
+ 
 # dist-name: 发行版本代号
 # dist-version: 发行版本号
 # -apt/-yum/--mirror : 使用定义镜像
-# -a/-m : 询问是否能进入VNC自行操作. -a 为不提示(一般用于全自动安装), -m 为提示。</code></pre>
-<h3 id="使用脚本自动安装Debian"><a href="#使用脚本自动安装Debian" class="headerlink" title="使用脚本自动安装Debian"></a>使用脚本自动安装Debian</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
-wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
-
+# -a/-m : 询问是否能进入VNC自行操作. -a 为不提示(一般用于全自动安装), -m 为提示。
+</code></pre>
+<h3 id="使用脚本自动安装Debian"><a class="header-anchor" href="#使用脚本自动安装Debian"></a>使用脚本自动安装Debian</h3>
+<pre><code class="language-language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
+wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' &amp;&amp; chmod a+x InstallNET.sh
+ 
 #全自动安装debian 8 64位
-bash InstallNET.sh -d 8 -v 64 -a --mirror &#39;http://mirrors.ustc.edu.cn/debian/&#39;
-
+bash InstallNET.sh -d 8 -v 64 -a --mirror 'http://mirrors.ustc.edu.cn/debian/'
+ 
 #全自动安装debian 9 64位
-bash InstallNET.sh -d 9 -v 64 -a --mirror &#39;http://mirrors.ustc.edu.cn/debian/&#39;</code></pre>
-<h3 id="使用脚本自动安装CentOS"><a href="#使用脚本自动安装CentOS" class="headerlink" title="使用脚本自动安装CentOS"></a>使用脚本自动安装CentOS</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
-wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
-
+bash InstallNET.sh -d 9 -v 64 -a --mirror 'http://mirrors.ustc.edu.cn/debian/'
+</code></pre>
+<h3 id="使用脚本自动安装CentOS"><a class="header-anchor" href="#使用脚本自动安装CentOS"></a>使用脚本自动安装CentOS</h3>
+<pre><code class="language-language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
+wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' &amp;&amp; chmod a+x InstallNET.sh
+ 
 #全自动安装CentOS 6.10 64位
-bash InstallNET.sh -c 6.10 -v 64 -a --mirror &#39;http://mirror.centos.org/centos&#39;
-
+bash InstallNET.sh -c 6.10 -v 64 -a --mirror 'http://mirror.centos.org/centos'
+ 
 #全自动安装CentOS 7 64位（目前该脚本不支持）
-bash InstallNET.sh -c 7 -v 64 -a --mirror &#39;http://mirror.centos.org/centos&#39;</code></pre>
-<h3 id="使用脚本自动安装Ubuntu"><a href="#使用脚本自动安装Ubuntu" class="headerlink" title="使用脚本自动安装Ubuntu"></a>使用脚本自动安装Ubuntu</h3><pre><code class="language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
-wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
-
+bash InstallNET.sh -c 7 -v 64 -a --mirror 'http://mirror.centos.org/centos'
+</code></pre>
+<h3 id="使用脚本自动安装Ubuntu"><a class="header-anchor" href="#使用脚本自动安装Ubuntu"></a>使用脚本自动安装Ubuntu</h3>
+<pre><code class="language-language-bash">#下载InstallNET.sh安装脚本（如已下载则跳过）：
+wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' &amp;&amp; chmod a+x InstallNET.sh
+ 
 #全自动安装ubuntu 16.10 64位
-bash InstallNET.sh -d 16.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubuntu/&#39;
-
+bash InstallNET.sh -d 16.10 -v 64 -a --mirror 'http://archive.ubuntu.com/ubuntu/'
+ 
 #全自动安装ubuntu 18.10 64位
-bash InstallNET.sh -u 18.10 -v 64 -a --mirror &#39;http://archive.ubuntu.com/ubuntu/&#39;</code></pre>
-<blockquote>
+bash InstallNET.sh -u 18.10 -v 64 -a --mirror 'http://archive.ubuntu.com/ubuntu/'
+</code></pre>
+<div class="tip">
 <p>经过使用测试，本文介绍的安装脚本最好在IO读写较快的机器上使用，否则可能会出现卡死的情况。</p>
 <p>已在腾讯云轻量应用服务器通过实际测试。</p>
 <p>纯净的Debian/Ubuntu/CentOS与Windows系统安装大概需要花费半个小时的时间（实际视硬件与网络环境因素而定）</p>
-</blockquote>
-<h2 id="安装Windows系统"><a href="#安装Windows系统" class="headerlink" title="安装Windows系统"></a>安装Windows系统</h2><p>等有空再写吧。。。</p>
+</div>
+<h2 id="安装Windows系统"><a class="header-anchor" href="#安装Windows系统"></a>安装Windows系统</h2>
+<p>等有空再写吧。。。</p>
 
       </div>
     </div>

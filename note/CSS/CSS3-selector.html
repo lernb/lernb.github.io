@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -146,10 +146,11 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="CSS3-属性选择器"><a href="#CSS3-属性选择器" class="headerlink" title="CSS3 属性选择器"></a><code>CSS3</code> 属性选择器</h2><p>属性选择器列表<a id="more"></a></p>
+        <h2 id="CSS3-属性选择器"><a class="header-anchor" href="#CSS3-属性选择器"></a><code>CSS3 </code> 属性选择器</h2>
+<p>属性选择器列表<a id="more"></a></p>
 <p><img src="/img/CSS3-selector.assets/attrcanshu.png" alt=""></p>
 <p>属性选择器代码演示：</p>
-<pre><code class="language-css">button {
+<pre><code class="language-language-css">button {
   cursor: pointer;cursor: pointer;cursor: pointer;cursor: pointer;cursor: pointer;pointer;cursor: pointer;
 }
 button[disabled] {
@@ -169,11 +170,13 @@ span[class$=black] {
 
 span[class*=black] {
   color: lightseagreen;
-}</code></pre>
-<h2 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h2><p>属性列表</p>
+}
+</code></pre>
+<h2 id="结构伪类选择器"><a class="header-anchor" href="#结构伪类选择器"></a>结构伪类选择器</h2>
+<p>属性列表</p>
 <p><img src="/img/CSS3-selector.assets/jiegouweilei.png" alt=""></p>
 <p>代码演示</p>
-<pre><code class="language-css">ul li:first-child {
+<pre><code class="language-language-css">ul li:first-child {
   background-color: lightseagreen;
 }
 
@@ -183,25 +186,33 @@ ul li:last-child {
 
 ul li:nth-child(3) {
   background-color: aqua;
-}</code></pre>
-<h3 id="nth-child-参数详解"><a href="#nth-child-参数详解" class="headerlink" title="nth-child 参数详解"></a><code>nth-child</code> 参数详解</h3><p>nth-child 详解</p>
+}
+</code></pre>
+<h3 id="nth-child-参数详解"><a class="header-anchor" href="#nth-child-参数详解"></a><code>nth-child</code> 参数详解</h3>
+<p>nth-child 详解</p>
 <ul>
-<li><p>本质上是选中第几个子元素</p>
+<li>
+<p>本质上是选中第几个子元素</p>
 </li>
-<li><p>n 可以是数字、关键字、公式</p>
+<li>
+<p>n 可以是数字、关键字、公式</p>
 </li>
-<li><p>n 如果是数字，就是选中第几个</p>
+<li>
+<p>n 如果是数字，就是选中第几个</p>
 </li>
-<li><p>常见的关键字有 <code>even</code> 偶数、<code>odd</code> 奇数</p>
+<li>
+<p>常见的关键字有 <code>even</code> 偶数、<code>odd</code> 奇数</p>
 </li>
-<li><p>常见的公式如下(如果 n 是公式，则从 0 开始计算)</p>
+<li>
+<p>常见的公式如下(如果 n 是公式，则从 0 开始计算)</p>
 </li>
-<li><p>但是第 0 个元素或者超出了元素的个数会被忽略</p>
+<li>
+<p>但是第 0 个元素或者超出了元素的个数会被忽略</p>
 <p><img src="/img/CSS3-selector.assets/nthchildcanshu.png" alt=""></p>
 </li>
 </ul>
 <p>代码演示</p>
-<pre><code class="language-css">&lt;style&gt;
+<pre><code class="language-language-css">&lt;style&gt;
   /* 偶数 */
   ul li:nth-child(even) {
     background-color: aquamarine;
@@ -241,9 +252,11 @@ ul li:nth-child(3) {
   ul li:nth-child(-n + 5) {
     background-color: tan;
   }
-&lt;/style&gt;</code></pre>
-<h3 id="nth-child-和-nt-of-type-的区别"><a href="#nth-child-和-nt-of-type-的区别" class="headerlink" title="nth-child 和  nt-of-type 的区别"></a><code>nth-child</code> 和  <code>nt-of-type</code> 的区别</h3><p>代码演示</p>
-<pre><code class="language-css">&lt;style&gt;
+&lt;/style&gt;
+</code></pre>
+<h3 id="nth-child-和-nt-of-type-的区别"><a class="header-anchor" href="#nth-child-和-nt-of-type-的区别"></a><code>nth-child</code> 和  <code>nt-of-type</code> 的区别</h3>
+<p>代码演示</p>
+<pre><code class="language-language-css">&lt;style&gt;
   div :nth-child(1) {
     background-color: lightblue;
   }
@@ -259,7 +272,8 @@ ul li:nth-child(3) {
   div span:nth-of-type(3) {
     background-color: #fff;
   }
-&lt;/style&gt;</code></pre>
+&lt;/style&gt;
+</code></pre>
 <blockquote>
 <p>区别：</p>
 <ul>
@@ -267,7 +281,8 @@ ul li:nth-child(3) {
 <li><code>nth-of-type</code>  选择指定类型的元素</li>
 </ul>
 </blockquote>
-<h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2><p>伪类选择器</p>
+<h2 id="伪元素选择器"><a class="header-anchor" href="#伪元素选择器"></a>伪元素选择器</h2>
+<p>伪类选择器</p>
 <p><img src="/img/CSS3-selector.assets/weiyuansu.png" alt=""></p>
 <p>伪类选择器注意事项</p>
 <ul>
@@ -278,7 +293,7 @@ ul li:nth-child(3) {
 <li>伪元素和标签选择器一样，权重为 1</li>
 </ul>
 <p>代码演示</p>
-<pre><code class="language-css">&lt;style&gt;
+<pre><code class="language-language-css">&lt;style&gt;
     div {
       width: 100px;
       height: 100px;
@@ -293,17 +308,19 @@ ul li:nth-child(3) {
       display: inline-block;
     }
     div::after {
-      content: &#39;德&#39;;
+      content: '德';
       background-color: lightskyblue;
     }
 
     div::before {
-      content: &#39;道&#39;;
+      content: '道';
       background-color: mediumaquamarine;
     }
-  &lt;/style&gt;</code></pre>
-<h3 id="伪元素的案例"><a href="#伪元素的案例" class="headerlink" title="伪元素的案例"></a>伪元素的案例</h3><p>添加字体图标</p>
-<pre><code class="language-css">p {
+  &lt;/style&gt;
+</code></pre>
+<h3 id="伪元素的案例"><a class="header-anchor" href="#伪元素的案例"></a>伪元素的案例</h3>
+<p>添加字体图标</p>
+<pre><code class="language-language-css">p {
    width: 220px;
    height: 22px;
    border: 1px solid lightseagreen;
@@ -311,12 +328,13 @@ ul li:nth-child(3) {
    position: relative;
 }
 p::after {
-  content: &#39;\ea50&#39;;
-  font-family: &#39;icomoon&#39;;
+  content: '\ea50';
+  font-family: 'icomoon';
   position: absolute;
   top: -1px;
   right: 10px;
-}</code></pre>
+}
+</code></pre>
 
       </div>
     </div>
@@ -442,10 +460,20 @@ p::after {
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         <h3 class="h3T">HTML</h3>
         <li>
           
-          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          <a href="/note/HTML/HTML-form.html">HTML表单</a>
           
         </li>
       
@@ -463,25 +491,16 @@ p::after {
         <h3 class="h3T">HTML</h3>
         <li>
           
+          <a href="/note/HTML/Web-standard-browsers.html">Web标准与浏览器</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
           <a href="/note/HTML/HTML5-tag.html">HTML5新增标签</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/HTML-form.html">HTML表单</a>
-          
-        </li>
-      
-    
-      
-        <h3 class="h3T">HTML</h3>
-        <li>
-          
-          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -500,6 +519,15 @@ p::after {
         <li>
           
           <a href="/note/HTML/html5-app-cache.html">HTML5 应用程序缓存</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">HTML</h3>
+        <li>
+          
+          <a href="/note/HTML/html5-draganddrop.html">HTML5 拖放</a>
           
         </li>
       
@@ -541,16 +569,6 @@ p::after {
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         <h3 class="h3T">HTML</h3>
         <li>
           
@@ -561,28 +579,6 @@ p::after {
     
   </ul>
   <ul class="noteUl">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -616,6 +612,15 @@ p::after {
         <h3 class="h3T">CSS</h3> 
         <li>
           
+          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
+          
+        </li>
+      
+    
+      
+        <h3 class="h3T">CSS</h3> 
+        <li>
+          
           <a href="/note/CSS/CSS32D-transform.html">CSS3 2D转换</a>
           
         </li>
@@ -631,12 +636,25 @@ p::after {
       
     
       
-        <h3 class="h3T">CSS</h3> 
-        <li>
-          
-          <a href="/note/CSS/CSS3D-transform.html">CSS3 3D转换</a>
-          
-        </li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       

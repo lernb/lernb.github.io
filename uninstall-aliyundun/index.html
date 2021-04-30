@@ -38,7 +38,7 @@
   <link href="https://blog.lernb.com/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="https://blog.lernb.com/css/reset.css">
   <link rel="stylesheet" href="https://blog.lernb.com/css/cmFont.css">
-  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0430">
+  <link rel="stylesheet" href="https://blog.lernb.com/css/lernb20201012.css?v=0501">
   <link rel="stylesheet" href="https://blog.lernb.com/css/prism20200920.css?v=0427">
 </head>
 
@@ -478,21 +478,28 @@
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="为什么要卸载"><a href="#为什么要卸载" class="headerlink" title="为什么要卸载"></a>为什么要卸载</h2><p>你懂的😉<a id="more"></a>。</p>
-<h2 id="开始卸载"><a href="#开始卸载" class="headerlink" title="开始卸载"></a>开始卸载</h2><blockquote>
+        <h2 id="为什么要卸载"><a class="header-anchor" href="#为什么要卸载"></a>为什么要卸载</h2>
+<p>你懂的😉<a id="more"></a>。</p>
+<h2 id="开始卸载"><a class="header-anchor" href="#开始卸载"></a>开始卸载</h2>
+<div class="warning">
 <p>卸载操作前最好进行备份</p>
-</blockquote>
-<h3 id="卸载阿里云云盾监控"><a href="#卸载阿里云云盾监控" class="headerlink" title="卸载阿里云云盾监控"></a>卸载阿里云云盾监控</h3><pre><code class="language-bash">wget http://update.aegis.aliyun.com/download/uninstall.sh
+</div>
+<h3 id="卸载阿里云云盾监控"><a class="header-anchor" href="#卸载阿里云云盾监控"></a>卸载阿里云云盾监控</h3>
+<pre><code class="language-language-bash">wget http://update.aegis.aliyun.com/download/uninstall.sh
 chmod +x uninstall.sh
 ./uninstall.sh
 
 wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
 chmod +x quartz_uninstall.sh
-./quartz_uninstall.sh</code></pre>
-<h3 id="清除残留文件"><a href="#清除残留文件" class="headerlink" title="清除残留文件"></a>清除残留文件</h3><pre><code class="language-bash">pkill aliyun-service
+./quartz_uninstall.sh
+</code></pre>
+<h3 id="清除残留文件"><a class="header-anchor" href="#清除残留文件"></a>清除残留文件</h3>
+<pre><code class="language-language-bash">pkill aliyun-service
 rm -rf /etc/init.d/agentwatch /usr/sbin/aliyun-service
-rm -rf /usr/local/aegis*</code></pre>
-<h3 id="屏蔽云盾IP段"><a href="#屏蔽云盾IP段" class="headerlink" title="屏蔽云盾IP段"></a>屏蔽云盾IP段</h3><pre><code class="language-bash">iptables -I INPUT -s 140.205.201.0/28 -j DROP
+rm -rf /usr/local/aegis*
+</code></pre>
+<h3 id="屏蔽云盾IP段"><a class="header-anchor" href="#屏蔽云盾IP段"></a>屏蔽云盾IP段</h3>
+<pre><code class="language-language-bash">iptables -I INPUT -s 140.205.201.0/28 -j DROP
 iptables -I INPUT -s 140.205.201.16/29 -j DROP
 iptables -I INPUT -s 140.205.201.32/28 -j DROP
 iptables -I INPUT -s 140.205.225.192/29 -j DROP
@@ -504,7 +511,8 @@ iptables -I INPUT -s 140.205.225.205/32 -j DROP
 iptables -I INPUT -s 140.205.225.195/32 -j DROP
 iptables -I INPUT -s 140.205.225.204/32 -j DROP
 iptables -I INPUT -s 140.205.201.0/24 -j DROP
-iptables -I INPUT -s 140.205.225.0/24 -j DROP</code></pre>
+iptables -I INPUT -s 140.205.225.0/24 -j DROP
+</code></pre>
 <p>至此卸载完成</p>
 
       </div>
