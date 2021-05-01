@@ -966,7 +966,8 @@ strong {
 .p-info-title .u-title .uname {
   font-size: 16px;
   color: #8b93a9;
-  font-family: cmFont;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-weight: bold;
 }
 
 .p-info-title .u-title .post-date {
