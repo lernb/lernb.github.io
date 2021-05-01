@@ -2314,6 +2314,10 @@ html {
   -moz-user-select: none;
 }
 
+.bar .post-title-menu .m-hTitle.h2Title {
+  font-weight: bold;
+}
+
 .bar .post-title-menu a:hover {
   background-color: #ebedef;
 }
