@@ -694,7 +694,7 @@ strong {
 
 .container {
   width: 100%;
-  background-color: #fff;
+  background-color: #fdfdfd;
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -2451,7 +2451,7 @@ html {
   background-color: #fff;
   /* padding: 0 70px; */
   /* padding: 30px 50px 40px; */
-  /* box-shadow: 0 0 10px 0px rgba(154, 154, 154, 0.12); */
+  box-shadow: 0 0 5px 0px rgba(154, 154, 154, 0.12);
   text-justify: inter-ideograph;
   text-align: justify;
   word-break: normal;
@@ -3400,6 +3400,9 @@ code {
   /* .wrap .banner-back {
     display: none;
   } */
+  .container {
+    background-color: #fff;
+  }
   #pageNav .extend {
     font-size: 1.4rem;
   }
