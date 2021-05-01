@@ -2257,12 +2257,12 @@ html {
 .bar .post-title-menu-flag {
   /* max-height: 650px; */
   padding: 15px;
-  background: #fafafa;
+  background: #f6f8fa;
   /* overflow-x: hidden; */
 }
 
 .bar .post-title-content {
-  max-height: 650px;
+  max-height: 600px;
   padding-right: 5px;
   overflow: auto;
 }
@@ -2334,9 +2334,9 @@ html {
   transform: initial;
 }
 
-.bar .post-title-menu>li>a {
+/* .bar .post-title-menu>li>a {
   font-weight: bold;
-}
+} */
 
 .bar .post-title-menu .aHover {
   background-color: #ebedef;
@@ -2722,7 +2722,7 @@ html {
 .post-wrap .post-text {
   line-height: 1.9;
   color: #212529;
-  font-size: 18px;
+  font-size: 17px;
   /* overflow: hidden; */
 }
 
