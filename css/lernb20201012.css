@@ -694,15 +694,11 @@ strong {
 
 .container {
   width: 100%;
-  background-color: #fdfdfd;
+  background-color: #fff;
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   box-shadow: 0 -11px 18px -6px rgb(154 154 154 / 25%);
-}
-
-.note-container {
-  background-color: #fff;
 }
 
 .banner-back {
@@ -2454,17 +2450,12 @@ html {
 .post-wrap .post {
   background-color: #fff;
   /* padding: 0 70px; */
-  padding: 35px 45px 40px;
-  box-shadow: 0 0 5px 0px rgba(154, 154, 154, 0.12);
+  /* padding: 35px 45px 40px;
+  box-shadow: 0 0 5px 0px rgba(154, 154, 154, 0.12); */
   text-justify: inter-ideograph;
   text-align: justify;
   word-break: normal;
   word-wrap: break-word;
-}
-
-.note-container .post-wrap .post {
-  padding: 0;
-  box-shadow: none;
 }
 
 .post-wrap .post .post-h-banner {
