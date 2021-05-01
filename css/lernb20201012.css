@@ -673,7 +673,7 @@
 /* S common */
 
 body {
-  font-family: "Microsoft YaHei", "PingFang SC", "Open Sans", Arial, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   margin: 0;
   padding: 0;
 }
@@ -2961,7 +2961,7 @@ code {
   border-radius: 6px;
   white-space: nowrap;
   font-size: 15px;
-  font-family: cmFont !important;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
 }
 
 .post-text pre {
