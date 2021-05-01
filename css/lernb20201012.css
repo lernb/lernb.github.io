@@ -701,6 +701,10 @@ strong {
   box-shadow: 0 -11px 18px -6px rgb(154 154 154 / 25%);
 }
 
+.note-container {
+  background-color: #fff;
+}
+
 .banner-back {
   position: relative;
   /* width: 1200px; */
@@ -2456,6 +2460,11 @@ html {
   text-align: justify;
   word-break: normal;
   word-wrap: break-word;
+}
+
+.note-container .post-wrap .post {
+  padding: 0;
+  box-shadow: none;
 }
 
 .post-wrap .post .post-h-banner {
