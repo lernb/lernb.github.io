@@ -2887,7 +2887,7 @@ html {
   position: relative;
   /* display: inline-block; */
   margin: 35px 0 20px;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.6;
 }
 
@@ -2915,7 +2915,7 @@ html {
 
 .post-wrap .post-text h3 {
   /* display: block; */
-  font-size: 25px;
+  font-size: 24px;
   line-height: 27px;
   margin: 30px 0 20px;
   /* background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%); */
@@ -2961,7 +2961,7 @@ code {
   background-color: #1b1f230d;
   border-radius: 6px;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 88%;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
 }
 
@@ -3537,10 +3537,19 @@ code {
   .post .m-tit h1 {
     width: 90%;
     margin: 0 auto;
-    font-size: 28px;
+    font-size: 2.6rem;
     color: #222;
     font-weight: bold;
     /* margin-left: -6px; */
+  }
+  .post .post-text h2 {
+    font-size: 2.3rem;
+  }
+  .post .post-text h3 {
+    font-size: 2.1rem;
+  }
+  .post .post-text h4 {
+    font-size: 1.9rem;
   }
   .post .m-tit .ph-cate {
     display: none;
