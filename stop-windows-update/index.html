@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      获取IPv6并开启64位短码地址 - LERNB | 网络日志
+      如何彻底禁用Windows 10系统自动更新 - LERNB | 网络日志
         
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -348,14 +348,14 @@
         <!--  -->
         <div class="post-wrap">
   <div class="post">
-    <!-- <div class="post-h-banner" data-img="https://gitee.com/lernb/pic-host/raw/master/img/i1.jpg"> -->
+    <!-- <div class="post-h-banner" data-img="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png"> -->
       <!-- <div class="overlaylay"></div> -->
       <div class="m-tit">
         <div class="m-tit-con">
           <div class="ph-cate">
             <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
           </div>
-          <h1>获取IPv6并开启64位短码地址</h1>
+          <h1>如何彻底禁用Windows 10系统自动更新</h1>
         </div>
       </div>
     <!-- </div> -->
@@ -367,46 +367,56 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2019-07-15</span>&nbsp;&nbsp;
-            
-            <a id="reslink" href="https://www.ithome.com/0/397/448.htm" target="_blank" title="本文转编自：IT之家">
-
-              <span class="res">转</span><span class="res-link">IT之家</span>
-            </a>
+          <div class="post-date"><span>2020-10-05</span>&nbsp;&nbsp;
             
           </div>
         </div>
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <p>IPv6完整地址是128位的，本文的方法可以获取IPv6/64位短码地址，而且可设置租用7天（7天内为静态，可尝试用于建站）<a id="more"></a>。</p>
-<h2 id="获取IPv6"><a class="header-anchor" href="#获取IPv6"></a>获取IPv6</h2>
-<h3 id="第一步"><a class="header-anchor" href="#第一步"></a>第一步</h3>
-<p>需要将光猫开启IPv4+v6双协议，这里使用的是<strong>桥接模式</strong>。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i1.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第二步"><a class="header-anchor" href="#第二步"></a>第二步</h3>
-<p>打开网络-&gt;用户侧管理-&gt;IPv6设置。设置成如图所示即可。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i2.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第三步"><a class="header-anchor" href="#第三步"></a>第三步</h3>
-<p>打开路由器设置界面-外部网络WAN-联机类型：PPPoE-输入宽带账号和密码。</p>
-<p>记得在设置界面下发勾选：<a href="http://xn--V-g88ax62h.PN" target="_blank" rel="noopener">启用V.PN</a> + DHCP连接以及 Spoof LAN TTL value（这两个选项勾选后电脑通过路由器也可以访问到光猫，方便后期修改设置）。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i3.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h3 id="第四步"><a class="header-anchor" href="#第四步"></a>第四步</h3>
-<p>路由器设置IPv6-如图设置，DNS这一项不强求。</p>
-<p>自动配置这一项一定要选择Stateful（全状态）。</p>
-<p>租约时间输入：604800，这是7天时间，7天内IP地址都是静态的，已经测试过了。（但是每个地区的运营商不一样，可能是3天也可能是5天。不过你需要设置为7天即可，不影响。重庆是7天）</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i4.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<p>保存后，你就可以看到你的前缀为56位，内部分配的地址为64位短码地址，不会再给你的设备分配128位长地址了。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i5.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/i6.jpg" alt="IT之家学院：最详细的IPv6获取教程，开启64位短码地址"></p>
-<h2 id="最后"><a class="header-anchor" href="#最后"></a>最后</h2>
-<p>你可以使用Best Trace路由跟踪软件进行查询路由表（软件支持IOS，安卓，Android，MAC，PC）</p>
+        <div class="tip">
+<p>出于安全性因素考虑，并不建议禁用系统的自动更新。但是微软的Windows 10系统更新补丁经常出现一些兼容性的Bug以及恼人的弹窗提示，这对于一些对系统稳定性要求较高的用户以及生产环境的设备来说，在可使用性上有比较大的影响。</p>
+</div>
+<p>以下操作步骤均在Windows 10专业版操作系统上进行。</p>
+<h2 id="一、关闭Windows-Update服务"><a class="header-anchor" href="#一、关闭Windows-Update服务"></a>一、关闭Windows Update服务</h2>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505172043.png" alt="快捷菜单"></p>
+<p>▲ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“计算机管理”；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505214117.png" alt="计算机管理窗口"></p>
+<p>▲ 在打开的窗口中点开左侧列表中的“服务和应用程序”，在展开的列表中点击“服务”，然后在窗口右侧找到“Windows Update”并双击打开；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173019.png" alt="Windows Update属性窗口"></p>
+<p>▲ 在“启动类型”下拉列表中选择“禁用”，然后点击窗口上方的“恢复”选项卡；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173315.png" alt="Windows Update属性窗口"></p>
+<p>▲ 在“第一次失败”下拉列表中选择“无操作”，并将“在此时间之后重置失败计数”文本框中数字改成<code>9999</code>，然后点击确定按钮。</p>
+<h2 id="二、修改注册表"><a class="header-anchor" href="#二、修改注册表"></a>二、修改注册表</h2>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505200934.png" alt="快捷菜单"></p>
+<p>▲ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“运行”；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505205412.png" alt="运行窗口"></p>
+<p>▲ 在打开的窗口中输入<code>regedit</code>并回车打开注册表，如果出现UAC窗口，选择“是”；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213322.png" alt="注册表窗口"></p>
+<p>▲ 在注册表窗口左侧列表中定位到“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc”，在右侧窗口中找到<code>Start</code>键，右键点击选择“修改”；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202010.png" alt="Start键窗口"></p>
+<p>▲ 将“数值数据”修改成<code>4</code>，然后点击“确定”按钮；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202841.png" alt="FailureActions"></p>
+<p>▲ 然后继续在注册表窗口右侧找到<code>FailureActions</code>键，并右键点击选择“修改二进制数据”，将图中标记的两处位置的数据修改为<code>00</code>，然后点击“确定”按钮。</p>
+<h2 id="三、修改组策略"><a class="header-anchor" href="#三、修改组策略"></a>三、修改组策略</h2>
+<p>同上方法打开运行窗口，输入<code>gpedit.msc</code>并回车打开本地组策略编辑器；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213513.png" alt="组策略窗口"></p>
+<p>▲ 在组策略窗口左侧列表中定位到“计算机配置\管理模板\Windows组件\Windows更新”，然后在右侧窗口中找到“配置自动更新”并双击打开；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204024.png" alt="配置自动更新窗口"></p>
+<p>▲ 在“配置自动更新”下方选择“已禁用”，然后点击“确定”按钮；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204312.png" alt="删除更新功能访问权限窗口"></p>
+<p>▲ 继续在右侧窗口中找到“删除使用所有 Windows 更新功能的访问权限”并双击打开，在窗口上方选择“已启用”，然后点击“确定”按钮。</p>
+<h2 id="四、关闭计划任务"><a class="header-anchor" href="#四、关闭计划任务"></a>四、关闭计划任务</h2>
+<p>同上方法打开运行窗口，输入<code>taskschd.msc</code>并回车打开任务计划程序；</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213656.png" alt="任务计划窗口"></p>
+<p>▲ 在任务计划程序窗口左侧列表中定位到“任务计划程序库\Microsoft\Windows\WindowsUpdate”，然后将右侧窗口中的计划任务点击右键选择“禁用”。</p>
+<p>至此Windows更新已经被彻底关闭。</p>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPv6/" rel="tag">IPv6</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Update/" rel="tag">Windows Update</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li></ul>
     </div>
     
     <script src="https://blog.lernb.com/js/prism.js"></script>
@@ -415,15 +425,23 @@
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/Aria2-onekey/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/hover-transform/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-title">
         <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
         
-        <span class="hoverLine hoverLine-thin">Aria2管理脚本安装</span>
+        <span class="hoverLine hoverLine-thin">父级元素设置高度为0子元素仍然显示</span>
         
       </div>
     </a>
     
+    
+    <a href="/nginx-https/" id="article-nav-older" class="article-nav-link-wrap"
+      style="text-align: right;">
+      <div class="article-nav-title">
+        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
+        <span class="hoverLine hoverLine-thin">Nginx配置https</span>
+      </div>
+    </a>
     
   </nav>
   
