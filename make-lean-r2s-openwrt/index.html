@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      inline-block元素设置overflow引起相邻元素位置偏移问题 - LERNB | 网络日志
+      R2S Lean OpenWrt固件编译 - LERNB | 网络日志
         
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -160,10 +160,10 @@
                   <h1 class="" style="line-height: 1.3;">
                     
                       <a class="hoverLine" href="/make-lean-r2s-openwrt/" title="R2S Lean OpenWrt固件编译"
-                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        style="width: 100%; color: #18a0db; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
                         R2S Lean OpenWrt固件编译
                       </a>
-                    
+                      
                   </h1>
                 </div>
                 <!-- E 文章标题 -->
@@ -348,14 +348,14 @@
         <!--  -->
         <div class="post-wrap">
   <div class="post">
-    <!-- <div class="post-h-banner" data-img="https://gitee.com/lernb/pic-host/raw/master/img/CSSSS.jpg"> -->
+    <!-- <div class="post-h-banner" data-img="https://gitee.com/lernb/pic-host/raw/master/img/20210509213819.jpg"> -->
       <!-- <div class="overlaylay"></div> -->
       <div class="m-tit">
         <div class="m-tit-con">
           <div class="ph-cate">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
           </div>
-          <h1>inline-block元素设置overflow引起相邻元素位置偏移问题</h1>
+          <h1>R2S Lean OpenWrt固件编译</h1>
         </div>
       </div>
     <!-- </div> -->
@@ -367,27 +367,134 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2020-08-09</span>&nbsp;&nbsp;
+          <div class="post-date"><span>2021-05-09</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://www.right.com.cn/FORUM/thread-3769950-1-1.html" target="_blank" title="本文转编自：恩山无线论坛">
+
+              <span class="res">转</span><span class="res-link">恩山无线论坛</span>
+            </a>
             
           </div>
         </div>
       </div>
       <!-- E 文章信息 -->
       <div class="post-text">
-        <h2 id="问题现象"><a class="header-anchor" href="#问题现象"></a>问题现象</h2>
-<p>在同一个块级元素中相邻的两个行内块元素，其中一个设置<code>overflow: hidden</code>后，另一个行内元素会出现位置向下偏移的情况<a id="more"></a>，如下图：</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/inline-block-wwrong.png" alt=""></p>
-<h2 id="问题原因"><a class="header-anchor" href="#问题原因"></a>问题原因</h2>
-<p>出现这个问题的主要原因是如果一个inline-block元素的<code>overflow</code>属性被设置为非<code>visible</code>值后，那么该元素的baseline将被强制修改为元素下外边沿，在默认情况下baseline为字符的底线位置且<code>vertical-align</code>的属性值为<code>baseline</code>。</p>
-<h2 id="解决方法"><a class="header-anchor" href="#解决方法"></a>解决方法</h2>
-<p>给设置了<code>overflow：hidden</code>的元素添加<code>vertical-align: bottom</code>属性即可。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/inline-block.png" alt=""></p>
+        <div class="tip">
+<p>Lean项目地址：<a href="https://github.com/coolsnowwolf/lede" target="_blank" rel="noopener">https://github.com/coolsnowwolf/lede</a></p>
+</div>
+<h2 id="一、安装Ubuntu-18-04-x64系统"><a class="header-anchor" href="#一、安装Ubuntu-18-04-x64系统"></a>一、安装Ubuntu 18.04 x64系统</h2>
+<p>安装系统和用SSH工具登录应该都会吧！自己搞吧。</p>
+<h3 id="更新系统"><a class="header-anchor" href="#更新系统"></a>更新系统</h3>
+<pre><code class="language-language-bash">sudo apt-get update&amp;&amp; sudo apt-get upgrade -y &amp;&amp; sudo apt-get dist-upgrade -y &amp;&amp; sudo apt-get clean &amp;&amp; uname -a
+</code></pre>
+<h2 id="二、搭建编译环境"><a class="header-anchor" href="#二、搭建编译环境"></a>二、搭建编译环境</h2>
+<h3 id="2-1-搭建Lean源码编译环境"><a class="header-anchor" href="#2-1-搭建Lean源码编译环境"></a>2.1 搭建Lean源码编译环境</h3>
+<h4 id="安装必需软件"><a class="header-anchor" href="#安装必需软件"></a>安装必需软件</h4>
+<pre><code class="language-language-bash">cd &amp;&amp; sudo apt-get update[backcolor=rgba(27, 31, 35, 0.05)] &amp;&amp; sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib
+</code></pre>
+<h4 id="下载源码"><a class="header-anchor" href="#下载源码"></a>下载源码</h4>
+<pre><code class="language-language-bash">cd &amp;&amp; git clone https://github.com/coolsnowwolf/lede
+</code></pre>
+<h4 id="更新安装源码"><a class="header-anchor" href="#更新安装源码"></a>更新安装源码</h4>
+<pre><code class="language-language-bash">cd ~/lede/ &amp;&amp; git pull &amp;&amp; ./scripts/feedsupdate -a &amp;&amp; ./scripts/feedsinstall -a
+</code></pre>
+<h3 id="2-2-搭建FriendlyWRT编译环境"><a class="header-anchor" href="#2-2-搭建FriendlyWRT编译环境"></a>2.2 搭建FriendlyWRT编译环境</h3>
+<p>参考地址：<a href="http://wiki.friendlyarm.com/wiki/index.php/How_to_Build_FriendlyWrt/zh" target="_blank" rel="noopener">http://wiki.friendlyarm.com/wiki/index.php/How_to_Build_FriendlyWrt/zh</a></p>
+<h4 id="安装必需软件-v2"><a class="header-anchor" href="#安装必需软件-v2"></a>安装必需软件</h4>
+<pre><code class="language-language-bash">cd &amp;&amp; wget -O - https://raw.githubusercontent.co ... c/master/install.sh | bash
+</code></pre>
+<h4 id="安装repo工具"><a class="header-anchor" href="#安装repo工具"></a>安装repo工具</h4>
+<pre><code class="language-language-bash">cd &amp;&amp; git clone https://github.com/friendlyarm/repo &amp;&amp; sudo cp repo/repo /usr/bin/
+</code></pre>
+<h4 id="下载源代码"><a class="header-anchor" href="#下载源代码"></a>下载源代码</h4>
+<ul>
+<li>
+<p>方式一：从github下载完整的源代码</p>
+<pre><code class="language-language-bash">cd &amp;&amp; mkdir friendlywrt-rk3328 &amp;&amp; cd ~/friendlywrt-rk3328 &amp;&amp; repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v19.07.1 -m rk3328.xml --repo-url=https://github.com/friendlyarm/repo --no-clone-bundle &amp;&amp; repo sync -c --no-clone-bundle
+</code></pre>
+</li>
+<li>
+<p>方式二：网盘下载(以NanoPi R2S为例)<br>
+参考地址：<code>http://wiki.friendlyarm.com/wiki/index.php/NanoPi_R2S/zh</code><br>
+网盘链接：<code>http://download.friendlyarm.com/nanopir2s</code><br>
+文件位于以下路径：<code>sources/friendlywrt-rk3328-20200226.7z</code></p>
+</li>
+</ul>
+<p>文件下载后上传至编译机<code>/home/用户名/</code>路径下，然后用一下命令解压更新：</p>
+<pre><code class="language-language-bash">cd &amp;&amp; 7z x friendlywrt-rk3328-20200226.7z &amp;&amp; cd ~/friendlywrt-rk3328 &amp;&amp; repo sync -l --no-clone-bundle &amp;&amp; repo sync --no-clone-bundle
+</code></pre>
+<div class="warning">
+<p>如果<code>linux-libc-dev:i386</code>无法安装，使用以下命令：</p>
+<pre><code class="language-language-bash">sudo dpkg --add-architecture i386 &amp;&amp; sudo apt update &amp;&amp; sudo apt -y install linux-libc-dev:i386
+</code></pre>
+</div>
+<h2 id="三、调整文件"><a class="header-anchor" href="#三、调整文件"></a>三、调整文件</h2>
+<h3 id="3-1-基于FriendlyWRT导出Lean相关文件"><a class="header-anchor" href="#3-1-基于FriendlyWRT导出Lean相关文件"></a>3.1 基于FriendlyWRT导出Lean相关文件</h3>
+<h4 id="导出feeds-conf-default文件"><a class="header-anchor" href="#导出feeds-conf-default文件"></a>导出<code>feeds.conf.default</code>文件</h4>
+<pre><code class="language-language-bash">cp -rf ~/lede/feeds.conf.default ~/friendlywrt-rk3328/friendlywrt/
+</code></pre>
+<h4 id="导出luci文件"><a class="header-anchor" href="#导出luci文件"></a>导出luci文件</h4>
+<pre><code class="language-language-bash">cp -rf ~/lede/package/lean ~/friendlywrt-rk3328/friendlywrt/package
+</code></pre>
+<h3 id="3-2-基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）"><a class="header-anchor" href="#3-2-基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）"></a>3.2 基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）</h3>
+<h4 id="导出文件"><a class="header-anchor" href="#导出文件"></a>导出文件</h4>
+<pre><code class="language-language-bash">cp -rf ~/lede/tools/ucl ~/friendlywrt-rk3328/friendlywrt/tools/ &amp;&amp; cp -rf ~/lede/tools/upx ~/friendlywrt-rk3328/friendlywrt/tools/
+</code></pre>
+<h4 id="编辑文件"><a class="header-anchor" href="#编辑文件"></a>编辑文件</h4>
+<pre><code class="language-language-bash">vi ~/friendlywrt-rk3328/friendlywrt/tools/Makefile
+</code></pre>
+<p>将<code>tools-y += ucl upx</code>添加到<code># subdirectories to descend into</code>段里，例：<br>
+<code>tools-$(CONFIG_TARGET_tegra) += cbootimage cbootimage-configs</code>的下一行添加：<code>tools-y += ucl upx</code>。</p>
+<p>将<code>$(curdir)/upx/compile := $(curdir)/ucl/compile</code>添加到<code># builddir dependencies</code>段里，例：<br>
+<code>$(curdir)/cbootimage/compile += $(curdir)/automake/compile</code>的下一行添加<code>$(curdir)/upx/compile := $(curdir)/ucl/compile</code>。</p>
+<h2 id="四、更新源码及固件配置"><a class="header-anchor" href="#四、更新源码及固件配置"></a>四、更新源码及固件配置</h2>
+<h3 id="4-1-更新源码"><a class="header-anchor" href="#4-1-更新源码"></a>4.1 更新源码</h3>
+<pre><code class="language-language-bash">cd ~/friendlywrt-rk3328/friendlywrt &amp;&amp; ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
+</code></pre>
+<h3 id="4-2-设置固件访问IP"><a class="header-anchor" href="#4-2-设置固件访问IP"></a>4.2 设置固件访问IP</h3>
+<pre><code class="language-language-bash">sed -i 's/192.168.2.1/X.X.X.X/g' ~/friendlywrt-rk3328/friendlywrt/package/base-files/files/bin/config_generate
+</code></pre>
+<div class="tip">
+<p><code>XXXX</code>部分更改成自己想要的网关IP</p>
+</div>
+<h3 id="4-3-配置固件"><a class="header-anchor" href="#4-3-配置固件"></a>4.3 配置固件</h3>
+<pre><code class="language-language-bash">cd ~/friendlywrt-rk3328/friendlywrt &amp;&amp; make menuconfig
+</code></pre>
+<div class="success">
+<p><strong>基本选项设置</strong>（每项前部有<code>*</code>标志表示已选中，使用空格键勾选）</p>
+<ul>
+<li><code>Target System</code>选择<code>rockchip rk3328 (aarch64)</code></li>
+<li><code>Target Images</code>选择<code>squashfs</code></li>
+<li><code>Base system</code>取消<code>dnsmasq</code>选择 <code>dnsmasq-full</code></li>
+<li><code>Base system</code>选择<code>dnsmasq-full</code></li>
+<li><code>LuCI&gt;hemes</code>选择<code>luci-theme-bootstrap</code></li>
+<li><code>LuCI&gt;Applications</code>选择自己想要的</li>
+<li><code>Network&gt;File Transfer</code>选择<code>wget</code></li>
+<li><code>Network&gt;IP Addresses and Names</code>选择 <code>ddns-scripts</code></li>
+<li><code>Network&gt;IP Addresses and Names</code>选择 <code>ddns-scripts_aliyun</code></li>
+<li><code>Network&gt;IP Addresses and Names</code>选择 <code>dns-scripts_no-ip_com</code></li>
+</ul>
+</div>
+<h2 id="五、编译"><a class="header-anchor" href="#五、编译"></a>五、编译</h2>
+<p>以防万一被退出导致编译终止，使用<code>screen</code>命令创建编译：</p>
+<ul>
+<li>创建运行窗口：<code>screen -S r2s</code>，<code>r2s</code>为自定义的窗口名称；</li>
+<li>查看已有的<code>screen</code>窗口：<code>screen -ls</code>；</li>
+<li>返回已有的<code>screen</code>窗口：<code>screen -d -r r2s</code>，<code>r2s</code>为窗口名称。</li>
+</ul>
+<p>编译命令：</p>
+<pre><code class="language-language-bash">cd ~/friendlywrt-rk3328/friendlywrt &amp;&amp; make -j线程数 download v=s &amp;&amp; cd ~/friendlywrt-rk3328 &amp;&amp; ./build.sh nanopi_r2s.mk
+</code></pre>
+<div class="tip">
+<p><code>线程数</code>根据本机环境设置。</p>
+</div>
+<p>等待编译完成，固件生成目录为<code>~/friendlywrt-rk3328/scripts/sd-fuse/out</code>。</p>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/" rel="tag">OpenWrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/" rel="tag">软路由</a></li></ul>
     </div>
     
     <script src="https://blog.lernb.com/js/prism.js"></script>
@@ -396,21 +503,12 @@
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/Hexo-pagenation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title">
-        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
-        
-        <span class="hoverLine hoverLine-thin">Hexo分类设置分页不显示的问题</span>
-        
-      </div>
-    </a>
     
-    
-    <a href="/postion-absolute/" id="article-nav-older" class="article-nav-link-wrap"
+    <a href="/set-nginx-cache/" id="article-nav-older" class="article-nav-link-wrap"
       style="text-align: right;">
       <div class="article-nav-title">
         <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
-        <span class="hoverLine hoverLine-thin">绝对定位盒子居中</span>
+        <span class="hoverLine hoverLine-thin">Nginx下关于缓存控制字段cache-control的配置</span>
       </div>
     </a>
     
@@ -448,10 +546,10 @@
                   <h1 class="" style="line-height: 1.3;">
                     
                       <a class="hoverLine" href="/make-lean-r2s-openwrt/" title="R2S Lean OpenWrt固件编译"
-                        style="width: 100%; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        style="width: 100%; color: #18a0db; font-size: 14px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
                         R2S Lean OpenWrt固件编译
                       </a>
-                    
+                      
                   </h1>
                 </div>
                 <!-- E 文章标题 -->
