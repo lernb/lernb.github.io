@@ -2004,7 +2004,8 @@ html {
 }
 
 .bar .post-title-menu-flag a {
-  color: #062743bd;
+  /* color: #062743bd; */
+  color: #586069;
 }
 
 .bar .tagcloud a {
@@ -2671,7 +2672,7 @@ html {
 .post-wrap .post h1 {
   color: #222;
   font-size: 32px;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.3;
 }
 
