@@ -3517,6 +3517,10 @@ code {
     /* padding-left: 5.5%;
     padding-right: 5.5%; */
   }
+  .warning pre[class*="language-"] {
+    width: auto !important;
+    margin-left: auto !important;
+  }
   .pre-wrap {
     width: calc(100% / 0.9);
     /* margin-left: calc((100% / 0.9) * -0.05); */
@@ -3551,7 +3555,6 @@ code {
     width: 90%;
     margin: 0 auto;
     font-size: 2.6rem;
-    color: #222;
     font-weight: bold;
     /* margin-left: -6px; */
   }
