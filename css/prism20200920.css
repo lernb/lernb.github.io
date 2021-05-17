@@ -92,7 +92,7 @@ div[class*="plusBtn"] .preBg {
 }
 
 :not(pre)>code[class*="language-"], pre[class*="language-"] {
-  background: #094067;
+  background: #2d2d2d;
 }
 
 /* Inline code */
