@@ -1343,7 +1343,7 @@ strong {
 
 .head a:hover {
   border: 0;
-  text-shadow: 0 0 6px rgba(24, 160, 219, .51);
+  /* text-shadow: 0 0 6px rgba(24, 160, 219, .51); */
 }
 
 .header-img {
@@ -2015,6 +2015,7 @@ html {
 .bar .tagcloud a {
   margin: 0 3px 10px;
   padding: 0 8px;
+  font-weight: 600;
   color: #094067;
   border-radius: 10px;
   border: 1px solid #094067;
