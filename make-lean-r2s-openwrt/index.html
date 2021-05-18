@@ -438,24 +438,24 @@
 </code></pre>
 <h2 id="二、搭建编译环境"><a class="header-anchor" href="#二、搭建编译环境"></a>二、搭建编译环境</h2>
 <h3 id="2-1-搭建Lean源码编译环境"><a class="header-anchor" href="#2-1-搭建Lean源码编译环境"></a>2.1 搭建Lean源码编译环境</h3>
-<h4 id="安装必需软件"><a class="header-anchor" href="#安装必需软件"></a>安装必需软件</h4>
+<p>安装必需软件：</p>
 <pre><code class="language-language-bash">cd &amp;&amp; sudo apt-get update[backcolor=rgba(27, 31, 35, 0.05)] &amp;&amp; sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib
 </code></pre>
-<h4 id="下载源码"><a class="header-anchor" href="#下载源码"></a>下载源码</h4>
+<p>下载源码：</p>
 <pre><code class="language-language-bash">cd &amp;&amp; git clone https://github.com/coolsnowwolf/lede
 </code></pre>
-<h4 id="更新安装源码"><a class="header-anchor" href="#更新安装源码"></a>更新安装源码</h4>
+<p>更新安装源码：</p>
 <pre><code class="language-language-bash">cd ~/lede/ &amp;&amp; git pull &amp;&amp; ./scripts/feedsupdate -a &amp;&amp; ./scripts/feedsinstall -a
 </code></pre>
 <h3 id="2-2-搭建FriendlyWRT编译环境"><a class="header-anchor" href="#2-2-搭建FriendlyWRT编译环境"></a>2.2 搭建FriendlyWRT编译环境</h3>
 <p>参考地址：<a href="http://wiki.friendlyarm.com/wiki/index.php/How_to_Build_FriendlyWrt/zh" target="_blank" rel="noopener">http://wiki.friendlyarm.com/wiki/index.php/How_to_Build_FriendlyWrt/zh</a></p>
-<h4 id="安装必需软件-v2"><a class="header-anchor" href="#安装必需软件-v2"></a>安装必需软件</h4>
+<p>安装必需软件：</p>
 <pre><code class="language-language-bash">cd &amp;&amp; sudo wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bionic/master/install.sh | bash
 </code></pre>
-<h4 id="安装repo工具"><a class="header-anchor" href="#安装repo工具"></a>安装repo工具</h4>
+<p>安装repo工具：</p>
 <pre><code class="language-language-bash">cd &amp;&amp; git clone https://github.com/friendlyarm/repo &amp;&amp; sudo cp repo/repo /usr/bin/
 </code></pre>
-<h4 id="下载源代码"><a class="header-anchor" href="#下载源代码"></a>下载源代码</h4>
+<p>下载源代码：</p>
 <ul>
 <li>
 <p>方式一：从github下载完整的源代码</p>
@@ -479,17 +479,17 @@
 </div>
 <h2 id="三、调整文件"><a class="header-anchor" href="#三、调整文件"></a>三、调整文件</h2>
 <h3 id="3-1-基于FriendlyWRT导出Lean相关文件"><a class="header-anchor" href="#3-1-基于FriendlyWRT导出Lean相关文件"></a>3.1 基于FriendlyWRT导出Lean相关文件</h3>
-<h4 id="导出feeds-conf-default文件"><a class="header-anchor" href="#导出feeds-conf-default文件"></a>导出<code>feeds.conf.default</code>文件</h4>
+<p>导出<code>feeds.conf.default</code>文件：</p>
 <pre><code class="language-language-bash">cp -rf ~/lede/feeds.conf.default ~/friendlywrt-rk3328/friendlywrt/
 </code></pre>
-<h4 id="导出luci文件"><a class="header-anchor" href="#导出luci文件"></a>导出luci文件</h4>
+<p>导出luci文件：</p>
 <pre><code class="language-language-bash">cp -rf ~/lede/package/lean ~/friendlywrt-rk3328/friendlywrt/package
 </code></pre>
 <h3 id="3-2-基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）"><a class="header-anchor" href="#3-2-基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）"></a>3.2 基于FriendlyWRT添加Lean相关依赖（以ucl和upx为例）</h3>
-<h4 id="导出文件"><a class="header-anchor" href="#导出文件"></a>导出文件</h4>
+<p>导出文件：</p>
 <pre><code class="language-language-bash">cp -rf ~/lede/tools/ucl ~/friendlywrt-rk3328/friendlywrt/tools/ &amp;&amp; cp -rf ~/lede/tools/upx ~/friendlywrt-rk3328/friendlywrt/tools/
 </code></pre>
-<h4 id="编辑文件"><a class="header-anchor" href="#编辑文件"></a>编辑文件</h4>
+<p>编辑文件：</p>
 <pre><code class="language-language-bash">vi ~/friendlywrt-rk3328/friendlywrt/tools/Makefile
 </code></pre>
 <p>将<code>tools-y += ucl upx</code>添加到<code># subdirectories to descend into</code>段里，例：<br>
@@ -497,16 +497,16 @@
 <p>将<code>$(curdir)/upx/compile := $(curdir)/ucl/compile</code>添加到<code># builddir dependencies</code>段里，例：<br>
 <code>$(curdir)/cbootimage/compile += $(curdir)/automake/compile</code>的下一行添加<code>$(curdir)/upx/compile := $(curdir)/ucl/compile</code>。</p>
 <h2 id="四、更新源码及固件配置"><a class="header-anchor" href="#四、更新源码及固件配置"></a>四、更新源码及固件配置</h2>
-<h3 id="4-1-更新源码"><a class="header-anchor" href="#4-1-更新源码"></a>4.1 更新源码</h3>
+<p>更新源码：</p>
 <pre><code class="language-language-bash">cd ~/friendlywrt-rk3328/friendlywrt &amp;&amp; ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a
 </code></pre>
-<h3 id="4-2-设置固件访问IP"><a class="header-anchor" href="#4-2-设置固件访问IP"></a>4.2 设置固件访问IP</h3>
+<p>设置固件访问IP：</p>
 <pre><code class="language-language-bash">sed -i 's/192.168.2.1/X.X.X.X/g' ~/friendlywrt-rk3328/friendlywrt/package/base-files/files/bin/config_generate
 </code></pre>
 <div class="tip">
 <p><code>XXXX</code>部分更改成自己想要的网关IP</p>
 </div>
-<h3 id="4-3-配置固件"><a class="header-anchor" href="#4-3-配置固件"></a>4.3 配置固件</h3>
+<p>4.3 配置固件：</p>
 <pre><code class="language-language-bash">cd ~/friendlywrt-rk3328/friendlywrt &amp;&amp; make menuconfig
 </code></pre>
 <div class="success">
