@@ -2247,7 +2247,6 @@ html {
 .bar a:hover {
   /* text-shadow: 0 0 1px #18a0db82; */
   color: #18a0db;
-  transition: all .3s;
 }
 
 /* .bar .post-item a:hover::before {
