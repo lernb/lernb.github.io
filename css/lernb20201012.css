@@ -2743,7 +2743,7 @@ html {
 
 .post-wrap .post-text ul {
   padding-left: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 .post-text ul li {
@@ -2782,13 +2782,17 @@ html {
   border: 2px solid #18a0db;
 }
 
+.post-wrap .post-text ul li ul {
+  margin-top: 10px;
+}
+
 .post-wrap .post-text p {
   margin-bottom: 16px;
 }
 
 .post-text blockquote {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   padding: 10px 20px;
   /* background-color: #fafafa; */
   border: 1px solid #e9ecef;
@@ -2809,7 +2813,7 @@ html {
 
 .success {
   padding: 10px 20px;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   color: #25a35a;
   border: 1px solid rgba(46, 204, 113, 0.3);
   border-left: 4px solid #2ecc71;
@@ -2819,7 +2823,7 @@ html {
 
 .warning {
   padding: 10px 20px;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   color: #c29d0b;
   border: 1px solid rgba(241, 196, 15, 0.3);
   border-left: 4px solid #f1c40f;
@@ -2829,7 +2833,7 @@ html {
 
 .tip {
   padding: 10px 20px;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   color: #217bb8;
   border: 1px solid rgba(52, 152, 219, 0.3);
   border-left: 4px solid #3498db;
@@ -2981,7 +2985,7 @@ code {
 }
 
 .post-text pre {
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 /* .post .post-text .prettyprint code {
@@ -3065,7 +3069,7 @@ code {
 .post-wrap .post-text table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 .post-text table>thead {
