@@ -175,7 +175,7 @@ pre[class*="language-"].line-numbers {
   position: relative;
   padding-left: 3.8em;
   counter-reset: linenumber;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 pre[class*="language-"].line-numbers>code {
