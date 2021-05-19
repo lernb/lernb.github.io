@@ -422,8 +422,26 @@
       <!-- E 文章信息 -->
       <div class="entry-content">
         <p>HTTP协议的<code>Cache-Control</code>指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置<code>Cache-Control</code>并不会影响另一个消息处理过程中的缓存处理过程。</p>
-<p><strong>请求时的缓存指令</strong>包括: <code>no-cache</code>、<code>no-store</code>、<code>max-age</code>、<code>max-stale</code>、<code>min-fresh</code>、<code>only-if-cached</code>等。</p>
-<p><strong>响应消息中的指令</strong>包括：<code>public</code>、<code>private</code>、<code>no-cache</code>、<code>no-store</code>、<code>no-transform</code>、<code>must-revalidate</code>、<code>proxy-revalidate</code>、<code>max-age</code>。</p>
+<p><strong>请求时的缓存指令</strong>包括：</p>
+<ul>
+<li><code>no-cache</code></li>
+<li><code>no-store</code></li>
+<li><code>max-age</code></li>
+<li><code>max-stale</code></li>
+<li><code>min-fresh</code></li>
+<li><code>only-if-cached</code></li>
+</ul>
+<p><strong>响应消息中的指令</strong>包括：</p>
+<ul>
+<li><code>public</code></li>
+<li><code>private</code></li>
+<li><code>no-cache</code></li>
+<li><code>no-store</code></li>
+<li><code>no-transform</code></li>
+<li><code>must-revalidate</code></li>
+<li><code>proxy-revalidate</code></li>
+<li><code>max-age</code></li>
+</ul>
 <p>下面做一详细总结, 方便在以后的运维工作中理解和运用。</p>
 <h2 id="一、浏览器中关于Cache的3个属性"><a class="header-anchor" href="#一、浏览器中关于Cache的3个属性"></a>一、浏览器中关于Cache的3个属性</h2>
 <h3 id="1-1-Cache-Control"><a class="header-anchor" href="#1-1-Cache-Control"></a>1.1 Cache-Control</h3>
