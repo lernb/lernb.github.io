@@ -411,24 +411,6 @@
         
         <!--  -->
         <!-- 分类详情页 -->
-<script>
-  let indexTimer,
-    indexHead = document.getElementsByClassName('headhead')[0];
-  window.addEventListener('scroll', function() {
-    if(!indexTimer) {
-      indexTimer = setTimeout(() => {
-        let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
-        if(indexScroll >= 170) {
-          indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
-        } else {
-          indexHead.className = 'headhead headlo headbdf headbdfAfter';
-        }
-        indexTimer = null;
-        clearTimeout(indexTimer);
-      }, 100);
-    }
-  });
-</script>
 <div class="wrap-bd">
   <h1 class="deta-hd cate-hd" data-cate="博客">
     博客&nbsp;<span style="font-size: 22px; color: #ddd;">分类</span>
@@ -442,13 +424,6 @@
   <ul class="p-list">
   
     
-      <!-- <section class="archives-wrap">
-      <div class="archive-year-wrap">
-        2021-01-10<a href="/Hexo-tag-404/" class="archive-year">Hexo标签或分类404</a>
-      </div>
-    </section> -->
-      <!-- <div class="p-list"> -->
-        
           <li class="p-list-item clearfix">
             <div class="ph-cate">
               <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
@@ -494,13 +469,6 @@
           <!-- </div> -->
           
     
-      <!-- <section class="archives-wrap">
-      <div class="archive-year-wrap">
-        2020-08-23<a href="/Hexo-Git/" class="archive-year">Hexo配置Git部署站点到服务器</a>
-      </div>
-    </section> -->
-      <!-- <div class="p-list"> -->
-        
           <li class="p-list-item clearfix">
             <div class="ph-cate">
               <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
@@ -546,13 +514,6 @@
           <!-- </div> -->
           
     
-      <!-- <section class="archives-wrap">
-      <div class="archive-year-wrap">
-        2020-08-18<a href="/Hexo-pagenation/" class="archive-year">Hexo分类设置分页不显示的问题</a>
-      </div>
-    </section> -->
-      <!-- <div class="p-list"> -->
-        
           <li class="p-list-item clearfix">
             <div class="ph-cate">
               <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
