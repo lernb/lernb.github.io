@@ -692,7 +692,7 @@ strong {
   z-index: 99;
 }
 
-.container {
+.main {
   width: 100%;
   background-color: #fffffe;
   position: relative;
@@ -2952,7 +2952,7 @@ html {
   /* background: linear-gradient(to top, #b1e7ff 27%, transparent 27% 100%); */
 }
 
-.container .wrap-content h1, .container .wrap-content h2, .container .wrap-content h3, .container .wrap-content h4 {
+.main .wrap-content h1, .main .wrap-content h2, .main .wrap-content h3, .main .wrap-content h4 {
   color: #094067;
 }
 
@@ -3420,7 +3420,7 @@ code {
   /* .wrap .banner-back {
     display: none;
   } */
-  .container {
+  .main {
     background-color: #fff;
   }
   #pageNav .extend {
