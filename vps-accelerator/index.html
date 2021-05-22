@@ -12,7 +12,7 @@
   <title>
     
       VPS 搭建简单加速器 - LERNB | 网络日志
-        
+    
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="expires" content="0"> -->
@@ -420,10 +420,10 @@
       </div>
       <!-- E 文章信息 -->
       <div class="entry-content">
-        <h2 id="准备工具软件"><a class="header-anchor" href="#准备工具软件"></a>准备工具软件</h2>
+        <h2 id="一、准备工具软件"><a class="header-anchor" href="#一、准备工具软件"></a>一、准备工具软件</h2>
 <ul>
 <li>
-<p><strong>udp2raw</strong>。将UDP伪装成TCP或者ICMP，不同于UDP over TCP，其本质上还是UDP，另外不会处理TCP数据包<a id="more"></a>。</p>
+<p><strong>udp2raw</strong>。将UDP伪装成TCP或者ICMP，不同于UDP over TCP，其本质上还是UDP，另外不会处理TCP数据包。</p>
 </li>
 <li>
 <p><strong>tinyfecVPN</strong>。工作在网络层的双边网络加速工具，可以加速全流量（TCP/UDP/ICMP），输出流量类型为UDP。</p>
@@ -442,7 +442,7 @@
 <p>上述前三个软件开发者都为同一人，最新版本可以前往开发者<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页下载。软件更多功能及参数介绍可以去主页相应软件项目下的wiki查看</p>
 <p>下文介绍的命令参数请根据自己实际情况进行替换</p>
 </div>
-<h2 id="整体结构"><a class="header-anchor" href="#整体结构"></a>整体结构</h2>
+<h2 id="二、整体结构"><a class="header-anchor" href="#二、整体结构"></a>二、整体结构</h2>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/vpsacc.png" alt=""></p>
 <ul>
 <li>
@@ -458,11 +458,11 @@
 <p>最后，在电脑上使用SSTAP连接映射到本地的代理端口</p>
 </li>
 </ul>
-<h2 id="服务端搭建"><a class="header-anchor" href="#服务端搭建"></a>服务端搭建</h2>
+<h2 id="三、服务端搭建"><a class="header-anchor" href="#三、服务端搭建"></a>三、服务端搭建</h2>
 <div class="tip">
 <p>以下命令都是基于amd64位架构，路径跟文件名根据实际替换</p>
 </div>
-<h3 id="tinyfecVPN"><a class="header-anchor" href="#tinyfecVPN"></a>tinyfecVPN</h3>
+<h3 id="3-1-tinyfecVPN"><a class="header-anchor" href="#3-1-tinyfecVPN"></a>3.1 tinyfecVPN</h3>
 <p>tinyfecVPN服务监听在服务器8855端口：</p>
 <pre><code class="language-language-bash">./tinyvpn_amd64 -s -l 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
 </code></pre>
@@ -496,7 +496,7 @@
 <p>如果你的线路丢包率很低，那么可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>--disable-fec</code>即关闭冗余发包，这样也不会出现额外的延迟，但失去了抗丢包能力，不推荐</p>
 <p>如果相同时节省一点流量，可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>-f2:2</code>和<code>--timeout 1</code>，<code>--timeout 1</code>可以更好的控制流量，稳定2倍流量，相对于<code>--timeout 0</code>延迟增加约为2ms。如果线路非常好，那可以将<code>-f2:2</code>替换成<code>-f2:1</code>，即每3个数据包允许丢包1个，消耗1.5倍流量</p>
 </div>
-<h3 id="udp2raw"><a class="header-anchor" href="#udp2raw"></a>udp2raw</h3>
+<h3 id="3-2-udp2raw"><a class="header-anchor" href="#3-2-udp2raw"></a>3.2 udp2raw</h3>
 <p>将udp2raw设定成伪装icmp模式</p>
 <pre><code class="language-language-bash">./udp2raw_amd64 -s -l 0.0.0.0:1000 -r 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
 </code></pre>
@@ -523,9 +523,9 @@
 <p><code>-k</code>口令</p>
 </li>
 </ul>
-<h2 id="客户端搭建"><a class="header-anchor" href="#客户端搭建"></a>客户端搭建</h2>
+<h2 id="四、客户端搭建"><a class="header-anchor" href="#四、客户端搭建"></a>四、客户端搭建</h2>
 <p>udp2raw现在已经有了Windows客户端，可以去<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页相应项目下下载。本文使用的是虚拟机方式，网络为桥接模式。以下操作均在虚拟机中进行。</p>
-<h3 id="udp2raw-v2"><a class="header-anchor" href="#udp2raw-v2"></a>udp2raw</h3>
+<h3 id="4-1-udp2raw"><a class="header-anchor" href="#4-1-udp2raw"></a>4.1 udp2raw</h3>
 <pre><code class="language-language-bash">./udp2raw_amd64 -c -r YOUR_SERVER_IP:1000 -l 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
 </code></pre>
 <ul>
@@ -546,7 +546,7 @@
 </li>
 </ul>
 <p>其他参数含义与上文服务端相同。</p>
-<h3 id="tinyfecVPN-v2"><a class="header-anchor" href="#tinyfecVPN-v2"></a>tinyfecVPN</h3>
+<h3 id="4-2-tinyfecVPN"><a class="header-anchor" href="#4-2-tinyfecVPN"></a>4.2 tinyfecVPN</h3>
 <pre><code class="language-language-bash">./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
 </code></pre>
 <ul>
@@ -570,7 +570,7 @@
 </li>
 </ul>
 <p>至此，就建立好了服务端到客户端的连接。</p>
-<h3 id="tinyPortMapper"><a class="header-anchor" href="#tinyPortMapper"></a>tinyPortMapper</h3>
+<h3 id="4-3-tinyPortMapper"><a class="header-anchor" href="#4-3-tinyPortMapper"></a>4.3 tinyPortMapper</h3>
 <p>假定远程服务器端12345端口有不可描述的代理服务：</p>
 <pre><code class="language-language-bash">./tinymapper_amd64 -l0.0.0.0:1080 -r10.222.2.1:12345 -t -u
 </code></pre>
