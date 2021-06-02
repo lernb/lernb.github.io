@@ -446,7 +446,8 @@ wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.186/linux-image-4.9.186
 <p>这样内核就升级完成了。</p>
 <h3 id="开启BBR"><a class="header-anchor" href="#开启BBR"></a>开启BBR</h3>
 <p>执行<code>lsmod | grep bbr</code>命令查看系统是否开启BBR：</p>
-<pre><code class="language-language-bash">root@boss:~# lsmod | grep bbrtcp_bbr                        20480  10
+<pre><code class="language-language-bash">root@boss:~# lsmod | grep bbr
+tcp_bbr                        20480  10
 </code></pre>
 <p>如果没有出现<code>bbr</code>字样说明BBR还未开启，执行以下命令修改配置文件：</p>
 <pre><code class="language-language-bash">cat &gt;&gt; /etc/sysctl.conf &lt;&lt;EOF
