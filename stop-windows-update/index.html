@@ -421,37 +421,37 @@
 </div>
 <p>以下操作步骤均在Windows 10专业版操作系统上进行。</p>
 <h2 id="一、关闭Windows-Update服务"><a class="header-anchor" href="#一、关闭Windows-Update服务"></a>一、关闭Windows Update服务</h2>
+<p>▼ 鼠标右键点击桌面左下角开始图标，在弹出的菜单中点击“计算机管理”；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505172043.png" alt="快捷菜单"></p>
-<p>▲ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“计算机管理”；</p>
+<p>▼ 在打开的窗口中点开左侧列表中的“服务和应用程序”，在展开的列表中点击“服务”，然后在窗口右侧找到“Windows Update”并双击打开；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505214117.png" alt="计算机管理窗口"></p>
-<p>▲ 在打开的窗口中点开左侧列表中的“服务和应用程序”，在展开的列表中点击“服务”，然后在窗口右侧找到“Windows Update”并双击打开；</p>
+<p>▼ 在“启动类型”下拉列表中选择“禁用”，然后点击窗口上方的“恢复”选项卡；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173019.png" alt="Windows Update属性窗口"></p>
-<p>▲ 在“启动类型”下拉列表中选择“禁用”，然后点击窗口上方的“恢复”选项卡；</p>
+<p>▼ 在“第一次失败”下拉列表中选择“无操作”，并将“在此时间之后重置失败计数”文本框中数字改成<code>9999</code>，然后点击确定按钮。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173315.png" alt="Windows Update属性窗口"></p>
-<p>▲ 在“第一次失败”下拉列表中选择“无操作”，并将“在此时间之后重置失败计数”文本框中数字改成<code>9999</code>，然后点击确定按钮。</p>
 <h2 id="二、修改注册表"><a class="header-anchor" href="#二、修改注册表"></a>二、修改注册表</h2>
+<p>▼ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“运行”；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505200934.png" alt="快捷菜单"></p>
-<p>▲ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“运行”；</p>
+<p>▼ 在打开的窗口中输入<code>regedit</code>并回车打开注册表，如果出现UAC窗口，选择“是”；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505205412.png" alt="运行窗口"></p>
-<p>▲ 在打开的窗口中输入<code>regedit</code>并回车打开注册表，如果出现UAC窗口，选择“是”；</p>
+<p>▼ 在注册表窗口左侧列表中定位到“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc”，在右侧窗口中找到<code>Start</code>键，右键点击选择“修改”；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213322.png" alt="注册表窗口"></p>
-<p>▲ 在注册表窗口左侧列表中定位到“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc”，在右侧窗口中找到<code>Start</code>键，右键点击选择“修改”；</p>
+<p>▼ 将“数值数据”修改成<code>4</code>，然后点击“确定”按钮；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202010.png" alt="Start键窗口"></p>
-<p>▲ 将“数值数据”修改成<code>4</code>，然后点击“确定”按钮；</p>
+<p>▼ 然后继续在注册表窗口右侧找到<code>FailureActions</code>键，并右键点击选择“修改二进制数据”，将图中标记的两处位置的数据修改为<code>00</code>，然后点击“确定”按钮。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202841.png" alt="FailureActions"></p>
-<p>▲ 然后继续在注册表窗口右侧找到<code>FailureActions</code>键，并右键点击选择“修改二进制数据”，将图中标记的两处位置的数据修改为<code>00</code>，然后点击“确定”按钮。</p>
 <h2 id="三、修改组策略"><a class="header-anchor" href="#三、修改组策略"></a>三、修改组策略</h2>
 <p>同上方法打开运行窗口，输入<code>gpedit.msc</code>并回车打开本地组策略编辑器；</p>
+<p>▼ 在组策略窗口左侧列表中定位到“计算机配置\管理模板\Windows组件\Windows更新”，然后在右侧窗口中找到“配置自动更新”并双击打开；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213513.png" alt="组策略窗口"></p>
-<p>▲ 在组策略窗口左侧列表中定位到“计算机配置\管理模板\Windows组件\Windows更新”，然后在右侧窗口中找到“配置自动更新”并双击打开；</p>
+<p>▼ 在“配置自动更新”下方选择“已禁用”，然后点击“确定”按钮；</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204024.png" alt="配置自动更新窗口"></p>
-<p>▲ 在“配置自动更新”下方选择“已禁用”，然后点击“确定”按钮；</p>
+<p>▼ 继续在右侧窗口中找到“删除使用所有 Windows 更新功能的访问权限”并双击打开，在窗口上方选择“已启用”，然后点击“确定”按钮。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204312.png" alt="删除更新功能访问权限窗口"></p>
-<p>▲ 继续在右侧窗口中找到“删除使用所有 Windows 更新功能的访问权限”并双击打开，在窗口上方选择“已启用”，然后点击“确定”按钮。</p>
 <h2 id="四、关闭计划任务"><a class="header-anchor" href="#四、关闭计划任务"></a>四、关闭计划任务</h2>
 <p>同上方法打开运行窗口，输入<code>taskschd.msc</code>并回车打开任务计划程序；</p>
+<p>▼ 在任务计划程序窗口左侧列表中定位到“任务计划程序库\Microsoft\Windows\WindowsUpdate”，然后将右侧窗口中的计划任务点击右键选择“禁用”。</p>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213656.png" alt="任务计划窗口"></p>
-<p>▲ 在任务计划程序窗口左侧列表中定位到“任务计划程序库\Microsoft\Windows\WindowsUpdate”，然后将右侧窗口中的计划任务点击右键选择“禁用”。</p>
 <p>至此Windows更新已经被彻底关闭。</p>
 
       </div>
