@@ -6,6 +6,17 @@
   src: url('/asset/cm.ttf');
 } */
 
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url('//at.alicdn.com/t/webfont_01wtuewqwgho.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_01wtuewqwgho.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff2') format('woff2'),
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.svg#Alibaba-PuHuiTi-Regular') format('svg'); /* iOS 4.1- */
+}
+
 .wrap-bd {
   width: 830px;
 }
@@ -130,7 +141,7 @@
   /* margin-bottom: 20px; */
   padding: 20px 0;
   height: 217px;
-  background-color: #fff;
+  /* background-color: #fff; */
   /* box-shadow: 0 0 10px 0px rgba(146, 146, 146, 0.12); */
   border-bottom: 1px solid #eee;
   transition: all 0.3s;
@@ -694,7 +705,7 @@ strong {
 
 .main {
   width: 100%;
-  background-color: #fffffe;
+  background-color: #fff;
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
