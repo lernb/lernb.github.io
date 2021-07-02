@@ -3566,6 +3566,7 @@ code {
     width: 100%;
     padding-left: calc(5% - 6px);
     padding-right: 5%;
+    border-left: 6px solid #18a0db;
     font-size: 2.8rem;
     font-weight: bold;
   }
