@@ -86,7 +86,7 @@ if (headings.length && menuTitle) {
     flag = true;
   if (offsetTop <= 68) {
     ptmf.setAttribute('style', 'position: fixed; box-sizing: border-box; top: 68px; width: 300px; margin-bottom: 0;');
-    toTop.style.right = '15px';
+    toTop.style.right = '35px';
   }
   window.addEventListener('scroll', function () {
     postScroll = document.body.scrollTop + document.documentElement.scrollTop;
@@ -96,7 +96,7 @@ if (headings.length && menuTitle) {
     if (flag) {
       if (postScroll >= scrolled) {
         ptmf.setAttribute('style', 'position: fixed; box-sizing: border-box; top: 68px; width: 300px; margin-bottom: 0;');
-        toTop.style.right = '15px';
+        toTop.style.right = '35px';
         flag = false;
       } else {
         ptmf.setAttribute('style', 'position: initial; top: initial;');
