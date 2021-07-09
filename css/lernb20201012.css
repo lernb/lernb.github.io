@@ -2273,6 +2273,7 @@ html {
 .bar .post-title-menu-flag {
   /* max-height: 650px; */
   padding: 15px;
+  margin-top: 35px;
   background: #094067;
   border-radius: 3px;
   /* overflow-x: hidden; */
