@@ -2289,7 +2289,7 @@ html {
 }
 
 .bar .post-title-content::-webkit-scrollbar {
-  background-color: #fffffe;
+  background-color: #e6e6e6;
   width: 3px;
   height: 0px;
   background-clip: padding-box;
