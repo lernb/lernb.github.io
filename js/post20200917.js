@@ -99,7 +99,7 @@ if (headings.length && menuTitle) {
         toTop.style.right = '15px';
         flag = false;
       } else {
-        ptmf.setAttribute('style', 'position: initial; top: initial; margin-top: 35px');
+        ptmf.setAttribute('style', 'position: initial; top: initial;');
         toTop.style.right = '-50px';
       }
       toTop.addEventListener('click', function () {
