@@ -9,12 +9,13 @@
 @font-face {
   font-family: 'webfont';
   font-display: swap;
-  src: url('//at.alicdn.com/t/webfont_01wtuewqwgho.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_01wtuewqwgho.eot');
+  /* IE9*/
   src: url('//at.alicdn.com/t/webfont_01wtuewqwgho.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff2') format('woff2'),
-  url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff2') format('woff2'), url('//at.alicdn.com/t/webfont_01wtuewqwgho.woff') format('woff'), /* chrome、firefox */
   url('//at.alicdn.com/t/webfont_01wtuewqwgho.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/webfont_01wtuewqwgho.svg#Alibaba-PuHuiTi-Regular') format('svg'); /* iOS 4.1- */
+  url('//at.alicdn.com/t/webfont_01wtuewqwgho.svg#Alibaba-PuHuiTi-Regular') format('svg');
+  /* iOS 4.1- */
 }
 
 .wrap-bd {
@@ -1157,7 +1158,7 @@ strong {
   .wrap-content {
     width: 100%;
   }
-  .foot-content{
+  .foot-content {
     width: 90%;
   }
   #cate-hd {
@@ -2480,6 +2481,13 @@ html {
   word-wrap: break-word;
 }
 
+.post-wrap .post.spage {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 45px 65px;
+  margin-top: 15px;
+}
+
 .post-wrap .post .post-h-banner {
   position: relative;
   width: 100%;
@@ -2663,6 +2671,7 @@ html {
 } */
 
 /* 文章标题顶部标签 S */
+
 .post-wrap .entry-cate .tag-list .tag-list-link {
   padding: 2px 12px;
   height: 20px;
@@ -2684,6 +2693,7 @@ html {
 .post-wrap .entry-cate .tag-list .tag-list-link:hover {
   transform: scale(1.08);
 }
+
 /* 文章标题顶部标签 E */
 
 .post-wrap .post h1 {
@@ -3570,11 +3580,14 @@ code {
   .post-wrap .post h1 {
     box-sizing: border-box;
     width: 100%;
-    padding-left: calc(5% - 6px);
+    padding-left: 5%;
     padding-right: 5%;
-    border-left: 6px solid #18a0db;
     font-size: 2.8rem;
     font-weight: bold;
+  }
+  .post-wrap .post h1.post-article {
+    padding-left: calc(5% - 6px);
+    border-left: 6px solid #18a0db;
   }
   .post .entry-content h2 {
     font-size: 2.5rem;
@@ -3607,6 +3620,13 @@ code {
     margin: 0 auto;
     padding: 0 0 45px;
     box-shadow: 0 0 15px 0px rgba(154, 154, 154, 0.15);
+  }
+  .post-wrap .post.spage {
+    border: none;
+    border-radius: initial;
+    padding: initial;
+    margin-top: 0;
+    padding-top: 10px;
   }
   /* .post-wrap .post h1 {
     color: #29363d;
