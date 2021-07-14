@@ -37,7 +37,7 @@
   <link href="/asset/favicon.png" rel="apple-touch-icon-precomposed">
   <link href="/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07141232">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07141432">
   <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
 </head>
 
@@ -57,7 +57,25 @@
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   
-  <div class="headhead">
+  <div class="headhead headlo headbdf headbdfAfter tshadow">
+  <script>
+    let indexTimer,
+      indexHead = document.getElementsByClassName('headhead')[0];
+    window.addEventListener('scroll', function() {
+      if(!indexTimer) {
+        indexTimer = setTimeout(() => {
+          let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
+          if(indexScroll >= 170) {
+            indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
+          } else {
+            indexHead.className = 'headhead headlo headbdf headbdfAfter tshadow';
+          }
+          indexTimer = null;
+          clearTimeout(indexTimer);
+        }, 100);
+      }
+    });
+  </script>
 
 <!-- <div class="headhead headbdf"> -->
   <div class="header-wrap" id="he" style="height: 55px;">
@@ -117,8 +135,17 @@
 </div>
     <div class="wrap clearfix">
       
+        <div class="banner-back" style="position: relative;">
+          <!-- <div class="bb-round">哈喽！</div>
+          <div class="bb-qu">哈喽！</div> -->
+          <div class="bannerBg" style="position: fixed; top: 0; left: 0; right: 0; height: 280px; background: #25566b url('/asset/typ.jpg') center 50% no-repeat; background-size: cover;"></div>
+          <div class="banner-content">
+            <img class="au-head" src="/asset/u2.jpg" alt="头像" title="这是头像！">
+          </div>
+        </div>
+      
   
-  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+    <div class="main">
   
     <div class="wrap-content clearfix">
       
@@ -387,7 +414,7 @@
         <!--  -->
         <!-- 标签具体详情页 -->
 <div class="wrap-bd">
-  <h1 class="deta-hd tag-hd">Nginx&nbsp;<span style="font-size: 22px; color: #ddd;">标签</span></h1>
+  <h1 class="deta-hd tag-hd">Nginx&nbsp;<span style="font-size: 22px; color: #ccc;">标签</span></h1>
   <ul class="p-list">
   
   
@@ -429,6 +456,8 @@
           <!-- S 文章信息 -->
           <div class="post-info">
             <ul>
+              <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
+              <span style="color: #8b93a9; font-weight: bold;">L3r</span>
               <li class="date post-info-item">
                 <span>
                   2021-04-27
@@ -479,6 +508,8 @@
           <!-- S 文章信息 -->
           <div class="post-info">
             <ul>
+              <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
+              <span style="color: #8b93a9; font-weight: bold;">L3r</span>
               <li class="date post-info-item">
                 <span>
                   2020-09-07
