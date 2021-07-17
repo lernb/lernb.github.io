@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
+  
+  <head>
   <script>
     if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
       document.execCommand("stop");
@@ -40,8 +40,9 @@
   <link rel="stylesheet" href="/css/lernb20201012.css?v=07141452">
   <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
 </head>
-
-<body class="line-numbers">
+  
+  <body class="line-numbers">
+  
   <div class="pgbar">
     <div class="bar-in"></div>
   </div>
@@ -57,91 +58,13 @@
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   
-  <div class="headhead headlo headbdf headbdfAfter tshadow">
-  <script>
-    let indexTimer,
-      indexHead = document.getElementsByClassName('headhead')[0];
-    window.addEventListener('scroll', function() {
-      if(!indexTimer) {
-        indexTimer = setTimeout(() => {
-          let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
-          if(indexScroll >= 170) {
-            indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
-          } else {
-            indexHead.className = 'headhead headlo headbdf headbdfAfter tshadow';
-          }
-          indexTimer = null;
-          clearTimeout(indexTimer);
-        }, 100);
-      }
-    });
-  </script>
-
-<!-- <div class="headhead headbdf"> -->
-  <div class="header-wrap" id="he" style="height: 55px;">
-    <div class="blur-bg"></div>
-    
-    <div class="head">
-    
-      <button onclick="clk()">
-        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
-        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
-        <span id="show"><i></i></span>
-        <span id="close"></span>
-      </button>
-      <h1 style="display: inline-block;">
-        <a class="header-img" href="/" target="_self" title="LERNB">
-          LERNB
-        </a>
-      </h1>
-      <ul id="header-btn">
-        <li>
-          
-          <a href="/" class="home-btn hoverLine hoverLineActive">首页</a>
-          
-        </li>
-        <li>
-          
-          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
-          
-        </li>
-        <!-- <li> -->
-          
-          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
-          
-        <!-- </li> -->
-        <!-- <li> -->
-          
-          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
-          
-        <!-- </li> -->
-      </ul>
-    </div>
-    <div id="hcata">
-      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
-      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
-
-      <!-- author -->
-
-      <div class="headerMenu">
-        <a href="/">首页</a>
-        <a href="/tags">标签</a>
-        <a href="/note/note-intro.html">学习</a>
-        <!-- <a href="/categories">分类</a> -->
-      </div>
-      
-    </div>
-  </div>
-</div>
     <div class="wrap clearfix">
       
         <div class="banner-back" style="position: relative;">
-          <!-- <div class="bb-round">哈喽！</div>
-          <div class="bb-qu">哈喽！</div> -->
           <div class="bannerBg" style="position: fixed; top: 0; left: 0; right: 0; height: 280px; background: #25566b url('/asset/typ.jpg') center 50% no-repeat; background-size: cover;"></div>
-          <div class="banner-content">
-            <img class="au-head" src="/asset/u2.jpg" alt="头像" title="这是头像！">
-          </div>
+          <!-- <div class="banner-content">
+            <img class="au-head" src="/asset/u.jpg" alt="头像" title="这是头像！">
+          </div> -->
         </div>
       
   
@@ -161,22 +84,6 @@
 
         <!-- 分类 -->
         
-          <div class="bar-item">
-  
-    <div class="widget-wrap">
-      <div class="t-h hCate">
-        <h3>分类</h3>
-        <!-- <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
-      </div>
-      <div class="widget category">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a><span class="category-list-count">8</span></li></ul>
-      </div>
-      <!-- <div class="overhi"></div> -->
-    </div>
-    
-      <!-- <div class="overhi"></div> -->
-</div>
-        
           
         <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
           
@@ -185,21 +92,6 @@
             
         <!-- 标签 -->
         
-          <div class="bar-item" style="position: relative;">
-  
-  <div class="widget-wrap">
-    <div class="t-h hTag">
-      <h3 class="widget-title">标签</h3>
-      <!-- <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
-    </div>
-    <div class="widget tagcloud">
-      <a href="/tags/Aria2/" style="font-size: 13px;">Aria2</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13px;">CSS3</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/IPv6/" style="font-size: 13px;">IPv6</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/VPS/" style="font-size: 13px;">VPS</a> <a href="/tags/Windows-Update/" style="font-size: 13px;">Windows Update</a> <a href="/tags/diskpart/" style="font-size: 13px;">diskpart</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">系统</a>
-    </div>
-  </div>
-  
-  <!-- <div class="overhi"></div> -->
-</div>
-        
 
         <!-- 文章目录 -->
         
@@ -207,681 +99,61 @@
         </div>
         
         <!--  -->
-        
-    <div class="wrap-bd clearfix">
-      <div id="cate-hd">
-  
-    <a href="/"
-      style="background: linear-gradient(-90deg, rgb(121 199 255) 10%, rgb(24 160 219) 100%); color: #fff;">最近</a><!--
-  --><!--
-    --><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></li></ul>
-</div>
-      <!-- <h1 class="deta-hd">
-        最近
-      </h1> -->
-      <!-- <div class="rec">
-        最近更新
-      </div> -->
-      <ul class="p-list">
-        
+        <script src="/js/typed.js"></script>
+
+    <div id="index-header" class="wrap-bd clearfix" style="width: initial; height: 100%; display: flex; flex-direction: column; align-items: center;">
+      <img class="au-head" src="/asset/u.jpg" alt="头像" title="这是头像！" style="box-sizing: border-box; width: 10rem; height: 10rem; margin-top: -6rem; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 -20px 20px -20px rgb(0 0 0 / 40%);">
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <h1 class="hello" style="margin-top: 4rem; font-size: 2.2rem;">
+        <span class="firstS"></span>
+      </h1>
+      <script>
+        var typed = new Typed('.firstS', {
+          strings: ["哈喽！很高兴被你发现"],
+          typeSpeed: 120,
+          backSpeed: 30,
+          backDelay: 500,
+          startDelay: 600,
+          loop: false
+        });
+      </script>
+      <ul id="header-btn" class="index-header-btn" style="float: initial; margin-left: 0; margin-top: 1rem;">
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/set-nginx-cache/"
-                      title="Nginx下关于缓存控制字段cache-control的配置">
-                      Nginx下关于缓存控制字段cache-control的配置
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/cache-control.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      HTTP协议的Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会影响另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached等。<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/set-nginx-cache/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2021-04-27
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/" class="hoverLine hoverLineActive" style="padding-left: 0;">主页</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/diskpart/"
-                      title="将磁盘转换为MBR格式">
-                      将磁盘转换为MBR格式
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/diskpart/" title="将磁盘转换为MBR格式">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      第一步：按下 Shift + F10 启动命令提示符。在 Windows 的安装界面按下 Shift + F10 启动命令提示符。一：按下 Shift + F10 启动命令提示符<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/diskpart/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2021-02-19
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/Hexo-tag-404/"
-                      title="Hexo标签或分类404">
-                      Hexo标签或分类404
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/Hexo-tag-404/" title="Hexo标签或分类404">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      今天部署博客发现部分标签点击出现404问题，许久之前也出现过类似现象，把字母改成小写就正常了<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/Hexo-tag-404/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2021-01-10
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/articles" class="hoverLine" style="padding-left: 0;">文章</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/slideshow/"
-                      title="轮播图实现">
-                      轮播图实现
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/slideshow/" title="轮播图实现">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/slideshow.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      此轮播图实现方式中并没有节流处理，可以任意速度点击切换轮播，但是有一定的局限性<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/slideshow/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-12-19
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/nginx-https/"
-                      title="Nginx配置https">
-                      Nginx配置https
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/nginx-https/" title="Nginx配置https">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/nginxhttps.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      我们首先配置一下http，让我们的网站可以访问起来<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/nginx-https/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-09-07
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/flex-examples/"
-                      title="Flex布局实例">
-                      Flex布局实例
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/flex-examples/" title="Flex布局实例">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/flex-box.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      不管是什么布局，Flex往往都可以几行命令搞定，这里只列出代码，详细的语法解释请查阅《Flex布局语法》。本文主要参考资料是Landon Schropp的文章和Solved by Flexbox。<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/flex-examples/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-26
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/flex-grammar/"
-                      title="Flex布局语法">
-                      Flex布局语法
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/flex-grammar/" title="Flex布局语法">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/flex-box.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/flex-grammar/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-26
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/Hexo-Git/"
-                      title="Hexo配置Git部署站点到服务器">
-                      Hexo配置Git部署站点到服务器
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/Hexo-Git/" title="Hexo配置Git部署站点到服务器">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      首先查看本机是否已经安装Git和Node.js，如果正确出现版本号，则说明已经安装，反之则未安装<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/Hexo-Git/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-23
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/Hexo-pagenation/"
-                      title="Hexo分类设置分页不显示的问题">
-                      Hexo分类设置分页不显示的问题
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/Hexo-pagenation/" title="Hexo分类设置分页不显示的问题">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/hexo.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      最近折腾写自己的站点主题，整体过程还算流畅，想着给分类页面和标签页面的文章列表加个分页的功能，折腾了好久才给搞定，遇到了一些问题记录一下<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/Hexo-pagenation/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-18
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/inline-block/"
-                      title="inline-block元素设置overflow引起相邻元素位置偏移问题">
-                      inline-block元素设置overflow引起相邻元素位置偏移问题
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/inline-block/" title="inline-block元素设置overflow引起相邻元素位置偏移问题">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/CSSSS.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      在同一个块级元素中相邻的两个行内块元素，其中一个设置后，另一个行内元素会出现位置向下偏移的情况<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/inline-block/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-09
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/postion-absolute/"
-                      title="绝对定位盒子居中">
-                      绝对定位盒子居中
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/postion-absolute/" title="绝对定位盒子居中">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/position-center.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      绝对定位或者固定定位的盒子无法通过设置margin来设置水平居中<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/postion-absolute/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-08-07
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
-          
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/vps-accelerator/"
-                      title="VPS 搭建简单加速器">
-                      VPS 搭建简单加速器
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/vps-accelerator/" title="VPS 搭建简单加速器">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/vpsacc.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      将UDP伪装成TCP或者ICMP，不同于UDP over TCP，其本质上还是UDP，另外不会处理TCP数据包<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/vps-accelerator/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-07-24
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
       </ul>
     </div>
-    <!-- 分页 -->
-    
-      <div id="pageNav" style="clear: both;">
-        
-          <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-      </div>
-      
-        <script>
-          window.onload = function () {
-            /*
-             *  由于 IE6, IE7 不支持 contentDocument 属性，所以此处用了通用的
-             *  window.frames["iframe Name"] or window.frames[index]
-             */
-            // var d = window.frames[0].document;
-            // console.log(d.getElementsByTagName('html')[0].offsetHeight);
-
-            // const frame = document.getElementsByClassName('frame');
-            // for (let i = 0; i < window.frames.length; i++) {
-            //   for (let j = 0; j < frame.length; j++) {
-            //     if (i == j) {
-            //       frame[j].style.height = window.frames[i].document.getElementsByTagName('html')[0].offsetHeight + 'px';
-            //     }
-            //   }
-            // }
-          }
-        </script>
+    <script>
+      let indexWindowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+        // bo = document.getElementsByTagName('body')[0],
+        // wr = document.getElementsByClassName('wrap')[0],
+        ma = document.getElementsByClassName('main')[0];
+        // wrc = document.getElementsByClassName('wrap-content')[0];
+      // bo.style.height = indexWindowHeight + 'px';
+      // wr.style.height = 'calc(100% - 131px)';
+      // ma.style.height = 'calc(100% - 230px)';
+      ma.style.backgroundColor = '#fff';
+      // wrc.style.height = '100%';
+    </script>
       </div>
     </div>
     </div>
-    
-      <div class="wrap-content foot-content">
-  <!-- S 页面底部 -->
-  <div class="foot">
-    <div class="foot-con">
-      <span id="admin"><a href="https://lernb.com" target="_blank"
-          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
-      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
-      <!-- <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a>&nbsp;|</span> -->
-      <span id="siteICP"><a href="http://beian.miit.gov.cn"
-          target="_blank">苏ICP备2020049244号</a></span>
-    </div>
-  </div>
-  <!-- E 页面底部 -->
-</div>
     
   <script id="layout-js"></script>
   <script type="text/javascript">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
+  
+  <head>
   <script>
     if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
       document.execCommand("stop");
@@ -40,8 +40,9 @@
   <link rel="stylesheet" href="/css/lernb20201012.css?v=07141452">
   <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
 </head>
-
-<body class="line-numbers">
+  
+  <body class="line-numbers">
+  
   <div class="pgbar">
     <div class="bar-in"></div>
   </div>
@@ -57,91 +58,13 @@
   </script> -->
 <!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
   
-  <div class="headhead headlo headbdf headbdfAfter tshadow">
-  <script>
-    let indexTimer,
-      indexHead = document.getElementsByClassName('headhead')[0];
-    window.addEventListener('scroll', function() {
-      if(!indexTimer) {
-        indexTimer = setTimeout(() => {
-          let indexScroll = document.body.scrollTop + document.documentElement.scrollTop;
-          if(indexScroll >= 170) {
-            indexHead.className = 'headhead headlo headbdfOn headbdfAfter headbdfAfterOff';
-          } else {
-            indexHead.className = 'headhead headlo headbdf headbdfAfter tshadow';
-          }
-          indexTimer = null;
-          clearTimeout(indexTimer);
-        }, 100);
-      }
-    });
-  </script>
-
-<!-- <div class="headhead headbdf"> -->
-  <div class="header-wrap" id="he" style="height: 55px;">
-    <div class="blur-bg"></div>
-    
-    <div class="head">
-    
-      <button onclick="clk()">
-        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
-        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
-        <span id="show"><i></i></span>
-        <span id="close"></span>
-      </button>
-      <h1 style="display: inline-block;">
-        <a class="header-img" href="/" target="_self" title="LERNB">
-          LERNB
-        </a>
-      </h1>
-      <ul id="header-btn">
-        <li>
-          
-          <a href="/" class="home-btn hoverLine hoverLineActive">首页</a>
-          
-        </li>
-        <li>
-          
-          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
-          
-        </li>
-        <!-- <li> -->
-          
-          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
-          
-        <!-- </li> -->
-        <!-- <li> -->
-          
-          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
-          
-        <!-- </li> -->
-      </ul>
-    </div>
-    <div id="hcata">
-      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
-      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
-
-      <!-- author -->
-
-      <div class="headerMenu">
-        <a href="/">首页</a>
-        <a href="/tags">标签</a>
-        <a href="/note/note-intro.html">学习</a>
-        <!-- <a href="/categories">分类</a> -->
-      </div>
-      
-    </div>
-  </div>
-</div>
     <div class="wrap clearfix">
       
         <div class="banner-back" style="position: relative;">
-          <!-- <div class="bb-round">哈喽！</div>
-          <div class="bb-qu">哈喽！</div> -->
           <div class="bannerBg" style="position: fixed; top: 0; left: 0; right: 0; height: 280px; background: #25566b url('/asset/typ.jpg') center 50% no-repeat; background-size: cover;"></div>
-          <div class="banner-content">
-            <img class="au-head" src="/asset/u2.jpg" alt="头像" title="这是头像！">
-          </div>
+          <!-- <div class="banner-content">
+            <img class="au-head" src="/asset/u.jpg" alt="头像" title="这是头像！">
+          </div> -->
         </div>
       
   
@@ -161,22 +84,6 @@
 
         <!-- 分类 -->
         
-          <div class="bar-item">
-  
-    <div class="widget-wrap">
-      <div class="t-h hCate">
-        <h3>分类</h3>
-        <!-- <a href="/categories" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
-      </div>
-      <div class="widget category">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a><span class="category-list-count">8</span></li></ul>
-      </div>
-      <!-- <div class="overhi"></div> -->
-    </div>
-    
-      <!-- <div class="overhi"></div> -->
-</div>
-        
           
         <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
           
@@ -185,21 +92,6 @@
             
         <!-- 标签 -->
         
-          <div class="bar-item" style="position: relative;">
-  
-  <div class="widget-wrap">
-    <div class="t-h hTag">
-      <h3 class="widget-title">标签</h3>
-      <!-- <a href="/tags" style="float: right; font-size: 12px; margin-top: 11px; color: #c0c0c0;">更多>></a> -->
-    </div>
-    <div class="widget tagcloud">
-      <a href="/tags/Aria2/" style="font-size: 13px;">Aria2</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13px;">CSS3</a> <a href="/tags/Git/" style="font-size: 13px;">Git</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/IPv6/" style="font-size: 13px;">IPv6</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/VPS/" style="font-size: 13px;">VPS</a> <a href="/tags/Windows-Update/" style="font-size: 13px;">Windows Update</a> <a href="/tags/diskpart/" style="font-size: 13px;">diskpart</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">系统</a>
-    </div>
-  </div>
-  
-  <!-- <div class="overhi"></div> -->
-</div>
-        
 
         <!-- 文章目录 -->
         
@@ -207,375 +99,61 @@
         </div>
         
         <!--  -->
-        
-    <div class="wrap-bd clearfix">
-      <div id="cate-hd">
-  
-    <a href="/"
-      style="background: linear-gradient(-90deg, rgb(121 199 255) 10%, rgb(24 160 219) 100%); color: #fff;">最近</a><!--
-  --><!--
-    --><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></li></ul>
-</div>
-      <!-- <h1 class="deta-hd">
-        最近
-      </h1> -->
-      <!-- <div class="rec">
-        最近更新
-      </div> -->
-      <ul class="p-list">
-        
+        <script src="/js/typed.js"></script>
+
+    <div id="index-header" class="wrap-bd clearfix" style="width: initial; height: 100%; display: flex; flex-direction: column; align-items: center;">
+      <img class="au-head" src="/asset/u.jpg" alt="头像" title="这是头像！" style="box-sizing: border-box; width: 10rem; height: 10rem; margin-top: -6rem; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 -20px 20px -20px rgb(0 0 0 / 40%);">
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB">
+          LERNB
+        </a>
+      </h1>
+      <h1 class="hello" style="margin-top: 4rem; font-size: 2.2rem;">
+        <span class="firstS"></span>
+      </h1>
+      <script>
+        var typed = new Typed('.firstS', {
+          strings: ["哈喽！很高兴被你发现"],
+          typeSpeed: 120,
+          backSpeed: 30,
+          backDelay: 500,
+          startDelay: 600,
+          loop: false
+        });
+      </script>
+      <ul id="header-btn" class="index-header-btn" style="float: initial; margin-left: 0; margin-top: 1rem;">
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/stop-windows-update/"
-                      title="彻底禁用Windows 10系统自动更新">
-                      彻底禁用Windows 10系统自动更新
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/stop-windows-update/" title="彻底禁用Windows 10系统自动更新">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/diskpart2.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      出于安全性因素考虑，并不建议禁用系统的自动更新。但是微软的Windows 10系统更新补丁经常出现一些兼容性的Bug以及恼人的弹窗提示，这对于一些对系统稳定性要求较高的用户以及生产环境的设备来说，在可使用性上有比较大的影响<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/stop-windows-update/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-07-22
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/" class="hoverLine hoverLineActive" style="padding-left: 0;">主页</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/VPS-DD-onekey/"
-                      title="VPS DD安装Linux/Windows系统">
-                      VPS DD安装Linux/Windows系统
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/VPS-DD-onekey/" title="VPS DD安装Linux/Windows系统">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/vpsos.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      Linux VPS主机一键全自动DD安装纯净Debian/Ubuntu/CentOS和Windows操作系统，Linux的ISO建议直接到官网上下载<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/VPS-DD-onekey/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-07-16
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/uninstall-aliyundun/"
-                      title="卸载云盾（安骑士）">
-                      卸载云盾（安骑士）
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/uninstall-aliyundun/" title="卸载云盾（安骑士）">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/aliyundun.png" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      你懂的😉<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/uninstall-aliyundun/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2020-07-06
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/articles" class="hoverLine" style="padding-left: 0;">文章</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/BBR/"
-                      title="Debian/Ubuntu开启TCP BBR拥塞控制算法">
-                      Debian/Ubuntu开启TCP BBR拥塞控制算法
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/BBR/" title="Debian/Ubuntu开启TCP BBR拥塞控制算法">
-                    <div class="overlay"></div>
-                    <img src="/img/BBR.assets/g-bbr.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      BBR是由谷歌开发的一个新的TCP拥塞控制算法，主要通过优化控制TCP的拥塞，充分利用带宽并降低延迟来达到TCP加速的效果<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/BBR/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2019-07-23
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
+        <li>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/Aria2-onekey/"
-                      title="Aria2管理脚本安装">
-                      Aria2管理脚本安装
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/Aria2-onekey/" title="Aria2管理脚本安装">
-                    <div class="overlay"></div>
-                    <img src="/img/Aria2-onekey.assets/aria2.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      本脚本只是安装Aria2后端，安装后默认会启<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/Aria2-onekey/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2019-07-15
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
           
-            
-              <!-- <div class="p-list"> -->
-              <li class="p-list-item clearfix">
-                <div class="ph-cate">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/categories/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
-                </div>
-                <!-- S 文章标题 -->
-                <div class="d-pp-h" style="margin-bottom: 12px;">
-                  <h1 class="p-h p-list-item-title"><a class="hoverLine" href="/get-ipv6-addr/"
-                      title="获取IPv6并开启64位短码地址">
-                      获取IPv6并开启64位短码地址
-                    </a></h1>
-                </div>
-                <!-- E 文章标题 -->
-                <!-- S 文章图片 -->
-                <div class="post-img">
-                  <a href="/get-ipv6-addr/" title="获取IPv6并开启64位短码地址">
-                    <div class="overlay"></div>
-                    <img src="https://gitee.com/lernb/pic-host/raw/master/img/i1.jpg" alt="文章封面">
-                  </a>
-                </div>
-                <!-- E 文章图片 -->
-                <div class="p-list-item-right img-pc">
-                  <!-- S 标题内容 -->
-                  <div class="content">
-                    <div class="zy">
-                      IPv6完整地址是128位的，本文的方法可以获取IPv6/64位短码地址，而且可设置租用7天（7天内为静态，可尝试用于建站）<span>...</span><a class="readmore hoverLine hoverLine-thin"
-                          href="/get-ipv6-addr/"></a>
-                    </div>
-                  </div>
-                  <!-- E 标题内容 -->
-                  <!-- S 文章信息 -->
-                  <div class="post-info">
-                    <ul>
-                      <img src="/asset/u2.jpg" alt="头像" style="display: inline-block; width: 30px; height: 30px; border-radius: 50%;">
-                      <span style="color: #8b93a9; font-weight: bold;">L3r</span>
-                      <li class="date post-info-item">
-                        <span>
-                          2019-07-15
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- E 文章信息 -->
-                </div>
-              </li>
-              <!-- </div> -->
-              
-                  
-                    
+        </li>
       </ul>
     </div>
-    <!-- 分页 -->
-    
-      <div id="pageNav" style="clear: both;">
-        
-          <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </div>
-      
-        <script>
-          window.onload = function () {
-            /*
-             *  由于 IE6, IE7 不支持 contentDocument 属性，所以此处用了通用的
-             *  window.frames["iframe Name"] or window.frames[index]
-             */
-            // var d = window.frames[0].document;
-            // console.log(d.getElementsByTagName('html')[0].offsetHeight);
-
-            // const frame = document.getElementsByClassName('frame');
-            // for (let i = 0; i < window.frames.length; i++) {
-            //   for (let j = 0; j < frame.length; j++) {
-            //     if (i == j) {
-            //       frame[j].style.height = window.frames[i].document.getElementsByTagName('html')[0].offsetHeight + 'px';
-            //     }
-            //   }
-            // }
-          }
-        </script>
+    <script>
+      let indexWindowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+        // bo = document.getElementsByTagName('body')[0],
+        // wr = document.getElementsByClassName('wrap')[0],
+        ma = document.getElementsByClassName('main')[0];
+        // wrc = document.getElementsByClassName('wrap-content')[0];
+      // bo.style.height = indexWindowHeight + 'px';
+      // wr.style.height = 'calc(100% - 131px)';
+      // ma.style.height = 'calc(100% - 230px)';
+      ma.style.backgroundColor = '#fff';
+      // wrc.style.height = '100%';
+    </script>
       </div>
     </div>
     </div>
-    
-      <div class="wrap-content foot-content">
-  <!-- S 页面底部 -->
-  <div class="foot">
-    <div class="foot-con">
-      <span id="admin"><a href="https://lernb.com" target="_blank"
-          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
-      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
-      <!-- <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a>&nbsp;|</span> -->
-      <span id="siteICP"><a href="http://beian.miit.gov.cn"
-          target="_blank">苏ICP备2020049244号</a></span>
-    </div>
-  </div>
-  <!-- E 页面底部 -->
-</div>
     
   <script id="layout-js"></script>
   <script type="text/javascript">
