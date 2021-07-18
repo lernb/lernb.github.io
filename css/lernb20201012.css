@@ -384,7 +384,7 @@
   /* height: 42px; */
   line-height: 1;
   /* overflow: hidden; */
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   /* vertical-align: top; */
 }
 
@@ -560,7 +560,7 @@
   .p-list .p-list-item-title {
     width: auto;
     height: auto;
-    font-size: 1.85rem;
+    font-size: 2rem;
   }
   .p-list .p-list-item-title a {
     display: inline-block;
