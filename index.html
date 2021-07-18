@@ -37,7 +37,7 @@
   <link href="/asset/favicon.png" rel="apple-touch-icon-precomposed">
   <link href="/asset/favicon.png" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07171959">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07181959">
   <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
 </head>
   
@@ -108,16 +108,26 @@
           LERNB
         </a>
       </h1>
-      <h1 class="hello" style="margin-top: 4rem; font-size: 2.2rem;">
+      <div class="hello">
         <span class="firstS"></span>
-      </h1>
+        <span class="secondS"></span>
+      </div>
       <script>
         var typed = new Typed('.firstS', {
-          strings: ["哈喽！很高兴被你发现"],
-          typeSpeed: 120,
-          backSpeed: 30,
+          strings: ["哈喽！"],
+          typeSpeed: 100,
+          backSpeed: 80,
           backDelay: 500,
           startDelay: 600,
+          loop: false,
+          showCursor: false
+        });
+        var typed = new Typed('.secondS', {
+          strings: ["很高兴被你发现"],
+          typeSpeed: 90,
+          backSpeed: 80,
+          backDelay: 800,
+          startDelay: 1100,
           loop: false
         });
       </script>
