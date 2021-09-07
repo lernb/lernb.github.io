@@ -396,7 +396,7 @@ $ git init --bare blog.git
 <h3 id="检查用户权限"><a class="header-anchor" href="#检查用户权限"></a>检查用户权限</h3>
 <p>查看<code>blog.git</code>、<code>.ssh</code>和站点目录的用户组权限是否都为<code>git:git</code></p>
 <pre><code class="language-language-bash">$ ls -l /var/www/
-$ ls -l /homw/git/
+$ ls -l /home/git/
 </code></pre>
 <p>如果不是则</p>
 <pre><code class="language-language-bash">$ sudo chown git:git -R /var/www/blog
