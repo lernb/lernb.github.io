@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      彻底禁用Windows 10系统自动更新 - LERNB | 网络日志
+      OpenWrt 编译步骤与命令详解 - LERNB | 网络日志
     
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -160,7 +160,7 @@
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+              <a class="current" href="/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
                 OpenWrt 编译步骤与命令详解
               </a>
             
@@ -278,7 +278,7 @@
     <div class="entry-cate">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
     </div>
-    <h1 class="post-article">彻底禁用Windows 10系统自动更新</h1>
+    <h1 class="post-article">OpenWrt 编译步骤与命令详解</h1>
     <div class="entry">
       <!-- S 文章信息 -->
       <div class="p-info-title">
@@ -287,56 +287,211 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2020-07-22</span>&nbsp;&nbsp;
+          <div class="post-date"><span>2021-09-30</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" target="_blank" title="本文转编自：P3TERX">
+              <span class="res">源</span><span class="res-link">P3TERX</span>
+            </a>
             
           </div>
         </div>
       </div>
       <!-- E 文章信息 -->
       <div class="entry-content">
-        <div class="tip">
-<p>出于安全性因素考虑，并不建议禁用系统的自动更新。但是微软的Windows 10系统更新补丁经常出现一些兼容性的Bug以及恼人的弹窗提示，这对于一些对系统稳定性要求较高的用户以及生产环境的设备来说，在可使用性上有比较大的影响。</p>
-</div>
-<p>以下操作步骤均在Windows 10专业版操作系统上进行。</p>
-<h2 id="一、关闭Windows-Update服务"><a class="header-anchor" href="#一、关闭Windows-Update服务"></a>一、关闭Windows Update服务</h2>
-<p>▼ 鼠标右键点击桌面左下角开始图标，在弹出的菜单中点击“计算机管理”；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505172043.png" alt="快捷菜单"></p>
-<p>▼ 在打开的窗口中点开左侧列表中的“服务和应用程序”，在展开的列表中点击“服务”，然后在窗口右侧找到“Windows Update”并双击打开；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505214117.png" alt="计算机管理窗口"></p>
-<p>▼ 在“启动类型”下拉列表中选择“禁用”，然后点击窗口上方的“恢复”选项卡；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173019.png" alt="Windows Update属性窗口"></p>
-<p>▼ 在“第一次失败”下拉列表中选择“无操作”，并将“在此时间之后重置失败计数”文本框中数字改成<code>9999</code>，然后点击确定按钮。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505173315.png" alt="Windows Update属性窗口"></p>
-<h2 id="二、修改注册表"><a class="header-anchor" href="#二、修改注册表"></a>二、修改注册表</h2>
-<p>▼ 鼠标右键点击桌面左下角开始图标，在弹出菜单中点击“运行”；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505200934.png" alt="快捷菜单"></p>
-<p>▼ 在打开的窗口中输入<code>regedit</code>并回车打开注册表，如果出现UAC窗口，选择“是”；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505205412.png" alt="运行窗口"></p>
-<p>▼ 在注册表窗口左侧列表中定位到“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc”，在右侧窗口中找到<code>Start</code>键，右键点击选择“修改”；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213322.png" alt="注册表窗口"></p>
-<p>▼ 将“数值数据”修改成<code>4</code>，然后点击“确定”按钮；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202010.png" alt="Start键窗口"></p>
-<p>▼ 然后继续在注册表窗口右侧找到<code>FailureActions</code>键，并右键点击选择“修改二进制数据”，将图中标记的两处位置的数据修改为<code>00</code>，然后点击“确定”按钮。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505202841.png" alt="FailureActions"></p>
-<h2 id="三、修改组策略"><a class="header-anchor" href="#三、修改组策略"></a>三、修改组策略</h2>
-<p>同上方法打开运行窗口，输入<code>gpedit.msc</code>并回车打开本地组策略编辑器；</p>
-<p>▼ 在组策略窗口左侧列表中定位到“计算机配置\管理模板\Windows组件\Windows更新”，然后在右侧窗口中找到“配置自动更新”并双击打开；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213513.png" alt="组策略窗口"></p>
-<p>▼ 在“配置自动更新”下方选择“已禁用”，然后点击“确定”按钮；</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204024.png" alt="配置自动更新窗口"></p>
-<p>▼ 继续在右侧窗口中找到“删除使用所有 Windows 更新功能的访问权限”并双击打开，在窗口上方选择“已启用”，然后点击“确定”按钮。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505204312.png" alt="删除更新功能访问权限窗口"></p>
-<h2 id="四、关闭计划任务"><a class="header-anchor" href="#四、关闭计划任务"></a>四、关闭计划任务</h2>
-<p>同上方法打开运行窗口，输入<code>taskschd.msc</code>并回车打开任务计划程序；</p>
-<p>▼ 在任务计划程序窗口左侧列表中定位到“任务计划程序库\Microsoft\Windows\WindowsUpdate”，然后将右侧窗口中的计划任务点击右键选择“禁用”。</p>
-<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20210505213656.png" alt="任务计划窗口"></p>
-<p>至此Windows更新已经被彻底关闭。</p>
+        <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p>编译 Open­Wrt 的过程就像是复读机，除了选择系统组件外，几乎每次编译都是复制粘贴相同的命令。而理解每一条命令的作用、什么时候该去执行，这样才能更好的去解决编译中遇到的问题，更顺利的编译出固件。</p>
+<h2 id="首次编译"><a class="header-anchor" href="#首次编译"></a>首次编译</h2>
+<ul>
+<li>
+<p>克隆 Open­Wrt 源码</p>
+<pre><code class="language-none">git clone https://github.com/coolsnowwolf/lede openwrt
+</code></pre>
+<blockquote>
+<p>这里以 Lean 大佬的源码仓库为例子，毕竟很多人都在用它。命令末尾加了<code>openwrt</code>是指克隆代码到<code>openwrt</code>目录，目的是为了规范化，因为有时并不是编译这个的源码。</p>
+</blockquote>
+</li>
+<li>
+<p>进入源码目录</p>
+<pre><code class="language-none">cd openwrt
+</code></pre>
+</li>
+<li>
+<p>下载 feeds 源中的软件包源码</p>
+<pre><code class="language-none">./scripts/feeds update -a
+</code></pre>
+<blockquote>
+<p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
+</blockquote>
+</li>
+<li>
+<p>安装 feeds 中的软件包</p>
+<pre><code class="language-none">./scripts/feeds install -a
+</code></pre>
+</li>
+<li>
+<p>调整 Open­Wrt 系统组件</p>
+<pre><code class="language-none">make menuconfig
+</code></pre>
+<blockquote>
+<p>首次编译建议只选择架构，其它都不要动，这样编译成功率会更高。如果不打算调整组件则输入<code>make defconfig</code>，它会检测编译环境并生成默认的编译配置文件。</p>
+</blockquote>
+</li>
+<li>
+<p>预下载编译所需的软件包</p>
+<pre><code class="language-none">make download -j8 V=s
+</code></pre>
+<blockquote>
+<p><code>-j8</code>是指使用8个线程下载，理论上是数字越大下载越快，但似乎有个上限，实测5线程以上其实速度相差不了多少，在网络好的情况下，基本在5分钟以内能下载完。</p>
+</blockquote>
+</li>
+<li>
+<p>检查文件完整性</p>
+<pre><code class="language-none">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+<blockquote>
+<p>此命令可以列出下载不完整的文件（根据我多次编译的<a href="https://p3terx.com/archives/reasons-and-solutions-for-openwrt-compilation-failure.html" target="_blank" rel="noopener">经验</a>得出小于1k的文件属于下载不完整），如果存在这样的文件可以使用<code>find dl -size -1024c -exec rm -f {} \;</code>命令将它们删除，然后重新执行<code>make download</code>下载并反复检查，确认所有文件完整可大大提高编译成功率，避免浪费时间。</p>
+</blockquote>
+</li>
+<li>
+<p>开始编译</p>
+<pre><code class="language-none">make -j1 V=s
+</code></pre>
+<blockquote>
+<pre><code>-j1
+</code></pre>
+<p>：使用单线程编译。新手推荐单线程编译，一是因为玄学问题可能成功率高，二是方便查看错误日志。</p>
+<p><code>V=s</code>：输出详细日志，用于编译失败时找出错误。而且满屏代码在跑能装逼，一跑就是几个小时，装逼更持久。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="再次编译"><a class="header-anchor" href="#再次编译"></a>再次编译</h2>
+<ul>
+<li>
+<p>进入源码目录（如果不在此目录）</p>
+<pre><code class="language-none">cd openwrt
+</code></pre>
+</li>
+</ul>
+<h3 id="更新"><a class="header-anchor" href="#更新"></a>更新</h3>
+<blockquote>
+<p><strong>TIPS：</strong> 短期内再次编译可忽略更新这个步骤。</p>
+</blockquote>
+<ul>
+<li>
+<p>更新系统软件包</p>
+<pre><code class="language-none">sudo sh -c &quot;apt update &amp;&amp; apt upgrade -y&quot;
+</code></pre>
+<blockquote>
+<p>主要作用是更新在编译环境搭建时所安装的编译组件</p>
+</blockquote>
+</li>
+<li>
+<p>拉取 Open­Wrt 源码更新</p>
+<pre><code class="language-none">git pull
+</code></pre>
+</li>
+<li>
+<p>更新 feeds 源中的软件包源码</p>
+<pre><code class="language-none">./scripts/feeds update -a
+</code></pre>
+</li>
+<li>
+<p>安装 feeds 中的软件包</p>
+<pre><code class="language-none">./scripts/feeds install -a
+</code></pre>
+</li>
+</ul>
+<h3 id="文件清理"><a class="header-anchor" href="#文件清理"></a>文件清理</h3>
+<ul>
+<li>
+<p>清除旧的编译产物（可选）</p>
+<pre><code class="language-none">make clean
+</code></pre>
+<blockquote>
+<p>在源码有大规模更新或者内核更新后执行，以保证编译质量。此操作会删除<code>/bin</code>和<code>/build_dir</code>目录中的文件。</p>
+</blockquote>
+</li>
+<li>
+<p>清除旧的编译产物、交叉编译工具及工具链等目录（可选）</p>
+<pre><code class="language-none">make dirclean
+</code></pre>
+<blockquote>
+<p>更换架构编译前必须执行。此操作会删除<code>/bin</code>和<code>/build_dir</code>目录的中的文件(<code>make clean</code>)以及<code>/staging_dir</code>、<code>/toolchain</code>、<code>/tmp</code>和<code>/logs</code>中的文件。</p>
+</blockquote>
+</li>
+<li>
+<p>清除 Open­Wrt 源码以外的文件（可选）</p>
+<pre><code class="language-none">make distclean
+</code></pre>
+<blockquote>
+<p>除非是做开发，并打算 push 到 GitHub 这样的远程仓库，否则几乎用不到。此操作相当于<code>make dirclean</code>外加删除<code>/dl</code>、<code>/feeds</code>目录和<code>.config</code>文件。</p>
+</blockquote>
+</li>
+<li>
+<p>还原 Open­Wrt 源码到初始状态（可选）</p>
+<pre><code class="language-none">git clean -xdf
+</code></pre>
+<blockquote>
+<p>如果把源码改坏了，或者长时间没有进行编译时使用。</p>
+</blockquote>
+</li>
+<li>
+<p>清除临时文件</p>
+<pre><code class="language-none">rm -rf tmp
+</code></pre>
+<blockquote>
+<p>删除执行<code>make menuconfig</code>后产生的一些临时文件，包括一些软件包的检索信息，删除后会重新加载<code>package</code>目录下的软件包。若不删除会导致一些新加入的软件包不显示。</p>
+</blockquote>
+</li>
+<li>
+<p>删除编译配置文件</p>
+<pre><code class="language-none">rm -f .config
+</code></pre>
+<blockquote>
+<p>在不删除的情况下如果取消选择某些组件它的依赖组件不会自动取消，所以对于需要调整组件的情况下建议删除。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="编译"><a class="header-anchor" href="#编译"></a>编译</h3>
+<ul>
+<li>
+<p>调整 Open­Wrt 系统组件</p>
+<pre><code class="language-none">make menuconfig
+</code></pre>
+<blockquote>
+<p>如果不打算调整组件则输入<code>make defconfig</code>，它会检测编译环境并根据更新自动调整编译配置文件。</p>
+</blockquote>
+</li>
+<li>
+<p>预下载编译所需的软件包</p>
+<pre><code class="language-none">make download -j8 V=s
+</code></pre>
+</li>
+<li>
+<p>检查文件完整性</p>
+<pre><code class="language-none">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+<blockquote>
+<p>此命令可以列出下载不完整的文件（根据我多次编译的<a href="https://p3terx.com/archives/reasons-and-solutions-for-openwrt-compilation-failure.html" target="_blank" rel="noopener">经验</a>得出小于1k的文件属于下载不完整），如果存在这样的文件可以使用<code>find dl -size -1024c -exec rm -f {} \;</code>命令将它们删除，然后重新执行<code>make download</code>下载并反复检查，确认所有文件完整可大大提高编译成功率，避免浪费时间。</p>
+</blockquote>
+</li>
+<li>
+<p>开始编译</p>
+<pre><code class="language-none">make -j$(nproc) || make -j1 || make -j1 V=s
+</code></pre>
+<blockquote>
+<p>多线程编译失败后自动进入单线程编译，失败则输出详细日志。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="尾巴"><a class="header-anchor" href="#尾巴"></a>尾巴</h2>
+<p>很少有人会告诉你为什么要这样做，而是会要求你必须要这样做。</p>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/Windows-Update/" rel="tag">Windows Update</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/OpenWrt/" rel="tag">OpenWrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E7%BC%96%E8%AF%91/" rel="tag">编译</a></li></ul>
     </div>
     
     <script src="/js/prism.js"></script>
@@ -345,27 +500,16 @@
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/VPS-DD-onekey/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/vpsos.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+    <a href="/set-nginx-cache/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
       <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
       <div class="article-nav-title" style="position: relative; z-index: 1;">
         <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
         
-          <span class="hoverLine hoverLine-thin">VPS DD安装Linux/Windows系统</span>
+          <span class="hoverLine hoverLine-thin">Nginx下关于缓存控制字段cache-control的配置</span>
         
       </div>
     </a>
     
-    
-    <a href="/vps-accelerator/" id="article-nav-older" class="article-nav-link-wrap"
-      style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/vpsacc.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg); text-align: right;">
-      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
-      <div class="article-nav-title" style="position: relative; z-index: 1;">
-        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
-        
-          <span class="hoverLine hoverLine-thin">VPS 搭建简单加速器</span>
-        
-      </div>
-    </a>
     
   </nav>
   
@@ -390,7 +534,7 @@
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+              <a class="current" href="/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
                 OpenWrt 编译步骤与命令详解
               </a>
             
