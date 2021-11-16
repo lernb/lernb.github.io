@@ -477,7 +477,7 @@
 </li>
 <li>
 <p>开始编译</p>
-<pre><code class="language-none">make -j$(nproc) || make -j1 || make -j1 V=s
+<pre><code class="language-none">make -j$(nproc) V=s || make -j1 || make -j1 V=s
 </code></pre>
 <blockquote>
 <p>多线程编译失败后自动进入单线程编译，失败则输出详细日志。</p>
