@@ -471,9 +471,9 @@
 <p>检查文件完整性</p>
 <pre><code class="language-none">find dl -size -1024c -exec ls -l {} \;
 </code></pre>
-<blockquote>
+<div class="tip">
 <p>此命令可以列出下载不完整的文件（根据我多次编译的<a href="https://p3terx.com/archives/reasons-and-solutions-for-openwrt-compilation-failure.html" target="_blank" rel="noopener">经验</a>得出小于1k的文件属于下载不完整），如果存在这样的文件可以使用<code>find dl -size -1024c -exec rm -f {} \;</code>命令将它们删除，然后重新执行<code>make download</code>下载并反复检查，确认所有文件完整可大大提高编译成功率，避免浪费时间。</p>
-</blockquote>
+</div>
 </li>
 <li>
 <p>开始编译</p>
