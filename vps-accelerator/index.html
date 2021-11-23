@@ -428,24 +428,14 @@
 <pre><code class="language-language-bash">./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
 </code></pre>
 <ul>
-<li>
-<p><code>-c</code>以客户端模式运行</p>
-</li>
-<li>
-<p><code>-r</code>上述udp2raw客户端本地监听地址（<code>ip:port</code>）。</p>
-</li>
-<li>
-<p><code>--sub-net</code>指定子网，跟服务端一致</p>
-</li>
-<li>
-<p><code>--tun-dev</code>指定tun设备名称</p>
-</li>
-<li>
-<p><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</p>
-</li>
-<li>
-<p><code>-k</code>口令，需要跟服务端相同</p>
-</li>
+<li><code>-c</code>以客户端模式运行</li>
+<li><code>-r</code>上述udp2raw客户端本地监听地址（<code>ip:port</code>）。</li>
+<li><code>--sub-net</code>指定子网，跟服务端一致</li>
+<li><code>--tun-dev</code>指定tun设备名称</li>
+<li><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</li>
+<li><code>-k</code>口令，需要跟服务端相同</li>
+<li><code>-fx:y</code>同服务端</li>
+<li><code>--timeout</code>同服务端</li>
 </ul>
 <p>至此，就建立好了服务端到客户端的连接。</p>
 <h3 id="4-3-tinyPortMapper"><a class="header-anchor" href="#4-3-tinyPortMapper"></a>4.3 tinyPortMapper</h3>
