@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE内核浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      OpenWrt 编译步骤与命令详解 - LERNB | 网络日志
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 个人网站，记录、分享" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-page-mode" content="app">
+	<meta name="browsermode" content="application">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#5e72e4">
+
+	<meta name="application-name" content="LERNB">
+	<meta name="apple-mobile-web-app-title" content="LERNB">
+  <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
+  <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
+  <link rel="stylesheet" href="/css/partial.css?v=07252249">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+</head>
+  
+  <body class="line-numbers">
+  
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script src="/js/layouts@20200929.js"></script>
+  <!-- <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts@20200921.js');
+    }
+  </script> -->
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
+    
+  <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    
+    <div class="head">
+    
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB" style="background-image: url('/asset/lernb.png');">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine" style="padding-left: 0;">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/p" class="hoverLine hoverLineActive" style="padding-left: 0;">文章</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+
+      <!-- author -->
+
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/p">文章</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+    <div class="wrap clearfix">
+      
+  
+  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  
+    <div class="wrap-content clearfix">
+      
+      <div class="bar barbar">
+        <!-- <div class="barside"> -->
+        <!-- S 侧栏插件 -->
+        
+
+        <!-- 最近文章 -->
+        
+        <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+        
+
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+
+        <!-- 分类 -->
+        
+          
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+          
+        <!-- 归档 -->
+        
+            
+        <!-- 标签 -->
+        
+
+        <!-- 文章目录 -->
+        
+          <div class="bar-item post-title-menu-flag">
+  <div class="t-h" style="margin-bottom: 10px;">
+    <h3 style="color: #094067;">目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+        </div>
+        
+        <!--  -->
+        <div class="post-wrap">
+  <article class="post">
+    <div class="entry-cate">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+    </div>
+    <h1 class="post-article">OpenWrt 编译步骤与命令详解</h1>
+    <div class="entry">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2021-09-30</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" target="_blank" title="本文转编自：P3TERX">
+              <span class="res">源</span><span class="res-link">P3TERX</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="entry-content">
+        <h2 id="前言"><a class="header-anchor" href="#前言"></a>前言</h2>
+<p>编译 Open­Wrt 的过程就像是复读机，除了选择系统组件外，几乎每次编译都是复制粘贴相同的命令。而理解每一条命令的作用、什么时候该去执行，这样才能更好的去解决编译中遇到的问题，更顺利的编译出固件。</p>
+<h2 id="首次编译"><a class="header-anchor" href="#首次编译"></a>首次编译</h2>
+<ul>
+<li>
+<p>克隆 Open­Wrt 源码</p>
+<pre><code class="language-none">git clone https://github.com/coolsnowwolf/lede openwrt
+</code></pre>
+<div class="tip">
+<p>这里以 Lean 的源码仓库为例子，毕竟很多人都在用它。命令末尾加了<code>openwrt</code>是指克隆代码到<code>openwrt</code>目录，目的是为了规范化，因为有时并不是编译这个的源码。</p>
+</div>
+</li>
+<li>
+<p>进入源码目录</p>
+<pre><code class="language-none">cd openwrt
+</code></pre>
+</li>
+<li>
+<p>下载 feeds 源中的软件包源码</p>
+<pre><code class="language-none">./scripts/feeds update -a
+</code></pre>
+<div class="tip">
+<p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
+</div>
+</li>
+<li>
+<p>安装 feeds 中的软件包</p>
+<pre><code class="language-none">./scripts/feeds install -a
+</code></pre>
+</li>
+<li>
+<p>调整 Open­Wrt 系统组件</p>
+<pre><code class="language-none">make menuconfig
+</code></pre>
+<div class="warning">
+<p>首次编译建议只选择架构，其它都不要动，这样编译成功率会更高。如果不打算调整组件则输入<code>make defconfig</code>，它会检测编译环境并生成默认的编译配置文件。</p>
+</div>
+</li>
+<li>
+<p>预下载编译所需的软件包</p>
+<pre><code class="language-none">make download -j8 V=s
+</code></pre>
+<div class="tip">
+<p><code>-j8</code>是指使用8个线程下载，理论上是数字越大下载越快，但似乎有个上限，实测5线程以上其实速度相差不了多少，在网络好的情况下，基本在5分钟以内能下载完。</p>
+</div>
+</li>
+<li>
+<p>检查文件完整性</p>
+<pre><code class="language-none">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+<div class="tip">
+<p>此命令可以列出下载不完整的文件（根据我多次编译的<a href="https://p3terx.com/archives/reasons-and-solutions-for-openwrt-compilation-failure.html" target="_blank" rel="noopener">经验</a>得出小于1k的文件属于下载不完整），如果存在这样的文件可以使用<code>find dl -size -1024c -exec rm -f {} \;</code>命令将它们删除，然后重新执行<code>make download</code>下载并反复检查，确认所有文件完整可大大提高编译成功率，避免浪费时间。</p>
+</div>
+</li>
+<li>
+<p>开始编译</p>
+<pre><code class="language-none">make -j1 V=s
+</code></pre>
+<div class="tip">
+<p><code>-j1</code>使用单线程编译。新手推荐单线程编译，一是因为玄学问题可能成功率高，二是方便查看错误日志。</p>
+<p><code>V=s</code>输出详细日志，用于编译失败时找出错误。而且满屏代码在跑能装X，一跑就是几个小时，装X更持久。</p>
+</div>
+</li>
+</ul>
+<h2 id="再次编译"><a class="header-anchor" href="#再次编译"></a>再次编译</h2>
+<p>进入源码目录（如果不在此目录）</p>
+<pre><code class="language-none">cd openwrt
+</code></pre>
+<h3 id="更新"><a class="header-anchor" href="#更新"></a>更新</h3>
+<div class="success">
+<p><strong>TIPS：</strong> 短期内再次编译可忽略更新这个步骤。</p>
+</div>
+<ul>
+<li>
+<p>更新系统软件包</p>
+<pre><code class="language-none">sudo sh -c &quot;apt update &amp;&amp; apt upgrade -y&quot;
+</code></pre>
+<div class="tip">
+<p>主要作用是更新在编译环境搭建时所安装的编译组件</p>
+</div>
+</li>
+<li>
+<p>拉取 Open­Wrt 源码更新</p>
+<pre><code class="language-none">git pull
+</code></pre>
+</li>
+<li>
+<p>更新 feeds 源中的软件包源码</p>
+<pre><code class="language-none">./scripts/feeds update -a
+</code></pre>
+</li>
+<li>
+<p>安装 feeds 中的软件包</p>
+<pre><code class="language-none">./scripts/feeds install -a
+</code></pre>
+</li>
+</ul>
+<h3 id="文件清理"><a class="header-anchor" href="#文件清理"></a>文件清理</h3>
+<ul>
+<li>
+<p>清除旧的编译产物（可选）</p>
+<pre><code class="language-none">make clean
+</code></pre>
+<div class="tip">
+<p>在源码有大规模更新或者内核更新后执行，以保证编译质量。此操作会删除<code>/bin</code>和<code>/build_dir</code>目录中的文件。</p>
+</div>
+</li>
+<li>
+<p>清除旧的编译产物、交叉编译工具及工具链等目录（可选）</p>
+<pre><code class="language-none">make dirclean
+</code></pre>
+<div class="tip">
+<p>更换架构编译前必须执行。此操作会删除<code>/bin</code>和<code>/build_dir</code>目录的中的文件(<code>make clean</code>)以及<code>/staging_dir</code>、<code>/toolchain</code>、<code>/tmp</code>和<code>/logs</code>中的文件。</p>
+</div>
+</li>
+<li>
+<p>清除 Open­Wrt 源码以外的文件（可选）</p>
+<pre><code class="language-none">make distclean
+</code></pre>
+<div class="tip">
+<p>除非是做开发，并打算 push 到 GitHub 这样的远程仓库，否则几乎用不到。此操作相当于<code>make dirclean</code>外加删除<code>/dl</code>、<code>/feeds</code>目录和<code>.config</code>文件。</p>
+</div>
+</li>
+<li>
+<p>还原 Open­Wrt 源码到初始状态（可选）</p>
+<pre><code class="language-none">git clean -xdf
+</code></pre>
+<div class="tip">
+<p>如果把源码改坏了，或者长时间没有进行编译时使用。</p>
+</div>
+</li>
+<li>
+<p>清除临时文件</p>
+<pre><code class="language-none">rm -rf tmp
+</code></pre>
+<div class="tip">
+<p>删除执行<code>make menuconfig</code>后产生的一些临时文件，包括一些软件包的检索信息，删除后会重新加载<code>package</code>目录下的软件包。若不删除会导致一些新加入的软件包不显示。</p>
+</div>
+</li>
+<li>
+<p>删除编译配置文件</p>
+<pre><code class="language-none">rm -rf .config
+</code></pre>
+<div class="tip">
+<p>在不删除的情况下如果取消选择某些组件它的依赖组件不会自动取消，所以对于需要调整组件的情况下建议删除。</p>
+</div>
+</li>
+</ul>
+<h3 id="编译"><a class="header-anchor" href="#编译"></a>编译</h3>
+<ul>
+<li>
+<p>调整 Open­Wrt 系统组件</p>
+<pre><code class="language-none">make menuconfig
+</code></pre>
+<div class="tip">
+<p>如果不打算调整组件则输入<code>make defconfig</code>，它会检测编译环境并根据更新自动调整编译配置文件。</p>
+</div>
+</li>
+<li>
+<p>预下载编译所需的软件包</p>
+<pre><code class="language-none">make download -j8 V=s
+</code></pre>
+</li>
+<li>
+<p>检查文件完整性</p>
+<pre><code class="language-none">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+</li>
+<li>
+<p>开始编译</p>
+<pre><code class="language-none">make -j$(nproc) V=s || make -j1 V=s
+</code></pre>
+<div class="tip">
+<p>多线程编译失败后自动进入单线程编译，失败则输出详细日志。</p>
+</div>
+</li>
+</ul>
+<h2 id="尾巴"><a class="header-anchor" href="#尾巴"></a>尾巴</h2>
+<p>很少有人会告诉你为什么要这样做，而是会要求你必须要这样做。</p>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/OpenWrt/" rel="tag">OpenWrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E7%BC%96%E8%AF%91/" rel="tag">编译</a></li></ul>
+    </div>
+    
+    <script src="/js/prism.js"></script>
+  </article>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/p/set-nginx-cache/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
+        
+          <span class="hoverLine hoverLine-thin">Nginx下关于缓存控制字段cache-control的配置</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/p/Windows-boot-error/" id="article-nav-older" class="article-nav-link-wrap"
+      style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg); text-align: right;">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
+        
+          <span class="hoverLine hoverLine-thin">解决开机出现“你的电脑未正确启动”错误</span>
+        
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+  <!-- 是否开启文章评论 -->
+  
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200923.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js?v=05191518');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+      </div>
+    </div>
+    </div>
+    
+      <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank"></a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+    
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE内核浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      VPS 搭建简单加速器 - LERNB | 网络日志
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 个人网站，记录、分享" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-page-mode" content="app">
+	<meta name="browsermode" content="application">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#5e72e4">
+
+	<meta name="application-name" content="LERNB">
+	<meta name="apple-mobile-web-app-title" content="LERNB">
+  <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
+  <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
+  <link rel="stylesheet" href="/css/partial.css?v=07252249">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+</head>
+  
+  <body class="line-numbers">
+  
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script src="/js/layouts@20200929.js"></script>
+  <!-- <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts@20200921.js');
+    }
+  </script> -->
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
+    
+  <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    
+    <div class="head">
+    
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB" style="background-image: url('/asset/lernb.png');">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine" style="padding-left: 0;">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/p" class="hoverLine hoverLineActive" style="padding-left: 0;">文章</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+
+      <!-- author -->
+
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/p">文章</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+    <div class="wrap clearfix">
+      
+  
+  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  
+    <div class="wrap-content clearfix">
+      
+      <div class="bar barbar">
+        <!-- <div class="barside"> -->
+        <!-- S 侧栏插件 -->
+        
+
+        <!-- 最近文章 -->
+        
+        <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+        
+
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+
+        <!-- 分类 -->
+        
+          
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+          
+        <!-- 归档 -->
+        
+            
+        <!-- 标签 -->
+        
+
+        <!-- 文章目录 -->
+        
+          <div class="bar-item post-title-menu-flag">
+  <div class="t-h" style="margin-bottom: 10px;">
+    <h3 style="color: #094067;">目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+        </div>
+        
+        <!--  -->
+        <div class="post-wrap">
+  <article class="post">
+    <div class="entry-cate">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+    </div>
+    <h1 class="post-article">VPS 搭建简单加速器</h1>
+    <div class="entry">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2020-07-24</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://www.bilibili.com/read/cv1491430/" target="_blank" title="本文转编自：bilibili">
+              <span class="res">源</span><span class="res-link">bilibili</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="entry-content">
+        <h2 id="一、准备工具软件"><a class="header-anchor" href="#一、准备工具软件"></a>一、准备工具软件</h2>
+<ul>
+<li>
+<p><strong>udp2raw</strong>。将UDP伪装成TCP或者ICMP，不同于UDP over TCP，其本质上还是UDP，另外不会处理TCP数据包。</p>
+</li>
+<li>
+<p><strong>tinyfecVPN</strong>。工作在网络层的双边网络加速工具，可以加速全流量（TCP/UDP/ICMP），输出流量类型为UDP。</p>
+</li>
+<li>
+<p><strong>tinyPortMapper</strong>。将远程的UDP与TCP端口同时映射到本地。</p>
+</li>
+<li>
+<p><strong>SSTAP</strong>。控制本机路由，转发数据包。</p>
+</li>
+<li>
+<p><strong>可以转发UDP的不可描述的代理软件</strong>。就是那种软件，简单的Socks代理也可以。</p>
+</li>
+</ul>
+<div class="tip">
+<p>上述前三个软件开发者都为同一人，最新版本可以前往开发者<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页下载。软件更多功能及参数介绍可以去主页相应软件项目下的wiki查看</p>
+<p>下文介绍的命令参数请根据自己实际情况进行替换</p>
+</div>
+<h2 id="二、整体结构"><a class="header-anchor" href="#二、整体结构"></a>二、整体结构</h2>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/vpsacc.png" alt=""></p>
+<ul>
+<li>
+<p>首先，本地电脑跟远程服务器建立起udp2raw隧道连接</p>
+</li>
+<li>
+<p>然后，在udp2raw隧道中建立本地与服务器的tinyfecVPN连接，tinyfecVPN的UDP流量通过udp2raw进行流量伪装</p>
+</li>
+<li>
+<p>在本地与远程服务器建立好连接之后，使用tinyPortMapper将远程服务器上代理软件的端口映射到本地（包括TCP跟UDP）</p>
+</li>
+<li>
+<p>最后，在电脑上使用SSTAP连接映射到本地的代理端口</p>
+</li>
+</ul>
+<h2 id="三、服务端搭建"><a class="header-anchor" href="#三、服务端搭建"></a>三、服务端搭建</h2>
+<div class="tip">
+<p>以下命令都是基于amd64位架构，路径跟文件名根据实际替换</p>
+</div>
+<h3 id="3-1-tinyfecVPN"><a class="header-anchor" href="#3-1-tinyfecVPN"></a>3.1 tinyfecVPN</h3>
+<p>tinyfecVPN服务监听在服务器8855端口：</p>
+<pre><code class="language-language-bash">./tinyvpn_amd64 -s -l 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
+</code></pre>
+<ul>
+<li>
+<p><code>-s</code>以服务端模式运行</p>
+</li>
+<li>
+<p><code>-l</code>服务端监听端口</p>
+</li>
+<li>
+<p><code>--sub-net</code>指定子网</p>
+</li>
+<li>
+<p><code>--tun-dev</code>指定tun设备名称</p>
+</li>
+<li>
+<p><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</p>
+</li>
+<li>
+<p><code>-k</code>指定一个字符串，开启简单的异或加密</p>
+</li>
+<li>
+<p><code>-fx:y</code>每x个数据包发送y个冗余包，决定消耗流量的倍数，比如<code>-f20:10</code>是消耗1.5倍流量，<code>-f2:2</code>则是每2个数据包发送额外2个冗余包，合计发送出4个数据包，最多允许丢包2个。</p>
+</li>
+<li>
+<p><code>--timeout</code>其值决定允许的最大延迟，UPDSpeeder会尝试积攒t毫秒的数据包一起做FEC，这个过程会引入额外的延迟</p>
+</li>
+</ul>
+<div class="success">
+<p>如果你的线路丢包率很低，那么可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>--disable-fec</code>即关闭冗余发包，这样也不会出现额外的延迟，但失去了抗丢包能力，不推荐</p>
+<p>如果相同时节省一点流量，可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>-f2:2</code>和<code>--timeout 1</code>，<code>--timeout 1</code>可以更好的控制流量，稳定2倍流量，相对于<code>--timeout 0</code>延迟增加约为2ms。如果线路非常好，那可以将<code>-f2:2</code>替换成<code>-f2:1</code>，即每3个数据包允许丢包1个，消耗1.5倍流量</p>
+</div>
+<h3 id="3-2-udp2raw"><a class="header-anchor" href="#3-2-udp2raw"></a>3.2 udp2raw</h3>
+<p>将udp2raw设定成伪装icmp模式</p>
+<pre><code class="language-language-bash">./udp2raw_amd64 -s -l 0.0.0.0:1000 -r 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
+</code></pre>
+<ul>
+<li>
+<p><code>-s</code>以服务端模式运行</p>
+</li>
+<li>
+<p><code>-l</code>服务监听位置（<code>ip:port</code>）。在和 udp2raw 客户端连接时有用，虽然icmp没有端口的概念，但是这个参数依然不可省略。</p>
+</li>
+<li>
+<p><code>-r</code>远程服务位置（<code>ip:port</code>）。接收客户端的流量解密后转发的位置，这里接收的就是tinyfecVPN发来的流量</p>
+</li>
+<li>
+<p><code>--raw-mode</code>伪装的流量类型。可选值为<code>facetcp</code>、<code>icmp</code>和<code>udp</code></p>
+</li>
+<li>
+<p><code>--cipher-mode</code>加密模式。如果代理软件已经进行过传输加密，那么这里就不需要加密，减少性能损耗，这里选择<code>none</code></p>
+</li>
+<li>
+<p><code>-a</code>自动添加/删除iptables规则</p>
+</li>
+<li>
+<p><code>-k</code>口令</p>
+</li>
+</ul>
+<h2 id="四、客户端搭建"><a class="header-anchor" href="#四、客户端搭建"></a>四、客户端搭建</h2>
+<p>udp2raw现在已经有了Windows客户端，可以去<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页相应项目下下载。本文使用的是虚拟机方式，网络为桥接模式。以下操作均在虚拟机中进行。</p>
+<h3 id="4-1-udp2raw"><a class="header-anchor" href="#4-1-udp2raw"></a>4.1 udp2raw</h3>
+<pre><code class="language-language-bash">./udp2raw_amd64 -c -r YOUR_SERVER_IP:1000 -l 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
+</code></pre>
+<ul>
+<li>
+<p><code>YOUR_SERVER_IP</code>远程服务器的IP地址</p>
+</li>
+<li>
+<p><code>-c</code>以客户端模式运行</p>
+</li>
+<li>
+<p><code>-r</code>udp2raw远程服务端（<code>ip:port</code>）。连接到udp2raw服务端</p>
+</li>
+<li>
+<p><code>-l</code>客户端本地监听地址（<code>ip:port</code>），相当于将远程服务器的端口地址映射到了这里</p>
+</li>
+<li>
+<p><code>-k</code>口令，需要与服务端相同</p>
+</li>
+</ul>
+<p>其他参数含义与上文服务端相同。</p>
+<h3 id="4-2-tinyfecVPN"><a class="header-anchor" href="#4-2-tinyfecVPN"></a>4.2 tinyfecVPN</h3>
+<pre><code class="language-language-bash">./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
+</code></pre>
+<ul>
+<li><code>-c</code>以客户端模式运行</li>
+<li><code>-r</code>上述udp2raw客户端本地监听地址（<code>ip:port</code>）。</li>
+<li><code>--sub-net</code>指定子网，跟服务端一致</li>
+<li><code>--tun-dev</code>指定tun设备名称</li>
+<li><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</li>
+<li><code>-k</code>口令，需要跟服务端相同</li>
+<li><code>-fx:y</code>同服务端</li>
+<li><code>--timeout</code>同服务端</li>
+</ul>
+<p>至此，就建立好了服务端到客户端的连接。</p>
+<h3 id="4-3-tinyPortMapper"><a class="header-anchor" href="#4-3-tinyPortMapper"></a>4.3 tinyPortMapper</h3>
+<p>假定远程服务器端12345端口有不可描述的代理服务：</p>
+<pre><code class="language-language-bash">./tinymapper_amd64 -l0.0.0.0:1080 -r10.222.2.1:12345 -t -u
+</code></pre>
+<ul>
+<li>
+<p><code>-l</code>本地监听地址端口。远程服务器端口将映射到此端口。本地电脑代理直接连接此地址</p>
+</li>
+<li>
+<p><code>-r</code>映射的远程地址端口。这里的地址为tinyfecVPN子网中的IP地址。</p>
+</li>
+<li>
+<p><code>-t</code>转发TCP</p>
+</li>
+<li>
+<p><code>-u</code>转发UDP</p>
+</li>
+</ul>
+<p>至此，搭建完成。本地电脑使用代理软件连接tinyPortMapper映射的地址端口就可以使用，实际地址就是虚拟机在本地局域网中的IP加上述命令中的端口号，即<code>虚拟机局域网IP:1080</code>。</p>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/VPS/" rel="tag">VPS</a></li></ul>
+    </div>
+    
+    <script src="/js/prism.js"></script>
+  </article>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/p/stop-windows-update/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20210723101836.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
+        
+          <span class="hoverLine hoverLine-thin">彻底禁用Windows 10系统自动更新</span>
+        
+      </div>
+    </a>
+    
+    
+    <a href="/p/postion-absolute/" id="article-nav-older" class="article-nav-link-wrap"
+      style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/position-center.png') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg); text-align: right;">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
+        
+          <span class="hoverLine hoverLine-thin">绝对定位盒子居中</span>
+        
+      </div>
+    </a>
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+  <!-- 是否开启文章评论 -->
+  
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200923.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js?v=05191518');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+      </div>
+    </div>
+    </div>
+    
+      <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank"></a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+    
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
+    }
+  </script>
+</body>
+
+</html>

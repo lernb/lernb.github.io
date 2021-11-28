@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE内核浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      解决开机出现“你的电脑未正确启动”错误 - LERNB | 网络日志
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 个人网站，记录、分享" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-page-mode" content="app">
+	<meta name="browsermode" content="application">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#5e72e4">
+
+	<meta name="application-name" content="LERNB">
+	<meta name="apple-mobile-web-app-title" content="LERNB">
+  <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
+  <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
+  <link rel="stylesheet" href="/css/partial.css?v=07252249">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+</head>
+  
+  <body class="line-numbers">
+  
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script src="/js/layouts@20200929.js"></script>
+  <!-- <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts@20200921.js');
+    }
+  </script> -->
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
+    
+  <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    
+    <div class="head">
+    
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB" style="background-image: url('/asset/lernb.png');">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine" style="padding-left: 0;">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/p" class="hoverLine hoverLineActive" style="padding-left: 0;">文章</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+
+      <!-- author -->
+
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/p">文章</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+    <div class="wrap clearfix">
+      
+  
+  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  
+    <div class="wrap-content clearfix">
+      
+      <div class="bar barbar">
+        <!-- <div class="barside"> -->
+        <!-- S 侧栏插件 -->
+        
+
+        <!-- 最近文章 -->
+        
+        <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+        
+
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+
+        <!-- 分类 -->
+        
+          
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+          
+        <!-- 归档 -->
+        
+            
+        <!-- 标签 -->
+        
+
+        <!-- 文章目录 -->
+        
+          <div class="bar-item post-title-menu-flag">
+  <div class="t-h" style="margin-bottom: 10px;">
+    <h3 style="color: #094067;">目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+        </div>
+        
+        <!--  -->
+        <div class="post-wrap">
+  <article class="post">
+    <div class="entry-cate">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+    </div>
+    <h1 class="post-article">解决开机出现“你的电脑未正确启动”错误</h1>
+    <div class="entry">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2021-10-13</span>&nbsp;&nbsp;
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="entry-content">
+        <h2 id="问题描述"><a class="header-anchor" href="#问题描述"></a>问题描述</h2>
+<p>电脑开机时出现蓝屏并显示“你的电脑未正确启动”的错误提示，如图。</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20211114200706.jpg" alt=""></p>
+<h2 id="解决方法"><a class="header-anchor" href="#解决方法"></a>解决方法</h2>
+<div class="tip">
+<p>一般出现蓝屏无法启动进入系统的问题，可以通过系统重置或者重装系统来解决，但并不是每次遇到蓝屏问题都需要这么大动干戈。</p>
+</div>
+<p>出现“你的电脑未正确启动”问题，首先点击“高级选项”按钮，在“高级选项”界面点选“疑难解答”，然后进入“命令提示符”。</p>
+<p>在“命令提示符”中输入以下命令，并按回车键（其中<code>l</code>为大写字母<code>L</code>的小写）</p>
+<pre><code class="language-language-bash">bcdboot c:\windows /l zh-cn
+</code></pre>
+<div class="warning">
+<p>如果电脑开启了BitLocker加密功能，进入“命令提示符“之前会出现输入恢复密钥的界面，恢复密钥可以在电脑关联的Microsoft 账户中找到，画面下方有直接打开的地址，根据ID输入对应的恢复密钥即可。</p>
+</div>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20211114202942.jpg" alt=""></p>
+<p>运行以上命令之后，会出现“已成功创建启动文件”的提示，然后输入<code>exit</code>并按回车键退出“命令提示符”，回到“高级选项”界面点击“关闭电脑”选项关机，然后再重新开机。</p>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20211114204125.jpg" alt=""></p>
+<p>开机之后会出现“恢复”界面并会显示引起问题的具体文件路径，每次出现问题的文件的路径可能是不相同的，记录这个文件的路径稍后会使用到。</p>
+<p>按<code>F1</code>键进入恢复环境并选择“微软拼音”，然后点选“疑难解答”，再点选“命令提示符”。同样的，如果出现输入恢复密钥界面，操作方法同上。</p>
+<p>进入“命令提示符”之后，我们需要操作删除上面“恢复”界面显示的引起问题的文件，这里就需要用到上面记录的文件路径，以上图为例，输入以下命令：</p>
+<pre><code class="language-language-bash">del c:\windows\system32\drivers\bootsafe64_ev.sys
+</code></pre>
+<p><img src="https://gitee.com/lernb/pic-host/raw/master/img/20211114205115.jpg" alt=""></p>
+<p>输入完命令之后按回车键执行，执行之后并不会输出显示任何内容，然后输入<code>exit</code>并按回车键退出“命令提示符”界面，然后点选“关闭电脑”选项关机，再重新开机。</p>
+<p>重新开机之后正常情况下就应该能正常进入系统桌面了。</p>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E8%93%9D%E5%B1%8F/" rel="tag">蓝屏</a></li></ul>
+    </div>
+    
+    <script src="/js/prism.js"></script>
+  </article>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/p/openwrt-build/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
+        
+          <span class="hoverLine hoverLine-thin">OpenWrt 编译步骤与命令详解</span>
+        
+      </div>
+    </a>
+    
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/diskpart/" title="将磁盘转换为MBR格式" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723092430.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/diskpart/" title="将磁盘转换为MBR格式">
+                将磁盘转换为MBR格式
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+  <!-- 是否开启文章评论 -->
+  
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200923.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js?v=05191518');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+      </div>
+    </div>
+    </div>
+    
+      <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2021&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank"></a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+    
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
+    }
+  </script>
+</body>
+
+</html>
