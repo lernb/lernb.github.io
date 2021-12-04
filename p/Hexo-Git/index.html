@@ -37,10 +37,10 @@
   <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
   <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261204">
   <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
   <link rel="stylesheet" href="/css/partial.css?v=07252249">
-  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171204">
 </head>
   
   <body class="line-numbers">
@@ -129,7 +129,7 @@
     <div class="wrap clearfix">
       
   
-  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  <div class="main" style="padding-top: 57px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
   
     <div class="wrap-content clearfix">
       
@@ -275,6 +275,7 @@
         <!--  -->
         <div class="post-wrap">
   <article class="post">
+    
     <div class="entry-cate">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
     </div>
@@ -300,7 +301,7 @@
       <div class="entry-content">
         <h2 id="本地安装"><a class="header-anchor" href="#本地安装"></a>本地安装</h2>
 <p>首先查看本机是否已经安装<code>Git</code>和<code>Node.js</code>，在Bash中输入<a id="more"></a>以下命令</p>
-<pre><code class="language-language-bash">$ git --version 
+<pre><code class="language-bash">$ git --version 
 #git version 2.22.0.windows.1
 
 $ node --version
@@ -310,7 +311,7 @@ $ node --version
 <h3 id="安装Git"><a class="header-anchor" href="#安装Git"></a>安装Git</h3>
 <p>从Git <a href="https://git-scm.com" target="_blank" rel="noopener">官网</a>下载安装。</p>
 <p>配置用户信息，设置用户名以及邮箱：</p>
-<pre><code class="language-language-bash">$ git config --global user.name &quot;用户名&quot;
+<pre><code class="language-bash">$ git config --global user.name &quot;用户名&quot;
 $ git config --global user.email &quot;邮箱地址&quot;
 
 #查看配置
@@ -318,7 +319,7 @@ $ git config --list
 </code></pre>
 <p><strong>获取key</strong>，下文配置SSH需要用到。</p>
 <p>在Git Bash中执行以下命令：</p>
-<pre><code class="language-language-bash">#创建公钥
+<pre><code class="language-bash">#创建公钥
 $ ssh-keygen -t rsa -C &quot;邮箱地址&quot;
 #然后获取复制公钥备用
 $ cat ~/.ssh/id_rsa.pub
@@ -329,46 +330,46 @@ $ cat ~/.ssh/id_rsa.pub
 <p>更多详细配置可以参照<a href="%5Bhttps://hexo.io/zh-cn/docs%5D(https://hexo.io/zh-cn/docs/)">官方文档</a>。</p>
 <p>新建存放Hexo站点目录的文件夹，如<code>hexo</code>，进入<code>hexo</code>内空白处右键菜单点击<code>git bash</code>：</p>
 <p>安装Hexo</p>
-<pre><code class="language-language-bash">$ npm install -g hexo-cli
+<pre><code class="language-bash">$ npm install -g hexo-cli
 </code></pre>
 <p>安装完成后</p>
-<pre><code class="language-language-bash">$ hexo init
+<pre><code class="language-bash">$ hexo init
 $ npm install
 </code></pre>
 <p>启动本地站点服务</p>
-<pre><code class="language-language-bash">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo server
+<pre><code class="language-bash">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo server
 </code></pre>
 <p>完成后可以在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>查看搭建的本地站点。</p>
 <h2 id="服务器端安装"><a class="header-anchor" href="#服务器端安装"></a>服务器端安装</h2>
 <p>将系统包列表更新到最新：</p>
-<pre><code class="language-language-bash">$ apt-get update -y
+<pre><code class="language-bash">$ apt-get update -y
 $ apt-get upgrade -y
 </code></pre>
 <h3 id="创建git用户"><a class="header-anchor" href="#创建git用户"></a>创建git用户</h3>
 <p>创建git用户</p>
-<pre><code class="language-language-bash">$ adduser git
+<pre><code class="language-bash">$ adduser git
 </code></pre>
 <p>赋予sudo权限</p>
-<pre><code class="language-language-bash">$ chmod 740 /etc/sudoers
+<pre><code class="language-bash">$ chmod 740 /etc/sudoers
 $ vim /etc/sudoers
 </code></pre>
 <p>定位到<code>root</code>一行下方添加以下字段</p>
-<pre><code class="language-language-bash">git ALL=(ALL) ALL
+<pre><code class="language-bash">git ALL=(ALL) ALL
 </code></pre>
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/gitsudoer.png" alt=""></p>
 <p>修改完成后改回权限</p>
-<pre><code class="language-language-bash">$ chmod 400 /etc/sudoers
+<pre><code class="language-bash">$ chmod 400 /etc/sudoers
 </code></pre>
 <h3 id="配置SSH"><a class="header-anchor" href="#配置SSH"></a>配置SSH</h3>
 <p>切换git用户，并到git用户目录</p>
-<pre><code class="language-language-bash">#切换到git用户
+<pre><code class="language-bash">#切换到git用户
 $ su git
 
 #转到git用户目录
 $ cd /home/git
 </code></pre>
 <p>配置ssh</p>
-<pre><code class="language-language-bash"># 创建.ssh文件夹
+<pre><code class="language-bash"># 创建.ssh文件夹
 $ mkdir ~/.ssh
 #输入可查看是否创建
 $ ls -a
@@ -381,37 +382,37 @@ $ chmod 600 ~/.ssh/authorized_keys
 $ chmod 700 ~/.ssh
 </code></pre>
 <p>然后输入测试是否可以登录</p>
-<pre><code class="language-language-bash">$ ssh -v git@68.168.141.184
+<pre><code class="language-bash">$ ssh -v git@68.168.141.184
 </code></pre>
 <p>默认22端口，不是则需要在后面加上<code>-p 端口号</code></p>
 <p>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!是以前配置过主机，需要进行删除</p>
-<pre><code class="language-language-bash">$ vi ~/.ssh/known_hosts
+<pre><code class="language-bash">$ vi ~/.ssh/known_hosts
 </code></pre>
 <h3 id="创建git裸库"><a class="header-anchor" href="#创建git裸库"></a>创建git裸库</h3>
-<pre><code class="language-language-bash"># 回到git目录
+<pre><code class="language-bash"># 回到git目录
 $ cd /home/git
 # 使用git用户创建git裸仓库，以blog.git为例
 $ git init --bare blog.git
 </code></pre>
 <h3 id="检查用户权限"><a class="header-anchor" href="#检查用户权限"></a>检查用户权限</h3>
 <p>查看<code>blog.git</code>、<code>.ssh</code>和站点目录的用户组权限是否都为<code>git:git</code></p>
-<pre><code class="language-language-bash">$ ls -l /var/www/
+<pre><code class="language-bash">$ ls -l /var/www/
 $ ls -l /home/git/
 </code></pre>
 <p>如果不是则</p>
-<pre><code class="language-language-bash">$ sudo chown git:git -R /var/www/blog
+<pre><code class="language-bash">$ sudo chown git:git -R /var/www/blog
 $ sudo chown git:git -R /home/git/blog.git
 </code></pre>
 <h3 id="使用git-hooks同步网站根目录"><a class="header-anchor" href="#使用git-hooks同步网站根目录"></a>使用git-hooks同步网站根目录</h3>
 <p>使用一个钩子文件：<code>post-receive</code>，每当git仓库接收到内容的时候，就会自动调用这个钩子，把内容同步到网站根目录。</p>
 <p><strong>git用户下执行</strong></p>
-<pre><code class="language-language-bash">#切换到hooks目录下
+<pre><code class="language-bash">#切换到hooks目录下
 $ cd /home/git/blog.git/hooks
 #创建文件
 $ vim post-receive
 </code></pre>
 <p>添加如下</p>
-<pre><code class="language-language-bash">#!/bin/bash
+<pre><code class="language-bash">#!/bin/bash
 GIT_REPO=/home/git/blog.git
 TMP_GIT_CLONE=/tmp/blog
 PUBLIC_WWW=/home/wwwroot/default
@@ -421,26 +422,26 @@ rm -rf ${PUBLIC_WWW}/*
 cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 </code></pre>
 <p>保存后，执行以下赋予权限</p>
-<pre><code class="language-language-bash">$ chmod +x post-receive
+<pre><code class="language-bash">$ chmod +x post-receive
 </code></pre>
 <h3 id="关闭git用户的shell权限"><a class="header-anchor" href="#关闭git用户的shell权限"></a>关闭git用户的shell权限</h3>
-<pre><code class="language-language-bash">#执行
+<pre><code class="language-bash">#执行
 $ vim /etc/paswd
 </code></pre>
 <p>将最后一行</p>
-<pre><code class="language-language-bash">git:x:1000:1000::/home/git:/bin/bash
+<pre><code class="language-bash">git:x:1000:1000::/home/git:/bin/bash
 #改为
 git:x:1000:1000::/home/git:/usr/bin/git-shell
 </code></pre>
 <h2 id="本地操作"><a class="header-anchor" href="#本地操作"></a>本地操作</h2>
 <p>配置本地Hexo的_config.yml</p>
-<pre><code class="language-language-bash">deploy: 
+<pre><code class="language-bash">deploy: 
   type: git
   repo: git@115.159.87.49:blog.git
   branch: master
 </code></pre>
 <p>同步到服务器</p>
-<pre><code class="language-language-bash">#清理、生成、部署
+<pre><code class="language-bash">#清理、生成、部署
 $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
 </code></pre>
 

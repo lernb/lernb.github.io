@@ -37,10 +37,10 @@
   <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
   <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261204">
   <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
   <link rel="stylesheet" href="/css/partial.css?v=07252249">
-  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171204">
 </head>
   
   <body class="line-numbers">
@@ -129,7 +129,7 @@
     <div class="wrap clearfix">
       
   
-  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  <div class="main" style="padding-top: 57px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
   
     <div class="wrap-content clearfix">
       
@@ -275,6 +275,7 @@
         <!--  -->
         <div class="post-wrap">
   <article class="post">
+    
     <div class="entry-cate">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
     </div>
@@ -305,19 +306,19 @@
 <p>本脚本只是安装Aria2后端，安装后默认会启</p>
 </div>
 <h2 id="脚本版本"><a class="header-anchor" href="#脚本版本"></a>脚本版本</h2>
-<pre><code>Ver: 1.1.10
+<pre><code class="language-bash">Ver: 1.1.10
 </code></pre>
 <h2 id="安装步骤"><a class="header-anchor" href="#安装步骤"></a>安装步骤</h2>
 <p>执行下面的代码下载并运行脚本。</p>
-<pre><code class="language-language-bash">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+<pre><code class="language-bash">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
 </code></pre>
 <p>运行脚本后会出现脚本操作菜单，选择并输入<code>1</code>就会开始安装。</p>
 <h2 id="使用说明"><a class="header-anchor" href="#使用说明"></a>使用说明</h2>
 <p>进入下载脚本的目录并运行脚本：</p>
-<pre><code class="language-language-bash">./aria2.sh
+<pre><code class="language-bash">./aria2.sh
 </code></pre>
 <p>然后选择你要执行的选项即可。</p>
-<pre><code class="language-language-bash">Aria2 一键安装管理脚本 [vx.x.x]-- Toyo | doub.io/shell-jc4 --
+<pre><code class="language-bash">Aria2 一键安装管理脚本 [vx.x.x]-- Toyo | doub.io/shell-jc4 --
 0. 升级脚本
 ———————————— 
 1. 安装 Aria2 
@@ -354,7 +355,7 @@
 </code></pre>
 <h3 id="提示wget-command-not-found的错误"><a class="header-anchor" href="#提示wget-command-not-found的错误"></a>提示<code>wget: command not found</code>的错误</h3>
 <p>这是你的系统精简的太干净了，wget都没有安装，所以需要安装wget。</p>
-<pre><code class="language-language-bash"># CentOS系统:
+<pre><code class="language-bash"># CentOS系统:
 yum install -y wget
 
 # Debian/Ubuntu系统:

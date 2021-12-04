@@ -37,10 +37,10 @@
   <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
   <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261204">
   <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
   <link rel="stylesheet" href="/css/partial.css?v=07252249">
-  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171204">
 </head>
   
   <body class="line-numbers">
@@ -129,7 +129,7 @@
     <div class="wrap clearfix">
       
   
-  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  <div class="main" style="padding-top: 57px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
   
     <div class="wrap-content clearfix">
       
@@ -275,6 +275,7 @@
         <!--  -->
         <div class="post-wrap">
   <article class="post">
+    
     <div class="entry-cate">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
     </div>
@@ -298,24 +299,24 @@
 <p>在 Windows 的安装界面按下 Shift + F10 启动命令提示符。</p>
 <h2 id="二、启动diskpart"><a class="header-anchor" href="#二、启动diskpart"></a>二、启动diskpart</h2>
 <p>在命令提示符窗口中输入<code>diskpart</code>后回车：</p>
-<pre><code class="language-language-bash">&gt;diskpart
+<pre><code class="language-bash">&gt;diskpart
 </code></pre>
 <p>然后再输入<code>list disk</code>：</p>
-<pre><code class="language-language-bash">DISKPART&gt;list disk
+<pre><code class="language-bash">DISKPART&gt;list disk
 </code></pre>
 <p>这时命令提示符中会列出此计算机上所有的磁盘及其格式：</p>
 <p><img src="/img/diskpart.assets/diskpart.png" alt=""></p>
 <p>选中磁盘0：</p>
-<pre><code class="language-language-bash">DISKPART&gt; select disk 0
+<pre><code class="language-bash">DISKPART&gt; select disk 0
 </code></pre>
 <p>选中后输入<code>clean</code>回车进行清除操作：</p>
-<pre><code class="language-language-bash">DISKPART&gt; clean
+<pre><code class="language-bash">DISKPART&gt; clean
 </code></pre>
 <p>清除后输入<code>convert mbr</code>回车进行转换：</p>
-<pre><code class="language-language-bash">DISKPART&gt; convert mbr
+<pre><code class="language-bash">DISKPART&gt; convert mbr
 </code></pre>
 <p>然后输入<code>exit</code>回车退出：</p>
-<pre><code class="language-language-bash">DISKPART&gt; exit
+<pre><code class="language-bash">DISKPART&gt; exit
 </code></pre>
 
       </div>

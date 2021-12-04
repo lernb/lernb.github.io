@@ -37,10 +37,10 @@
   <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
   <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261125">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07261204">
   <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
   <link rel="stylesheet" href="/css/partial.css?v=07252249">
-  <link rel="stylesheet" href="/css/prism20200918.css?v=05171938">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05171204">
 </head>
   
   <body class="line-numbers">
@@ -129,7 +129,7 @@
     <div class="wrap clearfix">
       
   
-  <div class="main" style="padding-top: 60px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  <div class="main" style="padding-top: 57px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
   
     <div class="wrap-content clearfix">
       
@@ -275,6 +275,7 @@
         <!--  -->
         <div class="post-wrap">
   <article class="post">
+    
     <div class="entry-cate">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
     </div>
@@ -355,13 +356,13 @@
 <h3 id="1-2-Expires"><a class="header-anchor" href="#1-2-Expires"></a>1.2 <code>Expires</code></h3>
 <p>设置以分钟为单位的绝对过期时间, 优先级比<code>Cache-Control</code>低, 同时设置<code>Expires</code>和<code>Cache-Control</code>则后者生效。<strong>也就是说要注意一点: <code>Cache-Control</code>的优先级高于<code>Expires</code></strong>。</p>
 <p><code>expires</code>起到控制页面缓存的作用，合理配置<code>expires</code>可以减少很多服务器的请求, <code>expires</code>的配置可以在<code>http</code>段中或者<code>server</code>段中或者<code>location</code>段中. 比如控制图片等过期时间为30天, 可以配置如下：</p>
-<pre><code class="language-language-bash">location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
+<pre><code class="language-bash">location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
            root /var/www/img/;
            expires 30d;
        }
 </code></pre>
 <p>再比如：</p>
-<pre><code class="language-language-bash">location ~ \.(wma|wmv|asf|mp3|mmf|zip|rar|swf|flv)$ {
+<pre><code class="language-bash">location ~ \.(wma|wmv|asf|mp3|mmf|zip|rar|swf|flv)$ {
               root /var/www/upload/;
               expires max;
       }
@@ -381,23 +382,23 @@
 <p>通常有两种操作手段对浏览器缓存进行设置，一个是通过页面指令声明来设置，另外一个是通过编程方式来设置。</p>
 <p>下面是相关页面设置<code>Cache-Control</code>头信息的几个简单配置：</p>
 <p>例一：</p>
-<pre><code class="language-language-bash">if ($request_uri ~* &quot;^/$|^/search/.+/|^/company/.+/&quot;) {
+<pre><code class="language-bash">if ($request_uri ~* &quot;^/$|^/search/.+/|^/company/.+/&quot;) {
    add_header    Cache-Control  max-age=3600;
   }
 </code></pre>
 <p>个人理解的max-age意思是：客户端本地的缓存，在配置的生存时间内的，客户端可以直接使用，超出生存时间的，到服务器上取新数据。当然这些还要看客户端浏览器的设置。</p>
 <p>例二：</p>
-<pre><code class="language-language-bash">location ~ .*\.(css|js|swf|php|htm|html )$ {
+<pre><code class="language-bash">location ~ .*\.(css|js|swf|php|htm|html )$ {
       add_header Cache-Control no-store;
 }
 </code></pre>
 <p>例三：</p>
-<pre><code class="language-language-bash">location ~ .*\.(js|css)$ {
+<pre><code class="language-bash">location ~ .*\.(js|css)$ {
      expires 10d;
 }
 </code></pre>
 <p>例四：</p>
-<pre><code class="language-language-bash">location / {
+<pre><code class="language-bash">location / {
     access_log /data/nginx/log/xxx.log api;
     root /home/www/html;
     if ($request_filename ~ .*\.(htm|html)$)
@@ -409,7 +410,7 @@
 <p>将html结尾的请求加上no-cache。</p>
 <h2 id="二、http-Headers模块-设置HTTP报文的头标"><a class="header-anchor" href="#二、http-Headers模块-设置HTTP报文的头标"></a>二、http Headers模块 (设置HTTP报文的头标)</h2>
 <p>Nginx的<code>ngx_http_headers_module</code>模块可以对<code>Cache-Control</code>头相关的东西进行配置，比如：</p>
-<pre><code class="language-language-bash">expires     24h;
+<pre><code class="language-bash">expires     24h;
 expires     0;
 expires     -1;
 expires     epoch;
@@ -437,10 +438,10 @@ add_header  Cache-Control  private;
 </li>
 </ul>
 <p>可以在<code>time</code>值中使用正数或负数。<code>Expires</code>头标的值将通过当前系统时间加上您设定的<code>time</code>值来获得。</p>
-<pre><code class="language-language-bash">epoch
+<pre><code class="language-bash">epoch
 </code></pre>
 <p>指定<code>Expires</code>的值为<code>1 January, 1970, 00:00:01 GMT</code>。</p>
-<pre><code class="language-language-bash">max
+<pre><code class="language-bash">max
 </code></pre>
 <p>指定<code>Expires</code>的值为<code>31 December 2037 23:59:59 GMT</code>，<code>Cache-Control</code>的值为10年。</p>
 <p>指定<code>Expires</code>的值为 服务器当前时间 -1s，即永远过期。</p>
@@ -448,12 +449,12 @@ add_header  Cache-Control  private;
 <ul>
 <li>负数</li>
 </ul>
-<pre><code class="language-language-bash">Cache-Control: no-cache
+<pre><code class="language-bash">Cache-Control: no-cache
 </code></pre>
 <ul>
 <li>正数或零</li>
 </ul>
-<pre><code class="language-language-bash">Cache-Control: max-age = ``#
+<pre><code class="language-bash">Cache-Control: max-age = ``#
 </code></pre>
 <p><code>#</code>为您指定时间的秒数。</p>
 <p><code>off</code>表示不修改<code>Expires</code>和<code>Cache-Control</code>的值；</p>
@@ -542,13 +543,13 @@ add_header  Cache-Control  private;
 <li><strong>禁止缓存</strong><br>
 发送如下指令可以关闭缓存。此外，可以参考<code>Expires</code>和<code>Pragma</code>标题。</li>
 </ul>
-<pre><code class="language-language-bash">Cache-Control: no-cache, no-store, must-revalidate
+<pre><code class="language-bash">Cache-Control: no-cache, no-store, must-revalidate
 </code></pre>
 <ul>
 <li><strong>缓存静态资源节</strong><br>
 对于应用程序中不会改变的文件，通常可以在发送响应头前添加积极缓存。这包括例如由应用程序提供的静态文件，例如图像，CSS文件和JavaScript文件。另请参阅<code>Expires</code>标题。</li>
 </ul>
-<pre><code class="language-language-bash">Cache-Control:public, max-age=31536000
+<pre><code class="language-bash">Cache-Control:public, max-age=31536000
 </code></pre>
 <h3 id="3-4-拓展"><a class="header-anchor" href="#3-4-拓展"></a>3.4 拓展</h3>
 <h4 id="3-4-1-HTTP1-0"><a class="header-anchor" href="#3-4-1-HTTP1-0"></a>3.4.1 HTTP1.0</h4>
@@ -569,10 +570,10 @@ add_header  Cache-Control  private;
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/907596-20190302011346217-1805589363.png" alt=""></p>
 <h4 id="4-1-1-Last-Modified"><a class="header-anchor" href="#4-1-1-Last-Modified"></a>4.1.1 <code>Last-Modified</code></h4>
 <p>在浏览器第一次请求某一个URL时，服务器端的返回状态会是<code>200</code>，内容是你请求的资源，同时有一个<code>Last-Modified</code>的属性标记（<code>HttpReponse Header</code>）此文件在服务期端最后被修改的时间，格式类似这样：</p>
-<pre><code class="language-language-bash">Last-Modified:Tue, 24 Feb 2019 08:01:04 GMT
+<pre><code class="language-bash">Last-Modified:Tue, 24 Feb 2019 08:01:04 GMT
 </code></pre>
 <p>客户端第二次请求此URL时，根据HTTP协议的规定，浏览器会向服务器传送<code>If-Modified-Since</code>报头（<code>HttpRequest Header</code>），询问该时间之后文件是否有被修改过：</p>
-<pre><code class="language-language-bash">If-Modified-Since:Tue, 24 Feb 2019 08:01:04 GMT
+<pre><code class="language-bash">If-Modified-Since:Tue, 24 Feb 2019 08:01:04 GMT
 </code></pre>
 <p>如果服务器端的资源没有变化，则自动返回<code>304</code>（NotChanged.）状态码内容为空，这样就节省了传输数据量。当服务器端代码发生改变或者重启服务器时，则重新发出资源，返回和第一次请求时类似。从而保证不向客户端重复发出资源，也保证当服务器有变化时，客户端能够得到最新的资源。</p>
 <div class="warning">
@@ -580,13 +581,13 @@ add_header  Cache-Control  private;
 </div>
 <h4 id="4-1-2-Etag工作原理"><a class="header-anchor" href="#4-1-2-Etag工作原理"></a>4.1.2 <code>Etag</code>工作原理</h4>
 <p>HTTP协议规格说明定义<code>ETag</code>为“被请求变量的实体标记”（参见14.19）。简单点即服务器响应时给请求URL标记，并在HTTP响应头中将其传送到客户端，类似服务器端返回的格式：</p>
-<pre><code class="language-language-bash">Etag:“5d8c72a5edda8d6a:3239″
+<pre><code class="language-bash">Etag:“5d8c72a5edda8d6a:3239″
 </code></pre>
 <p>客户端的查询更新格式是这样的：</p>
-<pre><code class="language-language-bash">If-None-Match:“5d8c72a5edda8d6a:3239″
+<pre><code class="language-bash">If-None-Match:“5d8c72a5edda8d6a:3239″
 </code></pre>
 <p>如果<code>ETag</code>没改变，则返回状态<code>304</code>。即：在客户端发出请求后，<code>HttpReponse Header</code>中包含<code>Etag:&quot;5d8c72a5edda8d6a:3239&quot;</code>标识，等于告诉Client端，你拿到的这个的资源有表示ID：<code>5d8c72a5edda8d6a:3239</code>。当下次需要发Request索要同一个URI的时候，浏览器同时发出一个<code>If-None-Match</code>报头（<code>Http RequestHeader</code>）此时包头中信息包含上次访问得到的<code>Etag:&quot;5d8c72a5edda8d6a:3239&quot;</code>标识。</p>
-<pre><code class="language-language-bash">If-None-Match:“5d8c72a5edda8d6a:3239“
+<pre><code class="language-bash">If-None-Match:“5d8c72a5edda8d6a:3239“
 </code></pre>
 <p>这样，Client端等于Cache了两份，服务器端就会比对2者的<code>Etag</code>。如果<code>If-None-Match</code>为<code>False</code>，不返回<code>200</code>，返回<code>304</code>（Not Modified）Response。</p>
 <h4 id="4-1-3-Expires"><a class="header-anchor" href="#4-1-3-Expires"></a>4.1.3 Expires</h4>
@@ -627,7 +628,7 @@ add_header  Cache-Control  private;
 <ol>
 <li>关闭<code>etag</code></li>
 </ol>
-<pre><code class="language-language-bash">http {
+<pre><code class="language-bash">http {
         etag off;
         }
 </code></pre>
@@ -635,7 +636,7 @@ add_header  Cache-Control  private;
 <ol start="2">
 <li>配置<code>last-modified</code>（默认开启）和<code>expires</code></li>
 </ol>
-<pre><code class="language-language-bash">location ~.*\.(gif|jpg|jpeg|png|bmp|swf)$
+<pre><code class="language-bash">location ~.*\.(gif|jpg|jpeg|png|bmp|swf)$
         {
                 expires      30d;
         }
@@ -646,7 +647,7 @@ location ~.*\.(js|css)?$
         }
 </code></pre>
 <p>对于配置了多个<code>location</code>(upstream)的，可以：</p>
-<pre><code class="language-language-bash">location /filebase/ {
+<pre><code class="language-bash">location /filebase/ {
             root /hskj/file/;
             autoindex on;
  
@@ -667,7 +668,7 @@ location ~.*\.(js|css)?$
 <p><img src="https://gitee.com/lernb/pic-host/raw/master/img/907596-20190302015728575-190872568.png" alt=""></p>
 <p><strong>配置实例：</strong></p>
 <p>Nginx设置不使用缓存<code>add_header Cache-Control no-cache</code></p>
-<pre><code class="language-language-bash">server {
+<pre><code class="language-bash">server {
     listen       443;
     server_name  www.kevin.com;
     charset utf-8;
@@ -784,7 +785,7 @@ location ~.*\.(js|css)?$
 </div>
 <p>针对上面的案例需求，操作记录如下：</p>
 <p><strong>1) 本案中在实际场景中，有LB层. LB层的Nginx配置不需要配置，这里只是粘贴下负载配置：</strong></p>
-<pre><code class="language-language-bash">[root@fvtlb01 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web.kevin.com.conf
+<pre><code class="language-bash">[root@fvtlb01 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web.kevin.com.conf
 upstream fvtkevin-web-inc {
       ip_hash;
       server 172.16.50.73:80  max_fails=3 fail_timeout=15s;
@@ -824,7 +825,7 @@ upstream fvtkevin-web-inc {
 </code></pre>
 <p><strong>2) 缓存控制字段<code>cache-control</code>的配置要放在后端两台真实服务器<code>172.16.50.73</code>和<code>172.16.50.74</code>上</strong></p>
 <p>a) <code>172.16.60.73</code>（即<code>fvtkevin-dmz01.kevin.com</code>）服务器上缓存控制字段<code>cache-control</code>的配置如下:</p>
-<pre><code class="language-language-bash">[root@fvtkevin-dmz01 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web01.kevin.com.conf
+<pre><code class="language-bash">[root@fvtkevin-dmz01 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web01.kevin.com.conf
 server {
       listen      80;
       server_name fvtkevin-dmz01.kevin.com;
@@ -865,7 +866,7 @@ server {
   }
 </code></pre>
 <p>b) <code>172.16.60.74</code>（即<code>fvtkevin-dmz02.kevin.com</code>）服务器上缓存控制字段<code>cache-control</code>的配置如下：</p>
-<pre><code class="language-language-bash">[root@fvtkevin-dmz02 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web02.kevin.com.conf
+<pre><code class="language-bash">[root@fvtkevin-dmz02 ~]# cat /data/nginx/conf/vhosts/fvtkevin-web02.kevin.com.conf
 server {
       listen      80;
       server_name fvtkevin-web02.kevin.com;
