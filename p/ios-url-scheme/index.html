@@ -316,7 +316,7 @@
 <p><img src="https://cdn.sspai.com/editor/u_/c4ka1p5b34tcu4buqph0.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
 <pre><code class="language-html">https://render.alipay.com/p/s/i/?scheme=alipays://platformapi/startapp?appId=2019072665939857&amp;page=pages%2Fmy-station-type%2Fmy-station-type&amp;enbsv=0.2.2108270116.35&amp;chInfo=ch_share__chsub_CopyLink
 </code></pre>
-<p>可以看到，解析后的链接中包含了四个参数。分别是 scheme、page、enbsv、chInfo，根据《微信小程序也能一键直达，除了健康码你还想跳转什么？》中微信小程序的格式，不难猜出 scheme 和 page 拼接之后就能打开指定路径，此处的 page 就等价于微信的 path。所以删除前后无用的参数，只保留 scheme 和 page，就可以构造出如下的链接地址：</p>
+<p>可以看到，解析后的链接中包含了四个参数。分别是<code>scheme</code>、<code>page</code>、<code>enbsv</code>、<code>chInfo</code>，根据微信小程序的格式，不难猜出<code>scheme</code>和<code>page</code>拼接之后就能打开指定路径，此处的<code>page</code>就等价于微信的<code>path</code>。所以删除前后无用的参数，只保留<code>scheme</code>和<code>page</code>，就可以构造出如下的链接地址：</p>
 <pre><code class="language-html">alipays://platformapi/startapp?appId=2019072665939857&amp;page=pages%2Fmy-station-type%2Fmy-station-type
 </code></pre>
 <p>有了 URL Scheme 之后，就可以打开快捷指令进行构建了（下简称为「捷径」）。新建捷径，选择「打开 URL」模块，将构造好的 URL Scheme 地址填入，编辑好捷径的名称和图标之后就制作好了。</p>
