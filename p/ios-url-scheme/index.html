@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+  <script>
+    if (!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1) {
+      document.execCommand("stop");
+      alert("页面已停止加载，请使用非IE内核浏览器访问本站点！！");
+    }
+  </script>
+  <meta charset="UTF-8">
+  <title>
+    
+      使用URL Scheme打开支付宝、云闪付小程序 - LERNB | 网络日志
+    
+  </title>
+  <!-- <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0"> -->
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta name="description" content="LERNB - 个人网站，记录、分享" />
+  <meta name="keywords" content="LERNB,技术,分享,博客,IT新闻,互联网,Internet,数码,科技,网络,科普,通信,智能手机,blog" />
+  <meta name="author" content="LERNB">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-page-mode" content="app">
+	<meta name="browsermode" content="application">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#5e72e4">
+
+	<meta name="application-name" content="LERNB">
+	<meta name="apple-mobile-web-app-title" content="LERNB">
+  <link href="/asset/u.jpg" rel="apple-touch-icon-precomposed">
+  <link href="/asset/u.jpg" rel="Shortcut Icon" type=image/x-icon>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/lernb20201012.css?v=07260112">
+  <link rel="stylesheet" href="/css/aIndex.css?v=07261959">
+  <link rel="stylesheet" href="/css/partial.css?v=07252249">
+  <link rel="stylesheet" href="/css/prism20200918.css?v=05170112">
+</head>
+  
+  <body class="line-numbers">
+  
+  <div class="pgbar">
+    <div class="bar-in"></div>
+  </div>
+  <script src="/js/layouts@20200929.js"></script>
+  <!-- <script id="header-js"></script>
+  <script type="text/javascript">
+    let headerJs = document.getElementById('header-js');
+    if (screen.width < 768) {
+      headerJs.setAttribute('src', '');
+    } else {
+      headerJs.setAttribute('src', '/js/layouts@20200921.js');
+    }
+  </script> -->
+<!-- <body onload="prettyPrint();" class="line-numbers"> 旧款代码高亮 -->
+  
+    
+  <div class="headhead">
+
+<!-- <div class="headhead headbdf"> -->
+  <div class="header-wrap" id="he" style="height: 55px;">
+    <div class="blur-bg"></div>
+    
+    <div class="head">
+    
+      <button onclick="clk()">
+        <!-- <i class="fa fa-bars" id="show" aria-hidden="true"></i>
+        <i class="fa fa-times" id="close" aria-hidden="true"></i> -->
+        <span id="show"><i></i></span>
+        <span id="close"></span>
+      </button>
+      <h1 style="display: inline-block;">
+        <a class="header-img" href="/" target="_self" title="LERNB" style="background-image: url('/asset/lernb.png');">
+          LERNB
+        </a>
+      </h1>
+      <ul id="header-btn">
+        <li>
+          
+          <a href="/" class="hoverLine" style="padding-left: 0;">主页</a>
+          
+        </li>
+        <li>
+          
+          <a href="/p" class="hoverLine hoverLineActive" style="padding-left: 0;">文章</a>
+          
+        </li>
+        <li>
+          
+          <a href="/note/note-intro.html" class="hoverLine" style="padding-left: 0;">学习</a>
+          
+        </li>
+        <!-- <li> -->
+          
+          <!-- <a href="/tags" class="tag-btn hoverLine">标签</a> -->
+          
+        <!-- </li> -->
+        <!-- <li> -->
+          
+          <!-- <a href="/categories" class="cate-btn hoverLine">分类</a> -->
+          
+        <!-- </li> -->
+      </ul>
+    </div>
+    <div id="hcata">
+      <!-- <img src="/asset/u2.jpg" alt="头像" style="display: block; width: 100px; height: 100px; border-radius: 50%; margin: 30px auto 30px;">
+      <div class="barauthor" style="text-align: center; font-family: cmFont; font-size: 1.6rem; color: #18a0db;">lernb.</div> -->
+
+      <!-- author -->
+
+      <div class="headerMenu">
+        <a href="/">主页</a>
+        <a href="/p">文章</a>
+        <a href="/tags">标签</a>
+        <a href="/note/note-intro.html">学习</a>
+        <!-- <a href="/categories">分类</a> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+    <div class="wrap clearfix">
+      
+  
+  <div class="main" style="padding-top: 57px; box-shadow: initial; background-color: initial; backdrop-filter: initial;-webkit-backdrop-filter: initial;">
+  
+    <div class="wrap-content clearfix">
+      
+      <div class="bar barbar">
+        <!-- <div class="barside"> -->
+        <!-- S 侧栏插件 -->
+        
+
+        <!-- 最近文章 -->
+        
+        <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/ios-url-scheme/" title="使用URL Scheme打开支付宝、云闪付小程序" style="background-image: url('');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/ios-url-scheme/" title="使用URL Scheme打开支付宝、云闪付小程序">
+                使用URL Scheme打开支付宝、云闪付小程序
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+        
+
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+
+        <!-- 分类 -->
+        
+          
+        <!-- <hr style="border: 0;border-top: 1px solid #eaecef;"> -->
+          
+        <!-- 归档 -->
+        
+            
+        <!-- 标签 -->
+        
+
+        <!-- 文章目录 -->
+        
+          <div class="bar-item post-title-menu-flag">
+  <div class="t-h" style="margin-bottom: 10px;">
+    <h3 style="color: #094067;">目录</h3>
+  </div>
+  <div class="post-title-content">
+    <ul class="post-title-menu">
+    </ul>
+  </div>
+</div>
+        
+        <!-- E 侧栏插件 -->
+        </div>
+        
+        <!--  -->
+        <div class="post-wrap">
+  <article class="post">
+    
+    <div class="entry-cate">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+    </div>
+    <h1 class="post-article">使用URL Scheme打开支付宝、云闪付小程序</h1>
+    <div class="entry">
+      <!-- S 文章信息 -->
+      <div class="p-info-title">
+        <div class="u-img">
+          <img src="/asset/u.jpg" alt="头像">
+        </div>
+        <div class="u-title">
+          <div class="uname"><span>ler</span></div>
+          <div class="post-date"><span>2022-04-18</span>&nbsp;&nbsp;
+            
+            <a id="reslink" href="https://sspai.com/post/68497" target="_blank" title="本文转编自：少数派">
+              <span class="res">源</span><span class="res-link">少数派</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- E 文章信息 -->
+      <div class="entry-content">
+        <p>支付宝的指定页面路径跳转比微信小程序简单很多，只需要使用简单的几个步骤。另外，云闪付的小程序用了类似的方法进行跳转，在此处也一并讲解，作参考使用。</p>
+<h2 id="支付宝"><a class="header-anchor" href="#支付宝"></a>支付宝</h2>
+<p>首先，打开支付宝，来到需要抓取的小程序页面。此处以上海的随申码为例演示，打开随申办小程序，点击顶部的「随申码」按钮进入页面。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1nlb34tcvciqa3a0.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<p>可以看出这个一个二级页面，如果想要使用 URL Scheme 一键访问，同样需要知道这个页面的 path 参数（可理解为某个页面的「身份证」。点击右上角的「更多」图标按钮，再依次点击「分享」&gt;「复制链接」。</p>
+<p>剪切板的链接地址如下所示，前往 Safari 粘贴打开剪切板链接，这时候会弹出询问窗口，询问是否在支付宝中打开。</p>
+<pre><code class="language-html">https://ur.alipay.com/7jQeHZlc
+</code></pre>
+<p>点击取消，看到 Safari 的地址栏，可以看出短链接经过解析，变成了含有参数的长链接。复制出这个长链接，如下所示：</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1olb34tcvt9nu0b0.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<pre><code class="language-html">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2019072665939857%26page%3Dpages%252Fmy-station-type%252Fmy-station-type%26enbsv%3D0.2.2108270116.35%26chInfo%3Dch_share__chsub_CopyLink
+</code></pre>
+<p>此处的链接参数是被编码过的，使用 <a href="http://URLDecode.org" target="_blank" rel="noopener">URLDecode.org</a> 进行解码一下，得到如下的原始文本，我们将这一长串的链接分段解析一下。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1p5b34tcu4buqph0.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<pre><code class="language-html">https://render.alipay.com/p/s/i/?scheme=alipays://platformapi/startapp?appId=2019072665939857&amp;page=pages%2Fmy-station-type%2Fmy-station-type&amp;enbsv=0.2.2108270116.35&amp;chInfo=ch_share__chsub_CopyLink
+</code></pre>
+<p>可以看到，解析后的链接中包含了四个参数。分别是 scheme、page、enbsv、chInfo，根据《微信小程序也能一键直达，除了健康码你还想跳转什么？》中微信小程序的格式，不难猜出 scheme 和 page 拼接之后就能打开指定路径，此处的 page 就等价于微信的 path。所以删除前后无用的参数，只保留 scheme 和 page，就可以构造出如下的链接地址：</p>
+<pre><code class="language-html">alipays://platformapi/startapp?appId=2019072665939857&amp;page=pages%2Fmy-station-type%2Fmy-station-type
+</code></pre>
+<p>有了 URL Scheme 之后，就可以打开快捷指令进行构建了（下简称为「捷径」）。新建捷径，选择「打开 URL」模块，将构造好的 URL Scheme 地址填入，编辑好捷径的名称和图标之后就制作好了。</p>
+<p>此处有一个小技巧需要介绍，捷径在只有一个动作的情况下，无法显示自定义的捷径图标。这个时候可以在捷径里随意加一个无意义的变量解决这个问题，例如加入一个「文本」动作。或者也可以将 URL Scheme 放在「URL」模块里，然后使用「打开 URL」打开它，两种解决方法都是可以的。</p>
+<p>为了方便读者使用，点击即可下载 支付宝随申码。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1pdb34tcvt9nu0bg.jpeg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<div class="warning">
+<p><strong>注意要点</strong></p>
+<ul>
+<li>对于需要登录授权的小程序，例如通信行程卡，可能需要短信验证码才可以登录。</li>
+<li>和微信小程序一样，如果拍照使用的是官方的接口，一样无法获取到页面路径。</li>
+</ul>
+</div>
+<p><img src="https://cdn.sspai.com/2021/08/27/8d68291dd2366b94f33ce265f1184ec1.gif" alt=""></p>
+<h2 id="云闪付"><a class="header-anchor" href="#云闪付"></a>云闪付</h2>
+<p>云闪付打开随申码无需次次授权，只需要一次授权，长期有效。稍微研究了一下，找出了云闪付的 URL Scheme 跳转地址结构，格式如下：</p>
+<pre><code class="language-html">upwallet://applet?toLink=【小程序 URL】&amp;encryptAppId=【小程序 ID】
+</code></pre>
+<p>接下来趁热打铁，看看如何实现云闪付的小程序地址抓取。打开随申码小程序页面，同样是复制链接，依次点击右上角的「更多」图标 &gt;「分享」&gt;「复制链接」。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1qdb34tcu4buqphg.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<p>但是此时，如果还想使用和支付宝一样的方法，是行不通的了。因为此时已经是一个长链接了，复制到 Safari 打开也没用了。这次直接对链接进行分析，由于这个链接中包含了个人身份信息，我对链接做了一些处理，替换了某些参数值来介绍。所以替换后的链接地址如下所示：</p>
+<pre><code class="language-html">https://base.95516.com/s/wl/WebAPP/helpAgree/page/help/shareRutineHelp.html?params=ewogICJ0b0xpbmsiIDogImh0dHBzOi8vc3Vpc2hlbm1hZnJvbnQxLnNoLmdvdi5jbi9zbXp5L2Z5ei9xcmNvZGU/ZnJvbT15c2YmYWRkcmVzcz0mbG9uZ2l0dWRlPTEyMC4wMCZsYXRpdHVkZT0zLjAwJnR5cGU9RllfUVJDT0RFXzAxJm13PXNzcGFpSmFtZXNIb3Bib3VybiZpc1JlbGF0aW9ucz0wJm13Rm9yUmVsYXRpb25zPXZuS0FreDc3JTIwbTNGNjdPcjdTU0RPc1N3RnFncjBFUWYvb0VWMTJFclVWZWRWRGQvc3NwYWkiLAogICJlbmNyeXB0QXBwSWQiIDogImJhNDMxYmY3MDUwNzMxYTAiCn0=
+</code></pre>
+<p>可以看出，它不同于曾经见到过了支付宝或者微信小程序链接，后面跟着一堆 ABCD 字母，看到最后的等于号，不难猜出这是一段 base64 编码。将这段 base64 复制，在终端使用 base64 命令进行解码。如果不习惯使用终端，也可以使用在线的 <a href="http://base64decode.org" target="_blank" rel="noopener">base64decode.org</a> 进行解码，解码后的内容如下所示：</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1qlb34tcuopj7kvg.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<pre><code class="language-html">{
+  &quot;toLink&quot; : &quot;https://suishenmafront1.sh.gov.cn/smzy/fyz/qrcode?from=ysf&amp;address=&amp;longitude=120.00&amp;latitude=3.00&amp;type=FY_QRCODE_01&amp;mw=sspaiJamesHopbourn&amp;isRelations=0&amp;mwForRelations=vnKAkx77%20m3F67Or7SSDOsSwFqgr0EQf/oEV12ErUVedVDd/sspai&quot;,
+  &quot;encryptAppId&quot; : &quot;ba431bf7050731a0&quot;
+}
+</code></pre>
+<p>此处有两个参数，<code>toLink</code>和<code>encryptAppId</code>，而<code>encryptAppId</code>就是所谓的小程序 ID，没有值得研究的地方。接着将此处的<code>toLink</code>参数单独拿出解析一下，将它切分一下，看看各个参数值。可以看出此处有 8 个参数，包含了跳转来源、地址、经纬度和 mw 等参数。</p>
+<pre><code class="language-html">https://suishenmafront1.sh.gov.cn/smzy/fyz/qrcode?
+from=ysf
+&amp;address=
+&amp;longitude=120.00
+&amp;latitude=3.00
+&amp;type=FY_QRCODE_01
+&amp;mw=sspaiJamesHopbourn
+&amp;isRelations=0
+&amp;mwForRelations=vnKAkx77%20m3F67Or7SSDOsSwFqgr0EQf%2FoEV12ErUVedVDd%2Fsspai
+</code></pre>
+<p>经过实验，此处只需要保留一个<code>mw</code>即可成功认证。请注意此处的<code>mw</code>等效于个人身份标识码，所以请不要将这个链接随意分享。最后删除无用参数，重构链接得到以下结果：</p>
+<pre><code class="language-html">https://suishenmafront1.sh.gov.cn/smzy/fyz/qrcode?mw=sspaiJamesHopbourn
+</code></pre>
+<p>刚才在开头提过了云闪付小程序的基本结构，接下来就是构建 URL Scheme 了，拼接两个参数之后，得到如下的 URL Scheme</p>
+<pre><code class="language-html">upwallet://applet?toLink=https://suishenmafront1.sh.gov.cn/smzy/fyz/qrcode?mw=sspaiJamesHopbourn&amp;encryptAppId=ba431bf7050731a0
+</code></pre>
+<p>同样将它创建为一个捷径。新建捷径，选择「打开 URL」模块，粘贴这个 URL Scheme 地址即可。</p>
+<p>云闪付对参数进行了 base64 编码，但是经过解码之后一样可以得到关键信息。其实看过云闪付的桌面书签代码之后，感觉它做的还是比较好的。内部使用了 base64 和字符串拼接之后才能得到 URL Scheme，增大了直接获取 URL Scheme 的难度。</p>
+<p>但是其实也是有通杀方法的，不去分析网页代码，无论如何最终书签都是要跳转应用的。所以另一种方法是在电脑上伪装 UA，直接打开链接，一下就能获得到完整的 URL Scheme。云闪付小程序的 URL Scheme 基本格式正是使用这个方法获得。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1qtb34tcvciqa3ag.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<h2 id="小结"><a class="header-anchor" href="#小结"></a>小结</h2>
+<p>现在，三个常用应用：支付宝、微信、云闪付的小程序 URL Scheme 结构都介绍过了，至于要如何使用，就看各位读者自行发挥的能力了，花几分钟动手折腾一下还挺有趣的，亦可为日后使用带来不少便捷。下面是三个软件的跳转情况对比图，读者可以选择合适的软件进行跳转。</p>
+<p><img src="https://cdn.sspai.com/editor/u_/c4ka1r5b34tcu4buqpi0.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt=""></p>
+<p>最后，再来总结一下这三个软件小程序跳转的基本格式</p>
+<pre><code class="language-html">weixin://app/wx5aa333606550dfd5/jumpWxa/?userName=【账号原始 ID】&amp;path=【页面路径】
+alipays://platformapi/startapp?appId=【小程序 ID】&amp;page=【页面路径】
+upwallet://applet?encryptAppId=【小程序 ID】&amp;toLink=【小程序 URL】
+</code></pre>
+<h2 id="彩蛋"><a class="header-anchor" href="#彩蛋"></a>彩蛋</h2>
+<p>在部分学校里的菜鸟驿站站点，收取快递可能需要出示身份码扫描。在研究菜鸟小程序的身份码的时候，使用上面的「支付宝分享法」解析出了淘宝直达链接，有需要的读者也可以自取，使用 URL Scheme 一件跳转之后，就不需要额外再下载「菜鸟驿站」了，只需要捷径点击一下，即可直接打开身份码，URL Scheme 地址和演示效果如下。</p>
+<p><img src="https://cdn.sspai.com/2021/08/27/885b6d623489aa7d3eb8e78297277a63.gif" alt=""></p>
+<pre><code class="language-html">tbopen://m.taobao.com/tbopen/index.html?h5Url=https%3A%2F%2Fmarket.m.taobao.com%2Fapp%2Fcn-yz%2Fmulti-activity%2FauthCode.html
+</code></pre>
+
+      </div>
+    </div>
+    
+    <div class="tags clearfix">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/URL-Scheme/" rel="tag">URL Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a></li></ul>
+    </div>
+    
+    <script src="/js/prism.js"></script>
+  </article>
+  <!-- 文章底部导航 -->
+  
+  <nav id="article-nav" class="clearfix">
+    
+    <a href="/p/Windows-boot-error/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
+      <div class="article-nav-title" style="position: relative; z-index: 1;">
+        <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
+        
+          <span class="hoverLine hoverLine-thin">解决开机出现“你的电脑未正确启动”错误</span>
+        
+      </div>
+    </a>
+    
+    
+  </nav>
+  
+  <!-- 底部文章列表 -->
+  <div class="bar-item">
+  <div class="t-h hRec" style="margin-bottom: 20px;">
+    <h3 style="font-weight: bold; font-size: 18px;">最近</h3>
+  </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/ios-url-scheme/" title="使用URL Scheme打开支付宝、云闪付小程序" style="background-image: url('');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="current" href="/p/ios-url-scheme/" title="使用URL Scheme打开支付宝、云闪付小程序">
+                使用URL Scheme打开支付宝、云闪付小程序
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211113160331.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/Windows-boot-error/" title="解决开机出现“你的电脑未正确启动”错误">
+                解决开机出现“你的电脑未正确启动”错误
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20211030213746.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/openwrt-build/" title="OpenWrt 编译步骤与命令详解">
+                OpenWrt 编译步骤与命令详解
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="recent-item">
+      <div class="recent-item-left">
+        <div class="recent-item-img-body">
+          <a href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置" style="background-image: url('https://gitee.com/lernb/pic-host/raw/master/img/20210723112004.jpg');">
+            <div class="overlay"></div>
+          </a>
+        </div>
+      </div>
+      <div class="recent-item-right">
+        <div class="recent-item-content">
+          <div class="recent-item-content-cate">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+          </div>
+          <div class="recent-item-content-body">
+            
+              <a class="" href="/p/set-nginx-cache/" title="Nginx下关于缓存控制字段cache-control的配置">
+                Nginx下关于缓存控制字段cache-control的配置
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+  <!-- 是否开启文章评论 -->
+  
+  <hr class="comm-hr">
+  <h3 class="comm-hd">评论</h3>
+  <script src="/js/valines.js"></script>
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'vYpfYM8GB7vEYkshouOCPqfU-9Nh9j0Va',
+      appKey: 'W2PWpzkDuwbyUlQqyqUFcgYq',
+      placeholder: '说点什么吧~',
+      requiredFields: ['nick','mail'],
+      recordIP: false,
+      avatar: 'retro'
+    })
+  </script>
+  <!-- <div class="comment clearfix" style="margin-top: 35px;">
+    <div class="split"></div>
+    <section id="isso-thread">
+    </section>
+  </div> -->
+  
+  <nav id="toTop">TOP</nav>
+</div>
+<!-- <script src="/js/post20200911.js"></script> -->
+<script id="post-js"></script>
+<script type="text/javascript">
+  let postJs = document.getElementById('post-js');
+  if (screen.width < 1236) {
+    postJs.setAttribute('src', '/js/post-m20200923.js');
+  } else {
+    postJs.setAttribute('src', '/js/post20200917.js?v=05191518');
+  }
+</script>
+
+<!-- <script data-isso="https://lerisso110.lernb.com/isso/" data-isso-require-email="true"
+  data-isso-reply-notifications="true" data-isso-vote="false" data-isso-css="false" data-isso-require-author="true"
+  src="https://lerisso110.lernb.com/isso/js/embed.min.js"></script> -->
+
+      </div>
+    </div>
+    </div>
+    
+      <div class="wrap-content foot-content">
+  <!-- S 页面底部 -->
+  <div class="foot">
+    <div class="foot-con">
+      <span id="admin"><a href="https://lernb.com" target="_blank"
+          title="LERNB">lernb.com</a>&nbsp;&copy;2022&nbsp;|&nbsp;</span>
+      <span id="email"><a href="mailto:lernb@qq.com" title="电子邮件">lernb</a>&nbsp;|</span>
+      <span id="server"><a href="https://cloud.tencent.com/" target="_blank">Tencent</a></span>
+      <span id="siteICP"><a href="http://beian.miit.gov.cn"
+          target="_blank"></a></span>
+    </div>
+  </div>
+  <!-- E 页面底部 -->
+</div>
+    
+  <script id="layout-js"></script>
+  <script type="text/javascript">
+    let layoutJs = document.getElementById('layout-js');
+    if (screen.width < 1236) {
+      layoutJs.setAttribute('src', '/js/layout-m20200920.js?v=0421');
+    }
+  </script>
+</body>
+
+</html>
