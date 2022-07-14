@@ -22,10 +22,18 @@
       width: 210mm;
       padding: 20mm 24mm 20mm 24mm;
       margin: 10mm auto 10mm;
+      text-align: justify;
+      word-break: normal;
+      word-wrap: break-word;
       line-height: 1.5;
       box-sizing: border-box;
       font-family: '宋体';
-      box-shadow: 0 0 12px 1px rgb(154 154 154 / 16%);
+      /* box-shadow: 0 0 12px 1px rgb(154 154 154 / 16%); */
+      border: 1px solid #ddd;
+    }
+
+    h1 {
+      margin-top: 0;
     }
 
     h1,
@@ -43,6 +51,10 @@
       text-indent: initial;
     }
 
+    p:nth-last-child(-n + 7) {
+      text-indent: initial;
+    }
+
     /* @font-face {
       font-family: 'st';
       src: url('./simsun.ttc');
@@ -50,26 +62,36 @@
 
     @media (max-width: 767px) {
       .entry-content {
-        width: 100%;
-        padding: 25.4px 30px 25.4px 30px;
-        margin: 0;
+        width: 95%;
+        padding: 35px 6% 35px 6%;
+        /* padding: 35px 30px 35px 30px; */
+        margin: 10px auto 10px;
         /* font-family: 'st'; */
-        box-shadow: none;
+        /* box-shadow: none; */
+        /* border: initial; */
       }
-      
+
+      h1 {
+        font-size: 1.7em;
+      }
+      h2 {
+        font-size: 1.35em;
+      }
+
       p {
-        font-size: 13pt;
+        font-size: 1.085em;
       }
     }
-    
+
     @media print {
       .entry-content {
         width: 210mm;
         height: 340mm;
-        padding: 18mm 24mm 0 24mm;
+        padding: 18mm 22mm 0 22mm;
         margin: 0;
         font-family: '宋体';
-        box-shadow: none;
+        /* box-shadow: none; */
+        border: initial;
       }
     }
   </style>
@@ -292,18 +314,17 @@
       <p>第一百零五条　违反本法规定侵害劳动者合法权益，其他法律、法规已规定处罚的，依照该法律、行政法规的规定处罚。</p>
       <h2 id="第十三章-附-则"><a class="header-anchor" href="#第十三章-附-则"></a>第十三章　附 则</h2>
       <p>第一百零六条　省、自治区、直辖市人民政府根据本法和本地区的实际情况，规定劳动合同制度的实施步骤，报国务院备案。</p>
-      <p>第一百零七条　本法自１９９５年１月１日起施行。</p><br><br><br><br><br><br><br><br><br><br><br><br>
-      <p>来源：<a href="http://www.gov.cn/banshi/2005-05/25/content_905.htm" target="_blank"
-          rel="noopener">http://www.gov.cn/banshi/2005-05/25/content_905.htm</a></p>
-      <p>修改：<a href="http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm" target="_blank"
-          rel="noopener">http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm</a></p>
+      <p>第一百零七条　本法自１９９５年１月１日起施行。</p><br><br><br><br><br><br><br>
       <hr>
       <p id="[1]">[1] <a href="http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm" target="_blank"
           rel="noopener">http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm</a></p>
       <p>（一）将第十五条第二款中的“必须依照国家有关规定，履行审批手续”修改为“必须遵守国家有关规定”。</p>
       <p>（二）将第六十九条中的“由经过政府批准的考核鉴定机构”修改为“由经备案的考核鉴定机构”。</p>
       <p>（三）将第九十四条中的“工商行政管理部门”修改为“市场监督管理部门”。</p>
-
+      <p>来源：<a href="http://www.gov.cn/banshi/2005-05/25/content_905.htm" target="_blank"
+          rel="noopener">http://www.gov.cn/banshi/2005-05/25/content_905.htm</a></p>
+      <p>修改：<a href="http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm" target="_blank"
+          rel="noopener">http://www.gov.cn/xinwen/2018-12/30/content_5353503.htm</a></p>
     </div>
   </div>
 </body>
