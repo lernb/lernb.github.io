@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      Hexo配置Git部署站点到服务器 - LERNB | 网络日志
+      妙用 scale 与 transfrom-origin，精准控制动画方向 - LERNB | 网络日志
     
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -165,7 +165,7 @@
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/p/transform-origin/" title="妙用 scale 与 transfrom-origin，精准控制动画方向">
+              <a class="current" href="/p/transform-origin/" title="妙用 scale 与 transfrom-origin，精准控制动画方向">
                 妙用 scale 与 transfrom-origin，精准控制动画方向
               </a>
             
@@ -282,9 +282,9 @@
   <article class="post">
     
     <div class="entry-cate">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+      
     </div>
-    <h1 class="post-article">Hexo配置Git部署站点到服务器</h1>
+    <h1 class="post-article">妙用 scale 与 transfrom-origin，精准控制动画方向</h1>
     <div class="entry">
       <!-- S 文章信息 -->
       <div class="p-info-title">
@@ -293,10 +293,10 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2020-08-23</span>&nbsp;&nbsp;
+          <div class="post-date"><span>2022-07-14</span>&nbsp;&nbsp;
             
-            <a id="reslink" href="https://www.jianshu.com/p/b926ecf1c6f6" target="_blank" title="本文转编自：Leihungjyu">
-              <span class="res">源</span><span class="res-link">Leihungjyu</span>
+            <a id="reslink" href="https://www.cnblogs.com/coco1s/p/8882542.html" target="_blank" title="本文转编自：ChokCoco">
+              <span class="res">源</span><span class="res-link">ChokCoco</span>
             </a>
             
           </div>
@@ -304,157 +304,160 @@
       </div>
       <!-- E 文章信息 -->
       <div class="entry-content">
-        <h2 id="本地安装"><a class="header-anchor" href="#本地安装"></a>本地安装</h2>
-<p>首先查看本机是否已经安装<code>Git</code>和<code>Node.js</code>，在Bash中输入<a id="more"></a>以下命令</p>
-<pre><code class="language-bash">$ git --version 
-#git version 2.22.0.windows.1
-
-$ node --version
-# v12.16.2
-</code></pre>
-<p>如果正确出现版本号，则说明已经安装，反之则未安装。</p>
-<h3 id="安装Git"><a class="header-anchor" href="#安装Git"></a>安装Git</h3>
-<p>从Git <a href="https://git-scm.com" target="_blank" rel="noopener">官网</a>下载安装。</p>
-<p>配置用户信息，设置用户名以及邮箱：</p>
-<pre><code class="language-bash">$ git config --global user.name &quot;用户名&quot;
-$ git config --global user.email &quot;邮箱地址&quot;
-
-#查看配置
-$ git config --list
-</code></pre>
-<p><strong>获取key</strong>，下文配置SSH需要用到。</p>
-<p>在Git Bash中执行以下命令：</p>
-<pre><code class="language-bash">#创建公钥
-$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;
-#然后获取复制公钥备用
-$ cat ~/.ssh/id_rsa.pub
-</code></pre>
-<h3 id="安装Node-js"><a class="header-anchor" href="#安装Node-js"></a>安装Node.js</h3>
-<p>从Node.js <a href="%5Bhttps://nodejs.org%5D(https://nodejs.org/)">官网</a>下载安装，安装完成后可以在在Git Bash中输入<code>node --version</code>查看当前安装版本。</p>
-<h3 id="Hexo配置"><a class="header-anchor" href="#Hexo配置"></a>Hexo配置</h3>
-<p>更多详细配置可以参照<a href="%5Bhttps://hexo.io/zh-cn/docs%5D(https://hexo.io/zh-cn/docs/)">官方文档</a>。</p>
-<p>新建存放Hexo站点目录的文件夹，如<code>hexo</code>，进入<code>hexo</code>内空白处右键菜单点击<code>git bash</code>：</p>
-<p>安装Hexo</p>
-<pre><code class="language-bash">$ npm install -g hexo-cli
-</code></pre>
-<p>安装完成后</p>
-<pre><code class="language-bash">$ hexo init
-$ npm install
-</code></pre>
-<p>启动本地站点服务</p>
-<pre><code class="language-bash">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo server
-</code></pre>
-<p>完成后可以在浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>查看搭建的本地站点。</p>
-<h2 id="服务器端安装"><a class="header-anchor" href="#服务器端安装"></a>服务器端安装</h2>
-<p>将系统包列表更新到最新：</p>
-<pre><code class="language-bash">$ apt-get update -y
-$ apt-get upgrade -y
-</code></pre>
-<h3 id="创建git用户"><a class="header-anchor" href="#创建git用户"></a>创建git用户</h3>
-<p>创建git用户</p>
-<pre><code class="language-bash">$ adduser git
-</code></pre>
-<p>赋予sudo权限</p>
-<pre><code class="language-bash">$ chmod 740 /etc/sudoers
-$ vim /etc/sudoers
-</code></pre>
-<p>定位到<code>root</code>一行下方添加以下字段</p>
-<pre><code class="language-bash">git ALL=(ALL) ALL
-</code></pre>
-<p><img src="/img/gitsudoer.png" alt=""></p>
-<p>修改完成后改回权限</p>
-<pre><code class="language-bash">$ chmod 400 /etc/sudoers
-</code></pre>
-<h3 id="配置SSH"><a class="header-anchor" href="#配置SSH"></a>配置SSH</h3>
-<p>切换git用户，并到git用户目录</p>
-<pre><code class="language-bash">#切换到git用户
-$ su git
-
-#转到git用户目录
-$ cd /home/git
-</code></pre>
-<p>配置ssh</p>
-<pre><code class="language-bash"># 创建.ssh文件夹
-$ mkdir ~/.ssh
-#输入可查看是否创建
-$ ls -a
-# 创建authorized_keys文件并编辑
-$ vim ~/.ssh/authorized_keys
-# 如果你还没有生成公钥，那么首先在本地电脑中执行 cat ~/.ssh/id_rsa.pub | pbcopy生成公钥
-# 再将公钥复制粘贴到authorized_keys
-# 保存关闭authorized_keys后，修改相应权限
-$ chmod 600 ~/.ssh/authorized_keys
-$ chmod 700 ~/.ssh
-</code></pre>
-<p>然后输入测试是否可以登录</p>
-<pre><code class="language-bash">$ ssh -v git@68.168.141.184
-</code></pre>
-<p>默认22端口，不是则需要在后面加上<code>-p 端口号</code></p>
-<p>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!是以前配置过主机，需要进行删除</p>
-<pre><code class="language-bash">$ vi ~/.ssh/known_hosts
-</code></pre>
-<h3 id="创建git裸库"><a class="header-anchor" href="#创建git裸库"></a>创建git裸库</h3>
-<pre><code class="language-bash"># 回到git目录
-$ cd /home/git
-# 使用git用户创建git裸仓库，以blog.git为例
-$ git init --bare blog.git
-</code></pre>
-<h3 id="检查用户权限"><a class="header-anchor" href="#检查用户权限"></a>检查用户权限</h3>
-<p>查看<code>blog.git</code>、<code>.ssh</code>和站点目录的用户组权限是否都为<code>git:git</code></p>
-<pre><code class="language-bash">$ ls -l /var/www/
-$ ls -l /home/git/
-</code></pre>
-<p>如果不是则</p>
-<pre><code class="language-bash">$ sudo chown git:git -R /var/www/blog
-$ sudo chown git:git -R /home/git/blog.git
-</code></pre>
-<h3 id="使用git-hooks同步网站根目录"><a class="header-anchor" href="#使用git-hooks同步网站根目录"></a>使用git-hooks同步网站根目录</h3>
-<p>使用一个钩子文件：<code>post-receive</code>，每当git仓库接收到内容的时候，就会自动调用这个钩子，把内容同步到网站根目录。</p>
-<p><strong>git用户下执行</strong></p>
-<pre><code class="language-bash">#切换到hooks目录下
-$ cd /home/git/blog.git/hooks
-#创建文件
-$ vim post-receive
-</code></pre>
-<p>添加如下</p>
-<pre><code class="language-bash">#!/bin/bash
-GIT_REPO=/home/git/blog.git
-TMP_GIT_CLONE=/tmp/blog
-PUBLIC_WWW=/home/wwwroot/default
-rm -rf ${TMP_GIT_CLONE}
-git clone $GIT_REPO $TMP_GIT_CLONE
-rm -rf ${PUBLIC_WWW}/*
-cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
-</code></pre>
-<p>保存后，执行以下赋予权限</p>
-<pre><code class="language-bash">$ chmod +x post-receive
-</code></pre>
-<h3 id="关闭git用户的shell权限"><a class="header-anchor" href="#关闭git用户的shell权限"></a>关闭git用户的shell权限</h3>
-<pre><code class="language-bash">#执行
-$ vim /etc/passwd
-</code></pre>
-<p>将最后一行</p>
-<pre><code class="language-bash">git:x:1000:1000::/home/git:/bin/bash
-#改为
-git:x:1000:1000::/home/git:/usr/bin/git-shell
-</code></pre>
-<h2 id="本地操作"><a class="header-anchor" href="#本地操作"></a>本地操作</h2>
-<p>配置本地Hexo的_config.yml</p>
-<pre><code class="language-bash">deploy: 
-  type: git
-  repo: git@115.159.87.49:blog.git
-  branch: master
-</code></pre>
-<p>同步到服务器</p>
-<pre><code class="language-bash">#清理、生成、部署
-$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre>
+        <p>上次发完 不可思议的纯 CSS 导航栏下划线跟随效果 这篇文章之后，很多朋友找我讨论，感叹 CSS 的奇妙。</p>
+<p>然后昨天，群里一位朋友问到了一个和这个效果比较类似的效果，问如何</p>
+<p>将下面这个动画的下划线效果，从左进入，右边离开修改为从上方进入，下方离开。</p>
+<p>描述很难理解，看看原本的效果：</p>
+<p>tsorigin</p>
+<p>难点所在<br>
+第一眼看到这个效果，我的内心毫无波澜。以为只是简单的一个下划线 hover 效果，经过友人提醒，才发现，这个动画效果中，下划线是从一端进入，从另外一端离开的。而且，这个 hover 动画是纯 CSS 实现的。</p>
+<p>youqu</p>
+<p>先不考虑上面说的修改需求，先想一想，如果就是还原上述效果，仅仅使用 CSS，该如何做呢？</p>
+<p>还原效果<br>
+嗯，正常而言，我们一个 hover 效果，可能就是从哪里来，回哪里去，大部分的应该是这样的：</p>
+<p>xxx</p>
+<p>现在，难点就在于如何在 hover 离开的时候，改变动画行进的方向。</p>
+<p>下面我们将一个 hover 动画分解为 3 个部分：</p>
+<p>hover 进入状态<br>
+hover 停留状态<br>
+hover 离开状态<br>
+但是，对于一个 hover 效果而言，正常来说，只有初始状态，和hover状态两种。可能我们的代码是这样：</p>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+div {<br>
+xxxx…<br>
+}</p>
+<p>div:hover {<br>
+xxxx…<br>
+}<br>
+对于一个 hover transition 动画，它应该是从：</p>
+<p>正常状态 -&gt; hover状态 -&gt; 正常状态 （三个步骤，两种状态）<br>
+所以，必须要有一种方法，能够使得 hover 动画的进入与离开产生两种不一样的效果，实现：</p>
+<p>状态1 -&gt; hover状态 -&gt; 状态2 （三个步骤，三种状态）</p>
+<p>实现控制动画方向的关键点<br>
+所以，这里的关键点就在于（划重点）：</p>
+<p>使得 hover 动画的进入与离开产生两种不一样的效果 。</p>
+<p>接下来，也就是本文的关键所在，使用 transform: scale() 以及 transform-origin 实现这个效果。</p>
+<p>transform: scale() 实现线条运动<br>
+transform: scale 大家应该都很熟悉了，通俗来说是用于缩放，用官方的话说，就是：</p>
+<p>CSS 函数 scale() 用于修改元素的大小。可以通过向量形式定义的缩放值来放大或缩小元素，同时可以在不同的方向设置不同的缩放值。</p>
+<p>这里我们使用 transform: scaleX(0) 与 transform: scaleX(1) 来改变线条的显示与隐藏，它的 CSS 代码简单来看，可能是这样：</p>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14<br>
+15<br>
+16<br>
+17<br>
+18<br>
+19<br>
+20<br>
+21<br>
+div {<br>
+position: absolute;<br>
+width: 200px;<br>
+height: 60px;<br>
+}</p>
+<p>div::before {<br>
+content: “”;<br>
+position: absolute;<br>
+left: 0;<br>
+bottom: 0;<br>
+width: 200px;<br>
+height: 2px;<br>
+background: deeppink;<br>
+transition: transform .5s;<br>
+transform: scaleX(0);<br>
+}</p>
+<p>div:hover::before {<br>
+transform: scaleX(1);<br>
+}<br>
+scale</p>
+<p>嗯？为什么是要用 transform: scale() 来实现线条的动画？因为它可以配合 transform-origin 实现动画的不同运动方向：</p>
+<p>transform-origin 实现线条运动方向<br>
+transform-origin 让我们可以更改一个元素变形（transform）的原点，transform-origin 属性可以使用一个，两个或三个值来指定，其中每个值都表示一个偏移量。 没有明确定义的偏移将重置为其对应的初始值。</p>
+<p>本效果最最最重要的地方就在于这里，我们使用 transform-origin 去改变 transform: scale() 的原点实现线条运动的方向。</p>
+<p>我们给线条设置一个默认的 transform-origin 记为状态1<br>
+hover 的时候，设置另外一个不同的 transform-origin, 记为状态2<br>
+所以，当然我们 hover 的时候，会读取状态2的transform-origin，从该原点开始放大至 scaleX(1)，hover 离开的时候，会读取状态1的transform-origin，从scaleX(1)状态缩小至该原点。</p>
+<p>嗯，CSS代码大概是这样：</p>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14<br>
+15<br>
+16<br>
+17<br>
+18<br>
+19<br>
+20<br>
+21<br>
+22<br>
+23<br>
+div {<br>
+position: absolute;<br>
+width: 200px;<br>
+height: 60px;<br>
+}</p>
+<p>div::before {<br>
+content: “”;<br>
+position: absolute;<br>
+left: 0;<br>
+bottom: 0;<br>
+width: 200px;<br>
+height: 2px;<br>
+background: deeppink;<br>
+transition: transform .5s;<br>
+transform: scaleX(0);<br>
+transform-origin: 100% 0;<br>
+}</p>
+<p>div:hover::before {<br>
+transform: scaleX(1);<br>
+transform-origin: 0 0;<br>
+}<br>
+这里，我们巧妙的通过 hover 状态施加了一层新的 transform-origin ，让动画的进入与离开产生了两种不同的效果，两个不同的方向。</p>
+<p>如此一来，也就顺利实现了我们想要的效果，撒花：</p>
+<p>torigin</p>
+<p>注意，这里使用了 transform-origin 去改变 transform: scale() 的原点实现线条运动的方向，而没有借助诸如 position 位移，transform: translate()，或者 margin 等位置属性去改变线条所在的位置。</p>
+<p>所以，有趣的是，线条其实没有产生过任何位移，这里其实也是障眼法，让它看上去，它好像在移动。</p>
+<p>拓展延伸<br>
+嗯，有了上述方法，也就是 transform: scale() 配合 transform-origin ，我们可以开始随意改变动画的初始与结束状态了。把他们运用到其他效果之上，简单的几个示意效果：</p>
+<p>othertraorigin</p>
+<p>值得注意的点<br>
+还有几个点是比较有意思的，大家可以尝试尝试，思考思考：</p>
+<p>尝试改变两种状态的 transition-timing-function 缓动函数，可以让动画更加流畅具有美感；<br>
+注意一下，线条的 transition 设置的是 transition: transform .5s 而不是 transition: all .5s，体验一下两种写法所产生的不同效果。</p>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/Hexo/" rel="tag">Hexo</a></li></ul>
+      
     </div>
     
     <script src="/js/prism.js"></script>
@@ -463,27 +466,16 @@ $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/p/Hexo-pagenation/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/hexo.png') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+    <a href="/p/url-scheme/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/20220418165858.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
       <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
       <div class="article-nav-title" style="position: relative; z-index: 1;">
         <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
         
-          <span class="hoverLine hoverLine-thin">Hexo分类设置分页不显示的问题</span>
+          <span class="hoverLine hoverLine-thin">使用URL Scheme打开支付宝、云闪付小程序</span>
         
       </div>
     </a>
     
-    
-    <a href="/p/flex-grammar/" id="article-nav-older" class="article-nav-link-wrap"
-      style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/flex-box.png') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg); text-align: right;">
-      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
-      <div class="article-nav-title" style="position: relative; z-index: 1;">
-        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
-        
-          <span class="hoverLine hoverLine-thin">Flex布局语法</span>
-        
-      </div>
-    </a>
     
   </nav>
   
@@ -508,7 +500,7 @@ $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/p/transform-origin/" title="妙用 scale 与 transfrom-origin，精准控制动画方向">
+              <a class="current" href="/p/transform-origin/" title="妙用 scale 与 transfrom-origin，精准控制动画方向">
                 妙用 scale 与 transfrom-origin，精准控制动画方向
               </a>
             
