@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex弹性布局语法</title>
+  <style>
+    .box,
+    .ff,
+    .f {
+      /* 声明定义为flex弹性盒子 */
+      display: flex;
+    }
+
+    .box {
+      width: 400px;
+      height: 200px;
+      border: 1px solid purple;
+    }
+
+    .ff {
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .f {
+      flex-direction: column;
+      margin-right: 6px;
+    }
+
+    /* 采用flex布局的元素成为flex容器，其中所有的子元素自动变为flex项目 */
+    /* 
+      flex容器默认存在两根轴：
+      主轴：默认水平方向，从左向右，容器中的项目默认按照主轴排列
+      交叉轴：默认垂直方向，从上往下
+    */
+    .item {
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      border: 1px solid orange;
+    }
+
+    h3 {
+      line-height: 30px;
+      margin: 0;
+    }
+
+    /* 
+      容器的属性：
+      flex-direction|flex-wrap|flex-flow|justify-content|align-items|align-content
+    */
+    /* 
+      flex-direction决定主轴的方向，值为：
+      row:默认值，主轴为水平方向，起点在左端
+      row-reverse:主轴为水平方向，起点在右端
+      column:主轴为垂直方向，起点在上沿
+      column-reverse:主轴为垂直方向，起点在下沿
+    */
+    .fdr {
+      flex-direction: row;
+    }
+
+    .fdrr {
+      flex-direction: row-reverse;
+    }
+
+    .fdc {
+      flex-direction: column;
+    }
+
+    .fdcr {
+      flex-direction: column-reverse;
+    }
+
+    /* 
+      flex-wrap决定轴线上项目放不下如何换行
+      nowrap:默认值，不换行
+      wrap:换行，第一行在上方
+      wrap-reverse:换行，第一行在下方
+    */
+    .fwnw {
+      flex-wrap: nowrap;
+    }
+
+    .fww {
+      flex-wrap: wrap;
+    }
+
+    .fwwr {
+      flex-wrap: wrap-reverse;
+    }
+
+    /* flex-flow属性是flex-direction和flex-wrap的合写，默认是flex-flow: row nowrap */
+    .fflow {
+      flex-flow: row wrap;
+    }
+
+    /* 
+      justify-content定义项目在主轴上的对齐方式
+      flex-start: 默认值，左对齐
+      flex-end: 右对齐
+      center: 居中
+      space-between: 两端对齐项目之间间隔相等
+      space-around: 每个项目两侧间隔相等，所以项目之间的间隔比项目与容器边框的间隔大一倍
+    */
+    .jcfs {
+      justify-content: flex-start;
+    }
+
+    .jcfe {
+      justify-content: flex-end;
+    }
+
+    .jcc {
+      justify-content: center;
+    }
+
+    .jcsb {
+      justify-content: space-between;
+    }
+
+    .jcsa {
+      justify-content: space-around;
+    }
+
+    /* 
+      align-items属性定义项目在交叉轴的对齐方式
+      flex-start: 项目与交叉轴的起点对齐
+      flex-end: 项目与交叉轴的重点对齐
+      center: 与交叉轴的中点对齐
+      baseline: 与第一行文字的基线对齐
+      stretch: 默认值，如果项目没有设置高度或者高度为auto，默认将沾满整个容器的高度
+    */
+    .aifs {
+      align-items: flex-start;
+    }
+
+    .aife {
+      align-items: flex-end;
+    }
+
+    .aic {
+      align-items: center;
+    }
+
+    .aib {
+      align-items: baseline;
+    }
+
+    .ais {
+      align-items: stretch;
+    }
+
+    /* 
+      align-content定义了多根轴线的对齐方式，如果只有一根轴线则不起作用
+      flex-start: 与交叉轴的起点对齐
+      flex-end: 与交叉轴的终点对齐
+      center: 与交叉轴的中点对齐
+      space-between: 与交叉轴的两端对齐，轴线之间间隔相等
+      space-around: 轴线之间间隔相等，所以周线之间的间隔比轴线与容器边框之间的间隔大一倍
+      stretch: 默认值，占满整个交叉轴
+    */
+    .acfs {
+      align-content: flex-start;
+    }
+
+    .acfe {
+      align-content: flex-end;
+    }
+
+    .acc {
+      align-content: center;
+    }
+
+    .acsb {
+      align-content: space-between;
+    }
+
+    .acsa {
+      align-content: space-around;
+    }
+
+    .acs {
+      align-content: stretch;
+    }
+
+    /* 
+      项目的属性：
+      order|flex-grow|flex-shrink|flex-basis|flex|align-self
+    */
+    /* 
+      order属性定义项目的排列顺序，数值越小排列越靠前，默认为0
+      flex-grow属性定义项目放大比例，默认为0，即如果容器存在剩余空间也不放大
+      flex-shrink定义项目的缩小比例，默认为1，即如果容器空间不足，项目将缩小
+      flex-basis属性定义了在分配多余容器空间之前，项目占据的主轴空间。浏览器根据此属性计算是否有剩余空间，默认为auto，即项目本来大小
+      flex属性是flex-grow, flex-shrink, flex-basis三个属性的合写，默认值为0, 1, auto，后两个属性可选
+      align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性，默认为auto，表示继承父元素的align-items属性，如果没有父元素，等同于stretch
+    */
+    .ifo .item:nth-child(1) {
+      order: 3;
+    }
+
+    .ifo .item:nth-child(2) {
+      order: 4;
+    }
+
+    .ifo .item:nth-child(3) {
+      order: -1;
+    }
+
+    .iffg .item:nth-child(1) {
+      flex-grow: 1;
+    }
+
+    .iffg .item:nth-child(2) {
+      flex-grow: 2;
+    }
+
+    .iffg .item:nth-child(3) {
+      flex-grow: 1;
+    }
+
+    .iffs .item {
+      flex-shrink: 1;
+    }
+
+    .iffs .item:nth-child(1) {
+      flex-shrink: 0;
+    }
+
+    .iffb .item:nth-child(1) {
+      flex-basis: 40px;
+    }
+
+    .iffl .item {
+      /* flex-grow, flex-shrink, flex-basis */
+      flex: 0 1 auto;
+    }
+
+    .iffl .item:nth-child(2) {
+      /* flex-grow, flex-shrink, flex-basis */
+      flex: 1 1 auto;
+    }
+
+    .ifas .item:nth-child(1) {
+      /* 属性值与父元素align-items属性相同，默认值为auto，表示继承父元素align-items属性 */
+      align-self: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>容器的属性：flex-direction|flex-wrap|flex-flow|justify-content|align-items|align-content</h2>
+  <div class="ff">
+    <div class="f">
+      <h3>flex-direction: row</h3>
+      <div class="box fdr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-direction: row-reverse</h3>
+      <div class="box fdrr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-direction: column</h3>
+      <div class="box fdc">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-direction: column-reverse</h3>
+      <div class="box fdcr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+  </div>
+  <div class="ff">
+    <div class="f">
+      <h3>flex-wrap: nowrap</h3>
+      <div class="box fwnw">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-wrap: wrap</h3>
+      <div class="box fww">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-wrap: wrap-reverse</h3>
+      <div class="box fwwr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+      </div>
+    </div>
+  </div>
+  <div class="ff">
+    <div class="f">
+      <h3>flex-flow: row wrap</h3>
+      <div class="box fflow">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+      </div>
+    </div>
+  </div>
+  <div class="ff">
+    <div class="f">
+      <h3>justify-content: flex-start</h3>
+      <div class="box jcfs">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>justify-content: flex-end</h3>
+      <div class="box jcfe">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>justify-content: center</h3>
+      <div class="box jcc">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>justify-content: space-between</h3>
+      <div class="box jcsb">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>justify-content: space-around</h3>
+      <div class="box jcsa">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+  </div>
+  <div class="ff">
+    <div class="f">
+      <h3>align-items: flex-start</h3>
+      <div class="box aifs">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-items: flex-end</h3>
+      <div class="box aife">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-items: center</h3>
+      <div class="box aic">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-items: baseline</h3>
+      <div class="box aib">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-items: stretch</h3>
+      <div class="box ais">
+        <div class="item" style="height: auto;">1</div>
+        <div class="item" style="height: auto;">2</div>
+        <div class="item" style="height: auto;">3</div>
+        <div class="item" style="height: auto;">4</div>
+      </div>
+    </div>
+  </div>
+  <div class="ff">
+    <div class="f">
+      <h3>align-content: flex-start</h3>
+      <div class="box acfs" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">0</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-content: flex-end</h3>
+      <div class="box acfe" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">0</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-content: center</h3>
+      <div class="box acc" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">0</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-content: space-between</h3>
+      <div class="box acsb" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">0</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-content: space-around</h3>
+      <div class="box acsa" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">0</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-content: stretch</h3>
+      <div class="box acs" style="flex-wrap: wrap;">
+        <div class="item" style="height: auto;">1</div>
+        <div class="item" style="height: auto;">2</div>
+        <div class="item" style="height: auto;">3</div>
+        <div class="item" style="height: auto;">4</div>
+        <div class="item" style="height: auto;">5</div>
+        <div class="item" style="height: auto;">6</div>
+        <div class="item" style="height: auto;">7</div>
+        <div class="item" style="height: auto;">8</div>
+        <div class="item" style="height: auto;">9</div>
+        <div class="item" style="height: auto;">10</div>
+      </div>
+    </div>
+  </div>
+  <h2>项目的属性：order|flex-grow|flex-shrink|flex-basis|flex|align-self</h2>
+  <div class="ff">
+    <div class="f">
+      <h3>order</h3>
+      <div class="box ifo">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-grow</h3>
+      <div class="box iffg">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-shrink</h3>
+      <div class="box iffs">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex-basis</h3>
+      <div class="box iffb">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>flex</h3>
+      <div class="box iffl">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+    <div class="f">
+      <h3>align-self</h3>
+      <div class="box ifas">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
