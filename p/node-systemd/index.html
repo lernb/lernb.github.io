@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>
     
-      VPS 搭建简单加速器 - LERNB | 网络日志
+      Node 应用的 Systemd 启动 - LERNB | 网络日志
     
   </title>
   <!-- <meta http-equiv="pragma" content="no-cache">
@@ -165,7 +165,7 @@
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/p/node-systemd/" title="Node 应用的 Systemd 启动">
+              <a class="current" href="/p/node-systemd/" title="Node 应用的 Systemd 启动">
                 Node 应用的 Systemd 启动
               </a>
             
@@ -282,9 +282,9 @@
   <article class="post">
     
     <div class="entry-cate">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/c/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
     </div>
-    <h1 class="post-article">VPS 搭建简单加速器</h1>
+    <h1 class="post-article">Node 应用的 Systemd 启动</h1>
     <div class="entry">
       <!-- S 文章信息 -->
       <div class="p-info-title">
@@ -293,10 +293,10 @@
         </div>
         <div class="u-title">
           <div class="uname"><span>ler</span></div>
-          <div class="post-date"><span>2020-07-24</span>&nbsp;&nbsp;
+          <div class="post-date"><span>2022-08-31</span>&nbsp;&nbsp;
             
-            <a id="reslink" href="https://www.bilibili.com/read/cv1491430/" target="_blank" title="本文转编自：bilibili">
-              <span class="res">源</span><span class="res-link">bilibili</span>
+            <a id="reslink" href="http://www.ruanyifeng.com/blog/2016/03/node-systemd-tutorial.html" target="_blank" title="本文转编自：阮一峰">
+              <span class="res">源</span><span class="res-link">阮一峰</span>
             </a>
             
           </div>
@@ -304,171 +304,222 @@
       </div>
       <!-- E 文章信息 -->
       <div class="entry-content">
-        <h2 id="一、准备工具软件"><a class="header-anchor" href="#一、准备工具软件"></a>一、准备工具软件</h2>
-<ul>
-<li>
-<p><strong>udp2raw</strong>。将UDP伪装成TCP或者ICMP，不同于UDP over TCP，其本质上还是UDP，另外不会处理TCP数据包。</p>
-</li>
-<li>
-<p><strong>tinyfecVPN</strong>。工作在网络层的双边网络加速工具，可以加速全流量（TCP/UDP/ICMP），输出流量类型为UDP。</p>
-</li>
-<li>
-<p><strong>tinyPortMapper</strong>。将远程的UDP与TCP端口同时映射到本地。</p>
-</li>
-<li>
-<p><strong>SSTAP</strong>。控制本机路由，转发数据包。</p>
-</li>
-<li>
-<p><strong>可以转发UDP的不可描述的代理软件</strong>。就是那种软件，简单的Socks代理也可以。</p>
-</li>
-</ul>
-<div class="tip">
-<p>上述前三个软件开发者都为同一人，最新版本可以前往开发者<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页下载。软件更多功能及参数介绍可以去主页相应软件项目下的wiki查看</p>
-<p>下文介绍的命令参数请根据自己实际情况进行替换</p>
-</div>
-<h2 id="二、整体结构"><a class="header-anchor" href="#二、整体结构"></a>二、整体结构</h2>
-<p><img src="/img/vpsacc.png" alt=""></p>
-<ul>
-<li>
-<p>首先，本地电脑跟远程服务器建立起udp2raw隧道连接</p>
-</li>
-<li>
-<p>然后，在udp2raw隧道中建立本地与服务器的tinyfecVPN连接，tinyfecVPN的UDP流量通过udp2raw进行流量伪装</p>
-</li>
-<li>
-<p>在本地与远程服务器建立好连接之后，使用tinyPortMapper将远程服务器上代理软件的端口映射到本地（包括TCP跟UDP）</p>
-</li>
-<li>
-<p>最后，在电脑上使用SSTAP连接映射到本地的代理端口</p>
-</li>
-</ul>
-<h2 id="三、服务端搭建"><a class="header-anchor" href="#三、服务端搭建"></a>三、服务端搭建</h2>
-<div class="tip">
-<p>以下命令都是基于amd64位架构，路径跟文件名根据实际替换</p>
-</div>
-<h3 id="3-1-tinyfecVPN"><a class="header-anchor" href="#3-1-tinyfecVPN"></a>3.1 tinyfecVPN</h3>
-<p>tinyfecVPN服务监听在服务器8855端口：</p>
-<pre><code class="language-bash">./tinyvpn_amd64 -s -l 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
+        <h2 id="一、克隆代码"><a class="header-anchor" href="#一、克隆代码"></a>一、克隆代码</h2>
+<p>首先，下载<a href="https://github.com/ruanyf/node-systemd-demo" target="_blank" rel="noopener">示例库</a>。</p>
+<pre><code class="language-bash">$ git clone https://github.com/ruanyf/node-systemd-demo.git
+$ cd node-systemd-demo
 </code></pre>
-<ul>
-<li>
-<p><code>-s</code>以服务端模式运行</p>
-</li>
-<li>
-<p><code>-l</code>服务端监听端口</p>
-</li>
-<li>
-<p><code>--sub-net</code>指定子网</p>
-</li>
-<li>
-<p><code>--tun-dev</code>指定tun设备名称</p>
-</li>
-<li>
-<p><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</p>
-</li>
-<li>
-<p><code>-k</code>指定一个字符串，开启简单的异或加密</p>
-</li>
-<li>
-<p><code>-fx:y</code>每x个数据包发送y个冗余包，决定消耗流量的倍数，比如<code>-f20:10</code>是消耗1.5倍流量，<code>-f2:2</code>则是每2个数据包发送额外2个冗余包，合计发送出4个数据包，最多允许丢包2个。</p>
-</li>
-<li>
-<p><code>--timeout</code>其值决定允许的最大延迟，UPDSpeeder会尝试积攒t毫秒的数据包一起做FEC，这个过程会引入额外的延迟</p>
-</li>
-</ul>
-<div class="success">
-<p>如果你的线路丢包率很低，那么可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>--disable-fec</code>即关闭冗余发包，这样也不会出现额外的延迟，但失去了抗丢包能力，不推荐</p>
-<p>如果相同时节省一点流量，可以将<code>-f2:2</code>和<code>--timeout 0</code>参数替换为<code>-f2:2</code>和<code>--timeout 1</code>，<code>--timeout 1</code>可以更好的控制流量，稳定2倍流量，相对于<code>--timeout 0</code>延迟增加约为2ms。如果线路非常好，那可以将<code>-f2:2</code>替换成<code>-f2:1</code>，即每3个数据包允许丢包1个，消耗1.5倍流量</p>
-</div>
-<h3 id="3-2-udp2raw"><a class="header-anchor" href="#3-2-udp2raw"></a>3.2 udp2raw</h3>
-<p>将udp2raw设定成伪装icmp模式</p>
-<pre><code class="language-bash">./udp2raw_amd64 -s -l 0.0.0.0:1000 -r 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
+<p>示例脚本<a href="https://github.com/ruanyf/node-systemd-demo/blob/master/server.js" target="_blank" rel="noopener"><code>server.js</code></a>非常简单，就是一个 HTTP 服务器。</p>
+<pre><code class="language-javascript">var http = require('http');
+
+var hostname = '0.0.0.0';
+var port = 5000;
+
+http.createServer(function(req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World');
+}).listen(port, hostname, function () {
+  console.log('Server running at http://%s:%s/', hostname, port);
+});
 </code></pre>
-<ul>
-<li>
-<p><code>-s</code>以服务端模式运行</p>
-</li>
-<li>
-<p><code>-l</code>服务监听位置（<code>ip:port</code>）。在和 udp2raw 客户端连接时有用，虽然icmp没有端口的概念，但是这个参数依然不可省略。</p>
-</li>
-<li>
-<p><code>-r</code>远程服务位置（<code>ip:port</code>）。接收客户端的流量解密后转发的位置，这里接收的就是tinyfecVPN发来的流量</p>
-</li>
-<li>
-<p><code>--raw-mode</code>伪装的流量类型。可选值为<code>facetcp</code>、<code>icmp</code>和<code>udp</code></p>
-</li>
-<li>
-<p><code>--cipher-mode</code>加密模式。如果代理软件已经进行过传输加密，那么这里就不需要加密，减少性能损耗，这里选择<code>none</code></p>
-</li>
-<li>
-<p><code>-a</code>自动添加/删除iptables规则</p>
-</li>
-<li>
-<p><code>-k</code>口令</p>
-</li>
-</ul>
-<h2 id="四、客户端搭建"><a class="header-anchor" href="#四、客户端搭建"></a>四、客户端搭建</h2>
-<p>udp2raw现在已经有了Windows客户端，可以去<a href="https://github.com/wangyu-" target="_blank" rel="noopener">Github</a>主页相应项目下下载。本文使用的是虚拟机方式，网络为桥接模式。以下操作均在虚拟机中进行。</p>
-<h3 id="4-1-udp2raw"><a class="header-anchor" href="#4-1-udp2raw"></a>4.1 udp2raw</h3>
-<pre><code class="language-bash">./udp2raw_amd64 -c -r YOUR_SERVER_IP:1000 -l 127.0.0.1:8855 --raw-mode icmp --cipher-mode none -a -k &quot;yourpassword&quot;
+<h2 id="二、修改配置文件"><a class="header-anchor" href="#二、修改配置文件"></a>二、修改配置文件</h2>
+<p>Systemd 启动上面这个脚本，需要一个配置文件<a href="https://github.com/ruanyf/node-systemd-demo/blob/master/node-server.service" target="_blank" rel="noopener"><code>node-server.service</code></a>。这个文件的文件名可以随便取，但是后缀名必须是<code>.service</code>。</p>
+<pre><code class="language-bash">[Unit]
+Description=node simple server
+
+[Service]
+ExecStart=[/path/to/node/executable] [path/to/node-systemd-demo]/server.js
+Restart=always
+User=[yourUserName]
+Group=[yourUserGroup]
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=[/path/to/node-systemd-demo]
+
+[Install]
+WantedBy=multi-user.target
 </code></pre>
+<p>上面脚本里面，有五个地方出现了四个占位符。</p>
 <ul>
-<li>
-<p><code>YOUR_SERVER_IP</code>远程服务器的IP地址</p>
-</li>
-<li>
-<p><code>-c</code>以客户端模式运行</p>
-</li>
-<li>
-<p><code>-r</code>udp2raw远程服务端（<code>ip:port</code>）。连接到udp2raw服务端</p>
-</li>
-<li>
-<p><code>-l</code>客户端本地监听地址（<code>ip:port</code>），相当于将远程服务器的端口地址映射到了这里</p>
-</li>
-<li>
-<p><code>-k</code>口令，需要与服务端相同</p>
-</li>
+<li><code>[/path/to/node/executable]</code>：node可执行文件的绝对路径</li>
+<li><code>[path/to/node-systemd-demo]</code>：示例库的绝对路径</li>
+<li><code>[yourUserName]</code>：你的用户名</li>
+<li><code>[yourUserGroup]</code>：你的组名</li>
 </ul>
-<p>其他参数含义与上文服务端相同。</p>
-<h3 id="4-2-tinyfecVPN"><a class="header-anchor" href="#4-2-tinyfecVPN"></a>4.2 tinyfecVPN</h3>
-<pre><code class="language-bash">./tinyvpn_amd64 -c -r 127.0.0.1:8855 --sub-net 10.222.2.0 --tun-dev tun100 --keep-reconnect  --report 10 -k &quot;yourpassword&quot; -f2:2 --timeout 0
+<p>你需要将上面这四个占位符，改成自己电脑的设置。下面是一个已经改好的例子。</p>
+<pre><code class="language-bash">[Unit]
+Description=node simple server
+
+[Service]
+ExecStart=/usr/bin/node /tmp/node-systemd-demo/server.js
+Restart=always
+User=nobody
+Group=nobody
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/tmp/node-systemd-demo
+
+[Install]
+WantedBy=multi-user.target
 </code></pre>
-<ul>
-<li><code>-c</code>以客户端模式运行</li>
-<li><code>-r</code>上述udp2raw客户端本地监听地址（<code>ip:port</code>）。</li>
-<li><code>--sub-net</code>指定子网，跟服务端一致</li>
-<li><code>--tun-dev</code>指定tun设备名称</li>
-<li><code>--report</code>打开发送/接收报告并设置报告周期，单位：秒</li>
-<li><code>-k</code>口令，需要跟服务端相同</li>
-<li><code>-fx:y</code>同服务端</li>
-<li><code>--timeout</code>同服务端</li>
-</ul>
-<p>至此，就建立好了服务端到客户端的连接。</p>
-<h3 id="4-3-tinyPortMapper"><a class="header-anchor" href="#4-3-tinyPortMapper"></a>4.3 tinyPortMapper</h3>
-<p>假定远程服务器端12345端口有不可描述的代理服务：</p>
-<pre><code class="language-bash">./tinymapper_amd64 -l0.0.0.0:1080 -r10.222.2.1:12345 -t -u
+<p>如果你不知道这几个占位符的值，下面的命令可以帮你找出来。</p>
+<pre><code class="language-bash"># node executable path
+$ which node
+
+# your user name
+$ id -un
+
+# your group name
+$ id -gn
 </code></pre>
+<h2 id="三、配置文件的解释"><a class="header-anchor" href="#三、配置文件的解释"></a>三、配置文件的解释</h2>
+<p>简单解释一下，上面的配置文件的几个参数。</p>
+<p><code>Unit</code>区块的<code>Description</code>字段，是服务的简单描述。</p>
+<p><code>Service</code>区块的字段含义如下。</p>
 <ul>
-<li>
-<p><code>-l</code>本地监听地址端口。远程服务器端口将映射到此端口。本地电脑代理直接连接此地址</p>
-</li>
-<li>
-<p><code>-r</code>映射的远程地址端口。这里的地址为tinyfecVPN子网中的IP地址。</p>
-</li>
-<li>
-<p><code>-t</code>转发TCP</p>
-</li>
-<li>
-<p><code>-u</code>转发UDP</p>
-</li>
+<li><code>ExecStart</code>：启动命令</li>
+<li><code>Restart</code>：如何重启。<code>always</code>表示如果进程退出，总是重启</li>
+<li><code>Environment</code>：环境变量</li>
+<li><code>WorkingDirectory</code>：工作目录</li>
 </ul>
-<p>至此，搭建完成。本地电脑使用代理软件连接tinyPortMapper映射的地址端口就可以使用，实际地址就是虚拟机在本地局域网中的IP加上述命令中的端口号，即<code>虚拟机局域网IP:1080</code>。</p>
+<p><code>Install</code>区块的<code>WantedBy</code>字段指定，设为开机启动时，该服务所在的 Target 是<code>multi-user.target</code>。</p>
+<h2 id="四、启动服务"><a class="header-anchor" href="#四、启动服务"></a>四、启动服务</h2>
+<p>现在将配置文件拷贝到 Systemd 之中。</p>
+<pre><code class="language-bash">$ sudo cp node-server.service /etc/systemd/system
+</code></pre>
+<p>接着，就启动服务。</p>
+<pre><code class="language-bash"># 重载配置文件
+$ sudo systemctl daemon-reload
+
+# 启动服务
+$ sudo systemctl start node-server
+</code></pre>
+<p>访问 <a href="http://0.0.0.0:5000" target="_blank" rel="noopener">http://0.0.0.0:5000</a>，应该看到网页显示&quot;Hello World&quot;。</p>
+<h2 id="五、查看状态"><a class="header-anchor" href="#五、查看状态"></a>五、查看状态</h2>
+<p>如果启动失败，或者想查看日志，就要执行下面的命令。</p>
+<pre><code class="language-bash"># 查看状态
+$ sudo systemctl status node-server
+
+# 查看日志
+$ sudo journalctl -u node-server
+
+# 实时输出最新日志
+$ sudo journalctl --follow -u node-server
+</code></pre>
+<h2 id="六、重启服务和停止服务"><a class="header-anchor" href="#六、重启服务和停止服务"></a>六、重启服务和停止服务</h2>
+<pre><code class="language-bash"># 重启服务
+$ sudo systemctl restart node-server
+
+# 停止服务
+$ sudo systemctl stop node-server
+</code></pre>
+<p>如果想设为开机启动，就要执行<code>systemctl enable</code>。</p>
+<pre><code class="language-bash">$ sudo systemctl enable node-server
+</code></pre>
+<h2 id="七、Socket-激活"><a class="header-anchor" href="#七、Socket-激活"></a>七、Socket 激活</h2>
+<p>一般情况下，学到这里，应该就够用了。如果你还想体验一下 Systemd 的强大功能，请接着往下读。</p>
+<p>我们知道，HTTP服务器启动在那里，终究是耗费资源的。那么能不能做到，只有有人访问时，才启动服务，否则就关闭？</p>
+<p>这在 Systemd 里面叫做&quot;Socket 激活&quot;。开发者可以指定 Socket 监听的端口，系统根据有没有收到请求，自动启动或关闭服务。不难想到，只要前面加一层负载均衡器，这就等同于实现了一个简单的云服务，即根据访问量，系统自动扩容或收缩。</p>
+<p>下面就是&quot;Socket 激活&quot;的Demo。</p>
+<h2 id="八、安装依赖"><a class="header-anchor" href="#八、安装依赖"></a>八、安装依赖</h2>
+<p>首先，请确认前面启动的 Node 服务已经被关闭了，5000 端口已经释放出来了。</p>
+<p>然后，打开启动脚本<a href="https://github.com/ruanyf/node-systemd-demo/blob/master/socket-server.js" target="_blank" rel="noopener"><code>socket-server.js</code></a>，你会发现多出了两个模块：<a href="https://www.npmjs.com/package/systemd" target="_blank" rel="noopener"><code>systemd</code></a> 和 <a href="https://www.npmjs.com/package/autoquit" target="_blank" rel="noopener"><code>autoquit</code></a>。</p>
+<pre><code class="language-javascript">require('systemd');
+require('autoquit');
+
+var http = require('http');
+
+var server = http.createServer(function(req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World');
+});
+
+server.autoQuit({ timeOut: 60 });
+server.listen('systemd');
+
+console.log('Server running at http://0.0.0.0:5000/');
+</code></pre>
+<p>上面代码中，<code>systemd</code>模块用于添加&quot;Socket 激活&quot;，<code>autoquit</code>模块用于指定多少时间无人访问后，关闭 Node 服务，上面脚本是60秒。另外，还有一个<a href="https://www.npmjs.com/package/journald" target="_blank" rel="noopener"><code>journald</code></a>模块，用于向 Systemd 日志添加内容，这个例子中没有使用。</p>
+<p>现在，安装依赖。</p>
+<pre><code class="language-bash">$ npm install
+</code></pre>
+<h2 id="九、改写配置文件"><a class="header-anchor" href="#九、改写配置文件"></a>九、改写配置文件</h2>
+<p>Socket 激活需要两个配置文件。</p>
+<p>一个是<a href="https://github.com/ruanyf/node-systemd-demo/blob/master/node-socket-server.socket" target="_blank" rel="noopener"><code>node-socket-server.socket</code></a>。</p>
+<pre><code class="language-bash">[Socket]
+ListenStream=5000
+
+[Install]
+WantedBy=sockets.target
+</code></pre>
+<p>另一个是<a href="https://github.com/ruanyf/node-systemd-demo/blob/master/node-socket-server.service" target="_blank" rel="noopener"><code>node-socket-server.service</code></a>。</p>
+<pre><code class="language-bash">[Unit]
+Description=node simple server (socket activation)
+
+[Service]
+ExecStart=[/path/to/node/executable] [path/to/node-systemd-demo]/socket-server.js
+User=[yourUserName]
+Group=[yourGroupName]
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=[/path/to/node-systemd-demo]
+</code></pre>
+<p>上面这个文件需要改写占位符。可以看到，由于不是开机启动，配置文件里面没有<code>Install</code>区块；由于不需要重启，也没有<code>Restart</code>字段。</p>
+<p>改写后，将它们拷贝到 Systemd。</p>
+<pre><code class="language-bash">$ sudo cp node-socket-server.socket /etc/systemd/system
+$ sudo cp node-socket-server.service /etc/systemd/system
+</code></pre>
+<h2 id="十、启动-Socket-激活"><a class="header-anchor" href="#十、启动-Socket-激活"></a>十、启动 Socket 激活</h2>
+<p>然后，执行下面两个命令，启动 Socket 激活。</p>
+<pre><code class="language-bash">$ sudo systemctl daemon-reload
+$ sudo systemctl start node-socket-server.socket
+</code></pre>
+<p>这个时候，检查一下状态。</p>
+<pre><code class="language-bash">$ sudo systemctl status node-socket-server.socket
+● node-socket-server.socket
+   Loaded: loaded (/etc/systemd/system/node-socket-server.socket; disabled)
+   Active: active (listening) since 2016-03-10 20:36:41 CST; 7s ago
+   Listen: [::]:5000 (Stream)
+
+$ sudo systemctl status node-socket-server.service
+● node-socket-server.service - node simple server (socket activation)
+      Loaded: loaded (/etc/systemd/system/node-socket-server.service; disabled)
+      Active: inactive (dead)
+</code></pre>
+<p>可以看到，<code>node-socket-server.socket</code>是激活的（active），而<code>node-socket-server.service</code>没有（inactive）。</p>
+<p>这时访问 <a href="http://0.0.0.0:5000" target="_blank" rel="noopener">http://0.0.0.0:5000</a> ，会发现网页可以正常访问。</p>
+<p>然后，再检查一下状态。</p>
+<pre><code class="language-bash">$ sudo systemctl status node-socket-server.socket
+● node-socket-server.socket
+   Loaded: loaded (/etc/systemd/system/node-socket-server.socket; disabled)
+   Active: active (running) since 2016-03-10 20:36:41 CST; 1min 20s ago
+   Listen: [::]:5000 (Stream)
+
+$ sudo systemctl status node-socket-server.service
+● node-socket-server.service - node simple server (socket activation)
+   Loaded: loaded (/etc/systemd/system/node-socket-server.service; disabled)
+   Active: active (running) since 2016-03-10 20:37:55 CST; 3min 11s ago
+ Main PID: 1084 (node)
+   CGroup: /system.slice/node-socket-server.service
+           └─1084 node /home/ruanyf/project/node-systemd-demo/socket-server.js
+</code></pre>
+<p>这时，<code>socket</code>和<code>service</code>都激活了。</p>
+<h2 id="十一、停止服务"><a class="header-anchor" href="#十一、停止服务"></a>十一、停止服务</h2>
+<p>此时，如果手动停止 HTTP 服务器，Systemd 会发出一个警告。</p>
+<pre><code class="language-bash">$ sudo systemctl stop node-socket-server.service
+Warning: Stopping node-socket-server.service, but it can still be activated by:
+  node-socket-server.socket
+</code></pre>
+<p>上面的警告表示，Socket 依然是激活的，因此服务随时可能被重启，所以还需要关闭 Socket 激活。</p>
+<pre><code class="language-bash">$ sudo systemctl stop node-socket-server.socket
+</code></pre>
+<p>（完）</p>
 
       </div>
     </div>
     
     <div class="tags clearfix">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/VPS/" rel="tag">VPS</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/t/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/t/Node/" rel="tag">Node</a></li></ul>
     </div>
     
     <script src="/js/prism.js"></script>
@@ -477,27 +528,16 @@
   
   <nav id="article-nav" class="clearfix">
     
-    <a href="/p/stop-windows-update/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/20210723101836.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
+    <a href="/p/url-scheme/" id="article-nav-newer" class="article-nav-link-wrap" style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/20220418165858.jpg') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg);">
       <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
       <div class="article-nav-title" style="position: relative; z-index: 1;">
         <strong class="article-nav-caption" style="display: block;">&lt;&lt;上一篇</strong>
         
-          <span class="hoverLine hoverLine-thin">彻底禁用Windows 10系统自动更新</span>
+          <span class="hoverLine hoverLine-thin">使用URL Scheme打开支付宝、云闪付小程序</span>
         
       </div>
     </a>
     
-    
-    <a href="/p/postion-absolute/" id="article-nav-older" class="article-nav-link-wrap"
-      style="position: relative; background: rgba(120, 120, 120, 0.1) url('/img/position-center.png') no-repeat center center; background-size: cover; overflow: hidden; transform: rotate(0deg); text-align: right;">
-      <div class="overhid" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgb(22 29 39 / 60%), rgb(22 29 39 / 60%)); opacity: .75;"></div>
-      <div class="article-nav-title" style="position: relative; z-index: 1;">
-        <strong class="article-nav-caption" style="display: block;">下一篇&gt;&gt;</strong>
-        
-          <span class="hoverLine hoverLine-thin">绝对定位盒子居中</span>
-        
-      </div>
-    </a>
     
   </nav>
   
@@ -522,7 +562,7 @@
           </div>
           <div class="recent-item-content-body">
             
-              <a class="" href="/p/node-systemd/" title="Node 应用的 Systemd 启动">
+              <a class="current" href="/p/node-systemd/" title="Node 应用的 Systemd 启动">
                 Node 应用的 Systemd 启动
               </a>
             
